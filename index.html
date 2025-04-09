@@ -17,306 +17,463 @@
 
     body {
       line-height: 1.6;
-      background: #f7f7f7;
+      background: #fefefe;
       color: #333;
     }
 
     header {
-      background: linear-gradient(120deg, #1a1a1a 0%, #2e2e2e 100%);
+      background: url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1400&q=80') no-repeat center center;
+      background-size: cover;
       color: #fff;
-      padding: 2rem;
       text-align: center;
+      padding: 6rem 2rem 4rem;
       position: relative;
-      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    header * {
+      position: relative;
+      z-index: 1;
     }
 
     header img {
-      width: 80px;
+      width: 100px;
       margin-bottom: 1rem;
-      animation: fadeIn 1.2s ease forwards;
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: 800;
-      opacity: 0;
-      animation: fadeIn 1s ease 0.3s forwards;
+      color: #fff;
     }
 
     header p {
       margin-top: 0.5rem;
-      font-size: 1.1rem;
-      opacity: 0;
-      animation: fadeIn 1s ease 0.6s forwards;
+      font-size: 1.2rem;
     }
 
-    section {
-      padding: 4rem 2rem;
-      max-width: 900px;
+    main section {
+      padding: 4rem 1.5rem;
+      max-width: 1200px;
       margin: auto;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1s ease;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     .section-title {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
       color: #1a1a1a;
+      text-align: center;
       position: relative;
     }
 
     .section-title::after {
       content: "";
       display: block;
-      width: 50px;
-      height: 3px;
+      width: 60px;
+      height: 4px;
       background: #007f5f;
-      margin-top: 8px;
+      margin: 10px auto 0;
+    }
+
+    .product-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .product-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.08);
+    }
+
+    .product-item img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .product-description {
+      text-align: center;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .product-description strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: #007f5f;
+    }
+
+    footer {
+      background: #1a1a1a;
+      color: #ccc;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
     }
 
     .section-content {
       font-size: 1.1rem;
       color: #444;
-    }
-
-    .product-item {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 2.5rem;
-      flex-wrap: wrap;
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 1rem;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .product-item:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    }
-
-    .product-item img {
-  width: 160px;
-  height: auto;
-  object-fit: contain;
-  margin: 0 auto;
-  display: block;
-  border-radius: 10px;
-  transition: transform 0.4s ease;
-}
-
-    .product-item:hover img {
-      transform: scale(1.05);
-    }
-
-    .product-description {
-      flex: 1;
-      min-width: 250px;
-    }
-
-    footer {
-      background: #e0e0e0;
-      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
       text-align: center;
-      font-size: 0.9rem;
-      color: #555;
     }
 
-    .highlight {
+    a {
       color: #007f5f;
-      font-weight: 600;
+      text-decoration: none;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    a:hover {
+      text-decoration: underline;
+    }
+    .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .fade-up:nth-child(1) { animation-delay: 0.1s; }
+  .fade-up:nth-child(2) { animation-delay: 0.2s; }
+  .fade-up:nth-child(3) { animation-delay: 0.3s; }
+  .fade-up:nth-child(4) { animation-delay: 0.4s; }
+  .fade-up:nth-child(5) { animation-delay: 0.5s; }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .fade-up:nth-child(1) { animation-delay: 0.1s; }
+  .fade-up:nth-child(2) { animation-delay: 0.2s; }
+  .fade-up:nth-child(3) { animation-delay: 0.3s; }
+  .fade-up:nth-child(4) { animation-delay: 0.4s; }
+  .fade-up:nth-child(5) { animation-delay: 0.5s; }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 0.8rem 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    z-index: 1000;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem;
+  }
+
+  nav a {
+    font-weight: 600;
+    color: #007f5f;
+    font-size: 1rem;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: #007f5f;
+    color: white;
+    padding: 0.75rem 1.25rem;
+    margin-top: 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background: #005f45;
+  }
+
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #007f5f;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: none;
+    z-index: 1001;
+  }
+</style>
+<style>
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+</head>
+<body>
+  <nav style="position: fixed; top: 0; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.08); width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; z-index: 1000;">
+  <img src="https://github.com/josephhan0818/re.ing/blob/main/re-ing%20Logo.png?raw=true" alt="re-ing logo" style="height: 36px;">
+  <ul style="margin: 0; padding: 0; list-style: none; display: flex; gap: 2rem; justify-content: flex-end;">
+  <style>
+    nav a {
+      position: relative;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+    nav a:hover {
+      background: rgba(0, 0, 0, 0.05);
+      text-decoration: none;
     }
   </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const sections = document.querySelectorAll('section');
-      const options = {
-        threshold: 0.1
-      };
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, options);
-
-      sections.forEach(section => {
-        observer.observe(section);
-      });
-    });
-  </script>
-</head>
-
-<body>
-  <header>
+      <li><a href="#about" style="color: #1a1a1a;">About</a></li>
+      <li><a href="#services" style="color: #1a1a1a;">Services</a></li>
+      <li><a href="#products" style="color: #1a1a1a;">Products</a></li>
+      <li><a href="#partners" style="color: #1a1a1a;">Partners</a></li>
+      <li><a href="#contact" style="color: #1a1a1a;">Contact</a></li>
+    </ul>
+  </nav>
+  <header style="background-image: url('https://storage.googleapis.com/goldenpin/award_work_pic/image/4956/detail_image_76b850.jpeg'); background-size: cover; background-position: center center; background-repeat: no-repeat; height: 100vh; width: 100vw; display: flex; align-items: center; justify-content: flex-start; padding: 2rem 4rem; text-align: left;">
+  <div style="position: relative; z-index: 1; max-width: 700px; text-align: left;">
     
-    <img src="https://cloud.tipo.gov.tw/S282/pic/20210225/110/012/433/pic_110012433_20210224_1.jpg" alt="re-ing logo">
-    <h1>re-ing</h1>
-    <p>Empowering Sustainable Product Design & Material Innovation</p>
-  </header>
+    <h1 style="font-size: 4rem; font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 1rem; text-transform: uppercase; text-shadow: 2px 2px 6px rgba(0,0,0,0.8);">CIRCULAR<br>DESIGN</h1>
+<hr style="width: 50px; border: 2px solid #000; margin: 1rem 0;">
+    <p style="font-size: 1.1rem; color: #fff; line-height: 2; max-width: 540px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
+  From waste, a golden alchemy; from recycled strands, artistry.<br>
+  In life’s tapestry, weave threads of human warmth.<br>
+  In the dance of \"reclaiming\" and \"creating,\" find harmony.<br>
+  Granting sustainability a novel lexicon.
+</p>
+    
+  </div>
+  
+</header>
 
-  <main>
-    <section>
-      <h2 class="section-title">About re-ing</h2>
-      <div class="product-item">
-        <img src="https://media.licdn.com/dms/image/v2/D5616AQEF9OnaIEJ3mw/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1727967020084?e=1749686400&v=beta&t=dbevprJZv7Y4mI_sbIbx9NI5_5Kn9981Hg06rBl1IWQ" alt="About re-ing visual" style="width:100%; max-width:600px;">
-        <div class="product-description">
-      <p class="section-content">
-        re-ing is a forward-thinking brand based in <span class="highlight">Rotterdam, the Netherlands</span>, dedicated to promoting <span class="highlight">sustainable product design services</span> and serving as a trusted <span class="highlight">material agency for Taiwanese eco-materials</span>. As a subsidiary of Dot Design Co., Ltd. (點睛設計有限公司), we bridge cross-cultural innovation and sustainability with purpose.
-      </p>
-        
-</div>
+  <main class="fade-in" style="background: linear-gradient(to bottom, #fefefe 0%, #f3f7f4 100%);">
+    <section id="about">
+  <h2 class="section-title">About re-ing</h2>
+  <p class="section-content">
+    re-ing is a design-driven initiative based in Rotterdam, promoting circular thinking and sustainable product innovation. Backed by DOT Design Co., we connect Taiwan’s cutting-edge material partners with European sustainability markets.
+  </p>
+</section>
+
+<section id="services">
+  <h2 class="section-title">Our Services</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+    <div class="product-item fade-up">
+      <img src="https://cdn-icons-png.flaticon.com/512/2272/2272250.png" alt="Material Agency Icon" style="max-height: 100px; width: auto;">
+      <div class="product-description fade-up">
+        <strong>Material Agency</strong>
+        We represent sustainable suppliers across Taiwan, connecting European designers with innovative biomaterials and recycled resources.
       </div>
-    </section>
+    </div>
+    <div class="product-item fade-up">
+      <img src="https://cdn-icons-png.flaticon.com/512/2480/2480601.png" alt="Design Icon" style="max-height: 100px; width: auto;">
+      <div class="product-description">
+        <strong>Sustainable Product Design</strong>
+        We collaborate with brands to co-create eco-conscious products using circular principles—from concept to prototype.
+      </div>
+    </div>
+  </div>
+</section>
+    </div>
+  </div>
+</section>
 
-    <section>
-      <h2 class="section-title">Our Services</h2>
-      <div class="product-item">
-        <div class="product-description">
-          <p class="section-content">
-            <strong>1. Sustainable Design Services:</strong><br />
-            We help brands and businesses create eco-conscious products that align with circular economy principles, from concept development to prototyping and material sourcing.
-            <br /><br />
-            <strong>2. Taiwan Material Agency:</strong><br />
-            As your connection to Taiwan’s cutting-edge sustainable materials, we represent innovative suppliers and promote responsible material usage in European markets.
-          </p>
+    
+
+    <section id="products">
+  <h2 class="section-title">Featured Products</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <div class="product-item">
+          <img src="https://shoplineimg.com/5e68641477cb07001243f611/67a97f88f5c949000f9c1086/800x.webp?source_format=jpg" alt="Bamboo Plates">
+          <div class="product-description">
+            <strong>re-ing Bamboo Fiber Plates</strong>
+            A set of eco-friendly dining plates made from bamboo fiber and natural materials, offering both durability and a minimalist aesthetic.
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="https://shoplineimg.com/5e68641477cb07001243f611/6673f0665026c70010c55a69/800x.webp?source_format=jpg" alt="Natural Bamboo Fiber Lunch Box Set">
+          <div class="product-description">
+            <strong>Natural Bamboo Fiber Lunch Box Set</strong>
+            Featuring a sleek design and ample capacity, this microwave-safe lunch box adds convenience to a sustainable lifestyle.
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="https://shoplineimg.com/5e68641477cb07001243f611/64393145e4f45f0017671238/800x.webp?source_format=jpg" alt="re-ing Tabouret cannelé">
+          <div class="product-description">
+            <strong>re-ing Tabouret cannelé</strong>
+            Inspired by the French pastry cannelé, this playful and stackable stool is made from recycled materials and is 100% recyclable.
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="https://shoplineimg.com/5e68641477cb07001243f611/62591848c7b25e001ecf9d0f/800x.webp?source_format=jpg" alt="re-PET Bag">
+          <div class="product-description">
+            <strong>re-PET Bag</strong>
+            A stylish and durable bag made from 100% recycled PET bottles. It exemplifies how re-ing transforms waste into everyday essentials.
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="https://shoplineimg.com/5e68641477cb07001243f611/65893f6b3c11e800118ab555/800x.webp?source_format=jpg" alt="Coral Chair">
+          <div class="product-description">
+            <strong>Coral Chair</strong>
+            Drawing inspiration from ocean coral structures, this chair merges organic forms with sturdy construction, offering a unique seating experience.
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="https://shoplineimg.com/5e68641477cb07001243f611/6768d76b85c031000df068d4/800x.webp?source_format=jpg" alt="Bamboo Fiber Cup">
+          <div class="product-description">
+            <strong>Bamboo Fiber Cup</strong>
+            A minimal yet functional cup made with natural bamboo fiber. Lightweight, durable, and perfect for eco-conscious daily use.
+          </div>
         </div>
       </div>
-    </section>
-
-<section>
-      <h2 class="section-title">Featured Products</h2>
-
-      <div class="product-item">
-        <img src="https://shoplineimg.com/5e68641477cb07001243f611/67a97f88f5c949000f9c1086/800x.webp?source_format=jpg" alt="Bamboo Plates">
-        <div class="product-description">
-          <strong>re-ing Bamboo Fiber Plates</strong><br />
-          A set of eco-friendly dining plates made from bamboo fiber and natural materials, offering both durability and a minimalist aesthetic.
-        </div>
+    
+</section>
+<section id="partners">
+  <h2 class="section-title">Our Material Partners</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem;">
+    <div class="product-item">
+      <img src="https://cloud.tipo.gov.tw/S282/pic/20190416/108/022/664/pic_108022664_20190415_1.jpg" alt="ECONO Logo" style="max-height: 60px; object-fit: contain;">
+      <div class="product-description">
+        <strong>ECONO TECHNOLOGY CO., LTD.</strong>
+        Innovator in bamboo fiber materials, specializing in biodegradable and compostable products for sustainable living.
       </div>
-
-      <div class="product-item">
-        <img src="https://shoplineimg.com/5e68641477cb07001243f611/6673f0665026c70010c55a69/800x.webp?source_format=jpg" alt="Natural Bamboo Fiber Lunch Box Set">
-        <div class="product-description">
-          <strong>Natural Bamboo Fiber Lunch Box Set</strong><br />
-          Featuring a sleek design and ample capacity, this microwave-safe lunch box adds convenience to a sustainable lifestyle.
-        </div>
+    </div>
+    <div class="product-item">
+      <img src="https://yt3.googleusercontent.com/ytc/AIdro_k_jbU5Ca1ojM7uq0uCLbSf2dPMrX8-QjLm656ub4e2cIU=s900-c-k-c0x00ffffff-no-rj" alt="Da Fong Logo" style="max-height: 60px; object-fit: contain;">
+      <div class="product-description">
+        <strong>Da Fong Environmental Technology</strong>
+        Pioneer in recycled plastics processing and reuse systems, providing eco-efficient material recovery solutions.
       </div>
-
-      <div class="product-item">
-        <img src="https://shoplineimg.com/5e68641477cb07001243f611/64393145e4f45f0017671238/800x.webp?source_format=jpg" alt="re-ing Tabouret cannelé">
-        <div class="product-description">
-          <strong>re-ing Tabouret cannelé</strong><br />
-          Inspired by the French pastry cannelé, this playful and stackable stool is made from recycled materials and is 100% recyclable.
-        </div>
+    </div>
+    <div class="product-item">
+      <img src="https://nqa.cpc.tw/nqa/Web/IMG/e17c132b-231a-4fd6-8fed-be0bfa45db31.png" alt="Super Textile Logo" style="max-height: 60px; object-fit: contain;">
+      <div class="product-description">
+        <strong>Super Textile Corporation</strong>
+        Leading textile engineering company offering eco-performance fabrics with sustainable production standards.
       </div>
-
-      <div class="product-item">
-        <img src="https://shoplineimg.com/5e68641477cb07001243f611/62591848c7b25e001ecf9d0f/800x.webp?source_format=jpg" alt="re-PET Bag">
-        <div class="product-description">
-          <strong>re-PET Bag</strong><br />
-          A stylish and durable bag made from 100% recycled PET bottles. It exemplifies how re-ing transforms waste into everyday essentials.
-        </div>
+    </div>
+    <div class="product-item">
+      <img src="https://static.wixstatic.com/media/8cb06a_76b4cab1a9544bd7a6c4ed2f79c5ba20~mv2.png/v1/fill/w_342,h_100,al_c,q_95,enc_avif,quality_auto/GREENu-Wood-%E6%A9%AB%E6%9D%BF%E9%BB%91%E5%AD%97.png" alt="GREENu Logo" style="max-height: 60px; object-fit: contain;">
+      <div class="product-description">
+        <strong>UniGreenTek Co., Ltd.</strong>
+        Specializes in durable recycled wood-alternative boards and sustainable construction solutions.
       </div>
-
-      <div class="product-item">
-        <img src="https://shoplineimg.com/5e68641477cb07001243f611/65893f6b3c11e800118ab555/800x.webp?source_format=jpg" alt="Coral Chair">
-        <div class="product-description">
-          <strong>Coral Chair</strong><br />
-          Drawing inspiration from ocean coral structures, this chair merges organic forms with sturdy construction, offering a unique seating experience.
-        </div>
+    </div>
+    <div class="product-item">
+      <img src="https://www.globalgreenmaterial.com/upload/edit/LOGO.png" alt="Global Green Logo" style="max-height: 60px; object-fit: contain;">
+      <div class="product-description">
+        <strong>Global Green Material Co.</strong>
+        Developer of bio-based and recycled materials with a focus on low-carbon, high-impact material innovation.
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="product-item">
-        <img src="https://shoplineimg.com/5e68641477cb07001243f611/6768d76b85c031000df068d4/800x.webp?source_format=jpg" alt="Bamboo Fiber Cup">
-        <div class="product-description">
-          <strong>Bamboo Fiber Cup</strong><br />
-          A minimal yet functional cup made with natural bamboo fiber. Lightweight, durable, and perfect for eco-conscious daily use.
-        </div>
-      </div>
-    </section>
-
-<section>
-      <h2 class="section-title">Our Material Partners</h2>
-
-      <div class="product-item">
-        <img src="https://yt3.googleusercontent.com/ytc/AIdro_k_jbU5Ca1ojM7uq0uCLbSf2dPMrX8-QjLm656ub4e2cIU=s900-c-k-c0x00ffffff-no-rj" alt="Da Fong Logo">
-        <div class="product-description">
-          <strong>Da Fong Environmental Co., Ltd.</strong><br />
-          A pioneer in recycled plastics in Taiwan, Da Fong provides high-quality post-consumer recycled materials for sustainable manufacturing.
-        </div>
-      </div>
-
-      <div class="product-item">
-        <img src="https://www.globalgreenmaterial.com/upload/edit/LOGO.png" alt="Global Green Materials Logo">
-        <div class="product-description">
-          <strong>Global Green Materials Co., Ltd.</strong><br />
-          Specializes in PCR materials including PP and PS, creating a global platform for sustainable plastic supply and innovation.
-        </div>
-      </div>
-
-      <div class="product-item">
-        <img src="https://nqa.cpc.tw/nqa/Web/IMG/e17c132b-231a-4fd6-8fed-be0bfa45db31.png" alt="Super Textile Logo">
-        <div class="product-description">
-          <strong>Super Textile Corporation</strong><br />
-          A leader in eco-textiles, offering innovative, recycled, and biodegradable fabrics used by international fashion and outdoor brands.
-        </div>
-      </div>
-
-      <div class="product-item">
-        <img src="https://cloud.tipo.gov.tw/S282/pic/20190416/108/022/664/pic_108022664_20190415_1.jpg" alt="ECONO Logo">
-        <div class="product-description">
-          <strong>ECONO TECHNOLOGY CO., LTD.</strong><br />
-          Focused on eco-friendly applications of bamboo fiber and sustainable innovation in product design.
-        </div>
-      </div>
-
-      <div class="product-item">
-        <img src="https://static.wixstatic.com/media/8cb06a_76b4cab1a9544bd7a6c4ed2f79c5ba20~mv2.png/v1/fill/w_342,h_100,al_c,q_95,enc_avif,quality_auto/GREENu-Wood-%E6%A9%AB%E6%9D%BF%E9%BB%91%E5%AD%97.png" alt="GREENuWood Logo">
-        <div class="product-description">
-          <strong>UniGreenTek Co., Ltd.</strong><br />
-          Known for developing GREENuWood, a plastic-wood composite certified by Taiwan Green Building Label for durable, low-carbon construction.
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2 class="section-title">Contact</h2>
-      
-      <p class="section-content" style="margin-top: 2rem;">
-        <strong>Joseph Han (韓松庭)</strong><br />
-        International Project Manager<br />
-        Maasboulevard 100 (Blue City), 3063 NS, Rotterdam, The Netherlands<br />
-        WhatsApp: +886-918081860<br />
+    <footer id="contact" style="background: #f7f7f7; color: #1a1a1a; padding: 4rem 2rem;">
+  <div style="max-width: 1000px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+    <div>
+      <h3 style="margin-bottom: 1rem; font-size: 1.2rem;">Contact Info</h3>
+      <p style="line-height: 1.8;">
+        <strong>Joseph Han (韓松庭)</strong><br>
+        International Project Manager<br>
+        Maasboulevard 100 (Blue City)<br>
+        3063 NS, Rotterdam, The Netherlands<br>
+        WhatsApp: +886-918081860<br>
         ✉ <a href="mailto:joseph@ddoott.com">joseph@ddoott.com</a>
       </p>
-    </section>
-  </main>
+    </div>
+    <div>
+      <h3 style="margin-bottom: 1rem; font-size: 1.2rem;">Leave Us a Message</h3>
+      <form action="https://formspree.io/f/xwplakrv" method="POST" onsubmit="showThankYou(event)">
+        <label style="display:block; margin-bottom: 0.5rem; font-weight: 600;">Your email:</label>
+        <input type="email" name="email" placeholder="Your email" required style="width: 100%; padding: 0.6rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 4px;">
+        <label style="display:block; margin-bottom: 0.5rem; font-weight: 600;">Your message:</label>
+        <textarea name="message" placeholder="Type your message here..." required style="width: 100%; padding: 0.6rem; height: 120px; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+        <button type="submit" style="margin-top: 1rem; padding: 0.6rem 1.2rem; background: #007f5f; color: #fff; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">Send</button>
+        <p id="thank-you" style="display:none; margin-top: 1rem; color: green; font-weight: bold;">Thanks for your message!</p>
+      </form>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top: 3rem; font-size: 0.9rem; color: #777;">
+    &copy; 2024 re-ing. All rights reserved.
+  </div>
+</footer>
 
-  <footer>
-    © 2025 re-ing. A subsidiary of Dot Design Co., Ltd. | Based in Rotterdam, The Netherlands
-  </footer>
+  <a class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑ Top</a>
+</main>
+<script>
+  const backToTop = document.querySelector('.back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+      backToTop.style.display = 'block';
+    } else {
+      backToTop.style.display = 'none';
+    }
+  });
+</script>
+<script>
+  function showThankYou(event) {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        form.reset();
+        document.getElementById('thank-you').style.display = 'block';
+      } else {
+        alert('Oops! There was a problem submitting your form');
+      }
+    });
+  }
+</script>
 </body>
-
 </html>
