@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>re-ing | Sustainable Design & Materials</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      line-height: 1.6;
+      background: #f7f7f7;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(120deg, #1a1a1a 0%, #2e2e2e 100%);
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header img {
+      width: 80px;
+      margin-bottom: 1rem;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      opacity: 0;
+      animation: fadeIn 1s ease 0.3s forwards;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      opacity: 0;
+      animation: fadeIn 1s ease 0.6s forwards;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #1a1a1a;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: #007f5f;
+      margin-top: 8px;
+    }
+
+    .section-content {
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    .product-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1rem;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-item img {
+  width: 160px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.4s ease;
+}
+
+    .product-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .product-description {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    footer {
+      background: #e0e0e0;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .highlight {
+      color: #007f5f;
+      font-weight: 600;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section');
+      const options = {
+        threshold: 0.1
+      };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, options);
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    
+    <img src="https://cloud.tipo.gov.tw/S282/pic/20210225/110/012/433/pic_110012433_20210224_1.jpg" alt="re-ing logo">
+    <h1>re-ing</h1>
+    <p>Empowering Sustainable Product Design & Material Innovation</p>
+  </header>
+
+  <main>
+    <section>
+      <h2 class="section-title">About re-ing</h2>
+      <div class="product-item">
+        <img src="https://media.licdn.com/dms/image/v2/D5616AQEF9OnaIEJ3mw/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1727967020084?e=1749686400&v=beta&t=dbevprJZv7Y4mI_sbIbx9NI5_5Kn9981Hg06rBl1IWQ" alt="About re-ing visual" style="width:100%; max-width:600px;">
+        <div class="product-description">
+      <p class="section-content">
+        re-ing is a forward-thinking brand based in <span class="highlight">Rotterdam, the Netherlands</span>, dedicated to promoting <span class="highlight">sustainable product design services</span> and serving as a trusted <span class="highlight">material agency for Taiwanese eco-materials</span>. As a subsidiary of Dot Design Co., Ltd. (點睛設計有限公司), we bridge cross-cultural innovation and sustainability with purpose.
+      </p>
+        
+</div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Our Services</h2>
+      <div class="product-item">
+        <div class="product-description">
+          <p class="section-content">
+            <strong>1. Sustainable Design Services:</strong><br />
+            We help brands and businesses create eco-conscious products that align with circular economy principles, from concept development to prototyping and material sourcing.
+            <br /><br />
+            <strong>2. Taiwan Material Agency:</strong><br />
+            As your connection to Taiwan’s cutting-edge sustainable materials, we represent innovative suppliers and promote responsible material usage in European markets.
+          </p>
+        </div>
+      </div>
+    </section>
+
+<section>
+      <h2 class="section-title">Featured Products</h2>
+
+      <div class="product-item">
+        <img src="https://shoplineimg.com/5e68641477cb07001243f611/67a97f88f5c949000f9c1086/800x.webp?source_format=jpg" alt="Bamboo Plates">
+        <div class="product-description">
+          <strong>re-ing Bamboo Fiber Plates</strong><br />
+          A set of eco-friendly dining plates made from bamboo fiber and natural materials, offering both durability and a minimalist aesthetic.
+        </div>
+      </div>
+
+      <div class="product-item">
+        <img src="https://shoplineimg.com/5e68641477cb07001243f611/6673f0665026c70010c55a69/800x.webp?source_format=jpg" alt="Natural Bamboo Fiber Lunch Box Set">
+        <div class="product-description">
+          <strong>Natural Bamboo Fiber Lunch Box Set</strong><br />
+          Featuring a sleek design and ample capacity, this microwave-safe lunch box adds convenience to a sustainable lifestyle.
+        </div>
+      </div>
+
+      <div class="product-item">
+        <img src="https://shoplineimg.com/5e68641477cb07001243f611/64393145e4f45f0017671238/800x.webp?source_format=jpg" alt="re-ing Tabouret cannelé">
+        <div class="product-description">
+          <strong>re-ing Tabouret cannelé</strong><br />
+          Inspired by the French pastry cannelé, this playful and stackable stool is made from recycled materials and is 100% recyclable.
+        </div>
+      </div>
+
+      <div class="product-item">
+        <img src="https://shoplineimg.com/5e68641477cb07001243f611/62591848c7b25e001ecf9d0f/800x.webp?source_format=jpg" alt="re-PET Bag">
+        <div class="product-description">
+          <strong>re-PET Bag</strong><br />
+          A stylish and durable bag made from 100% recycled PET bottles. It exemplifies how re-ing transforms waste into everyday essentials.
+        </div>
+      </div>
+
+      <div class="product-item">
+        <img src="https://shoplineimg.com/5e68641477cb07001243f611/65893f6b3c11e800118ab555/800x.webp?source_format=jpg" alt="Coral Chair">
+        <div class="product-description">
+          <strong>Coral Chair</strong><br />
+          Drawing inspiration from ocean coral structures, this chair merges organic forms with sturdy construction, offering a unique seating experience.
+        </div>
+      </div>
+
+      <div class="product-item">
+        <img src="https://shoplineimg.com/5e68641477cb07001243f611/6768d76b85c031000df068d4/800x.webp?source_format=jpg" alt="Bamboo Fiber Cup">
+        <div class="product-description">
+          <strong>Bamboo Fiber Cup</strong><br />
+          A minimal yet functional cup made with natural bamboo fiber. Lightweight, durable, and perfect for eco-conscious daily use.
+        </div>
+      </div>
+    </section>
+
+<section>
+      <h2 class="section-title">Our Material Partners</h2>
+
+      <div class="product-item">
+        <img src="https://yt3.googleusercontent.com/ytc/AIdro_k_jbU5Ca1ojM7uq0uCLbSf2dPMrX8-QjLm656ub4e2cIU=s900-c-k-c0x00ffffff-no-rj" alt="Da Fong Logo">
+        <div class="product-description">
+          <strong>Da Fong Environmental Co., Ltd.</strong><br />
+          A pioneer in recycled plastics in Taiwan, Da Fong provides high-quality post-consumer recycled materials for sustainable manufacturing.
+        </div>
+      </div>
+
+      <div class="product-item">
+        <img src="https://www.globalgreenmaterial.com/upload/edit/LOGO.png" alt="Global Green Materials Logo">
+        <div class="product-description">
+          <strong>Global Green Materials Co., Ltd.</strong><br />
+          Specializes in PCR materials including PP and PS, creating a global platform for sustainable plastic supply and innovation.
+        </div>
+      </div>
+
+      <div class="product-item">
+        <img src="https://nqa.cpc.tw/nqa/Web/IMG/e17c132b-231a-4fd6-8fed-be0bfa45db31.png" alt="Super Textile Logo">
+        <div class="product-description">
+          <strong>Super Textile Corporation</strong><br />
+          A leader in eco-textiles, offering innovative, recycled, and biodegradable fabrics used by international fashion and outdoor brands.
+        </div>
+      </div>
+
+      <div class="product-item">
+        <img src="https://cloud.tipo.gov.tw/S282/pic/20190416/108/022/664/pic_108022664_20190415_1.jpg" alt="ECONO Logo">
+        <div class="product-description">
+          <strong>ECONO TECHNOLOGY CO., LTD.</strong><br />
+          Focused on eco-friendly applications of bamboo fiber and sustainable innovation in product design.
+        </div>
+      </div>
+
+      <div class="product-item">
+        <img src="https://static.wixstatic.com/media/8cb06a_76b4cab1a9544bd7a6c4ed2f79c5ba20~mv2.png/v1/fill/w_342,h_100,al_c,q_95,enc_avif,quality_auto/GREENu-Wood-%E6%A9%AB%E6%9D%BF%E9%BB%91%E5%AD%97.png" alt="GREENuWood Logo">
+        <div class="product-description">
+          <strong>UniGreenTek Co., Ltd.</strong><br />
+          Known for developing GREENuWood, a plastic-wood composite certified by Taiwan Green Building Label for durable, low-carbon construction.
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Contact</h2>
+      
+      <p class="section-content" style="margin-top: 2rem;">
+        <strong>Joseph Han (韓松庭)</strong><br />
+        International Project Manager<br />
+        Maasboulevard 100 (Blue City), 3063 NS, Rotterdam, The Netherlands<br />
+        WhatsApp: +886-918081860<br />
+        ✉ <a href="mailto:joseph@ddoott.com">joseph@ddoott.com</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 re-ing. A subsidiary of Dot Design Co., Ltd. | Based in Rotterdam, The Netherlands
+  </footer>
+</body>
+
+</html>
