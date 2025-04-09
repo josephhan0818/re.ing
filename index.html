@@ -22,12 +22,17 @@
     }
 
     header {
-      background: url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1400&q=80') no-repeat center center;
+      background: url('https://storage.googleapis.com/goldenpin/award_work_pic/image/4956/detail_image_76b850.jpeg') no-repeat center center;
       background-size: cover;
       color: #fff;
       text-align: center;
       padding: 6rem 2rem 4rem;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
     }
 
     header::after {
@@ -196,6 +201,7 @@
     justify-content: center;
     list-style: none;
     gap: 2rem;
+    flex-wrap: wrap;
   }
 
   nav a {
@@ -255,7 +261,7 @@
 </head>
 <body>
   <nav style="position: fixed; top: 0; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.08); width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; z-index: 1000;">
-  <img src="https://github.com/josephhan0818/re.ing/blob/main/re-ing%20Logo.png?raw=true" alt="re-ing logo" style="height: 36px;">
+  <a href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"><img src="https://github.com/josephhan0818/re.ing/blob/main/re-ing%20Logo.png?raw=true" alt="re-ing logo" style="height: 36px;"></a>
   <ul style="margin: 0; padding: 0; list-style: none; display: flex; gap: 2rem; justify-content: flex-end;">
   <style>
     nav a {
@@ -276,15 +282,15 @@
       <li><a href="#contact" style="color: #1a1a1a;">Contact</a></li>
     </ul>
   </nav>
-  <header style="background-image: url('https://storage.googleapis.com/goldenpin/award_work_pic/image/4956/detail_image_76b850.jpeg'); background-size: cover; background-position: center center; background-repeat: no-repeat; height: 100vh; width: 100vw; display: flex; align-items: center; justify-content: flex-start; padding: 2rem 4rem; text-align: left;">
+  <header>
   <div style="position: relative; z-index: 1; max-width: 700px; text-align: left;">
     
     <h1 style="font-size: 4rem; font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 1rem; text-transform: uppercase; text-shadow: 2px 2px 6px rgba(0,0,0,0.8);">CIRCULAR<br>DESIGN</h1>
 <hr style="width: 50px; border: 2px solid #000; margin: 1rem 0;">
     <p style="font-size: 1.1rem; color: #fff; line-height: 2; max-width: 540px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
   From waste, a golden alchemy; from recycled strands, artistry.<br>
-  In life’s tapestry, weave threads of human warmth.<br>
-  In the dance of \"reclaiming\" and \"creating,\" find harmony.<br>
+  In life's tapestry, weave threads of human warmth.<br>
+  In the dance of reclaiming and creating, find harmony.<br>
   Granting sustainability a novel lexicon.
 </p>
     
@@ -414,22 +420,33 @@
   </div>
 </section>
 
-    <footer id="contact" style="background: #f7f7f7; color: #1a1a1a; padding: 4rem 2rem;">
-  <div style="max-width: 1000px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-    <div>
-      <h3 style="margin-bottom: 1rem; font-size: 1.2rem;">Contact Info</h3>
-      <p style="line-height: 1.8;">
-        <strong>Joseph Han (韓松庭)</strong><br>
-        International Project Manager<br>
-        Maasboulevard 100 (Blue City)<br>
-        3063 NS, Rotterdam, The Netherlands<br>
-        WhatsApp: +886-918081860<br>
-        ✉ <a href="mailto:joseph@ddoott.com">joseph@ddoott.com</a>
-      </p>
+    <footer id="contact" style="background: linear-gradient(to bottom, #f9f9f9, #e9f1ec); color: #1a1a1a; padding: 3rem 2rem 2rem; border-top: 1px solid #ccc;">
+  <h2 style="text-align: center; margin-bottom: 2rem; font-size: 1.8rem; color: #007f5f;">Get in Touch</h2>
+  <div style="max-width: 1100px; margin: auto; display: flex; justify-content: space-between; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
+    <div style="flex: 1 1 55%; min-width: 280px;">
+      <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; text-align: left;">
+        <div style="flex: 1; min-width: 200px;">
+          <p><strong>Contact Address</strong><br>
+          Maasboulevard 100 (Blue City)<br>
+          3063 NS, Rotterdam<br>
+          The Netherlands</p>
+        </div>
+        <div style="flex: 1; min-width: 200px;">
+          <p><strong>Joseph Han (韓松庭)</strong><br>
+          International Project Manager<br>
+          WhatsApp: +886-918081860<br>
+          ✉ <a href="mailto:joseph@ddoott.com">joseph@ddoott.com</a></p>
+        </div>
+        <div style="flex: 1; min-width: 200px;">
+          <p><strong>Lance Han (韓世國)</strong><br>
+          Founder & CEO<br>
+          WhatsApp: +886-918820873<br>
+          ✉ <a href="mailto:lance@ddoott.com">lance@ddoott.com</a></p>
+        </div>
+      </div>
     </div>
-    <div>
-      <h3 style="margin-bottom: 1rem; font-size: 1.2rem;">Leave Us a Message</h3>
-      <form action="https://formspree.io/f/xwplakrv" method="POST" onsubmit="showThankYou(event)">
+    <div style="flex: 1 1 40%; min-width: 300px;">
+      <form action="https://formspree.io/f/xwplakrv" method="POST" onsubmit="showThankYou(event)" style="background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
         <label style="display:block; margin-bottom: 0.5rem; font-weight: 600;">Your email:</label>
         <input type="email" name="email" placeholder="Your email" required style="width: 100%; padding: 0.6rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 4px;">
         <label style="display:block; margin-bottom: 0.5rem; font-weight: 600;">Your message:</label>
@@ -439,7 +456,7 @@
       </form>
     </div>
   </div>
-  <div style="text-align:center; margin-top: 3rem; font-size: 0.9rem; color: #777;">
+  <div style="text-align:center; margin-top: 3rem; font-size: 0.85rem; color: #888;">
     &copy; 2024 re-ing. All rights reserved.
   </div>
 </footer>
