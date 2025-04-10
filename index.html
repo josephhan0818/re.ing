@@ -127,10 +127,7 @@
 
     footer {
       background: #1a1a1a;
-      color: #ccc;
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
+      padding: 3rem 2rem 2rem;
     }
 
     .section-content {
@@ -162,253 +159,828 @@
         transform: translateY(0);
       }
     }
-  </style>
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .contact-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact-card {
+      background: #2a2a2a;
+      padding: 2rem;
+      border-radius: 10px;
+      flex: 1 1 280px;
+      max-width: 320px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+
+    .contact-card .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #555;
+      margin: 0 auto 1rem;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .message-form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .message-form h3 {
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      color: #007f5f;
+      text-align: center;
+    }
+
+    .message-form input,
+    .message-form textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .message-form button {
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+      background: #007f5f;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .message-form button:hover {
+      background: #005f45;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      color: #ccc;
+      font-size: 0.85rem;
+      margin-top: 2rem;
+    }
+</style>
 </head>
 <body>
-  <nav style="position: fixed; top: 0; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.08); width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; z-index: 1000;">
-    <a href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+  <!-- Bootstrap CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Updated Bootstrap-style Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="#">
       <img src="https://github.com/josephhan0818/re.ing/blob/main/re-ing%20Logo.png?raw=true" alt="re-ing logo" style="height: 36px;">
+      <h4 class="d-inline-block ml-2" style="margin: 0; font-size: 1.25rem;">re-ing</h4>
     </a>
-    <div class="hamburger" style="display: none; font-size: 1.5rem; cursor: pointer;">
-      &#9776;
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="#partners">Partners</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
     </div>
-    <ul class="nav-links" style="margin: 0; padding: 0; list-style: none; display: flex; gap: 2rem; justify-content: flex-end; flex-wrap: wrap; white-space: nowrap; max-width: 100%; overflow: hidden;">
-      <li><a href="#about" style="color: #1a1a1a;">About</a></li>
-      <li><a href="#services" style="color: #1a1a1a;">Services</a></li>
-      <li><a href="#products" style="color: #1a1a1a;">Products</a></li>
-      <li><a href="#partners" style="color: #1a1a1a;">Partners</a></li>
-      <li><a href="#contact" style="color: #1a1a1a;">Contact</a></li>
-    </ul>
   </nav>
+
+  <div style="padding-top: 80px;"></div>
+  
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const burger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    burger.addEventListener('click', () => {
+      if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+      } else {
+        navLinks.style.display = 'flex';
+      }
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          navLinks.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+  <style>
+      .hamburger {
+    display: block;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    z-index: 1001;
+  }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #1a1a1a;
+      font-weight: 600;
+    }
+
+    .nav-links li a:hover {
+      color: #007f5f;
+    }
+
+  @media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 180px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    z-index: 1001;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    border-bottom: 1px solid #e5e5e5;
+    list-style: none;
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links li a {
+    display: block;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+    background: none;
+  }
+
+  .nav-links li a:hover {
+    background-color: #f2f2f2;
+    color: #007f5f;
+  }
+}
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    border-radius: 8px;
+    z-index: 1001;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    list-style: none;
+    border-bottom: 1px solid #e0e0e0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links li a {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 1rem;
+    color: #1a1a1a;
+    text-decoration: none;
+    text-align: left;
+    background: none;
+  }
+
+  .nav-links li a:hover {
+    color: #007f5f;
+    background: none;
+  }
+}
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    border-radius: 8px;
+    z-index: 1001;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    list-style: none;
+    border-bottom: 1px solid #e0e0e0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links li a {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 1rem;
+    color: #1a1a1a;
+    text-decoration: none;
+    text-align: left;
+    background: none;
+  }
+
+  .nav-links li a:hover {
+    color: #007f5f;
+    background: none;
+  }
+}
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    border-radius: 8px;
+    z-index: 1001;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    list-style: none;
+    border-bottom: 1px solid #ccc;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links li a {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 1rem;
+    color: #1a1a1a;
+    text-decoration: none;
+    text-align: left;
+  }
+
+  .nav-links li a:hover {
+    color: #007f5f;
+  }
+}
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    border-radius: 8px;
+    z-index: 1001;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    list-style: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links li a {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 1rem;
+    color: #1a1a1a;
+    text-decoration: none;
+    text-align: left;
+  }
+
+  .nav-links li a:hover {
+    background-color: #f4f4f4;
+    color: #007f5f;
+  }
+}
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    z-index: 1001;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    list-style: none;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links li a {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.5rem 0;
+    background: none;
+    color: #1a1a1a;
+    text-decoration: none;
+  }
+
+  .nav-links li a:hover {
+    color: #007f5f;
+  }
+}
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    z-index: 1001;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    list-style: none;
+  }
+
+  .nav-links li a {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    background-color: #f9f9f9;
+    transition: background 0.2s;
+  }
+
+  .nav-links li a:hover {
+    background-color: #e6f4f1;
+    color: #007f5f;
+  }
+}
+
+@media (min-width: 769px) {
+  .hamburger {
+    display: none !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    gap: 1.5rem;
+  }
+
+  .nav-links li {
+    list-style: none;
+    border-bottom: none;
+  }
+
+  .nav-links li a {
+    background: none;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .nav-links li a:hover {
+    color: #007f5f;
+    background: none;
+  }
+}
+
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .nav-links li {
+    list-style: none;
+  }
+
+  .nav-links li a {
+    background: none;
+    margin: 0;
+    padding: 0.5rem 1rem;
+  }
+}
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    z-index: 1001;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li a {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    background-color: #f9f9f9;
+    transition: background 0.2s;
+  }
+
+  .nav-links li a:hover {
+    background-color: #e6f4f1;
+    color: #007f5f;
+  }
+}
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      border-radius: 8px;
+      z-index: 1001;
+    }
+
+    nav-links.active {
+    display: flex;
+  }
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    .nav-links.active {
+      display: flex;
+    }
+
+    .hamburger {
+      display: block;
+    }
+  }
+</style>
+
+  <main class="fade-in" style="background: linear-gradient(to bottom, #fefefe 0%, #f3f7f4 100%); padding-top: 100px;">
+    <header>
+      <div style="position: relative; z-index: 1; max-width: 700px; text-align: left;">
+        <h1 style="font-size: 4rem; font-weight: 800; color: #ffffff; line-height: 1.1; margin-bottom: 1rem; text-transform: uppercase; text-shadow: 2px 2px 6px rgba(0,0,0,0.8); font-family: 'Inter', sans-serif; letter-spacing: 1px;">CIRCULAR<br>DESIGN</h1>
+        <hr style="width: 50px; border: 2px solid #000; margin: 1rem 0;">
+        <p style="font-size: 1.1rem; color: #ffffff; line-height: 2; max-width: 540px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
+  From waste, a golden alchemy; from recycled strands, artistry.<br>
+  In life's tapestry, weave threads of human warmth.<br>
+  In the dance of reclaiming and creating, find harmony.<br>
+  Granting sustainability a novel lexicon.
+</p>
+      </div>
+    </header>
+    <section id="about">
+      <h2 class="section-title" style="color: #007f5f; font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: 0.5px;">About re-ing</h2>
+      <p class="section-content">
+        re-ing is a design-driven initiative based in Rotterdam, promoting circular thinking and sustainable product innovation. Backed by DOT Design Co., we connect Taiwan's cutting-edge material partners with European sustainability markets.
+      </p>
+    </section>
+    <section id="services">
+      <h2 class="section-title" style="color: #007f5f; font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: 0.5px;">Our Services</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <div class="product-item fade-up">
+          <img src="https://cdn-icons-png.flaticon.com/512/2272/2272250.png" alt="Material Agency Icon" style="max-height: 100px; width: auto;">
+          <div class="product-description fade-up">
+            <strong>Material Agency</strong>
+            We represent sustainable suppliers across Taiwan, connecting European designers with innovative biomaterials and recycled resources.
+          </div>
+        </div>
+        <div class="product-item fade-up">
+          <img src="https://cdn-icons-png.flaticon.com/512/2480/2480601.png" alt="Design Icon" style="max-height: 100px; width: auto;">
+          <div class="product-description">
+            <strong>Sustainable Product Design</strong>
+            We collaborate with brands to co-create eco-conscious products using circular principles—from concept to prototype.
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="products">
+      <h2 class="section-title" style="color: #007f5f; font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: 0.5px;">Featured Products</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <div class="product-item">
+          <img src="https://shoplineimg.com/5e68641477cb07001243f611/67a97f88f5c949000f9c1086/800x.webp?source_format=jpg" alt="Bamboo Plates">
+          <div class="product-description">
+            <strong>re-ing Bamboo Fiber Plates</strong>
+            A set of eco-friendly dining plates made from bamboo fiber and natural materials, offering both durability and a minimalist aesthetic.
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="https://shoplineimg.com/5e68641477cb07001243f611/6673f0665026c70010c55a69/800x.webp?source_format=jpg" alt="Lunch Box">
+          <div class="product-description">
+            <strong>Natural Bamboo Fiber Lunch Box Set</strong>
+            Featuring a sleek design and ample capacity, this microwave-safe lunch box adds convenience to a sustainable lifestyle.
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="https://shoplineimg.com/5e68641477cb07001243f611/64393145e4f45f0017671238/800x.webp?source_format=jpg" alt="Tabouret cannelé">
+          <div class="product-description">
+            <strong>re-ing Tabouret cannelé</strong>
+            Inspired by the French pastry cannelé, this playful and stackable stool is made from recycled materials and is 100% recyclable.
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="https://shoplineimg.com/5e68641477cb07001243f611/62591848c7b25e001ecf9d0f/800x.webp?source_format=jpg" alt="PET Bag">
+          <div class="product-description">
+            <strong>re-PET Bag</strong>
+            A stylish and durable bag made from 100% recycled PET bottles. It exemplifies how re-ing transforms waste into everyday essentials.
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="https://shoplineimg.com/5e68641477cb07001243f611/65893f6b3c11e800118ab555/800x.webp?source_format=jpg" alt="Coral Chair">
+          <div class="product-description">
+            <strong>Coral Chair</strong>
+            Drawing inspiration from ocean coral structures, this chair merges organic forms with sturdy construction, offering a unique seating experience.
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="https://shoplineimg.com/5e68641477cb07001243f611/6768d76b85c031000df068d4/800x.webp?source_format=jpg" alt="Bamboo Cup">
+          <div class="product-description">
+            <strong>Bamboo Fiber Cup</strong>
+            A minimal yet functional cup made with natural bamboo fiber. Lightweight, durable, and perfect for eco-conscious daily use.
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="partners">
+      <h2 class="section-title" style="color: #007f5f; font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: 0.5px;">Our Material Partners</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem;">
+        <div class="product-item">
+          <img src="https://cloud.tipo.gov.tw/S282/pic/20190416/108/022/664/pic_108022664_20190415_1.jpg" alt="ECONO">
+          <div class="product-description">
+            <strong>ECONO TECHNOLOGY CO., LTD.</strong>
+            Innovator in bamboo fiber materials, specializing in biodegradable and compostable products for sustainable living.
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="https://yt3.googleusercontent.com/ytc/AIdro_k_jbU5Ca1ojM7uq0uCLbSf2dPMrX8-QjLm656ub4e2cIU=s900-c-k-c0x00ffffff-no-rj" alt="Da Fong">
+          <div class="product-description">
+            <strong>Da Fong Environmental Technology</strong>
+            Pioneer in recycled plastics processing and reuse systems, providing eco-efficient material recovery solutions.
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="https://nqa.cpc.tw/nqa/Web/IMG/e17c132b-231a-4fd6-8fed-be0bfa45db31.png" alt="Super Textile">
+          <div class="product-description">
+            <strong>Super Textile Corporation</strong>
+            Leading textile engineering company offering eco-performance fabrics with sustainable production standards.
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="https://static.wixstatic.com/media/8cb06a_76b4cab1a9544bd7a6c4ed2f79c5ba20~mv2.png/v1/fill/w_342,h_100,al_c,q_95,enc_avif,quality_auto/GREENu-Wood-%E6%A9%AB%E6%9D%BF%E9%BB%91%E5%AD%97.png" alt="UniGreenTek">
+          <div class="product-description">
+            <strong>UniGreenTek Co., Ltd.</strong>
+            Specializes in durable recycled wood-alternative boards and sustainable construction solutions.
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="https://www.globalgreenmaterial.com/upload/edit/LOGO.png" alt="Global Green">
+          <div class="product-description">
+            <strong>Global Green Material Co.</strong>
+            Developer of bio-based and recycled materials with a focus on low-carbon, high-impact material innovation.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+<footer id="contact" style="background: #1a1a1a; padding: 3rem 2rem 2rem;">
+      <h2 class="section-title" style="color: #007f5f; font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: 0.5px;">Contact Us</h2>
+      <div class="contact-cards">
+        <div class="contact-card" style="background: #1e1e1e; border-left: 4px solid #007f5f;">
+  <h3 style="margin-bottom: 1rem; color: #8fceff;">Contact Address</h3>
+          <p>
+            Maasboulevard 100 (Blue City)<br>
+            3063 NS, Rotterdam<br>
+            The Netherlands
+          </p>
+        </div>
+        <div class="contact-card">
+          <img class="avatar" src="https://media.licdn.com/dms/image/v2/D5603AQEcrr9x7X1yQQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1711366892335?e=1749686400&v=beta&t=j7W8VHv9Ld6aPiJibxXaN6bVyo6K0reAmNjtOJWzkt8" alt="Joseph Han avatar" />
+<h3>Joseph Han (韓松庭)</h3>
+          <p>
+            International Project Manager<br>
+            WhatsApp: +886-918081860<br>
+            ✉ <a href="mailto:joseph@ddoott.com" style="color: #8fceff;">joseph@ddoott.com</a>
+          </p>
+        </div>
+        <div class="contact-card">
+          <img class="avatar" src="https://scontent.ftpe8-2.fna.fbcdn.net/v/t39.30808-6/440755385_10210931630524404_6306022813541134052_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=eqSkmawZDxEQ7kNvwE82v8i&_nc_oc=Adk9vc4LxGlMOyBQB5HX_afJ_8avehr5pv1wkDQA3vvuAT4M2Ak4bqtoHzIE6aRjnbo&_nc_zt=23&_nc_ht=scontent.ftpe8-2.fna&_nc_gid=ft_miwb6YBzhEZoU3kpzCg&oh=00_AfFqoMs_mEuB_ViItF34pxQECs93d2s8jZpgvlGdKxA1VQ&oe=67FD351B" alt="Lance Han avatar" />
+<h3>Lance Han (韓世國)</h3>
+          <p>
+            Founder & CEO<br>
+            WhatsApp: +886-918820873<br>
+            ✉ <a href="mailto:lance@ddoott.com" style="color: #8fceff;">lance@ddoott.com</a>
+          </p>
+        </div>
+      </div>
+      <form class="message-form" action="https://formspree.io/f/xwplakrv" method="POST" onsubmit="showThankYou(event)">
+        <h3>Leave Us a Message</h3>
+        <label>Your Email</label>
+        <input type="email" name="email" placeholder="name@example.com" required>
+        <label>Your Message</label>
+        <textarea name="message" placeholder="Let us know how we can help you..." required></textarea>
+        <button type="submit">Send Message</button>
+        <p id="thank-you" style="display:none; margin-top: 1rem; color: #28a745; font-weight: bold;">Thanks for your message!</p>
+      </form>
+      <div class="footer-bottom">
+        &copy; 2024 re-ing. All rights reserved.
+      </div>
+    </footer>
+  </main>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const burger = document.querySelector('.hamburger');
-      const navLinks = document.querySelector('.nav-links');
-      burger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+  const burger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  burger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        navLinks.classList.remove('active');
+      }
+    });
+  });
+});
+
+    function showThankYou(event) {
+      event.preventDefault();
+      const form = event.target;
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          form.reset();
+          document.getElementById('thank-you').style.display = 'block';
+        } else {
+          alert('Oops! There was a problem submitting your form');
+        }
       });
-    });
-  </script>
-  <style>
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        background: white;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        padding: 1rem;
-        border-radius: 8px;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .hamburger {
-        display: block !important;
-      }
     }
-  </style>
-<main class="fade-in" style="background: linear-gradient(to bottom, #fefefe 0%, #f3f7f4 100%); padding-top: 100px;">
-  <header>
-    <div style="position: relative; z-index: 1; max-width: 700px; text-align: left;">
-      <h1 style="font-size: 4rem; font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 1rem; text-transform: uppercase; text-shadow: 2px 2px 6px rgba(0,0,0,0.8);">CIRCULAR<br>DESIGN</h1>
-      <hr style="width: 50px; border: 2px solid #000; margin: 1rem 0;">
-      <p style="font-size: 1.1rem; color: #fff; line-height: 2; max-width: 540px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
-        From waste, a golden alchemy; from recycled strands, artistry.<br>
-        In life's tapestry, weave threads of human warmth.<br>
-        In the dance of reclaiming and creating, find harmony.<br>
-        Granting sustainability a novel lexicon.
-      </p>
-    </div>
-  </header>
-  <section id="about">
-    <h2 class="section-title">About re-ing</h2>
-    <p class="section-content">
-      re-ing is a design-driven initiative based in Rotterdam, promoting circular thinking and sustainable product innovation. Backed by DOT Design Co., we connect Taiwan’s cutting-edge material partners with European sustainability markets.
-    </p>
-  </section>
-
-  <section id="services">
-    <h2 class="section-title">Our Services</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-      <div class="product-item fade-up">
-        <img src="https://cdn-icons-png.flaticon.com/512/2272/2272250.png" alt="Material Agency Icon" style="max-height: 100px; width: auto;">
-        <div class="product-description fade-up">
-          <strong>Material Agency</strong>
-          We represent sustainable suppliers across Taiwan, connecting European designers with innovative biomaterials and recycled resources.
-        </div>
-      </div>
-      <div class="product-item fade-up">
-        <img src="https://cdn-icons-png.flaticon.com/512/2480/2480601.png" alt="Design Icon" style="max-height: 100px; width: auto;">
-        <div class="product-description">
-          <strong>Sustainable Product Design</strong>
-          We collaborate with brands to co-create eco-conscious products using circular principles—from concept to prototype.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="products">
-    <h2 class="section-title">Featured Products</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-      <div class="product-item">
-        <img src="https://shoplineimg.com/5e68641477cb07001243f611/67a97f88f5c949000f9c1086/800x.webp?source_format=jpg" alt="Bamboo Plates">
-        <div class="product-description">
-          <strong>re-ing Bamboo Fiber Plates</strong>
-          A set of eco-friendly dining plates made from bamboo fiber and natural materials, offering both durability and a minimalist aesthetic.
-        </div>
-      </div>
-      <div class="product-item">
-        <img src="https://shoplineimg.com/5e68641477cb07001243f611/6673f0665026c70010c55a69/800x.webp?source_format=jpg" alt="Lunch Box">
-        <div class="product-description">
-          <strong>Natural Bamboo Fiber Lunch Box Set</strong>
-          Featuring a sleek design and ample capacity, this microwave-safe lunch box adds convenience to a sustainable lifestyle.
-        </div>
-      </div>
-      <div class="product-item">
-        <img src="https://shoplineimg.com/5e68641477cb07001243f611/64393145e4f45f0017671238/800x.webp?source_format=jpg" alt="Tabouret cannelé">
-        <div class="product-description">
-          <strong>re-ing Tabouret cannelé</strong>
-          Inspired by the French pastry cannelé, this playful and stackable stool is made from recycled materials and is 100% recyclable.
-        </div>
-      </div>
-      <div class="product-item">
-        <img src="https://shoplineimg.com/5e68641477cb07001243f611/62591848c7b25e001ecf9d0f/800x.webp?source_format=jpg" alt="PET Bag">
-        <div class="product-description">
-          <strong>re-PET Bag</strong>
-          A stylish and durable bag made from 100% recycled PET bottles. It exemplifies how re-ing transforms waste into everyday essentials.
-        </div>
-      </div>
-      <div class="product-item">
-        <img src="https://shoplineimg.com/5e68641477cb07001243f611/65893f6b3c11e800118ab555/800x.webp?source_format=jpg" alt="Coral Chair">
-        <div class="product-description">
-          <strong>Coral Chair</strong>
-          Drawing inspiration from ocean coral structures, this chair merges organic forms with sturdy construction, offering a unique seating experience.
-        </div>
-      </div>
-      <div class="product-item">
-        <img src="https://shoplineimg.com/5e68641477cb07001243f611/6768d76b85c031000df068d4/800x.webp?source_format=jpg" alt="Bamboo Cup">
-        <div class="product-description">
-          <strong>Bamboo Fiber Cup</strong>
-          A minimal yet functional cup made with natural bamboo fiber. Lightweight, durable, and perfect for eco-conscious daily use.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="partners">
-    <h2 class="section-title">Our Material Partners</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem;">
-      <div class="product-item">
-        <img src="https://cloud.tipo.gov.tw/S282/pic/20190416/108/022/664/pic_108022664_20190415_1.jpg" alt="ECONO">
-        <div class="product-description">
-          <strong>ECONO TECHNOLOGY CO., LTD.</strong>
-          Innovator in bamboo fiber materials, specializing in biodegradable and compostable products for sustainable living.
-        </div>
-      </div>
-      <div class="product-item">
-        <img src="https://yt3.googleusercontent.com/ytc/AIdro_k_jbU5Ca1ojM7uq0uCLbSf2dPMrX8-QjLm656ub4e2cIU=s900-c-k-c0x00ffffff-no-rj" alt="Da Fong">
-        <div class="product-description">
-          <strong>Da Fong Environmental Technology</strong>
-          Pioneer in recycled plastics processing and reuse systems, providing eco-efficient material recovery solutions.
-        </div>
-      </div>
-      <div class="product-item">
-        <img src="https://nqa.cpc.tw/nqa/Web/IMG/e17c132b-231a-4fd6-8fed-be0bfa45db31.png" alt="Super Textile">
-        <div class="product-description">
-          <strong>Super Textile Corporation</strong>
-          Leading textile engineering company offering eco-performance fabrics with sustainable production standards.
-        </div>
-      </div>
-      <div class="product-item">
-        <img src="https://static.wixstatic.com/media/8cb06a_76b4cab1a9544bd7a6c4ed2f79c5ba20~mv2.png/v1/fill/w_342,h_100,al_c,q_95,enc_avif,quality_auto/GREENu-Wood-%E6%A9%AB%E6%9D%BF%E9%BB%91%E5%AD%97.png" alt="UniGreenTek">
-        <div class="product-description">
-          <strong>UniGreenTek Co., Ltd.</strong>
-          Specializes in durable recycled wood-alternative boards and sustainable construction solutions.
-        </div>
-      </div>
-      <div class="product-item">
-        <img src="https://www.globalgreenmaterial.com/upload/edit/LOGO.png" alt="Global Green">
-        <div class="product-description">
-          <strong>Global Green Material Co.</strong>
-          Developer of bio-based and recycled materials with a focus on low-carbon, high-impact material innovation.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer id="contact">
-  <h2 class="section-title" style="color: white;">Contact Us</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; padding: 2rem; max-width: 1100px; margin: auto;">
-    <div style="flex: 1; min-width: 280px; text-align: left;">
-      <h3 style="color: #007f5f; margin-bottom: 1rem;">Contact Address</h3>
-      <p>
-        Maasboulevard 100 (Blue City)<br>
-        3063 NS Rotterdam<br>
-        The Netherlands
-      </p>
-    </div>
-    <div style="flex: 1; min-width: 280px; text-align: left;">
-      <h3 style="color: #007f5f; margin-bottom: 1rem;">Joseph Han (韓松庭)</h3>
-      <p>
-        International Project Manager<br>
-        WhatsApp: +886-918081860<br>
-        ✉ <a href="mailto:joseph@ddoott.com">joseph@ddoott.com</a>
-      </p>
-    </div>
-    <div style="flex: 1; min-width: 280px; text-align: left;">
-      <h3 style="color: #007f5f; margin-bottom: 1rem;">Lance Han (韓世國)</h3>
-      <p>
-        Founder & CEO<br>
-        WhatsApp: +886-918820873<br>
-        ✉ <a href="mailto:lance@ddoott.com">lance@ddoott.com</a>
-      </p>
-    </div>
-  </div>
-<div style="max-width: 1100px; margin: 2rem auto 0; padding: 0 2rem;">
-  <form action="https://formspree.io/f/xwplakrv" method="POST" onsubmit="showThankYou(event)" style="background: #fefefe; padding: 2rem; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
-    <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem; color: #007f5f; text-align: center;">Leave Us a Message</h3>
-
-    <label style="display:block; margin-bottom: 0.5rem; font-weight: 600; color: #333;">Your Email</label>
-    <input type="email" name="email" placeholder="name@example.com" required style="width: 100%; padding: 0.75rem 1rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;">
-
-    <label style="display:block; margin-bottom: 0.5rem; font-weight: 600; color: #333;">Your Message</label>
-    <textarea name="message" placeholder="Let us know how we can help you..." required style="width: 100%; padding: 0.75rem 1rem; height: 150px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;"></textarea>
-
-    <div style="text-align: center;">
-      <button type="submit" style="margin-top: 1rem; padding: 0.75rem 2rem; background: #007f5f; color: #fff; border: none; border-radius: 6px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background 0.3s ease;">Send Message</button>
-      <p id="thank-you" style="display:none; margin-top: 1rem; color: #28a745; font-weight: bold;">Thanks for your message!</p>
-    </div>
-  </form>
-  <div style="text-align: center; font-size: 0.85rem; color: #ccc; padding-top: 2rem;">
-    &copy; 2024 re-ing. All rights reserved.
-  </div>
-</div>
-<script>
-  function showThankYou(event) {
-    event.preventDefault();
-    const form = event.target;
-    const formData = new FormData(form);
-    fetch(form.action, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if (response.ok) {
-        form.reset();
-        document.getElementById('thank-you').style.display = 'block';
-      } else {
-        alert('Oops! There was a problem submitting your form');
-      }
-    });
-  }
-</script>
-</footer>
-</main>
+  </script>
 </body>
 </html>
+
