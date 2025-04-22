@@ -1,968 +1,782 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>re-ing | Sustainable Design & Materials</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Re-ing: Promoting sustainable design and materials for a circular economy. Explore eco-friendly products and innovative solutions.">
+  <meta name="keywords" content="sustainability, circular economy, eco-friendly materials, bamboo fiber, recycled plastics, sustainable design">
+  <meta name="author" content="Re-ing Team">
+  <meta property="og:title" content="Re-ing: A Sustainable Future">
+  <meta property="og:description" content="Discover sustainable materials and innovative designs at Re-ing, bridging Taiwan's eco-materials with global markets.">
+  <meta property="og:image" content="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png">
+  <meta property="og:url" content="https://josephhan0818.github.io/re.ing/">
+  <title>Re-ing: A Sustainable Future</title>
+  <link rel="icon" href="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Poppins', sans-serif;
       scroll-behavior: smooth;
     }
 
     body {
+      background: #F9FAFB;
+      color: #1F2937;
       line-height: 1.6;
-      background: #fefefe;
-      color: #333;
+      overflow-x: hidden;
     }
 
+    /* 粒子背景 */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: transparent;
+    }
+
+    /* 導航欄 */
+    .navbar {
+      background: #FFFFFF;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .navbar-brand img {
+      height: 48px;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar-brand img:hover {
+      transform: scale(1.1);
+    }
+
+    .nav-link {
+      color: #1F2937 !important;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #22D3EE !important;
+      transform: translateY(-2px);
+    }
+
+    /* Header */
     header {
-      background: url('https://storage.googleapis.com/goldenpin/award_work_pic/image/4956/detail_image_76b850.jpeg') no-repeat center center;
-      background-size: cover;
-      color: #fff;
-      text-align: center;
-      padding: 6rem 2rem 4rem;
       position: relative;
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
+      text-align: center;
+      padding: 2rem;
+      background: url('https://storage.googleapis.com/goldenpin/award_work_pic/image/4956/detail_image_76b850.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      background-color: #0a1520; /* Very dark backup background */
     }
 
     header::after {
-      content: "";
+      content: '';
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 0;
-    }
-
-    header * {
-      position: relative;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7); /* Much darker overlay */
       z-index: 1;
     }
 
-    header img {
-      width: 100px;
-      margin-bottom: 1rem;
+    header .container {
+      position: relative;
+      z-index: 10; /* Ensure it's above the overlay */
+      max-width: 900px;
     }
 
     header h1 {
-      font-size: 3rem;
+      font-size: 4.5rem;
       font-weight: 800;
-      color: #fff;
+      color: #FFFFFF; /* Bright white */
+      text-shadow: 
+        0 0 10px rgba(0, 0, 0, 1), 
+        0 0 20px rgba(0, 0, 0, 1), 
+        2px 2px 4px #000000; /* Multiple strong shadows */
+      margin-bottom: 1rem;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+
+    header h2 {
+      font-size: 2rem;
+      font-weight: 500;
+      color: #FFFFFF;
+      text-shadow: 
+        0 0 10px rgba(0, 0, 0, 1), 
+        0 0 20px rgba(0, 0, 0, 1),
+        2px 2px 4px #000000;
+      margin-bottom: 1.5rem;
+      visibility: visible !important;
+      opacity: 1 !important;
     }
 
     header p {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: #FFFFFF;
+      max-width: 700px;
+      margin: 0 auto;
+      text-shadow: 
+        0 0 10px rgba(0, 0, 0, 1),
+        2px 2px 4px #000000;
+      visibility: visible !important;
+      opacity: 1 !important;
     }
 
-    main section {
-      padding: 4rem 1.5rem;
-      max-width: 1200px;
+    /* 區塊樣式 */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1400px;
       margin: auto;
     }
 
     .section-title {
-      font-size: 2.2rem;
-      font-weight: bold;
-      margin-bottom: 2rem;
-      color: #1a1a1a;
+      font-size: 3rem;
+      font-weight: 800;
+      color: #1F2937;
       text-align: center;
+      margin-bottom: 3rem;
       position: relative;
+      z-index: 3;
     }
 
     .section-title::after {
-      content: "";
+      content: '';
       display: block;
-      width: 60px;
-      height: 4px;
-      background: #007f5f;
-      margin: 10px auto 0;
-    }
-
-    .product-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: #fff;
-      border-radius: 16px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-    }
-
-    .product-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 36px rgba(0,0,0,0.08);
-    }
-
-    .product-item img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-    }
-
-    .product-description {
-      text-align: center;
-      font-size: 1rem;
-      color: #333;
-    }
-
-    .product-description strong {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-size: 1.1rem;
-      color: #007f5f;
-    }
-
-    footer {
-      background: #1a1a1a;
-      padding: 3rem 2rem 2rem;
+      width: 100px;
+      height: 5px;
+      background: linear-gradient(to right, #10B981, #22D3EE);
+      margin: 1rem auto;
+      border-radius: 5px;
     }
 
     .section-content {
-      font-size: 1.1rem;
-      color: #444;
+      font-size: 1.2rem;
+      color: #4B5563;
+      text-align: center;
       max-width: 800px;
-      margin: auto;
-      text-align: center;
+      margin: 0 auto 2rem;
+      z-index: 3;
     }
 
-    a {
-      color: #007f5f;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 0.8s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .section-title {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-
-    .contact-cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-
-    .contact-card {
-      background: #2a2a2a;
-      padding: 2rem;
-      border-radius: 10px;
-      flex: 1 1 280px;
-      max-width: 320px;
-      text-align: center;
-      color: #fff;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-    }
-
-    .contact-card .avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: #555;
-      margin: 0 auto 1rem;
-    }
-
-    .contact-card h3 {
-      margin-bottom: 0.5rem;
-    }
-
-    .message-form {
-      background: #fff;
-      padding: 2rem;
+    /* 卡片設計（圖片為主） */
+    .card {
+      position: relative;
+      height: 300px;
+      background: #FFFFFF;
+      border: 2px solid transparent;
       border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%);
+      transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .card .card-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      opacity: 0;
+      padding: 1.5rem;
+      transition: opacity 0.3s ease, background 0.3s ease;
+      z-index: 3;
+    }
+
+    .card:hover {
+      transform: perspective(1000px) rotateX(2deg) rotateY(2deg) scale(1.02);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 0 0 10px rgba(34, 211, 238, 0.3);
+      border-color: #22D3EE;
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    .card:hover .card-content {
+      opacity: 1;
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3));
+    }
+
+    .card h3 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: #1F2937;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .card p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: #1F2937;
+      text-align: center;
+    }
+
+    /* Swiper 滑動選單 */
+    .swiper {
+      width: 100%;
+      padding: 2rem 0;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #22D3EE;
+      transition: color 0.3s ease;
+    }
+
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      color: #0E7490;
+    }
+
+    /* 聯繫表單 */
+    .contact-form {
+      background: #FFFFFF;
+      padding: 3rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       max-width: 600px;
       margin: auto;
+      border: 1px solid #E5E7EB;
+      z-index: 3;
     }
 
-    .message-form h3 {
-      margin-bottom: 1.5rem;
-      font-size: 1.5rem;
-      color: #007f5f;
+    .contact-form h3 {
+      font-size: 2rem;
+      color: #1F2937;
       text-align: center;
+      margin-bottom: 2rem;
     }
 
-    .message-form input,
-    .message-form textarea {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-
-    .message-form button {
+    .contact-form label {
+      font-weight: 500;
+      color: #1F2937;
+      margin-bottom: 0.5rem;
       display: block;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
       width: 100%;
-      padding: 0.75rem;
-      background: #007f5f;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      font-weight: 600;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #E5E7EB;
+      border-radius: 8px;
+      background: #F9FAFB;
+      color: #1F2937;
       font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #22D3EE;
+      outline: none;
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(to right, #10B981, #22D3EE);
+      border: none;
+      border-radius: 8px;
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 1.1rem;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .message-form button:hover {
-      background: #005f45;
+    .contact-form button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(34, 211, 238, 0.4);
     }
 
-    .footer-bottom {
+    /* Footer */
+    footer {
+      background: #F3F4F6;
+      padding: 3rem 2rem;
       text-align: center;
-      color: #ccc;
-      font-size: 0.85rem;
-      margin-top: 2rem;
+      color: #4B5563;
+      z-index: 3;
     }
-</style>
+
+    footer p {
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    /* 響應式設計 */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 3rem;
+      }
+
+      header h2 {
+        font-size: 1.5rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      header .container {
+        padding: 0; /* Adjust padding for smaller screens */
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .card {
+        height: 250px;
+        clip-path: polygon(5% 0, 95% 0, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0 95%, 0 5%);
+      }
+
+      .card h3 {
+        font-size: 1.4rem;
+      }
+
+      .card p {
+        font-size: 0.9rem;
+      }
+
+      .contact-form {
+        padding: 2rem;
+      }
+
+      .swiper {
+        padding: 1rem 0;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Bootstrap CDN -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- 粒子背景 -->
+  <div id="particles-js"></div>
 
-  <!-- Updated Bootstrap-style Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="#">
-      <img src="https://github.com/josephhan0818/re.ing/blob/main/re-ing%20Logo.png?raw=true" alt="re-ing logo" style="height: 36px;">
-      <h4 class="d-inline-block ml-2" style="margin: 0; font-size: 1.25rem;">re-ing</h4>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
-        <li class="nav-item"><a class="nav-link" href="#partners">Partners</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
+  <!-- 導航欄 -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" alt="Re-ing Logo" onerror="this.src='https://via.placeholder.com/48?text=Logo'">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars" style="color: #1F2937;"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#mission">Our Mission</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
-  <div style="padding-top: 80px;"></div>
-  
-
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const burger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-
-    burger.addEventListener('click', () => {
-      if (navLinks.style.display === 'flex') {
-        navLinks.style.display = 'none';
-      } else {
-        navLinks.style.display = 'flex';
-      }
-    });
-
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-          navLinks.style.display = 'none';
-        }
-      });
-    });
-  });
-</script>
-  <style>
-      .hamburger {
-    display: block;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    border-radius: 8px;
-    z-index: 1001;
-  }
-
-    .nav-links li a {
-      text-decoration: none;
-      color: #1a1a1a;
-      font-weight: 600;
-    }
-
-    .nav-links li a:hover {
-      color: #007f5f;
-    }
-
-  @media (max-width: 768px) {
-  .hamburger {
-    display: block;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    width: 180px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 0;
-    border-radius: 4px;
-    overflow: hidden;
-    z-index: 1001;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links li {
-    border-bottom: 1px solid #e5e5e5;
-    list-style: none;
-  }
-
-  .nav-links li:last-child {
-    border-bottom: none;
-  }
-
-  .nav-links li a {
-    display: block;
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #333;
-    text-decoration: none;
-    background: none;
-  }
-
-  .nav-links li a:hover {
-    background-color: #f2f2f2;
-    color: #007f5f;
-  }
-}
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 0;
-    border-radius: 8px;
-    z-index: 1001;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links li {
-    list-style: none;
-    border-bottom: 1px solid #e0e0e0;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-links li:last-child {
-    border-bottom: none;
-  }
-
-  .nav-links li a {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 500;
-    padding: 1rem;
-    color: #1a1a1a;
-    text-decoration: none;
-    text-align: left;
-    background: none;
-  }
-
-  .nav-links li a:hover {
-    color: #007f5f;
-    background: none;
-  }
-}
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 0;
-    border-radius: 8px;
-    z-index: 1001;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links li {
-    list-style: none;
-    border-bottom: 1px solid #e0e0e0;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-links li:last-child {
-    border-bottom: none;
-  }
-
-  .nav-links li a {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 500;
-    padding: 1rem;
-    color: #1a1a1a;
-    text-decoration: none;
-    text-align: left;
-    background: none;
-  }
-
-  .nav-links li a:hover {
-    color: #007f5f;
-    background: none;
-  }
-}
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 0;
-    border-radius: 8px;
-    z-index: 1001;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links li {
-    list-style: none;
-    border-bottom: 1px solid #ccc;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-links li:last-child {
-    border-bottom: none;
-  }
-
-  .nav-links li a {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 500;
-    padding: 1rem;
-    color: #1a1a1a;
-    text-decoration: none;
-    text-align: left;
-  }
-
-  .nav-links li a:hover {
-    color: #007f5f;
-  }
-}
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 0;
-    border-radius: 8px;
-    z-index: 1001;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links li {
-    list-style: none;
-    border-bottom: 1px solid #ddd;
-  }
-
-  .nav-links li:last-child {
-    border-bottom: none;
-  }
-
-  .nav-links li a {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 500;
-    padding: 1rem;
-    color: #1a1a1a;
-    text-decoration: none;
-    text-align: left;
-  }
-
-  .nav-links li a:hover {
-    background-color: #f4f4f4;
-    color: #007f5f;
-  }
-}
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    border-radius: 8px;
-    z-index: 1001;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links li {
-    list-style: none;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .nav-links li:last-child {
-    border-bottom: none;
-  }
-
-  .nav-links li a {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-align: left;
-    padding: 0.5rem 0;
-    background: none;
-    color: #1a1a1a;
-    text-decoration: none;
-  }
-
-  .nav-links li a:hover {
-    color: #007f5f;
-  }
-}
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    border-radius: 8px;
-    z-index: 1001;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links li {
-    list-style: none;
-  }
-
-  .nav-links li a {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-align: left;
-    padding: 0.75rem 1rem;
-    border-radius: 6px;
-    margin-bottom: 0.5rem;
-    background-color: #f9f9f9;
-    transition: background 0.2s;
-  }
-
-  .nav-links li a:hover {
-    background-color: #e6f4f1;
-    color: #007f5f;
-  }
-}
-
-@media (min-width: 769px) {
-  .hamburger {
-    display: none !important;
-  }
-
-  .nav-links {
-    display: flex !important;
-    flex-direction: row;
-    position: static;
-    background: transparent;
-    box-shadow: none;
-    padding: 0;
-    gap: 1.5rem;
-  }
-
-  .nav-links li {
-    list-style: none;
-    border-bottom: none;
-  }
-
-  .nav-links li a {
-    background: none;
-    margin: 0;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-  }
-
-  .nav-links li a:hover {
-    color: #007f5f;
-    background: none;
-  }
-}
-
-  .nav-links {
-    display: flex !important;
-    flex-direction: row;
-    position: static;
-    background: transparent;
-    box-shadow: none;
-    padding: 0;
-  }
-
-  .nav-links li {
-    list-style: none;
-  }
-
-  .nav-links li a {
-    background: none;
-    margin: 0;
-    padding: 0.5rem 1rem;
-  }
-}
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    border-radius: 8px;
-    z-index: 1001;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links li a {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-align: left;
-    padding: 0.75rem 1rem;
-    border-radius: 6px;
-    margin-bottom: 0.5rem;
-    background-color: #f9f9f9;
-    transition: background 0.2s;
-  }
-
-  .nav-links li a:hover {
-    background-color: #e6f4f1;
-    color: #007f5f;
-  }
-}
-
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 60px;
-      right: 20px;
-      background: white;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      padding: 1rem;
-      border-radius: 8px;
-      z-index: 1001;
-    }
-
-    nav-links.active {
-    display: flex;
-  }
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 60px;
-      right: 20px;
-      background: white;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      padding: 1rem;
-      border-radius: 8px;
-    }
-
-    .nav-links.active {
-      display: flex;
-    }
-
-    .hamburger {
-      display: block;
-    }
-  }
-</style>
-
-  <main class="fade-in" style="background: linear-gradient(to bottom, #fefefe 0%, #f3f7f4 100%); padding-top: 100px;">
-    <header>
-      <div style="position: relative; z-index: 1; max-width: 700px; text-align: left;">
-        <h1 style="font-size: 4rem; font-weight: 800; color: #ffffff; line-height: 1.1; margin-bottom: 1rem; text-transform: uppercase; text-shadow: 2px 2px 6px rgba(0,0,0,0.8); font-family: 'Inter', sans-serif; letter-spacing: 1px;">CIRCULAR<br>DESIGN</h1>
-        <hr style="width: 50px; border: 2px solid #000; margin: 1rem 0;">
-        <p style="font-size: 1.1rem; color: #ffffff; line-height: 2; max-width: 540px; text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">
-  From waste, a golden alchemy; from recycled strands, artistry.<br>
-  In life's tapestry, weave threads of human warmth.<br>
-  In the dance of reclaiming and creating, find harmony.<br>
-  Granting sustainability a novel lexicon.
-</p>
-      </div>
-    </header>
-    <section id="about">
-      <h2 class="section-title" style="color: #007f5f; font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: 0.5px;">About re-ing</h2>
-      <p class="section-content">
-        re-ing is a design-driven initiative based in Rotterdam, promoting circular thinking and sustainable product innovation. Backed by DOT Design Co., we connect Taiwan's cutting-edge material partners with European sustainability markets.
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1>Re-ing: A Sustainable Future</h1>
+      <h2>Crafting a Circular Tomorrow</h2>
+      <p>From waste to innovation, we bridge sustainable materials and thoughtful design for a thriving planet.</p>
+    </div>
+  </header>
+
+  <!-- 使命 -->
+  <section id="mission">
+    <h2 class="section-title" data-aos="fade-up">Our Mission</h2>
+    <p class="section-content" data-aos="fade-up" data-aos-delay="100">
+      Re-ing transforms waste into the building blocks of a sustainable future. Through innovative materials and design, we drive a circular economy, making eco-conscious living inspiring and accessible for all.
+    </p>
+  </section>
+
+  <!-- 服務 -->
+  <section id="services">
+    <h2 class="section-title" data-aos="fade-up">Our Services</h2>
+    <div class="container">
+      <!-- 無塑材料 -->
+      <h3 class="text-center mb-4" style="color: #1F2937; display: inline-block; z-index: 3;" data-aos="fade-up">Plastic-Free Materials</h3>
+      <p class="section-content" data-aos="fade-up" data-aos-delay="100">
+        Our curated plastic-free materials empower businesses to reduce environmental impact, crafting a cleaner future.
       </p>
-    </section>
-    <section id="services">
-      <h2 class="section-title" style="color: #007f5f; font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: 0.5px;">Our Services</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-        <div class="product-item fade-up">
-          <img src="https://cdn-icons-png.flaticon.com/512/2272/2272250.png" alt="Material Agency Icon" style="max-height: 100px; width: auto;">
-          <div class="product-description fade-up">
-            <strong>Material Agency</strong>
-            We represent sustainable suppliers across Taiwan, connecting European designers with innovative biomaterials and recycled resources.
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bamboo Fiber" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Bamboo+Fiber'">
+            <div class="card-content">
+              <h3>Bamboo Fiber</h3>
+              <p>Biodegradable and versatile for eco-friendly products like tableware.</p>
+            </div>
           </div>
         </div>
-        <div class="product-item fade-up">
-          <img src="https://cdn-icons-png.flaticon.com/512/2480/2480601.png" alt="Design Icon" style="max-height: 100px; width: auto;">
-          <div class="product-description">
-            <strong>Sustainable Product Design</strong>
-            We collaborate with brands to co-create eco-conscious products using circular principles—from concept to prototype.
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1587502537140-0d0b7a5f0119?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Paper Pulp" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Paper+Pulp'">
+            <div class="card-content">
+              <h3>Recycled Paper Pulp</h3>
+              <p>Blended with pineapple leaf fiber for sustainable packaging.</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section id="products">
-      <h2 class="section-title" style="color: #007f5f; font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: 0.5px;">Featured Products</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-        <div class="product-item">
-          <img src="https://shoplineimg.com/5e68641477cb07001243f611/67a97f88f5c949000f9c1086/800x.webp?source_format=jpg" alt="Bamboo Plates">
-          <div class="product-description">
-            <strong>re-ing Bamboo Fiber Plates</strong>
-            A set of eco-friendly dining plates made from bamboo fiber and natural materials, offering both durability and a minimalist aesthetic.
-          </div>
-        </div>
-        <div class="product-item">
-          <img src="https://shoplineimg.com/5e68641477cb07001243f611/6673f0665026c70010c55a69/800x.webp?source_format=jpg" alt="Lunch Box">
-          <div class="product-description">
-            <strong>Natural Bamboo Fiber Lunch Box Set</strong>
-            Featuring a sleek design and ample capacity, this microwave-safe lunch box adds convenience to a sustainable lifestyle.
-          </div>
-        </div>
-        <div class="product-item">
-          <img src="https://shoplineimg.com/5e68641477cb07001243f611/64393145e4f45f0017671238/800x.webp?source_format=jpg" alt="Tabouret cannelé">
-          <div class="product-description">
-            <strong>re-ing Tabouret cannelé</strong>
-            Inspired by the French pastry cannelé, this playful and stackable stool is made from recycled materials and is 100% recyclable.
-          </div>
-        </div>
-        <div class="product-item">
-          <img src="https://shoplineimg.com/5e68641477cb07001243f611/62591848c7b25e001ecf9d0f/800x.webp?source_format=jpg" alt="PET Bag">
-          <div class="product-description">
-            <strong>re-PET Bag</strong>
-            A stylish and durable bag made from 100% recycled PET bottles. It exemplifies how re-ing transforms waste into everyday essentials.
-          </div>
-        </div>
-        <div class="product-item">
-          <img src="https://shoplineimg.com/5e68641477cb07001243f611/65893f6b3c11e800118ab555/800x.webp?source_format=jpg" alt="Coral Chair">
-          <div class="product-description">
-            <strong>Coral Chair</strong>
-            Drawing inspiration from ocean coral structures, this chair merges organic forms with sturdy construction, offering a unique seating experience.
-          </div>
-        </div>
-        <div class="product-item">
-          <img src="https://shoplineimg.com/5e68641477cb07001243f611/6768d76b85c031000df068d4/800x.webp?source_format=jpg" alt="Bamboo Cup">
-          <div class="product-description">
-            <strong>Bamboo Fiber Cup</strong>
-            A minimal yet functional cup made with natural bamboo fiber. Lightweight, durable, and perfect for eco-conscious daily use.
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Earthquake Gravel" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Gravel'">
+            <div class="card-content">
+              <h3>Earthquake Gravel</h3>
+              <p>Transformed into unique design objects, symbolizing resilience.</p>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-    <section id="partners">
-      <h2 class="section-title" style="color: #007f5f; font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: 0.5px;">Our Material Partners</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem;">
-        <div class="product-item">
-          <img src="https://cloud.tipo.gov.tw/S282/pic/20190416/108/022/664/pic_108022664_20190415_1.jpg" alt="ECONO">
-          <div class="product-description">
-            <strong>ECONO TECHNOLOGY CO., LTD.</strong>
-            Innovator in bamboo fiber materials, specializing in biodegradable and compostable products for sustainable living.
-          </div>
-        </div>
-        <div class="product-item">
-          <img src="https://yt3.googleusercontent.com/ytc/AIdro_k_jbU5Ca1ojM7uq0uCLbSf2dPMrX8-QjLm656ub4e2cIU=s900-c-k-c0x00ffffff-no-rj" alt="Da Fong">
-          <div class="product-description">
-            <strong>Da Fong Environmental Technology</strong>
-            Pioneer in recycled plastics processing and reuse systems, providing eco-efficient material recovery solutions.
-          </div>
-        </div>
-        <div class="product-item">
-          <img src="https://nqa.cpc.tw/nqa/Web/IMG/e17c132b-231a-4fd6-8fed-be0bfa45db31.png" alt="Super Textile">
-          <div class="product-description">
-            <strong>Super Textile Corporation</strong>
-            Leading textile engineering company offering eco-performance fabrics with sustainable production standards.
-          </div>
-        </div>
-        <div class="product-item">
-          <img src="https://static.wixstatic.com/media/8cb06a_76b4cab1a9544bd7a6c4ed2f79c5ba20~mv2.png/v1/fill/w_342,h_100,al_c,q_95,enc_avif,quality_auto/GREENu-Wood-%E6%A9%AB%E6%9D%BF%E9%BB%91%E5%AD%97.png" alt="UniGreenTek">
-          <div class="product-description">
-            <strong>UniGreenTek Co., Ltd.</strong>
-            Specializes in durable recycled wood-alternative boards and sustainable construction solutions.
-          </div>
-        </div>
-        <div class="product-item">
-          <img src="https://www.globalgreenmaterial.com/upload/edit/LOGO.png" alt="Global Green">
-          <div class="product-description">
-            <strong>Global Green Material Co.</strong>
-            Developer of bio-based and recycled materials with a focus on low-carbon, high-impact material innovation.
-          </div>
-        </div>
-      </div>
-    </section>
 
-    
-<footer id="contact" style="background: #1a1a1a; padding: 3rem 2rem 2rem;">
-      <h2 class="section-title" style="color: #007f5f; font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: 0.5px;">Contact Us</h2>
-      <div class="contact-cards">
-        <div class="contact-card" style="background: #1e1e1e; border-left: 4px solid #007f5f;">
-  <h3 style="margin-bottom: 1rem; color: #8fceff;">Contact Address</h3>
-          <p>
-            Maasboulevard 100 (Blue City)<br>
-            3063 NS, Rotterdam<br>
-            The Netherlands
-          </p>
+      <!-- 回收塑膠 -->
+      <h3 class="text-center mt-5 mb-4" style="color: #1F2937; display: inline-block; z-index: 3;" data-aos="fade-up">Recycled Plastics</h3>
+      <p class="section-content" data-aos="fade-up" data-aos-delay="100">
+        From ocean waste to everyday essentials, our recycled plastics drive a circular economy.
+      </p>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ocean Plastics" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Ocean+Plastics'">
+            <div class="card-content">
+              <h3>Ocean Plastics</h3>
+              <p>Reborn as detergent bottles and modular blocks, protecting our seas.</p>
+            </div>
+          </div>
         </div>
-        <div class="contact-card">
-          <img class="avatar" src="https://media.licdn.com/dms/image/v2/D5603AQEcrr9x7X1yQQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1711366892335?e=1749686400&v=beta&t=j7W8VHv9Ld6aPiJibxXaN6bVyo6K0reAmNjtOJWzkt8" alt="Joseph Han avatar" />
-<h3>Joseph Han (韓松庭)</h3>
-          <p>
-            International Project Manager<br>
-            WhatsApp: +886-918081860<br>
-            ✉ <a href="mailto:joseph@ddoott.com" style="color: #8fceff;">joseph@ddoott.com</a>
-          </p>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1583573636246-18cb2246697f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Recycled Toys" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Toys'">
+            <div class="card-content">
+              <h3>Recycled Toys</h3>
+              <p>Transformed into furniture and play structures for kids.</p>
+            </div>
+          </div>
         </div>
-        <div class="contact-card">
-          <img class="avatar" src="https://scontent.ftpe8-2.fna.fbcdn.net/v/t39.30808-6/440755385_10210931630524404_6306022813541134052_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=eqSkmawZDxEQ7kNvwE82v8i&_nc_oc=Adk9vc4LxGlMOyBQB5HX_afJ_8avehr5pv1wkDQA3vvuAT4M2Ak4bqtoHzIE6aRjnbo&_nc_zt=23&_nc_ht=scontent.ftpe8-2.fna&_nc_gid=ft_miwb6YBzhEZoU3kpzCg&oh=00_AfFqoMs_mEuB_ViItF34pxQECs93d2s8jZpgvlGdKxA1VQ&oe=67FD351B" alt="Lance Han avatar" />
-<h3>Lance Han (韓世國)</h3>
-          <p>
-            Founder & CEO<br>
-            WhatsApp: +886-918820873<br>
-            ✉ <a href="mailto:lance@ddoott.com" style="color: #8fceff;">lance@ddoott.com</a>
-          </p>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1593642532973-d31b97d0e6b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="PET Bottles" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=PET'">
+            <div class="card-content">
+              <h3>Recycled PET</h3>
+              <p>Crafted into durable bags, supporting a waste-free future.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <form class="message-form" action="https://formspree.io/f/xwplakrv" method="POST" onsubmit="showThankYou(event)">
-        <h3>Leave Us a Message</h3>
-        <label>Your Email</label>
-        <input type="email" name="email" placeholder="name@example.com" required>
-        <label>Your Message</label>
-        <textarea name="message" placeholder="Let us know how we can help you..." required></textarea>
-        <button type="submit">Send Message</button>
-        <p id="thank-you" style="display:none; margin-top: 1rem; color: #28a745; font-weight: bold;">Thanks for your message!</p>
-      </form>
-      <div class="footer-bottom">
-        &copy; 2024 re-ing. All rights reserved.
-      </div>
-    </footer>
-  </main>
 
+      <!-- 材料代理 -->
+      <h3 class="text-center mt-5 mb-4" style="color: #1F2937; display: inline-block; z-index: 3;" data-aos="fade-up">Material Representation & Sourcing</h3>
+      <p class="section-content" data-aos="fade-up" data-aos-delay="100">
+        Sourcing Taiwan’s finest sustainable materials to inspire eco-conscious design worldwide.
+      </p>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bamboo Fiber" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Bamboo+Fiber'">
+            <div class="card-content">
+              <h3>Bamboo Fiber</h3>
+              <p>Biodegradable and ideal for sustainable products.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ocean Plastics" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Ocean+Plastics'">
+            <div class="card-content">
+              <h3>Ocean Plastics</h3>
+              <p>Repurposed for innovative, planet-friendly applications.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1588600878108-578307a3cc9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="SuperWood" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=SuperWood'">
+            <div class="card-content">
+              <h3>SuperWood™</h3>
+              <p>Recycled wood-plastic composite for durable construction.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 產品展示（滑動選單） -->
+  <section id="products">
+    <h2 class="section-title" data-aos="fade-up">Featured Products</h2>
+    <div class="container">
+      <div class="swiper" id="product-slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="https://www.ddoott.com/categories/re-ing" target="_blank">
+              <div class="card">
+                <img src="https://shoplineimg.com/5e68641477cb07001243f611/67a97f88f5c949000f9c1086/800x.webp?source_format=jpg" alt="Bamboo Fiber Plates" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Product'">
+                <div class="card-content">
+                  <h3>re-ing Bamboo Fiber Plates</h3>
+                  <p>Eco-friendly plates with a diamond pattern, made from 100% plastic-free bamboo fiber.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="https://www.ddoott.com/categories/re-ing" target="_blank">
+              <div class="card">
+                <img src="https://shoplineimg.com/5e68641477cb07001243f611/6673f0665026c70010c55a69/800x.webp?source_format=jpg" alt="Lunch Box Set" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Product'">
+                <div class="card-content">
+                  <h3>re-ing Bamboo Fiber Lunch Box Set</h3>
+                  <p>Microwave-safe, sustainable lunch box made from bamboo fiber and starch.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="https://www.ddoott.com/categories/re-ing" target="_blank">
+              <div class="card">
+                <img src="https://shoplineimg.com/5e68641477cb07001243f611/64393145e4f45f0017671238/800x.webp?source_format=jpg" alt="Cannelé Tabouret-L" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Product'">
+                <div class="card-content">
+                  <h3>re-ing Cannelé Tabouret-L</h3>
+                  <p>Stackable stool made from 50% recycled materials, fully recyclable.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="https://www.ddoott.com/categories/re-ing" target="_blank">
+              <div class="card">
+                <img src="https://shoplineimg.com/5e68641477cb07001243f611/64393145e4f45f0017671238/800x.webp?source_format=jpg" alt="Tabouret Cannelé" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Product'">
+                <div class="card-content">
+                  <h3>re-ing Tabouret Cannelé</h3>
+                  <p>Whimsical chair crafted from recycled toys and ocean plastics.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="https://www.ddoott.com/categories/re-ing" target="_blank">
+              <div class="card">
+                <img src="https://images.unsplash.com/photo-1583573636246-18cb2246697f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sustainable Toy Set" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Product'">
+                <div class="card-content">
+                  <h3>re-ing Sustainable Toy Set</h3>
+                  <p>Sustainable toy set made from recycled ABS plastics, promoting ecological balance.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="https://www.ddoott.com/categories/re-ing" target="_blank">
+              <div class="card">
+                <img src="https://shoplineimg.com/5e68641477cb07001243f611/67a97f88f5c949000f9c1086/800x.webp?source_format=jpg" alt="re-ing Plate" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Product'">
+                <div class="card-content">
+                  <h3>re-ing Plate</h3>
+                  <p>Round plate with diamond pattern, made from bamboo fiber, 100% plastic-free.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="https://www.ddoott.com/categories/re-ing" target="_blank">
+              <div class="card">
+                <img src="https://shoplineimg.com/5e68641477cb07001243f611/65893f6b3c11e800118ab555/800x.webp?source_format=jpg" alt="Coral Chair" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Product'">
+                <div class="card-content">
+                  <h3>re-ing Coral Chair</h3>
+                  <p>Ocean-inspired chair made from recycled materials, blending form and function.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 聯繫我們 -->
+  <section id="contact">
+    <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-6" data-aos="fade-up">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Office" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Office'">
+            <div class="card-content">
+              <h3>Office Address</h3>
+              <p>Maasboulevard 100, 3063 NS Rotterdam, Netherlands<br>(Located in BlueCity – Circular Economy Hub)</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Contact" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Contact'">
+            <div class="card-content">
+              <h3>Contact Persons</h3>
+              <p><strong>Lance Han</strong><br>Director<br>✉ <a href="mailto:lance@ddoott.com" style="color: #22D3EE;">lance@ddoott.com</a></p>
+              <p><strong>Joseph Han</strong><br>International Project Manager<br>✉ <a href="mailto:joseph@ddoott.com" style="color: #22D3EE;">joseph@ddoott.com</a><br>📱 WhatsApp: +886-918081860</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form mt-5" data-aos="fade-up">
+        <h3>Leave a Message</h3>
+        <form action="https://formspree.io/f/xwplakrv" method="POST" onsubmit="showThankYou(event)">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" placeholder="name@example.com" required>
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" placeholder="Let us know how we can help you..." required></textarea>
+          <button type="submit">Send Message <i class="fas fa-paper-plane ms-2"></i></button>
+          <p id="thank-you" style="display: none; margin-top: 1rem; color: #1F2937; font-weight: bold;">Thanks for your message!</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Re-ing. All rights reserved.</p>
+  </footer>
+
+  <!-- 外掛腳本 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-  const burger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
+    // 錯誤捕捉和日誌
+    console.log('Initializing Re-ing page...');
 
-  burger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
+    // 初始化 Particles.js
+    try {
+      particlesJS('particles-js', {
+        particles: {
+          number: { value: 40, density: { enable: true, value_area: 800 } },
+          color: { value: '#FFFFFF' },
+          shape: { type: 'circle' },
+          opacity: { value: 0.3, random: true },
+          size: { value: 2, random: true },
+          line_linked: { enable: true, distance: 120, color: '#22D3EE', opacity: 0.2, width: 1 },
+          move: { enable: true, speed: 0.8, direction: 'none', random: false }
+        },
+        interactivity: {
+          detect_on: 'canvas',
+          events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
+          modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 3 } }
+        },
+        retina_detect: true
+      });
+      console.log('Particles.js initialized');
+    } catch (e) {
+      console.error('Failed to initialize Particles.js:', e);
+    }
 
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth <= 768) {
-        navLinks.classList.remove('active');
-      }
+    // 初始化 AOS
+    try {
+      AOS.init({ duration: 1200, once: true });
+      console.log('AOS initialized');
+    } catch (e) {
+      console.error('Failed to initialize AOS:', e);
+    }
+
+    // 強制 Header 文字顯示
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        const headerElements = document.querySelectorAll('header h1, header h2, header p');
+        headerElements.forEach(el => {
+          el.style.cssText = 'opacity: 1 !important; visibility: visible !important; transform: none !important; color: #FFFFFF !important;';
+          // 移除 AOS 屬性
+          el.removeAttribute('data-aos');
+          el.removeAttribute('data-aos-delay');
+          el.removeAttribute('data-aos-duration');
+        });
+        // 強制容器可見性
+        document.querySelector('header .container').style.cssText = 'opacity: 1 !important; visibility: visible !important; z-index: 10 !important;';
+      }, 100);
     });
-  });
-});
 
+    // 初始化 Swiper
+    try {
+      const swiper = new Swiper('#product-slider', {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        breakpoints: {
+          0: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          992: { slidesPerView: 3 },
+        },
+      });
+      console.log('Swiper initialized');
+    } catch (e) {
+      console.error('Failed to initialize Swiper:', e);
+    }
+
+    // GSAP 動畫
+    try {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.utils.toArray('.card').forEach(card => {
+        gsap.from(card, {
+          opacity: 0,
+          y: 80,
+          duration: 1.2,
+          ease: 'power2.out',
+          scrollTrigger: { trigger: card, start: 'top 85%' }
+        });
+      });
+      console.log('GSAP animations initialized');
+    } catch (e) {
+      console.error('Failed to initialize GSAP:', e);
+    }
+
+    // 表單提交
     function showThankYou(event) {
       event.preventDefault();
       const form = event.target;
@@ -975,12 +789,26 @@
         if (response.ok) {
           form.reset();
           document.getElementById('thank-you').style.display = 'block';
+          console.log('Form submitted successfully');
         } else {
-          alert('Oops! There was a problem submitting your form');
+          alert('Oops! There was a problem with your submission');
+          console.error('Form submission failed:', response.status);
         }
+      }).catch(error => {
+        console.error('Form submission error:', error);
+        alert('Network error. Please try again later.');
       });
     }
+
+    // 檢查 Header 背景圖片載入
+    const header = document.querySelector('header');
+    const headerBg = new Image();
+    headerBg.src = 'https://storage.googleapis.com/goldenpin/award_work_pic/image/4956/detail_image_76b850.jpeg';
+    headerBg.onerror = () => {
+      console.error('Header background image failed to load');
+      header.style.backgroundImage = 'none';
+      header.style.backgroundColor = '#0a1520';
+    };
   </script>
 </body>
 </html>
-
