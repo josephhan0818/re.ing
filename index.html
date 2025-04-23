@@ -6,23 +6,24 @@
   <meta name="description" content="Re-ing: Promoting sustainable design and materials for a circular economy. Explore eco-friendly products and innovative solutions.">
   <meta name="keywords" content="sustainability, circular economy, eco-friendly materials, bamboo fiber, recycled plastics, sustainable design">
   <meta name="author" content="Re-ing Team">
-  <meta property="og:title" content="Re-ing: A Sustainable Future">
-  <meta property="og:description" content="Discover sustainable materials and innovative designs at Re-ing, bridging Taiwan's eco-materials with global markets.">
+  <meta property="og:title" content="Re-ing: Sustainable Design Solutions">
+  <meta property="og:description" content="Innovating with eco-friendly materials for a better planet.">
   <meta property="og:image" content="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png">
   <meta property="og:url" content="https://josephhan0818.github.io/re.ing/">
-  <title>Re-ing: A Sustainable Future</title>
+  <title>Re-ing: Sustainable Design Solutions</title>
   <link rel="icon" href="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
       scroll-behavior: smooth;
     }
 
@@ -33,7 +34,10 @@
       overflow-x: hidden;
     }
 
-    /* 導航欄 */
+    .card-shadow {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
     .navbar {
       background: #FFFFFF;
       padding: 1rem 2rem;
@@ -78,7 +82,17 @@
       transform: translateY(-2px);
     }
 
-    /* Header */
+    .navbar-toggler {
+      border: none;
+      outline: none;
+      box-shadow: none;
+    }
+
+    .navbar-toggler:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
     header {
       position: relative;
       min-height: 100vh;
@@ -110,7 +124,7 @@
     }
 
     header h1 {
-      font-size: 3.5rem;
+      font-size: 3rem;
       font-weight: 700;
       color: #FFFFFF;
       text-shadow: 
@@ -122,21 +136,8 @@
       opacity: 1 !important;
     }
 
-    header h2 {
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: #FFFFFF;
-      text-shadow: 
-        0 0 10px rgba(0, 0, 0, 1), 
-        0 0 20px rgba(0, 0, 0, 1),
-        2px 2px 4px #000000;
-      margin-bottom: 1.5rem;
-      visibility: visible !important;
-      opacity: 1 !important;
-    }
-
     header p {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       font-weight: 400;
       color: #FFFFFF;
       max-width: 700px;
@@ -148,7 +149,6 @@
       opacity: 1 !important;
     }
 
-    /* 區塊樣式 */
     section {
       padding: 5rem 2rem;
       max-width: 1400px;
@@ -156,7 +156,7 @@
     }
 
     .section-title {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       font-weight: 700;
       color: #1F2937;
       text-align: center;
@@ -165,6 +165,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      letter-spacing: 0.02em;
     }
 
     .section-title::before,
@@ -198,10 +199,9 @@
       margin: 0 auto 2rem;
     }
 
-    /* 第二階層標題 */
     .sub-title {
       font-size: 1.8rem;
-      font-weight: 600;
+      font-weight: 700;
       color: #1F2937;
       text-align: center;
       margin: 2rem 0;
@@ -209,6 +209,7 @@
       display: inline-block;
       padding: 0.5rem 1rem;
       z-index: 1;
+      letter-spacing: 0.02em;
     }
 
     .sub-title::before {
@@ -224,15 +225,15 @@
       z-index: -1;
     }
 
-    /* 第三階層標題 */
     .sub-sub-title {
       font-size: 1.4rem;
-      font-weight: 500;
+      font-weight: 600;
       color: #1F2937;
       text-align: center;
       margin: 3rem 0 1.5rem;
       position: relative;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      letter-spacing: 0.02em;
     }
 
     .sub-sub-title::after {
@@ -251,13 +252,11 @@
       to { width: 60px; }
     }
 
-    /* 理念卡片 */
     .principle-card {
       background: #FFFFFF;
       border: 1px solid #E5E7EB;
       border-radius: 12px;
       padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       text-align: center;
       transition: transform 0.3s ease;
     }
@@ -285,17 +284,14 @@
       margin: 0;
     }
 
-    /* 圖表區域 */
     .chart-container {
       max-width: 600px;
       margin: 3rem auto;
       background: #FFFFFF;
       border-radius: 12px;
       padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    /* 時間軸 */
     .timeline {
       position: relative;
       max-width: 800px;
@@ -355,7 +351,6 @@
       border: 1px solid #E5E7EB;
       border-radius: 12px;
       padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
     }
 
@@ -382,7 +377,6 @@
       margin: 0;
     }
 
-    /* 卡片設計（圖片為主，方形） */
     .card {
       position: relative;
       height: 450px;
@@ -390,7 +384,6 @@
       border: 2px solid transparent;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
     }
 
@@ -447,13 +440,11 @@
       text-align: center;
     }
 
-    /* Contact 卡片 */
     .contact-card {
       background: #FFFFFF;
       border: 2px solid transparent;
       border-radius: 12px;
       padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       text-align: center;
       transition: transform 0.3s ease;
     }
@@ -487,13 +478,11 @@
       color: #0E7490;
     }
 
-    /* Why Choose Us 卡片 */
     .reason-card {
       background: #FFFFFF;
       border: 1px solid #E5E7EB;
       border-radius: 12px;
       padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       text-align: center;
       transition: transform 0.3s ease;
     }
@@ -521,13 +510,11 @@
       margin: 0;
     }
 
-    /* Sustainability Goals 卡片 */
     .goal-card {
       background: #FFFFFF;
       border: 1px solid #E5E7EB;
       border-radius: 12px;
       padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       text-align: center;
       transition: transform 0.3s ease;
     }
@@ -555,13 +542,11 @@
       margin: 0;
     }
 
-    /* Blog 卡片 */
     .blog-card {
       background: #FFFFFF;
       border: 1px solid #E5E7EB;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
     }
 
@@ -597,12 +582,10 @@
       color: inherit;
     }
 
-    /* Testimonials 輪播 */
     .testimonial-card {
       background: #FFFFFF;
       border-radius: 12px;
       padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       text-align: center;
       min-height: 300px;
       display: flex;
@@ -660,7 +643,6 @@
       border-radius: 50%;
     }
 
-    /* 下載區域 */
     .download-section {
       text-align: center;
       background: #F3F4F6;
@@ -696,7 +678,6 @@
       box-shadow: 0 8px 20px rgba(34, 211, 238, 0.4);
     }
 
-    /* 聯繫表單 */
     .contact-form {
       background: #FFFFFF;
       padding: 3rem;
@@ -760,7 +741,20 @@
       box-shadow: 0 8px 20px rgba(34, 211, 238, 0.4);
     }
 
-    /* Newsletter 訂閱 */
+    .contact-form .thank-you {
+      display: none;
+      margin-top: 1rem;
+      color: #1F2937;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .contact-form .thank-you.visible {
+      display: block;
+      opacity: 1;
+    }
+
     .newsletter-section {
       background: linear-gradient(to bottom, #1F2937, #2D3748);
       padding: 3rem 2rem;
@@ -815,7 +809,20 @@
       box-shadow: 0 8px 20px rgba(34, 211, 238, 0.4);
     }
 
-    /* Footer */
+    .newsletter-form .thank-you {
+      display: none;
+      margin-top: 1rem;
+      color: #FFFFFF;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .newsletter-form .thank-you.visible {
+      display: block;
+      opacity: 1;
+    }
+
     footer {
       background: #1F2937;
       padding: 4rem 2rem;
@@ -840,18 +847,13 @@
       color: #22D3EE;
     }
 
-    /* 響應式設計 */
     @media (max-width: 768px) {
       header h1 {
-        font-size: 2.5rem;
-      }
-
-      header h2 {
-        font-size: 1.2rem;
+        font-size: 2.2rem;
       }
 
       header p {
-        font-size: 1rem;
+        font-size: 0.9rem;
       }
 
       header .container {
@@ -859,7 +861,7 @@
       }
 
       .section-title {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
       }
 
       .section-title::before,
@@ -907,12 +909,21 @@
         width: 100%;
         left: 0 !important;
         text-align: left !important;
-        padding-left: 50px;
+        padding-left: 40px;
+        padding-right: 1rem;
       }
 
       .timeline-item::before {
         left: 8px !important;
         right: auto !important;
+      }
+
+      .timeline-content h3 {
+        font-size: 1.1rem;
+      }
+
+      .timeline-content p {
+        font-size: 0.8rem;
       }
 
       .card {
@@ -968,11 +979,14 @@
       .newsletter-form input {
         width: 100%;
       }
+
+      .blog-card img {
+        height: 150px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- 導航欄 -->
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">
@@ -996,16 +1010,13 @@
     </div>
   </nav>
 
-  <!-- Header -->
   <header>
     <div class="container">
-      <h1>Re-ing: A Sustainable Future</h1>
-      <h2>Crafting a Circular Tomorrow</h2>
-      <p>From waste to innovation, we bridge sustainable materials and thoughtful design for a thriving planet.</p>
+      <h1>Re-ing: Sustainable Design Solutions</h1>
+      <p>Innovating with eco-friendly materials for a better planet.</p>
     </div>
   </header>
 
-  <!-- (1) 我們的使命 -->
   <section id="mission">
     <h2 class="section-title" data-aos="fade-up"><span>Our Mission</span></h2>
     <p class="section-content" data-aos="fade-up" data-aos-delay="100">
@@ -1014,29 +1025,35 @@
     <div class="container">
       <div class="row g-4">
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="principle-card">
+          <div class="principle-card card-shadow">
             <i class="fas fa-leaf"></i>
             <h3>Sustainable Design</h3>
-            <p>We focus on sustainable design, using recyclable and plastic-free materials to minimize environmental impact and promote a circular economy.</p>
+            <p>
+              We focus on sustainable design, using recyclable and plastic-free materials to minimize environmental impact and promote a circular economy.
+            </p>
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="principle-card">
+          <div class="principle-card card-shadow">
             <i class="fas fa-industry"></i>
             <h3>Taiwanese Expertise</h3>
-            <p>We partner with Taiwan’s leading material manufacturers, leveraging their extensive experience and patented technologies to deliver high-quality sustainable materials.</p>
+            <p>
+              We partner with Taiwan’s leading material manufacturers, leveraging their extensive experience and patented technologies to deliver high-quality sustainable materials.
+            </p>
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-          <div class="principle-card">
+          <div class="principle-card card-shadow">
             <i class="fas fa-globe"></i>
             <h3>Global Collaboration</h3>
-            <p>We foster international collaboration, bringing sustainable products to global markets and advancing the principles of a circular economy.</p>
+            <p>
+              We foster international collaboration, bringing sustainable products to global markets and advancing the principles of a circular economy.
+            </p>
           </div>
         </div>
       </div>
       <h3 class="sub-title" data-aos="fade-up" data-aos-delay="100">Our Impact</h3>
-      <div class="chart-container" data-aos="fade-up" data-aos-delay="200">
+      <div class="chart-container card-shadow" data-aos="fade-up" data-aos-delay="200">
         <canvas id="impactChart"></canvas>
       </div>
     </div>
@@ -1048,35 +1065,39 @@
     </div>
   </section>
 
-  <!-- (2) 我們的流程 -->
   <section id="process">
     <h2 class="section-title" data-aos="fade-up"><span>Our Process</span></h2>
     <div class="timeline">
       <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-        <div class="timeline-content">
+        <div class="timeline-content card-shadow">
           <i class="fas fa-search"></i>
           <h3>Step 1: Research & Sourcing</h3>
-          <p>We research market needs and source sustainable materials from trusted Taiwanese manufacturers.</p>
+          <p>
+            We research market needs and source sustainable materials from trusted Taiwanese manufacturers.
+          </p>
         </div>
       </div>
       <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-        <div class="timeline-content">
+        <div class="timeline-content card-shadow">
           <i class="fas fa-paint-brush"></i>
           <h3>Step 2: Design & Prototyping</h3>
-          <p>We design innovative products using sustainable materials and create prototypes for testing.</p>
+          <p>
+            We design innovative products using sustainable materials and create prototypes for testing.
+          </p>
         </div>
       </div>
       <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-        <div class="timeline-content">
+        <div class="timeline-content card-shadow">
           <i class="fas fa-truck"></i>
           <h3>Step 3: Production & Distribution</h3>
-          <p>We collaborate with partners for production and distribute sustainable products globally.</p>
+          <p>
+            We collaborate with partners for production and distribute sustainable products globally.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- (3) 我們提供的服務 -->
   <section id="services">
     <h2 class="section-title" data-aos="fade-up"><span>Our Services</span></h2>
     <div class="container">
@@ -1087,8 +1108,8 @@
       <h4 class="sub-sub-title" data-aos="fade-up" data-aos-delay="200">Recycled Plastics</h4>
       <div class="row g-4">
         <div class="col-md-4" data-aos="fade-up">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ocean Waste" loading="lazy">
+          <div class="card card-shadow">
+            <img src="https://via.placeholder.com/800x800.png?text=Ocean+Waste+Material" alt="Ocean Waste Material" loading="lazy">
             <div class="card-content">
               <h3>Ocean Waste</h3>
               <p>Transformed into modular blocks and packaging, protecting our seas.</p>
@@ -1096,8 +1117,8 @@
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1593642532973-d31b97d0e6b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="PET Yarn" loading="lazy">
+          <div class="card card-shadow">
+            <img src="https://via.placeholder.com/800x800.png?text=PET+Yarn+Fabric" alt="PET Yarn Fabric" loading="lazy">
             <div class="card-content">
               <h3>PET Yarn</h3>
               <p>Recycled into durable fabrics for a waste-free future.</p>
@@ -1105,8 +1126,8 @@
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1583573636246-18cb2246697f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Recycled Toys" loading="lazy">
+          <div class="card card-shadow">
+            <img src="https://via.placeholder.com/800x800.png?text=Recycled+Toys+Furniture" alt="Recycled Toys Furniture" loading="lazy">
             <div class="card-content">
               <h3>Recycled Toys</h3>
               <p>Repurposed into furniture and play structures for kids.</p>
@@ -1114,8 +1135,8 @@
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1588600878108-578307a3cc9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="SuperWood" loading="lazy">
+          <div class="card card-shadow">
+            <img src="https://via.placeholder.com/800x800.png?text=SuperWood+Composite" alt="SuperWood Composite" loading="lazy">
             <div class="card-content">
               <h3>SuperWood™</h3>
               <p>Recycled wood-plastic composite for durable construction.</p>
@@ -1126,8 +1147,8 @@
       <h4 class="sub-sub-title" data-aos="fade-up" data-aos-delay="200">Plastic-Free Materials</h4>
       <div class="row g-4">
         <div class="col-md-4" data-aos="fade-up">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bamboo Fiber" loading="lazy">
+          <div class="card card-shadow">
+            <img src="https://via.placeholder.com/800x800.png?text=Bamboo+Fiber+Product" alt="Bamboo Fiber Product" loading="lazy">
             <div class="card-content">
               <h3>Bamboo Fiber</h3>
               <p>Biodegradable and versatile for eco-friendly products.</p>
@@ -1135,8 +1156,8 @@
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1587502537140-0d0b7a5f0119?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Paper Pulp" loading="lazy">
+          <div class="card card-shadow">
+            <img src="https://via.placeholder.com/800x800.png?text=Paper+Pulp+Packaging" alt="Paper Pulp Packaging" loading="lazy">
             <div class="card-content">
               <h3>Paper Pulp</h3>
               <p>Blended with natural fibers for sustainable packaging.</p>
@@ -1144,8 +1165,8 @@
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1591019473255-7c4e9b2e0a37?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pineapple Fiber" loading="lazy">
+          <div class="card card-shadow">
+            <img src="https://via.placeholder.com/800x800.png?text=Pineapple+Fiber+Textile" alt="Pineapple Fiber Textile" loading="lazy">
             <div class="card-content">
               <h3>Pineapple Fiber</h3>
               <p>Lightweight and sustainable for textiles and composites.</p>
@@ -1160,7 +1181,7 @@
       <h4 class="sub-sub-title" data-aos="fade-up" data-aos-delay="200">Our Products</h4>
       <div class="row g-4">
         <div class="col-md-4" data-aos="fade-up">
-          <div class="card">
+          <div class="card card-shadow">
             <img src="https://shoplineimg.com/5e68641477cb07001243f611/64393145e4f45f0017671238/800x.webp?source_format=jpg" alt="Cannelé Lulu Chair" loading="lazy">
             <div class="card-content">
               <h3>re-ing Cannelé Lulu Chair</h3>
@@ -1169,7 +1190,7 @@
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="card">
+          <div class="card card-shadow">
             <img src="https://shoplineimg.com/5e68641477cb07001243f611/65893f6b3c11e800118ab555/800x.webp?source_format=jpg" alt="Coral Chair" loading="lazy">
             <div class="card-content">
               <h3>Coral Chair</h3>
@@ -1178,7 +1199,7 @@
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="card">
+          <div class="card card-shadow">
             <img src="https://shoplineimg.com/5e68641477cb07001243f611/67a97f88f5c949000f9c1086/800x.webp?source_format=jpg" alt="Bamboo Fiber Plate" loading="lazy">
             <div class="card-content">
               <h3>Bamboo Fiber Plate</h3>
@@ -1187,7 +1208,7 @@
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up">
-          <div class="card">
+          <div class="card card-shadow">
             <img src="https://shoplineimg.com/5e68641477cb07001243f611/6673f0665026c70010c55a69/800x.webp?source_format=jpg" alt="Bamboo Fiber Lunch Box" loading="lazy">
             <div class="card-content">
               <h3>Bamboo Fiber Lunch Box</h3>
@@ -1196,8 +1217,8 @@
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bamboo Fiber Coffee Cup" loading="lazy">
+          <div class="card card-shadow">
+            <img src="https://via.placeholder.com/800x800.png?text=Bamboo+Fiber+Coffee+Cup" alt="Bamboo Fiber Coffee Cup" loading="lazy">
             <div class="card-content">
               <h3>Bamboo Fiber Coffee Cup</h3>
               <p>Reusable and biodegradable cup for sustainable sipping.</p>
@@ -1205,8 +1226,8 @@
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modular Storage Cabinet" loading="lazy">
+          <div class="card card-shadow">
+            <img src="https://via.placeholder.com/800x800.png?text=Modular+Storage+Cabinet" alt="Modular Storage Cabinet" loading="lazy">
             <div class="card-content">
               <h3>Modular Storage Cabinet</h3>
               <p>Versatile storage solution made from recycled materials.</p>
@@ -1214,8 +1235,8 @@
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1587502537140-0d0b7a5f0119?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Paper Pulp Cat Box" loading="lazy">
+          <div class="card card-shadow">
+            <img src="https://via.placeholder.com/800x800.png?text=Paper+Pulp+Cat+Box" alt="Paper Pulp Cat Box" loading="lazy">
             <div class="card-content">
               <h3>Paper Pulp Cat Box</h3>
               <p>Eco-friendly cat box made from recycled paper pulp.</p>
@@ -1223,8 +1244,8 @@
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ocean Waste Whale Trophy" loading="lazy">
+          <div class="card card-shadow">
+            <img src="https://via.placeholder.com/800x800.png?text=Ocean+Waste+Whale+Trophy" alt="Ocean Waste Whale Trophy" loading="lazy">
             <div class="card-content">
               <h3>Ocean Waste Whale Trophy</h3>
               <p>Symbolic trophy crafted from ocean waste, promoting sustainability.</p>
@@ -1241,52 +1262,67 @@
     </div>
   </section>
 
-  <!-- (4) 為什麼選擇我們 -->
   <section id="why-choose-us">
     <h2 class="section-title" data-aos="fade-up"><span>Why Choose Us</span></h2>
     <div class="container">
       <div class="row g-4">
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="reason-card">
+          <div class="reason-card card-shadow">
             <i class="fas fa-lightbulb"></i>
             <h3>Innovation-Driven</h3>
-            <p>We continuously innovate to develop sustainable products that meet market demands and push the boundaries of eco-design.</p>
+            <p>
+              We continuously innovate to develop sustainable products that meet market demands and push the boundaries of eco-design.
+            </p>
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="reason-card">
+          <div class="reason-card card-shadow">
             <i class="fas fa-leaf"></i>
             <h3>Eco-Friendly</h3>
-            <p>All our products and materials are designed with environmental protection at the core, reducing carbon footprints.</p>
+            <p>
+              All our products and materials are designed with environmental protection at the core, reducing carbon footprints.
+            </p>
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="reason-card">
+          <div class="reason-card card-shadow">
             <i class="fas fa-handshake"></i>
             <h3>Trusted Partnerships</h3>
-            <p>We build long-term, trusted relationships with global partners, ensuring quality and efficiency in every project.</p>
+            <p>
+              We build long-term, trusted relationships with global partners, ensuring quality and efficiency in every project.
+            </p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- (5) 聯繫我們 -->
   <section id="contact">
     <h2 class="section-title" data-aos="fade-up"><span>Contact Us</span></h2>
     <div class="container">
       <div class="row g-4">
         <div class="col-md-6" data-aos="fade-up">
-          <div class="contact-card">
+          <div class="contact-card card-shadow">
             <h3>Office Address</h3>
-            <p>Maasboulevard 100, 3063 NS Rotterdam, Netherlands<br>(Located in BlueCity – Circular Economy Hub)</p>
+            <p>
+              Maasboulevard 100, 3063 NS Rotterdam, Netherlands<br>(Located in BlueCity – Circular Economy Hub)
+            </p>
           </div>
         </div>
         <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="contact-card">
+          <div class="contact-card card-shadow">
             <h3>Contact Persons</h3>
-            <p><strong>Lance Han</strong><br>Director<br>✉ <a href="mailto:lance@ddoott.com">lance@ddoott.com</a></p>
-            <p><strong>Joseph Han</strong><br>International Project Manager<br>✉ <a href="mailto:joseph@ddoott.com">joseph@ddoott.com</a><br>📱 WhatsApp: +886-918081860</p>
+            <p>
+              <strong>Lance Han</strong><br>
+              Director<br>
+              ✉ <a href="mailto:lance@ddoott.com">lance@ddoott.com</a>
+            </p>
+            <p>
+              <strong>Joseph Han</strong><br>
+              International Project Manager<br>
+              ✉ <a href="mailto:joseph@ddoott.com">joseph@ddoott.com</a><br>
+              📱 WhatsApp: +886-918081860
+            </p>
           </div>
         </div>
       </div>
@@ -1299,7 +1335,6 @@
     </div>
   </section>
 
-  <!-- (6) 客戶評價 -->
   <section id="testimonials">
     <h2 class="section-title" data-aos="fade-up"><span>Testimonials</span></h2>
     <div class="container">
@@ -1311,22 +1346,22 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <div class="testimonial-card">
-              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Client Emily Carter">
+            <div class="testimonial-card card-shadow">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Client Emily Carter" loading="lazy">
               <p>"Re-ing's innovative designs and commitment to sustainability have transformed our product line. Highly recommend!"</p>
               <h5>Emily Carter, Product Manager</h5>
             </div>
           </div>
           <div class="carousel-item">
-            <div class="testimonial-card">
-              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Supplier Li Wei">
+            <div class="testimonial-card card-shadow">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Supplier Li Wei" loading="lazy">
               <p>"Working with Re-ing has been a seamless experience. Their professionalism and dedication to quality are unmatched."</p>
               <h5>Li Wei, Material Supplier</h5>
             </div>
           </div>
           <div class="carousel-item">
-            <div class="testimonial-card">
-              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Partner Mark Johnson">
+            <div class="testimonial-card card-shadow">
+              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Partner Mark Johnson" loading="lazy">
               <p>"Re-ing's global vision and sustainable approach have made them an invaluable partner in our journey towards a greener future."</p>
               <h5>Mark Johnson, International Partner</h5>
             </div>
@@ -1344,49 +1379,53 @@
     </div>
   </section>
 
-  <!-- (7) 永續目標 -->
   <section id="sustainability-goals">
     <h2 class="section-title" data-aos="fade-up"><span>Sustainability Goals</span></h2>
     <div class="container">
       <div class="row g-4">
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="goal-card">
+          <div class="goal-card card-shadow">
             <i class="fas fa-leaf"></i>
             <h3>Reduce Carbon Footprint by 50% by 2030</h3>
-            <p>By leveraging sustainable materials and optimizing our design processes, we aim to significantly lower our environmental impact.</p>
+            <p>
+              By leveraging sustainable materials and optimizing our design processes, we aim to significantly lower our environmental impact.
+            </p>
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="goal-card">
+          <div class="goal-card card-shadow">
             <i class="fas fa-recycle"></i>
             <h3>Achieve 100% Recyclable Products by 2028</h3>
-            <p>We are committed to ensuring all our products are fully recyclable, contributing to a circular economy.</p>
+            <p>
+              We are committed to ensuring all our products are fully recyclable, contributing to a circular economy.
+            </p>
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="goal-card">
+          <div class="goal-card card-shadow">
             <i class="fas fa-globe"></i>
             <h3>Expand Plastic-Free Solutions Globally</h3>
-            <p>We aim to promote plastic-free materials worldwide, reducing plastic pollution on a global scale.</p>
+            <p>
+              We aim to promote plastic-free materials worldwide, reducing plastic pollution on a global scale.
+            </p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- (8) 回復表單 -->
   <section id="reply-form">
     <h2 class="section-title" data-aos="fade-up"><span>Reply Form</span></h2>
     <div class="container">
-      <div class="contact-form" data-aos="fade-up">
+      <div class="contact-form card-shadow" data-aos="fade-up">
         <h3>Leave a Message</h3>
         <form action="https://formspree.io/f/xwplakrv" method="POST" onsubmit="showThankYou(event)">
           <label for="email">Your Email</label>
-          <input type="email" id="email" name="email" placeholder="name@example.com" required>
+          <input type="email" id="email" name="email" placeholder="name@example.com" aria-label="Your Email Address" required>
           <label for="message">Your Message</label>
-          <textarea id="message" name="message" placeholder="Let us know how we can help you..." required></textarea>
+          <textarea id="message" name="message" placeholder="Let us know how we can help you..." aria-label="Your Message" required></textarea>
           <button type="submit">Send Message <i class="fas fa-paper-plane ms-2"></i></button>
-          <p id="thank-you" style="display: none; margin-top: 1rem; color: #1F2937; font-weight: bold;">Thanks for your message!</p>
+          <p id="thank-you" class="thank-you">Thanks for your message!</p>
         </form>
       </div>
     </div>
@@ -1398,15 +1437,14 @@
     </div>
   </section>
 
-  <!-- (9) 部落格精選 -->
   <section id="blog-highlights">
     <h2 class="section-title" data-aos="fade-up"><span>Blog Highlights</span></h2>
     <div class="container">
       <div class="row g-4">
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="blog-card">
+          <div class="blog-card card-shadow">
             <a href="#">
-              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sustainable Packaging Blog">
+              <img src="https://via.placeholder.com/800x400.png?text=Sustainable+Packaging" alt="Sustainable Packaging Blog" loading="lazy">
               <div class="blog-content">
                 <h3>The Future of Sustainable Packaging</h3>
                 <p>Explore how sustainable packaging is reshaping industries and reducing waste.</p>
@@ -1415,9 +1453,9 @@
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="blog-card">
+          <div class="blog-card card-shadow">
             <a href="#">
-              <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Recycled Plastics Blog">
+              <img src="https://via.placeholder.com/800x400.png?text=Recycled+Plastics+Design" alt="Recycled Plastics Blog" loading="lazy">
               <div class="blog-content">
                 <h3>How Recycled Plastics Are Transforming Design</h3>
                 <p>Learn how recycled plastics are being used to create innovative and eco-friendly products.</p>
@@ -1426,9 +1464,9 @@
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="blog-card">
+          <div class="blog-card card-shadow">
             <a href="#">
-              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bamboo Fiber Blog">
+              <img src="https://via.placeholder.com/800x400.png?text=Bamboo+Fiber+Future" alt="Bamboo Fiber Blog" loading="lazy">
               <div class="blog-content">
                 <h3>Why Bamboo Fiber Is the Material of Tomorrow</h3>
                 <p>Discover the benefits of bamboo fiber and its role in sustainable design.</p>
@@ -1440,18 +1478,16 @@
     </div>
   </section>
 
-  <!-- (10) Newsletter 訂閱 -->
   <section id="newsletter" class="newsletter-section">
     <h2 data-aos="fade-up">Stay Updated</h2>
     <p data-aos="fade-up" data-aos-delay="100">Subscribe to our newsletter for the latest updates on sustainable design and materials.</p>
     <form class="newsletter-form" action="https://formspree.io/f/xwplakrv" method="POST" onsubmit="showNewsletterThankYou(event)" data-aos="fade-up" data-aos-delay="200">
-      <input type="email" name="email" placeholder="Enter your email" required>
+      <input type="email" name="email" placeholder="Enter your email" aria-label="Your Email Address for Newsletter" required>
       <button type="submit">Subscribe <i class="fas fa-envelope ms-2"></i></button>
-      <p id="newsletter-thank-you" style="display: none; margin-top: 1rem; color: #FFFFFF; font-weight: bold;">Thank you for subscribing!</p>
+      <p id="newsletter-thank-you" class="thank-you">Thank you for subscribing!</p>
     </form>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>© 2025 Re-ing. All rights reserved.</p>
     <div class="social-links">
@@ -1461,135 +1497,87 @@
     </div>
   </footer>
 
-  <!-- 外掛腳本 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // 錯誤捕捉和日誌
-    console.log('Initializing Re-ing page...');
+    // Initialize AOS animations
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
 
-    // 初始化 AOS
-    try {
-      AOS.init({ duration: 1000, once: true });
-      console.log('AOS initialized');
-    } catch (e) {
-      console.error('Failed to initialize AOS:', e);
-    }
-
-    // 強制 Header 文字顯示
-    document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(function() {
-        const headerElements = document.querySelectorAll('header h1, header h2, header p');
-        headerElements.forEach(el => {
-          el.style.cssText = 'opacity: 1 !important; visibility: visible !important; transform: none !important; color: #FFFFFF !important;';
-          el.removeAttribute('data-aos');
-          el.removeAttribute('data-aos-delay');
-          el.removeAttribute('data-aos-duration');
-        });
-        document.querySelector('header .container').style.cssText = 'opacity: 1 !important; visibility: visible !important; z-index: 10 !important;';
-      }, 100);
-
-      // 初始化 Chart.js
-      const ctx = document.getElementById('impactChart').getContext('2d');
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['Carbon Emission Reduction', 'Recycled Material Usage', 'Plastic-Free Proportion'],
-          datasets: [{
-            label: 'Impact (%)',
-            data: [40, 60, 50],
-            backgroundColor: ['#34D399', '#6EE7B7', '#A7F3D0'],
-            borderWidth: 1
-          }]
-        },
-        options: {
-          responsive: true,
-          scales: {
-            y: {
-              beginAtZero: true,
-              max: 100,
-              ticks: { stepSize: 20, callback: value => value + '%' }
-            }
+    // Impact Chart
+    const ctx = document.getElementById('impactChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Plastic Reduction', 'Carbon Footprint', 'Recycled Materials'],
+        datasets: [{
+          label: 'Impact (tons)',
+          data: [1200, 850, 1500],
+          backgroundColor: [
+            'rgba(16, 185, 129, 0.6)',
+            'rgba(34, 211, 238, 0.6)',
+            'rgba(74, 222, 128, 0.6)'
+          ],
+          borderColor: [
+            'rgba(16, 185, 129, 1)',
+            'rgba(34, 211, 238, 1)',
+            'rgba(74, 222, 128, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top'
           },
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              callbacks: {
-                label: function(context) {
-                  return `${context.label}: ${context.raw}%`;
-                }
-              }
-            },
-            datalabels: {
-              anchor: 'end',
-              align: 'top',
-              formatter: value => value + '%',
-              color: '#1F2937',
-              font: { weight: 'bold' }
+          datalabels: {
+            anchor: 'end',
+            align: 'top',
+            color: '#1F2937',
+            font: {
+              weight: 'bold'
             }
           }
         },
-        plugins: [ChartDataLabels]
-      });
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Tons'
+            }
+          }
+        }
+      },
+      plugins: [ChartDataLabels]
     });
 
-    // 表單提交
+    // Form submission thank you messages
     function showThankYou(event) {
       event.preventDefault();
       const form = event.target;
-      const formData = new FormData(form);
-      fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          form.reset();
-          document.getElementById('thank-you').style.display = 'block';
-          console.log('Form submitted successfully');
-        } else {
-          alert('Oops! There was a problem with your submission');
-          console.error('Form submission failed:', response.status);
-        }
-      }).catch(error => {
-        console.error('Form submission error:', error);
-        alert('Network error. Please try again later.');
-      });
+      const thankYouMessage = document.getElementById('thank-you');
+      form.style.display = 'none';
+      thankYouMessage.classList.add('visible');
+      setTimeout(() => {
+        form.submit();
+      }, 1500);
     }
 
-    // Newsletter 表單提交
     function showNewsletterThankYou(event) {
       event.preventDefault();
       const form = event.target;
-      const formData = new FormData(form);
-      fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          form.reset();
-          document.getElementById('newsletter-thank-you').style.display = 'block';
-          console.log('Newsletter subscription successful');
-        } else {
-          alert('Oops! There was a problem with your subscription');
-          console.error('Subscription failed:', response.status);
-        }
-      }).catch(error => {
-        console.error('Subscription error:', error);
-        alert('Network error. Please try again later.');
-      });
+      const thankYouMessage = document.getElementById('newsletter-thank-you');
+      form.style.display = 'none';
+      thankYouMessage.classList.add('visible');
+      setTimeout(() => {
+        form.submit();
+      }, 1500);
     }
-
-    // 檢查 Header 背景圖片載入
-    const header = document.querySelector('header');
-    const headerBg = new Image();
-    headerBg.src = 'https://storage.googleapis.com/goldenpin/award_work_pic/image/4956/detail_image_76b850.jpeg';
-    headerBg.onerror = () => {
-      console.error('Header background image failed to load');
-      header.style.backgroundImage = 'none';
-      header.style.backgroundColor = '#0a1520';
-    };
   </script>
 </body>
 </html>
