@@ -12,17 +12,17 @@
   <meta property="og:url" content="https://josephhan0818.github.io/re.ing/">
   <title>Re-ing: A Sustainable Future</title>
   <link rel="icon" href="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       scroll-behavior: smooth;
     }
 
@@ -31,15 +31,6 @@
       color: #1F2937;
       line-height: 1.6;
       overflow-x: hidden;
-    }
-
-    /* 粒子背景 */
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: transparent;
     }
 
     /* 導航欄 */
@@ -63,7 +54,23 @@
       color: #1F2937 !important;
       font-weight: 500;
       padding: 0.5rem 1rem;
+      position: relative;
       transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #22D3EE;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
     }
 
     .nav-link:hover {
@@ -82,7 +89,7 @@
       padding: 2rem;
       background: url('https://storage.googleapis.com/goldenpin/award_work_pic/image/4956/detail_image_76b850.jpeg') no-repeat center center fixed;
       background-size: cover;
-      background-color: #0a1520; /* Very dark backup background */
+      background-color: #0a1520;
     }
 
     header::after {
@@ -92,31 +99,31 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.7); /* Much darker overlay */
+      background: rgba(0, 0, 0, 0.7);
       z-index: 1;
     }
 
     header .container {
       position: relative;
-      z-index: 10; /* Ensure it's above the overlay */
+      z-index: 10;
       max-width: 900px;
     }
 
     header h1 {
-      font-size: 4.5rem;
-      font-weight: 800;
-      color: #FFFFFF; /* Bright white */
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #FFFFFF;
       text-shadow: 
         0 0 10px rgba(0, 0, 0, 1), 
         0 0 20px rgba(0, 0, 0, 1), 
-        2px 2px 4px #000000; /* Multiple strong shadows */
+        2px 2px 4px #000000;
       margin-bottom: 1rem;
       visibility: visible !important;
       opacity: 1 !important;
     }
 
     header h2 {
-      font-size: 2rem;
+      font-size: 1.5rem;
       font-weight: 500;
       color: #FFFFFF;
       text-shadow: 
@@ -149,16 +156,31 @@
     }
 
     .section-title {
-      font-size: 3rem;
-      font-weight: 800;
+      font-size: 2.5rem;
+      font-weight: 700;
       color: #1F2937;
       text-align: center;
       margin-bottom: 3rem;
       position: relative;
-      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
+    .section-title::before,
     .section-title::after {
+      content: '';
+      width: 50px;
+      height: 1px;
+      background: #D1D5DB;
+      margin: 0 1rem;
+    }
+
+    .section-title span {
+      position: relative;
+    }
+
+    .section-title span::after {
       content: '';
       display: block;
       width: 100px;
@@ -174,21 +196,206 @@
       text-align: center;
       max-width: 800px;
       margin: 0 auto 2rem;
-      z-index: 3;
     }
 
-    /* 卡片設計（圖片為主） */
+    /* 第二階層標題 */
+    .sub-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #1F2937;
+      text-align: center;
+      margin: 2rem 0;
+      position: relative;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      z-index: 1;
+    }
+
+    .sub-title::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.05), transparent);
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    /* 第三階層標題 */
+    .sub-sub-title {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #1F2937;
+      text-align: center;
+      margin: 3rem 0 1.5rem;
+      position: relative;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .sub-sub-title::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(to right, #10B981, #22D3EE);
+      margin: 0.5rem auto;
+      border-radius: 3px;
+      animation: expandLine 1s forwards;
+    }
+
+    @keyframes expandLine {
+      from { width: 0; }
+      to { width: 60px; }
+    }
+
+    /* 理念卡片 */
+    .principle-card {
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .principle-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .principle-card i {
+      font-size: 2.5rem;
+      color: #22D3EE;
+      margin-bottom: 1rem;
+    }
+
+    .principle-card h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #1F2937;
+      margin-bottom: 0.5rem;
+    }
+
+    .principle-card p {
+      font-size: 0.9rem;
+      color: #4B5563;
+      margin: 0;
+    }
+
+    /* 圖表區域 */
+    .chart-container {
+      max-width: 600px;
+      margin: 3rem auto;
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 時間軸 */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: linear-gradient(to bottom, #10B981, #22D3EE);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 1rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      text-align: left;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 20px;
+      height: 20px;
+      background: #22D3EE;
+      border-radius: 50%;
+      border: 4px solid #FFFFFF;
+      box-shadow: 0 0 0 4px #10B981;
+    }
+
+    .timeline-item:nth-child(odd)::before {
+      right: -12px;
+    }
+
+    .timeline-item:nth-child(even)::before {
+      left: -12px;
+    }
+
+    .timeline-content {
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .timeline-content:hover {
+      transform: translateY(-5px);
+    }
+
+    .timeline-content i {
+      font-size: 2rem;
+      color: #22D3EE;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-content h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1F2937;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-content p {
+      font-size: 0.9rem;
+      color: #4B5563;
+      margin: 0;
+    }
+
+    /* 卡片設計（圖片為主，方形） */
     .card {
       position: relative;
-      height: 300px;
+      height: 450px;
       background: #FFFFFF;
       border: 2px solid transparent;
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 92% 100%, 8% 100%, 0 92%, 0 8%);
-      transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
     }
 
     .card img {
@@ -211,15 +418,9 @@
       align-items: center;
       background: transparent;
       opacity: 0;
-      padding: 1.5rem;
+      padding: 1rem;
       transition: opacity 0.3s ease, background 0.3s ease;
       z-index: 3;
-    }
-
-    .card:hover {
-      transform: perspective(1000px) rotateX(2deg) rotateY(2deg) scale(1.02);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 0 0 10px rgba(34, 211, 238, 0.3);
-      border-color: #22D3EE;
     }
 
     .card:hover img {
@@ -228,11 +429,11 @@
 
     .card:hover .card-content {
       opacity: 1;
-      background: linear-gradient(to top, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3));
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
     }
 
     .card h3 {
-      font-size: 1.7rem;
+      font-size: 1.4rem;
       font-weight: 600;
       color: #1F2937;
       margin-bottom: 0.5rem;
@@ -240,32 +441,259 @@
     }
 
     .card p {
-      font-size: 1rem;
+      font-size: 0.9rem;
       font-weight: 300;
       color: #1F2937;
       text-align: center;
     }
 
-    /* Swiper 滑動選單 */
-    .swiper {
-      width: 100%;
-      padding: 2rem 0;
+    /* Contact 卡片 */
+    .contact-card {
+      background: #FFFFFF;
+      border: 2px solid transparent;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
     }
 
-    .swiper-slide {
-      display: flex;
-      justify-content: center;
+    .contact-card:hover {
+      transform: translateY(-5px);
     }
 
-    .swiper-button-next,
-    .swiper-button-prev {
+    .contact-card h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #1F2937;
+      margin-bottom: 1rem;
+    }
+
+    .contact-card p {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #4B5563;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .contact-card a {
       color: #22D3EE;
+      text-decoration: none;
       transition: color 0.3s ease;
     }
 
-    .swiper-button-next:hover,
-    .swiper-button-prev:hover {
+    .contact-card a:hover {
       color: #0E7490;
+    }
+
+    /* Why Choose Us 卡片 */
+    .reason-card {
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .reason-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .reason-card i {
+      font-size: 2.5rem;
+      color: #22D3EE;
+      margin-bottom: 1rem;
+    }
+
+    .reason-card h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #1F2937;
+      margin-bottom: 0.5rem;
+    }
+
+    .reason-card p {
+      font-size: 0.9rem;
+      color: #4B5563;
+      margin: 0;
+    }
+
+    /* Sustainability Goals 卡片 */
+    .goal-card {
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .goal-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .goal-card i {
+      font-size: 2.5rem;
+      color: #22D3EE;
+      margin-bottom: 1rem;
+    }
+
+    .goal-card h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #1F2937;
+      margin-bottom: 0.5rem;
+    }
+
+    .goal-card p {
+      font-size: 0.9rem;
+      color: #4B5563;
+      margin: 0;
+    }
+
+    /* Blog 卡片 */
+    .blog-card {
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .blog-card .blog-content {
+      padding: 1.5rem;
+    }
+
+    .blog-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1F2937;
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-card p {
+      font-size: 0.9rem;
+      color: #4B5563;
+      margin: 0;
+    }
+
+    .blog-card a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Testimonials 輪播 */
+    .testimonial-card {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .testimonial-card img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      object-fit: cover;
+    }
+
+    .testimonial-card p {
+      font-size: 1rem;
+      color: #4B5563;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .testimonial-card h5 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1F2937;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 5%;
+      background: none;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: #22D3EE;
+      border-radius: 50%;
+      padding: 1.5rem;
+    }
+
+    .carousel-indicators {
+      bottom: -40px;
+    }
+
+    .carousel-indicators [data-bs-target] {
+      background-color: #22D3EE;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    /* 下載區域 */
+    .download-section {
+      text-align: center;
+      background: #F3F4F6;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .download-section h4 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #1F2937;
+      margin-bottom: 1rem;
+    }
+
+    .download-section a {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(to right, #10B981, #22D3EE);
+      color: #FFFFFF;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .download-section a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(34, 211, 238, 0.4);
     }
 
     /* 聯繫表單 */
@@ -281,7 +709,8 @@
     }
 
     .contact-form h3 {
-      font-size: 2rem;
+      font-size: 1.8rem;
+      font-weight: 600;
       color: #1F2937;
       text-align: center;
       margin-bottom: 2rem;
@@ -331,28 +760,94 @@
       box-shadow: 0 8px 20px rgba(34, 211, 238, 0.4);
     }
 
-    /* Footer */
-    footer {
-      background: #F3F4F6;
+    /* Newsletter 訂閱 */
+    .newsletter-section {
+      background: linear-gradient(to bottom, #1F2937, #2D3748);
       padding: 3rem 2rem;
       text-align: center;
-      color: #4B5563;
+      color: #FFFFFF;
+    }
+
+    .newsletter-section h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .newsletter-section p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      color: #D1D5DB;
+    }
+
+    .newsletter-form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .newsletter-form input {
+      width: 70%;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      background: #FFFFFF;
+      color: #1F2937;
+    }
+
+    .newsletter-form button {
+      padding: 0.8rem 2rem;
+      background: linear-gradient(to right, #10B981, #22D3EE);
+      border: none;
+      border-radius: 8px;
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .newsletter-form button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(34, 211, 238, 0.4);
+    }
+
+    /* Footer */
+    footer {
+      background: #1F2937;
+      padding: 4rem 2rem;
+      text-align: center;
+      color: #FFFFFF;
       z-index: 3;
     }
 
     footer p {
       font-size: 0.9rem;
-      margin: 0;
+      margin-bottom: 1rem;
+    }
+
+    .social-links a {
+      color: #FFFFFF;
+      font-size: 1.5rem;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #22D3EE;
     }
 
     /* 響應式設計 */
     @media (max-width: 768px) {
       header h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
       }
 
       header h2 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
       }
 
       header p {
@@ -360,45 +855,128 @@
       }
 
       header .container {
-        padding: 0; /* Adjust padding for smaller screens */
+        padding: 0;
       }
 
       .section-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+      }
+
+      .section-title::before,
+      .section-title::after {
+        width: 30px;
+      }
+
+      .sub-title {
+        font-size: 1.5rem;
+      }
+
+      .sub-sub-title {
+        font-size: 1.2rem;
+      }
+
+      .principle-card,
+      .reason-card,
+      .goal-card,
+      .testimonial-card,
+      .blog-card {
+        padding: 1.5rem;
+      }
+
+      .principle-card h3,
+      .reason-card h3,
+      .goal-card h3 {
+        font-size: 1.2rem;
+      }
+
+      .principle-card p,
+      .reason-card p,
+      .goal-card p {
+        font-size: 0.8rem;
+      }
+
+      .chart-container {
+        max-width: 300px;
+      }
+
+      .timeline::before {
+        left: 20px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding-left: 50px;
+      }
+
+      .timeline-item::before {
+        left: 8px !important;
+        right: auto !important;
       }
 
       .card {
-        height: 250px;
-        clip-path: polygon(5% 0, 95% 0, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0 95%, 0 5%);
+        height: 350px;
       }
 
       .card h3 {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
       }
 
       .card p {
+        font-size: 0.8rem;
+      }
+
+      .contact-card {
+        padding: 1.5rem;
+      }
+
+      .contact-card h3 {
+        font-size: 1.2rem;
+      }
+
+      .contact-card p {
+        font-size: 0.8rem;
+      }
+
+      .download-section h4 {
+        font-size: 1.2rem;
+      }
+
+      .download-section a {
         font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
       }
 
       .contact-form {
         padding: 2rem;
       }
 
-      .swiper {
-        padding: 1rem 0;
+      .contact-form h3 {
+        font-size: 1.5rem;
+      }
+
+      .newsletter-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .newsletter-form input {
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
-  <!-- 粒子背景 -->
-  <div id="particles-js"></div>
-
   <!-- 導航欄 -->
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" alt="Re-ing Logo" onerror="this.src='https://via.placeholder.com/48?text=Logo'">
+        <img src="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" alt="Re-ing Logo">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-bars" style="color: #1F2937;"></i>
@@ -406,9 +984,13 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#mission">Our Mission</a></li>
-          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#process">Our Process</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Our Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#why-choose-us">Why Choose Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sustainability-goals">Sustainability Goals</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#reply-form">Reply Form</a></li>
         </ul>
       </div>
     </div>
@@ -423,115 +1005,117 @@
     </div>
   </header>
 
-  <!-- 使命 -->
+  <!-- (1) 我們的使命 -->
   <section id="mission">
-    <h2 class="section-title" data-aos="fade-up">Our Mission</h2>
+    <h2 class="section-title" data-aos="fade-up"><span>Our Mission</span></h2>
     <p class="section-content" data-aos="fade-up" data-aos-delay="100">
-      Re-ing transforms waste into the building blocks of a sustainable future. Through innovative materials and design, we drive a circular economy, making eco-conscious living inspiring and accessible for all.
+      At Re-ing, we are committed to creating a sustainable future through innovative design and responsible material sourcing.
     </p>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="principle-card">
+            <i class="fas fa-leaf"></i>
+            <h3>Sustainable Design</h3>
+            <p>We focus on sustainable design, using recyclable and plastic-free materials to minimize environmental impact and promote a circular economy.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="principle-card">
+            <i class="fas fa-industry"></i>
+            <h3>Taiwanese Expertise</h3>
+            <p>We partner with Taiwan’s leading material manufacturers, leveraging their extensive experience and patented technologies to deliver high-quality sustainable materials.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="principle-card">
+            <i class="fas fa-globe"></i>
+            <h3>Global Collaboration</h3>
+            <p>We foster international collaboration, bringing sustainable products to global markets and advancing the principles of a circular economy.</p>
+          </div>
+        </div>
+      </div>
+      <h3 class="sub-title" data-aos="fade-up" data-aos-delay="100">Our Impact</h3>
+      <div class="chart-container" data-aos="fade-up" data-aos-delay="200">
+        <canvas id="impactChart"></canvas>
+      </div>
+    </div>
+    <div class="download-section" data-aos="fade-up" data-aos-delay="300">
+      <h4>Download Our Introduction</h4>
+      <a href="#" download="our-mission-introduction.pdf">
+        Download PDF <i class="fas fa-download ms-2"></i>
+      </a>
+    </div>
   </section>
 
-  <!-- 服務 -->
+  <!-- (2) 我們的流程 -->
+  <section id="process">
+    <h2 class="section-title" data-aos="fade-up"><span>Our Process</span></h2>
+    <div class="timeline">
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="timeline-content">
+          <i class="fas fa-search"></i>
+          <h3>Step 1: Research & Sourcing</h3>
+          <p>We research market needs and source sustainable materials from trusted Taiwanese manufacturers.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="timeline-content">
+          <i class="fas fa-paint-brush"></i>
+          <h3>Step 2: Design & Prototyping</h3>
+          <p>We design innovative products using sustainable materials and create prototypes for testing.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="timeline-content">
+          <i class="fas fa-truck"></i>
+          <h3>Step 3: Production & Distribution</h3>
+          <p>We collaborate with partners for production and distribute sustainable products globally.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (3) 我們提供的服務 -->
   <section id="services">
-    <h2 class="section-title" data-aos="fade-up">Our Services</h2>
+    <h2 class="section-title" data-aos="fade-up"><span>Our Services</span></h2>
     <div class="container">
-      <!-- 無塑材料 -->
-      <h3 class="text-center mb-4" style="color: #1F2937; display: inline-block; z-index: 3;" data-aos="fade-up">Plastic-Free Materials</h3>
-      <p class="section-content" data-aos="fade-up" data-aos-delay="100">
-        Our curated plastic-free materials empower businesses to reduce environmental impact, crafting a cleaner future.
+      <h3 class="sub-title" data-aos="fade-up" data-aos-delay="100">Material Sourcing</h3>
+      <p class="section-content" data-aos="fade-up" data-aos-delay="200">
+        We collaborate with multiple material manufacturers from Taiwan, known for their extensive manufacturing experience and patented technologies unavailable elsewhere. Below are the materials we offer. Feel free to contact us for further discussion.
       </p>
+      <h4 class="sub-sub-title" data-aos="fade-up" data-aos-delay="200">Recycled Plastics</h4>
       <div class="row g-4">
         <div class="col-md-4" data-aos="fade-up">
           <div class="card">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bamboo Fiber" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Bamboo+Fiber'">
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ocean Waste" loading="lazy">
             <div class="card-content">
-              <h3>Bamboo Fiber</h3>
-              <p>Biodegradable and versatile for eco-friendly products like tableware.</p>
+              <h3>Ocean Waste</h3>
+              <p>Transformed into modular blocks and packaging, protecting our seas.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
           <div class="card">
-            <img src="https://images.unsplash.com/photo-1587502537140-0d0b7a5f0119?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Paper Pulp" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Paper+Pulp'">
+            <img src="https://images.unsplash.com/photo-1593642532973-d31b97d0e6b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="PET Yarn" loading="lazy">
             <div class="card-content">
-              <h3>Recycled Paper Pulp</h3>
-              <p>Blended with pineapple leaf fiber for sustainable packaging.</p>
+              <h3>PET Yarn</h3>
+              <p>Recycled into durable fabrics for a waste-free future.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
           <div class="card">
-            <img src="https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Earthquake Gravel" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Gravel'">
-            <div class="card-content">
-              <h3>Earthquake Gravel</h3>
-              <p>Transformed into unique design objects, symbolizing resilience.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 回收塑膠 -->
-      <h3 class="text-center mt-5 mb-4" style="color: #1F2937; display: inline-block; z-index: 3;" data-aos="fade-up">Recycled Plastics</h3>
-      <p class="section-content" data-aos="fade-up" data-aos-delay="100">
-        From ocean waste to everyday essentials, our recycled plastics drive a circular economy.
-      </p>
-      <div class="row g-4">
-        <div class="col-md-4" data-aos="fade-up">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ocean Plastics" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Ocean+Plastics'">
-            <div class="card-content">
-              <h3>Ocean Plastics</h3>
-              <p>Reborn as detergent bottles and modular blocks, protecting our seas.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1583573636246-18cb2246697f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Recycled Toys" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Toys'">
+            <img src="https://images.unsplash.com/photo-1583573636246-18cb2246697f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Recycled Toys" loading="lazy">
             <div class="card-content">
               <h3>Recycled Toys</h3>
-              <p>Transformed into furniture and play structures for kids.</p>
+              <p>Repurposed into furniture and play structures for kids.</p>
             </div>
           </div>
         </div>
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1593642532973-d31b97d0e6b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="PET Bottles" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=PET'">
-            <div class="card-content">
-              <h3>Recycled PET</h3>
-              <p>Crafted into durable bags, supporting a waste-free future.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 材料代理 -->
-      <h3 class="text-center mt-5 mb-4" style="color: #1F2937; display: inline-block; z-index: 3;" data-aos="fade-up">Material Representation & Sourcing</h3>
-      <p class="section-content" data-aos="fade-up" data-aos-delay="100">
-        Sourcing Taiwan’s finest sustainable materials to inspire eco-conscious design worldwide.
-      </p>
-      <div class="row g-4">
         <div class="col-md-4" data-aos="fade-up">
           <div class="card">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bamboo Fiber" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Bamboo+Fiber'">
-            <div class="card-content">
-              <h3>Bamboo Fiber</h3>
-              <p>Biodegradable and ideal for sustainable products.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ocean Plastics" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Ocean+Plastics'">
-            <div class="card-content">
-              <h3>Ocean Plastics</h3>
-              <p>Repurposed for innovative, planet-friendly applications.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1588600878108-578307a3cc9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="SuperWood" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=SuperWood'">
+            <img src="https://images.unsplash.com/photo-1588600878108-578307a3cc9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="SuperWood" loading="lazy">
             <div class="card-content">
               <h3>SuperWood™</h3>
               <p>Recycled wood-plastic composite for durable construction.</p>
@@ -539,125 +1123,262 @@
           </div>
         </div>
       </div>
+      <h4 class="sub-sub-title" data-aos="fade-up" data-aos-delay="200">Plastic-Free Materials</h4>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bamboo Fiber" loading="lazy">
+            <div class="card-content">
+              <h3>Bamboo Fiber</h3>
+              <p>Biodegradable and versatile for eco-friendly products.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1587502537140-0d0b7a5f0119?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Paper Pulp" loading="lazy">
+            <div class="card-content">
+              <h3>Paper Pulp</h3>
+              <p>Blended with natural fibers for sustainable packaging.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1591019473255-7c4e9b2e0a37?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pineapple Fiber" loading="lazy">
+            <div class="card-content">
+              <h3>Pineapple Fiber</h3>
+              <p>Lightweight and sustainable for textiles and composites.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3 class="sub-title mt-5" data-aos="fade-up" data-aos-delay="100">Sustainable Product Design</h3>
+      <p class="section-content" data-aos="fade-up" data-aos-delay="200">
+        We are a professional product design company, specializing in using sustainable materials for thoughtful design. We provide high-quality product design services to clients and welcome collaboration with material manufacturers worldwide.
+      </p>
+      <h4 class="sub-sub-title" data-aos="fade-up" data-aos-delay="200">Our Products</h4>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="card">
+            <img src="https://shoplineimg.com/5e68641477cb07001243f611/64393145e4f45f0017671238/800x.webp?source_format=jpg" alt="Cannelé Lulu Chair" loading="lazy">
+            <div class="card-content">
+              <h3>re-ing Cannelé Lulu Chair</h3>
+              <p>Stackable chair made from 50% recycled materials, fully recyclable.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card">
+            <img src="https://shoplineimg.com/5e68641477cb07001243f611/65893f6b3c11e800118ab555/800x.webp?source_format=jpg" alt="Coral Chair" loading="lazy">
+            <div class="card-content">
+              <h3>Coral Chair</h3>
+              <p>Ocean-inspired chair made from recycled materials, blending form and function.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card">
+            <img src="https://shoplineimg.com/5e68641477cb07001243f611/67a97f88f5c949000f9c1086/800x.webp?source_format=jpg" alt="Bamboo Fiber Plate" loading="lazy">
+            <div class="card-content">
+              <h3>Bamboo Fiber Plate</h3>
+              <p>Eco-friendly plate with a diamond pattern, 100% plastic-free.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="card">
+            <img src="https://shoplineimg.com/5e68641477cb07001243f611/6673f0665026c70010c55a69/800x.webp?source_format=jpg" alt="Bamboo Fiber Lunch Box" loading="lazy">
+            <div class="card-content">
+              <h3>Bamboo Fiber Lunch Box</h3>
+              <p>Microwave-safe lunch box made from bamboo fiber and starch.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bamboo Fiber Coffee Cup" loading="lazy">
+            <div class="card-content">
+              <h3>Bamboo Fiber Coffee Cup</h3>
+              <p>Reusable and biodegradable cup for sustainable sipping.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modular Storage Cabinet" loading="lazy">
+            <div class="card-content">
+              <h3>Modular Storage Cabinet</h3>
+              <p>Versatile storage solution made from recycled materials.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1587502537140-0d0b7a5f0119?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Paper Pulp Cat Box" loading="lazy">
+            <div class="card-content">
+              <h3>Paper Pulp Cat Box</h3>
+              <p>Eco-friendly cat box made from recycled paper pulp.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ocean Waste Whale Trophy" loading="lazy">
+            <div class="card-content">
+              <h3>Ocean Waste Whale Trophy</h3>
+              <p>Symbolic trophy crafted from ocean waste, promoting sustainability.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="download-section" data-aos="fade-up" data-aos-delay="300">
+      <h4>Download Our Introduction</h4>
+      <a href="#" download="our-services-introduction.pdf">
+        Download PDF <i class="fas fa-download ms-2"></i>
+      </a>
     </div>
   </section>
 
-  <!-- 產品展示（滑動選單） -->
-  <section id="products">
-    <h2 class="section-title" data-aos="fade-up">Featured Products</h2>
+  <!-- (4) 為什麼選擇我們 -->
+  <section id="why-choose-us">
+    <h2 class="section-title" data-aos="fade-up"><span>Why Choose Us</span></h2>
     <div class="container">
-      <div class="swiper" id="product-slider">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <a href="https://www.ddoott.com/categories/re-ing" target="_blank">
-              <div class="card">
-                <img src="https://shoplineimg.com/5e68641477cb07001243f611/67a97f88f5c949000f9c1086/800x.webp?source_format=jpg" alt="Bamboo Fiber Plates" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Product'">
-                <div class="card-content">
-                  <h3>re-ing Bamboo Fiber Plates</h3>
-                  <p>Eco-friendly plates with a diamond pattern, made from 100% plastic-free bamboo fiber.</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="swiper-slide">
-            <a href="https://www.ddoott.com/categories/re-ing" target="_blank">
-              <div class="card">
-                <img src="https://shoplineimg.com/5e68641477cb07001243f611/6673f0665026c70010c55a69/800x.webp?source_format=jpg" alt="Lunch Box Set" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Product'">
-                <div class="card-content">
-                  <h3>re-ing Bamboo Fiber Lunch Box Set</h3>
-                  <p>Microwave-safe, sustainable lunch box made from bamboo fiber and starch.</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="swiper-slide">
-            <a href="https://www.ddoott.com/categories/re-ing" target="_blank">
-              <div class="card">
-                <img src="https://shoplineimg.com/5e68641477cb07001243f611/64393145e4f45f0017671238/800x.webp?source_format=jpg" alt="Cannelé Tabouret-L" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Product'">
-                <div class="card-content">
-                  <h3>re-ing Cannelé Tabouret-L</h3>
-                  <p>Stackable stool made from 50% recycled materials, fully recyclable.</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="swiper-slide">
-            <a href="https://www.ddoott.com/categories/re-ing" target="_blank">
-              <div class="card">
-                <img src="https://shoplineimg.com/5e68641477cb07001243f611/64393145e4f45f0017671238/800x.webp?source_format=jpg" alt="Tabouret Cannelé" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Product'">
-                <div class="card-content">
-                  <h3>re-ing Tabouret Cannelé</h3>
-                  <p>Whimsical chair crafted from recycled toys and ocean plastics.</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="swiper-slide">
-            <a href="https://www.ddoott.com/categories/re-ing" target="_blank">
-              <div class="card">
-                <img src="https://images.unsplash.com/photo-1583573636246-18cb2246697f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sustainable Toy Set" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Product'">
-                <div class="card-content">
-                  <h3>re-ing Sustainable Toy Set</h3>
-                  <p>Sustainable toy set made from recycled ABS plastics, promoting ecological balance.</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="swiper-slide">
-            <a href="https://www.ddoott.com/categories/re-ing" target="_blank">
-              <div class="card">
-                <img src="https://shoplineimg.com/5e68641477cb07001243f611/67a97f88f5c949000f9c1086/800x.webp?source_format=jpg" alt="re-ing Plate" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Product'">
-                <div class="card-content">
-                  <h3>re-ing Plate</h3>
-                  <p>Round plate with diamond pattern, made from bamboo fiber, 100% plastic-free.</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="swiper-slide">
-            <a href="https://www.ddoott.com/categories/re-ing" target="_blank">
-              <div class="card">
-                <img src="https://shoplineimg.com/5e68641477cb07001243f611/65893f6b3c11e800118ab555/800x.webp?source_format=jpg" alt="Coral Chair" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Product'">
-                <div class="card-content">
-                  <h3>re-ing Coral Chair</h3>
-                  <p>Ocean-inspired chair made from recycled materials, blending form and function.</p>
-                </div>
-              </div>
-            </a>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="reason-card">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Innovation-Driven</h3>
+            <p>We continuously innovate to develop sustainable products that meet market demands and push the boundaries of eco-design.</p>
           </div>
         </div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="reason-card">
+            <i class="fas fa-leaf"></i>
+            <h3>Eco-Friendly</h3>
+            <p>All our products and materials are designed with environmental protection at the core, reducing carbon footprints.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="reason-card">
+            <i class="fas fa-handshake"></i>
+            <h3>Trusted Partnerships</h3>
+            <p>We build long-term, trusted relationships with global partners, ensuring quality and efficiency in every project.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 聯繫我們 -->
+  <!-- (5) 聯繫我們 -->
   <section id="contact">
-    <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
+    <h2 class="section-title" data-aos="fade-up"><span>Contact Us</span></h2>
     <div class="container">
       <div class="row g-4">
         <div class="col-md-6" data-aos="fade-up">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Office" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Office'">
-            <div class="card-content">
-              <h3>Office Address</h3>
-              <p>Maasboulevard 100, 3063 NS Rotterdam, Netherlands<br>(Located in BlueCity – Circular Economy Hub)</p>
-            </div>
+          <div class="contact-card">
+            <h3>Office Address</h3>
+            <p>Maasboulevard 100, 3063 NS Rotterdam, Netherlands<br>(Located in BlueCity – Circular Economy Hub)</p>
           </div>
         </div>
         <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Contact" loading="lazy" onerror="this.src='https://via.placeholder.com/300x300?text=Contact'">
-            <div class="card-content">
-              <h3>Contact Persons</h3>
-              <p><strong>Lance Han</strong><br>Director<br>✉ <a href="mailto:lance@ddoott.com" style="color: #22D3EE;">lance@ddoott.com</a></p>
-              <p><strong>Joseph Han</strong><br>International Project Manager<br>✉ <a href="mailto:joseph@ddoott.com" style="color: #22D3EE;">joseph@ddoott.com</a><br>📱 WhatsApp: +886-918081860</p>
-            </div>
+          <div class="contact-card">
+            <h3>Contact Persons</h3>
+            <p><strong>Lance Han</strong><br>Director<br>✉ <a href="mailto:lance@ddoott.com">lance@ddoott.com</a></p>
+            <p><strong>Joseph Han</strong><br>International Project Manager<br>✉ <a href="mailto:joseph@ddoott.com">joseph@ddoott.com</a><br>📱 WhatsApp: +886-918081860</p>
           </div>
         </div>
       </div>
-      <div class="contact-form mt-5" data-aos="fade-up">
+    </div>
+    <div class="download-section" data-aos="fade-up" data-aos-delay="200">
+      <h4>Download Our Introduction</h4>
+      <a href="#" download="contact-us-introduction.pdf">
+        Download PDF <i class="fas fa-download ms-2"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- (6) 客戶評價 -->
+  <section id="testimonials">
+    <h2 class="section-title" data-aos="fade-up"><span>Testimonials</span></h2>
+    <div class="container">
+      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="testimonial-card">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Client Emily Carter">
+              <p>"Re-ing's innovative designs and commitment to sustainability have transformed our product line. Highly recommend!"</p>
+              <h5>Emily Carter, Product Manager</h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="testimonial-card">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Supplier Li Wei">
+              <p>"Working with Re-ing has been a seamless experience. Their professionalism and dedication to quality are unmatched."</p>
+              <h5>Li Wei, Material Supplier</h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="testimonial-card">
+              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Partner Mark Johnson">
+              <p>"Re-ing's global vision and sustainable approach have made them an invaluable partner in our journey towards a greener future."</p>
+              <h5>Mark Johnson, International Partner</h5>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- (7) 永續目標 -->
+  <section id="sustainability-goals">
+    <h2 class="section-title" data-aos="fade-up"><span>Sustainability Goals</span></h2>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="goal-card">
+            <i class="fas fa-leaf"></i>
+            <h3>Reduce Carbon Footprint by 50% by 2030</h3>
+            <p>By leveraging sustainable materials and optimizing our design processes, we aim to significantly lower our environmental impact.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="goal-card">
+            <i class="fas fa-recycle"></i>
+            <h3>Achieve 100% Recyclable Products by 2028</h3>
+            <p>We are committed to ensuring all our products are fully recyclable, contributing to a circular economy.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="goal-card">
+            <i class="fas fa-globe"></i>
+            <h3>Expand Plastic-Free Solutions Globally</h3>
+            <p>We aim to promote plastic-free materials worldwide, reducing plastic pollution on a global scale.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (8) 回復表單 -->
+  <section id="reply-form">
+    <h2 class="section-title" data-aos="fade-up"><span>Reply Form</span></h2>
+    <div class="container">
+      <div class="contact-form" data-aos="fade-up">
         <h3>Leave a Message</h3>
         <form action="https://formspree.io/f/xwplakrv" method="POST" onsubmit="showThankYou(event)">
           <label for="email">Your Email</label>
@@ -669,51 +1390,87 @@
         </form>
       </div>
     </div>
+    <div class="download-section" data-aos="fade-up" data-aos-delay="200">
+      <h4>Download Our Introduction</h4>
+      <a href="#" download="reply-form-introduction.pdf">
+        Download PDF <i class="fas fa-download ms-2"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- (9) 部落格精選 -->
+  <section id="blog-highlights">
+    <h2 class="section-title" data-aos="fade-up"><span>Blog Highlights</span></h2>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="blog-card">
+            <a href="#">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sustainable Packaging Blog">
+              <div class="blog-content">
+                <h3>The Future of Sustainable Packaging</h3>
+                <p>Explore how sustainable packaging is reshaping industries and reducing waste.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="blog-card">
+            <a href="#">
+              <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Recycled Plastics Blog">
+              <div class="blog-content">
+                <h3>How Recycled Plastics Are Transforming Design</h3>
+                <p>Learn how recycled plastics are being used to create innovative and eco-friendly products.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="blog-card">
+            <a href="#">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bamboo Fiber Blog">
+              <div class="blog-content">
+                <h3>Why Bamboo Fiber Is the Material of Tomorrow</h3>
+                <p>Discover the benefits of bamboo fiber and its role in sustainable design.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (10) Newsletter 訂閱 -->
+  <section id="newsletter" class="newsletter-section">
+    <h2 data-aos="fade-up">Stay Updated</h2>
+    <p data-aos="fade-up" data-aos-delay="100">Subscribe to our newsletter for the latest updates on sustainable design and materials.</p>
+    <form class="newsletter-form" action="https://formspree.io/f/xwplakrv" method="POST" onsubmit="showNewsletterThankYou(event)" data-aos="fade-up" data-aos-delay="200">
+      <input type="email" name="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe <i class="fas fa-envelope ms-2"></i></button>
+      <p id="newsletter-thank-you" style="display: none; margin-top: 1rem; color: #FFFFFF; font-weight: bold;">Thank you for subscribing!</p>
+    </form>
   </section>
 
   <!-- Footer -->
   <footer>
     <p>© 2025 Re-ing. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
   </footer>
 
   <!-- 外掛腳本 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script>
     // 錯誤捕捉和日誌
     console.log('Initializing Re-ing page...');
 
-    // 初始化 Particles.js
-    try {
-      particlesJS('particles-js', {
-        particles: {
-          number: { value: 40, density: { enable: true, value_area: 800 } },
-          color: { value: '#FFFFFF' },
-          shape: { type: 'circle' },
-          opacity: { value: 0.3, random: true },
-          size: { value: 2, random: true },
-          line_linked: { enable: true, distance: 120, color: '#22D3EE', opacity: 0.2, width: 1 },
-          move: { enable: true, speed: 0.8, direction: 'none', random: false }
-        },
-        interactivity: {
-          detect_on: 'canvas',
-          events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
-          modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 3 } }
-        },
-        retina_detect: true
-      });
-      console.log('Particles.js initialized');
-    } catch (e) {
-      console.error('Failed to initialize Particles.js:', e);
-    }
-
     // 初始化 AOS
     try {
-      AOS.init({ duration: 1200, once: true });
+      AOS.init({ duration: 1000, once: true });
       console.log('AOS initialized');
     } catch (e) {
       console.error('Failed to initialize AOS:', e);
@@ -725,56 +1482,56 @@
         const headerElements = document.querySelectorAll('header h1, header h2, header p');
         headerElements.forEach(el => {
           el.style.cssText = 'opacity: 1 !important; visibility: visible !important; transform: none !important; color: #FFFFFF !important;';
-          // 移除 AOS 屬性
           el.removeAttribute('data-aos');
           el.removeAttribute('data-aos-delay');
           el.removeAttribute('data-aos-duration');
         });
-        // 強制容器可見性
         document.querySelector('header .container').style.cssText = 'opacity: 1 !important; visibility: visible !important; z-index: 10 !important;';
       }, 100);
+
+      // 初始化 Chart.js
+      const ctx = document.getElementById('impactChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Carbon Emission Reduction', 'Recycled Material Usage', 'Plastic-Free Proportion'],
+          datasets: [{
+            label: 'Impact (%)',
+            data: [40, 60, 50],
+            backgroundColor: ['#34D399', '#6EE7B7', '#A7F3D0'],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100,
+              ticks: { stepSize: 20, callback: value => value + '%' }
+            }
+          },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return `${context.label}: ${context.raw}%`;
+                }
+              }
+            },
+            datalabels: {
+              anchor: 'end',
+              align: 'top',
+              formatter: value => value + '%',
+              color: '#1F2937',
+              font: { weight: 'bold' }
+            }
+          }
+        },
+        plugins: [ChartDataLabels]
+      });
     });
-
-    // 初始化 Swiper
-    try {
-      const swiper = new Swiper('#product-slider', {
-        slidesPerView: 3,
-        spaceBetween: 30,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false,
-        },
-        breakpoints: {
-          0: { slidesPerView: 1 },
-          768: { slidesPerView: 2 },
-          992: { slidesPerView: 3 },
-        },
-      });
-      console.log('Swiper initialized');
-    } catch (e) {
-      console.error('Failed to initialize Swiper:', e);
-    }
-
-    // GSAP 動畫
-    try {
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.utils.toArray('.card').forEach(card => {
-        gsap.from(card, {
-          opacity: 0,
-          y: 80,
-          duration: 1.2,
-          ease: 'power2.out',
-          scrollTrigger: { trigger: card, start: 'top 85%' }
-        });
-      });
-      console.log('GSAP animations initialized');
-    } catch (e) {
-      console.error('Failed to initialize GSAP:', e);
-    }
 
     // 表單提交
     function showThankYou(event) {
@@ -796,6 +1553,30 @@
         }
       }).catch(error => {
         console.error('Form submission error:', error);
+        alert('Network error. Please try again later.');
+      });
+    }
+
+    // Newsletter 表單提交
+    function showNewsletterThankYou(event) {
+      event.preventDefault();
+      const form = event.target;
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          form.reset();
+          document.getElementById('newsletter-thank-you').style.display = 'block';
+          console.log('Newsletter subscription successful');
+        } else {
+          alert('Oops! There was a problem with your subscription');
+          console.error('Subscription failed:', response.status);
+        }
+      }).catch(error => {
+        console.error('Subscription error:', error);
         alert('Network error. Please try again later.');
       });
     }
