@@ -93,3 +93,14 @@ function showNewsletterThankYou(event) {
   }).catch(error => console.error('Error:', error));
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('language') || 'en';
+  setLanguage(savedLang); // Use the setLanguage function from translations.js
+
+  // Update Awards section title
+  const awardsTitle = document.querySelector('#awards h2 span');
+  if (awardsTitle) {
+    awardsTitle.setAttribute('data-i18n', 'awards.title');
+  }
+});
+
