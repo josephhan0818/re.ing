@@ -185,28 +185,42 @@
       justify-content: center;
       text-align: center;
       padding: 2rem;
-      background: url('https://storage.googleapis.com/goldenpin/award_work_pic/image/4956/detail_image_76b850.jpeg') no-repeat center center fixed;
+      overflow: hidden;
+      background-color: #FFFFFF;
+      z-index: 1;
+      background: url('https://storage.googleapis.com/goldenpin/award_work_pic/image/4956/detail_image_76b850.jpeg') no-repeat center center;
       background-size: cover;
-      max-width: 100%;
-      height: auto;
-      background-color: #0a1520;
+      background-attachment: scroll;
     }
 
-    header::after {
+    header::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 1;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
     }
 
     header .container {
       position: relative;
-      z-index: 10;
-      max-width: 900px;
+      z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        background-position: center;
+        background-size: 100vw auto;
+        background-attachment: scroll;
+        height: 100vh;
+        min-height: -webkit-fill-available;
+      }
+
+      header::before {
+        display: none;
+      }
     }
 
     header h1 {
@@ -826,16 +840,33 @@
     }
 
     @media (max-width: 768px) {
+      header {
+        background-attachment: scroll;
+        background-position: center;
+        background-size: cover;
+        min-height: 100vh;
+        height: auto;
+        padding: 6rem 1rem;
+      }
+
+      header::before {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+      }
+
+      header .container {
+        position: relative;
+        z-index: 10;
+        padding: 2rem 1rem;
+      }
+
       header h1 {
         font-size: 2.2rem;
       }
 
       header p {
         font-size: 0.9rem;
-      }
-
-      header .container {
-        padding: 0;
       }
 
       .section-title {
@@ -1335,6 +1366,17 @@
           </div>
         </div>
       </div>
+      <div class="social-links mt-4 text-center" data-aos="fade-up" data-aos-delay="200">
+        <a href="https://www.linkedin.com/company/ddoott" target="_blank" class="me-3">
+          <img src="assets/images/linkedin-logo.webp" alt="LinkedIn Logo" style="width: 50px; height: 50px;">
+        </a>
+        <a href="https://www.instagram.com/taiwan_dotdesign" target="_blank" class="me-3">
+          <img src="assets/images/instagram-logo.png" alt="Instagram Logo" style="width: 40px; height: 40px;">
+        </a>
+        <a href="https://www.facebook.com/super.dotdesign" target="_blank">
+          <img src="assets/images/facebook-logo.jpg" alt="Facebook Logo" style="width: 40px; height: 40px;">
+        </a>
+      </div>
     </div>
     <div class="download-section" data-aos="fade-up" data-aos-delay="200">
       <h4 data-i18n="contact.download.title">Download Our Introduction</h4>
@@ -1369,6 +1411,15 @@
   <script>
     // Initialize AOS
     AOS.init();
+
+    // Fix mobile viewport height
+    function setVH() {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    
+    setVH();
+    window.addEventListener('resize', setVH);
 
     // Language switch function
     function switchLanguage(lang) {
@@ -1408,4 +1459,3 @@
   </script>
 </body>
 </html>
-`
