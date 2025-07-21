@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky八財貓 - 3D 模型預覽 (UV 修正)</title>
+    <style>
+        body { 
+            margin: 0; 
+            overflow: hidden; 
+            font-family: sans-serif; 
+            background: linear-gradient(135deg, #1e1e1e 0%, #333333 100%);
+        }
+        canvas { 
+            display: block; 
+            cursor: grab;
+        }
+        canvas:active {
+            cursor: grabbing;
+        }
+        .ui-panel {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+            z-index: 100;
+        }
+        #info {
+            top: 20px;
+            left: 20px;
+            font-size: 14px;
+            max-width: calc(100% - 60px);
+        }
+        #info h3 { margin: 0 0 8px 0; }
+        #info p { margin: 0; }
+        .status { color: #4CAF50; }
+        .error { color: #f44336; }
+        .warning { color: #ff9800; }
+        
+        #controls {
+            bottom: 20px;
+            left: 20px;
+        }
+        
+        .control-group { margin-bottom: 12px; }
+        .control-group label { display: block; margin-bottom: 5px; font-size: 12px; }
+        .control-group input[type="range"] { width: 180px; }
+        .control-group button {
+            background: #444; color: white; border: 1px solid #666;
+            padding: 6px 10px; margin: 2px; border-radius: 6px;
+            cursor: pointer; font-size: 12px; transition: background-color 0.2s;
+        }
+        .control-group button:hover { background: #555; }
+        .control-group button.active { background: #6699ff; border-color: #88aaff; }
+    </style>
+</head>
+<body>
+    <div id="info" class="ui-panel">
+        <h3>Lucky八財貓 3D 模型</h3>
+        <p>正在載入資源...</p>
+    </div>
+
+    <div id="controls" class="ui-panel">
+        <div class="control-group">
+            <label>環境光: <span id="ambientValue">0.5</span></label>
+            <input type="range" id="ambientSlider" min="0" max="2" step="0.1" value="0.5">
+        </div>
+        <div class="control-group">
+            <label>方向光: <span id="directionalValue">2.5</span></label>
+            <input type="range" id="directionalSlider" min="0" max="5" step="0.1" value="2.5">
+        </div>
+        <div class="control-group">
+            <label>貼圖 X 軸重複: <span id="repeatXValue">1.0</span></label>
+            <input type="range" id="repeatXSlider" min="0.1" max="20" step="0.1" value="1.0">
+        </div>
+        <div class="control-group">
+            <label>貼圖 Y 軸重複: <span id="repeatYValue">1.0</span></label>
+            <input type="range" id="repeatYSlider" min="0.1" max="20" step="0.1" value="1.0">
+        </div>
+        <div class="control-group">
+            <label>貼圖過濾 (解決模糊)</label>
+            <button id="filterSharpBtn" class="active">銳利 (顯示斑點)</button>
+            <button id="filterSmoothBtn">平滑 (預設)</button>
+        </div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        let scene, camera, renderer, controls, model;
+        let ambientLight, directionalLight;
+        let modelMaterial; // 用來儲存從模型中找到的第一個材質
+
+        function init() {
+            // 場景、相機、渲染器等基礎設定...
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x222222);
+            camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.set(0, 1, 4);
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.shadowMap.enabled = true;
+            document.body.appendChild(renderer.domElement);
+            controls = new OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+            directionalLight = new THREE.DirectionalLight(0xffffff, 2.5);
+            directionalLight.position.set(5, 5, 5);
+            directionalLight.castShadow = true;
+            scene.add(directionalLight);
+            const ground = new THREE.Mesh(new THREE.PlaneGeometry(10, 10), new THREE.MeshStandardMaterial({ color: 0x404040, roughness: 0.8 }));
+            ground.rotation.x = -Math.PI / 2;
+            ground.position.y = -1;
+            ground.receiveShadow = true;
+            scene.add(ground);
+
+            // 載入資源並啟動
+            loadAssets();
+            setupControls();
+            animate();
+        }
+
+        function updateInfo(message, type = 'normal') {
+            const info = document.getElementById('info');
+            const className = type === 'error' ? 'error' : type === 'warning' ? 'warning' : type === 'success' ? 'status' : '';
+            info.innerHTML = `<h3>Lucky八財貓 3D 模型</h3><p class="${className}">${message}</p>`;
+        }
+
+        function loadAssets() {
+            const manager = new THREE.LoadingManager();
+            manager.onLoad = () => {
+                const status = modelMaterial ? '模型與貼圖均已載入成功！' : '模型已載入，但未找到可應用的材質。';
+                const type = modelMaterial ? 'success' : 'warning';
+                updateInfo(status, type);
+                if (!modelMaterial) {
+                    console.error("在模型中找不到任何材質可以附加貼圖。");
+                }
+            };
+            manager.onError = (url) => {
+                updateInfo(`資源 '${url}' 載入失敗。請檢查檔案是否存在且路徑正確。`, 'error');
+            };
+
+            const textureLoader = new THREE.TextureLoader(manager);
+            const modelLoader = new GLTFLoader(manager);
+            
+            const loadedTexture = textureLoader.load('texture.png');
+            loadedTexture.colorSpace = THREE.SRGBColorSpace;
+
+            modelLoader.load('model.glb', (gltf) => {
+                model = gltf.scene;
+                
+                // **關鍵修正：不再建立新材質，而是遍歷模型尋找現有材質**
+                model.traverse((child) => {
+                    if (child.isMesh && child.material) {
+                        // 如果還沒找到任何材質，就把這個當作我們的目標材質
+                        if (!modelMaterial) {
+                            console.log("找到目標材質:", child.material.name || "未命名材質");
+                            modelMaterial = child.material;
+                            
+                            // **將我們的貼圖應用到找到的材質上**
+                            modelMaterial.map = loadedTexture;
+
+                            // **套用我們的控制設定到這個材質的貼圖上**
+                            modelMaterial.map.wrapS = THREE.RepeatWrapping;
+                            modelMaterial.map.wrapT = THREE.RepeatWrapping;
+                            modelMaterial.map.magFilter = THREE.NearestFilter;
+                            modelMaterial.map.minFilter = THREE.NearestFilter;
+                            
+                            // 確保材質更新
+                            modelMaterial.needsUpdate = true;
+                        } else {
+                            // 如果模型有多個材質，為了簡化，我們讓它們共用第一個找到的材質
+                            // 這能確保外觀統一
+                            child.material = modelMaterial;
+                        }
+                        
+                        child.castShadow = true;
+                        child.receiveShadow = true;
+                    }
+                });
+
+                // 調整模型大小與位置
+                const box = new THREE.Box3().setFromObject(model);
+                const size = box.getSize(new THREE.Vector3());
+                const center = box.getCenter(new THREE.Vector3());
+                const maxSize = Math.max(size.x, size.y, size.z);
+                const scale = 2.0 / maxSize;
+                model.scale.setScalar(scale);
+                model.position.sub(center.multiplyScalar(scale));
+                model.position.y = -1;
+                
+                scene.add(model);
+            });
+        }
+        
+        function setupControls() {
+            // 光照控制
+            document.getElementById('ambientSlider').addEventListener('input', (e) => {
+                ambientLight.intensity = parseFloat(e.target.value);
+                document.getElementById('ambientValue').textContent = ambientLight.intensity.toFixed(1);
+            });
+            document.getElementById('directionalSlider').addEventListener('input', (e) => {
+                directionalLight.intensity = parseFloat(e.target.value);
+                document.getElementById('directionalValue').textContent = directionalLight.intensity.toFixed(1);
+            });
+
+            // UV 重複控制
+            const repeatXSlider = document.getElementById('repeatXSlider');
+            const repeatYSlider = document.getElementById('repeatYSlider');
+            function updateTextureRepeat() {
+                // **修正：現在操作的是從模型中找到的 modelMaterial**
+                if (modelMaterial && modelMaterial.map) {
+                    const x = parseFloat(repeatXSlider.value);
+                    const y = parseFloat(repeatYSlider.value);
+                    modelMaterial.map.repeat.set(x, y);
+                    document.getElementById('repeatXValue').textContent = x.toFixed(1);
+                    document.getElementById('repeatYValue').textContent = y.toFixed(1);
+                    modelMaterial.map.needsUpdate = true;
+                }
+            }
+            repeatXSlider.addEventListener('input', updateTextureRepeat);
+            repeatYSlider.addEventListener('input', updateTextureRepeat);
+
+            // 貼圖過濾模式控制
+            const filterSharpBtn = document.getElementById('filterSharpBtn');
+            const filterSmoothBtn = document.getElementById('filterSmoothBtn');
+            filterSharpBtn.addEventListener('click', () => {
+                if (modelMaterial && modelMaterial.map) {
+                    modelMaterial.map.magFilter = THREE.NearestFilter;
+                    modelMaterial.map.minFilter = THREE.NearestFilter;
+                    modelMaterial.map.needsUpdate = true;
+                    filterSharpBtn.classList.add('active');
+                    filterSmoothBtn.classList.remove('active');
+                }
+            });
+            filterSmoothBtn.addEventListener('click', () => {
+                if (modelMaterial && modelMaterial.map) {
+                    modelMaterial.map.magFilter = THREE.LinearFilter;
+                    modelMaterial.map.minFilter = THREE.LinearMipmapLinearFilter;
+                    modelMaterial.map.needsUpdate = true;
+                    filterSmoothBtn.classList.add('active');
+                    filterSharpBtn.classList.remove('active');
+                }
+            });
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        init();
+    </script>
+</body>
+</html>
