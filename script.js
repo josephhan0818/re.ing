@@ -94,13 +94,57 @@ function showNewsletterThankYou(event) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize AOS
+  AOS.init();
+
+  // Get saved language or default to 'en'
   const savedLang = localStorage.getItem('language') || 'en';
-  setLanguage(savedLang); // Use the setLanguage function from translations.js
+  setLanguage(savedLang);
+  
+  // Add event listener for language toggle
+  document.querySelectorAll('.dropdown-item').forEach(item => {
+      item.addEventListener('click', (e) => {
+          const lang = e.target.getAttribute('onclick').match(/'([^']+)'/)[1];
+          switchLanguage(lang);
+      });
+  });
 
   // Update Awards section title
   const awardsTitle = document.querySelector('#awards h2 span');
   if (awardsTitle) {
     awardsTitle.setAttribute('data-i18n', 'awards.title');
   }
+});
+
+// Dynamically add designer cards
+const designers = [
+  {
+    name: 'John Doe',
+    role: 'Lead Designer',
+    image: 'path/to/image1.jpg',
+    bio: 'John is an experienced designer specializing in eco-friendly products.'
+  },
+  {
+    name: 'Jane Smith',
+    role: 'Graphic Designer',
+    image: 'path/to/image2.jpg',
+    bio: 'Jane creates stunning visuals that communicate our brand message.'
+  },
+  // Add more designers as needed
+];
+
+const designersContainer = document.getElementById('designers');
+designers.forEach(designer => {
+  const card = document.createElement('div');
+  card.classList.add('designer-card');
+  card.innerHTML = `
+    <img src="${designer.image}" alt="${designer.name}" class="designer-image">
+    <div class="designer-info">
+      <h3 class="designer-name">${designer.name}</h3>
+      <p class="designer-role">${designer.role}</p>
+      <p class="designer-bio">${designer.bio}</p>
+    </div>
+  `;
+  designersContainer.appendChild(card);
 });
 
