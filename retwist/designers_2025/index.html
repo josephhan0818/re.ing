@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RE:TWIST 台日合作系列</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/brands.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* 現代簡約黑白配色風格 */
+        body {
+            font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        html[data-lang="zh"] * {
+            font-family: 'Noto Sans TC', 'Montserrat', sans-serif !important;
+        }
+
+        /* Header - 使用 banner-1 */
+        header {
+            background: url('../../assets/images/banner-1.png') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: url('../../assets/images/banner-1.png') no-repeat center center;
+            background-size: cover;
+            z-index: 0;
+            animation: floatBackground 8s ease-in-out infinite;
+        }
+
+        @keyframes floatBackground {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        header .container {
+            padding: 8rem 0 4rem 0;
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header .title-image,
+        header .subtitle-image {
+            height: 80px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        header .banner-images {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 100%;
+        }
+
+        /* Content Sections - 黑白配色 */
+        .content-section {
+            padding: 6rem 0;
+            background: #ffffff;
+        }
+
+        .content-section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .content-row {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .content-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .content-image {
+            flex: 1;
+        }
+
+        .content-image img {
+            width: 100%;
+            border-radius: 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            filter: grayscale(20%);
+            transition: filter 0.3s ease;
+        }
+
+        .content-image img:hover {
+            filter: grayscale(0%);
+        }
+
+        .content-text {
+            flex: 1;
+        }
+
+        .content-text h3 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #000000;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .content-text p {
+            font-size: 1.1rem;
+            color: #333333;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .content-text ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-text li {
+            margin-bottom: 1.5rem;
+            padding-left: 0;
+        }
+
+        .content-text li strong {
+            color: #000000;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.9rem;
+        }
+
+        .content-text li span {
+            display: block;
+            margin-top: 0.5rem;
+            color: #666666;
+            font-weight: 300;
+        }
+
+        /* Section Title - 簡約風格 */
+        .section-title {
+            font-size: 3rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: #000000;
+            position: relative;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: #000000;
+            margin: 2rem auto;
+            border-radius: 0;
+        }
+
+        /* Figure Cards - 現代簡約設計 */
+        .figure-card {
+            background: #ffffff;
+            border-radius: 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+            padding: 0;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e5e5e5;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        .figure-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .figure-img {
+            width: 100%;
+            height: 70%;
+            object-fit: cover;
+            border-radius: 0;
+            margin: 0;
+            border: none;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        .figure-card:hover .figure-img {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+
+        .figure-info {
+            position: static;
+            background: #ffffff;
+            padding: 1.5rem;
+            height: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transform: none;
+            transition: none;
+        }
+
+        .designer-name {
+            font-weight: 300;
+            font-size: 0.8rem;
+            margin-bottom: 0.3rem;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .work-title {
+            font-weight: 300;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #000000;
+            letter-spacing: -0.01em;
+        }
+
+        .work-desc {
+            font-size: 0.85rem;
+            color: #666666;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        .view-more-btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #000000;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 0;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            border: 1px solid #000000;
+            cursor: pointer;
+        }
+
+        .view-more-btn:hover {
+            background: #ffffff;
+            color: #000000;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .view-more-btn i {
+            margin-left: 0.3rem;
+            font-size: 0.7rem;
+        }
+
+        /* Grid Layout - 改為 5×2 網格 */
+        #figures .row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            margin: 0;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .col-md-6.col-lg-4 {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Footer - 簡約設計 */
+        footer {
+            background: #000000;
+            padding: 4rem 0;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        footer p {
+            margin: 0 0 2rem 0;
+            font-weight: 300;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        footer .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        footer .social-links a {
+            color: #ffffff;
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        footer .social-links a:hover {
+            color: #22D3EE;
+            transform: translateY(-3px);
+        }
+
+        footer .social-links img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1);
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        footer .social-links a:hover img {
+            filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(180deg);
+            transform: translateY(-3px);
+        }
+
+        footer .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-nav a:hover {
+            color: #22D3EE;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background: #FFFFFF !important;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .navbar-brand img {
+            height: 48px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand img:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-link {
+            color: #1F2937 !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #22D3EE;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #22D3EE !important;
+            transform: translateY(-2px);
+        }
+
+        /* Language Dropdown */
+        .lang-dropdown {
+            position: relative;
+        }
+
+        .lang-toggle {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #1F2937;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .lang-toggle:hover {
+            color: #22D3EE;
+        }
+
+        .lang-toggle i {
+            margin-left: 0.5rem;
+        }
+
+        .dropdown-menu {
+            min-width: 120px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: none;
+            padding: 0.5rem 0;
+        }
+
+        .dropdown-item {
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            color: #1F2937;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background: #22D3EE;
+            color: #FFFFFF;
+        }
+
+        .navbar-toggler {
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+
+        .navbar-toggler:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon {
+            font-size: 1.5rem;
+            color: #1F2937;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .navbar-toggler svg {
+            display: none;
+            vertical-align: middle;
+        }
+
+        .navbar-toggler.font-awesome-fail .navbar-toggler-icon {
+            display: none;
+        }
+
+        .navbar-toggler.font-awesome-fail svg {
+            display: inline-block;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 1200px) {
+            #figures .row {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .content-row,
+            .content-row.reverse {
+                flex-direction: column;
+                gap: 3rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .content-text h3 {
+                font-size: 2rem;
+            }
+
+            #figures .row {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                min-height: 60vh;
+            }
+
+            header .container {
+                padding: 6rem 0 3rem 0;
+            }
+
+            header .title-image,
+            header .subtitle-image {
+                height: 60px;
+            }
+
+            header .banner-images {
+                gap: 1.5rem;
+            }
+
+            .content-section {
+                padding: 4rem 0;
+            }
+
+            #figures .row {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .figure-card {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header .title-image,
+            header .subtitle-image {
+                height: 45px;
+            }
+
+            header .banner-images {
+                gap: 1rem;
+                flex-direction: column;
+            }
+
+            #figures .row {
+                grid-template-columns: 1fr;
+            }
+
+            .figure-card {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+                <img src="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" alt="re-ing Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars navbar-toggler-icon"></i>
+                <!-- Fallback SVG for hamburger icon -->
+                <svg class="d-none" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 6H21V8H3V6ZM3 11H21V13H3V11ZM3 16H21V18H3V16Z" fill="#1F2937"/>
+                </svg>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#mission" data-i18n="nav.mission">Our Mission</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#process" data-i18n="nav.process">Our Process</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#services" data-i18n="nav.services">Our Services</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html" data-i18n="nav.retwist">RE:TWIST 轉圈圈計畫</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#why-choose-us" data-i18n="nav.whyChooseUs">Why Choose Us</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#our-clients" data-i18n="nav.ourClients">Our Clients</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#contact" data-i18n="nav.contact">Contact Us</a>
+                    </li>
+                    <li class="nav-item lang-dropdown">
+                        <button class="lang-toggle" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../../assets/images/language.png" alt="Language Icon" style="width: 20px; height: auto;"> <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('en')">English</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('zh')">中文</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('nl')">Nederlands</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('ja')">日本語</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <div class="banner-images">
+                <img src="../../assets/images/retwist-logo.png" alt="RE:TWIST 轉圈圈計畫" class="title-image">
+                <img src="../../assets/images/banner-1-subtitle.png" alt="重新思考扭蛋的永續未來，用創意設計實踐環境教育" class="subtitle-image">
+            </div>
+        </div>
+    </header>
+
+    <!-- Social Relevance Section -->
+    <section class="content-section" style="background: #f8f9fa;">
+        <div class="content-row reverse">
+            <div class="content-text">
+                <h3 data-i18n="retwist.relevance.title">社會關聯性與環境前瞻性</h3>
+                <p data-i18n="retwist.relevance.p1">
+                    日本與台灣皆為海島國家，長期面對海洋廢棄物問題。此次計畫邀集兩地各五位設計師，嘗試以海廢中比例最高的材料——保麗龍（發泡聚苯乙烯）作為設計素材，將其轉化為具文化與敘事性的收藏公仔。
+                </p>
+                <p data-i18n="retwist.relevance.p2">
+                    我們使用100%的保麗龍設計公仔，使用單一材料讓公仔容易進入循環系統。我們不僅將保麗龍視為設計問題的源頭，更視其為創造未來價值的起點，透過創意設計導入系統性反思，探討設計如何介入當代的塑膠循環與生產邏輯。
+                </p>
+            </div>
+            <div class="content-image">
+                <img src="../../assets/images/styrophone.png" alt="海洋廢棄物材料" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Perspective Section -->
+    <section class="content-section" style="background: #ffffff;">
+        <div class="content-row">
+            <div class="content-text">
+                <h3 data-i18n="retwist.culture.title">文化視角與設計策略</h3>
+                <p data-i18n="retwist.culture.p1">
+                    本次合作以「招財貓」為共通命題。作為日本民間信仰中象徵幸運與財富的角色，招財貓早已跨越國界，成為全球廣為人知的文化符號。我們鼓勵設計師在此基礎上，融合自身文化經驗與環境觀察，對傳統符號進行再詮釋與創新演繹。
+                </p>
+                <p data-i18n="retwist.culture.p2">
+                    透過設計語言的轉譯，我們希望讓觀者重新思考「價值」與「收集」的意義：在物質過剩的時代，我們真正應該珍視的是什麼？
+                </p>
+            </div>
+            <div class="content-image">
+                <img src="../../assets/images/luckycat.png" alt="招財貓文化意象" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Vision Section -->
+    <section class="content-section" style="background: #f8f9fa;">
+        <div class="content-row reverse">
+            <div class="content-text">
+                <h3 data-i18n="retwist.vision.title">創新思維與未來願景</h3>
+                <p data-i18n="retwist.vision.p1">這不僅是一次永續玩具的創作，更是對未來扭蛋系統的提案：</p>
+                <ul>
+                    <li>
+                        <strong data-i18n="retwist.vision.item1.title">材料創新：</strong>
+                        <span data-i18n="retwist.vision.item1.content">導入低能耗、可地區性實施的保麗龍回收加工流程，為困難回收的材質開創新生命。</span>
+                    </li>
+                    <li>
+                        <strong data-i18n="retwist.vision.item2.title">跨國合作：</strong>
+                        <span data-i18n="retwist.vision.item2.content">設計師跨文化交流，共同面對全球性生態挑戰，展現設計的整合力與連結性。</span>
+                    </li>
+                    <li>
+                        <strong data-i18n="retwist.vision.item3.title">可擴展應用：</strong>
+                        <span data-i18n="retwist.vision.item3.content">未來有望與如萬代（BANDAI）、藏壽司（Kura Sushi）等品牌合作，將永續扭蛋帶入大眾市場。</span>
+                    </li>
+                    <li>
+                        <strong data-i18n="retwist.vision.item4.title">文化敘事轉化：</strong>
+                        <span data-i18n="retwist.vision.item4.content">每一隻公仔都是一段設計故事，兼具美感、趣味與深層意義，形塑未來敘事的可能性。</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-image">
+                <img src="../../assets/images/ALL-1.jpg" alt="未來願景" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Designer Works Section -->
+    <section id="figures" style="padding:6rem 0; background: #ffffff;">
+        <h2 class="section-title" data-i18n="retwist.figures.title">設計師作品展示</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                <div class="figure-card">
+                    <img src="../../assets/images/figure_UO.png" alt="UO設計師作品" class="figure-img">
+                    <div class="figure-info">
+                        <div class="designer-name" data-i18n="retwist.figure.uo.designer">UO</div>
+                        <div class="work-title" data-i18n="retwist.figure.uo.title">和諧共生</div>
+                        <a href="1-UO/index.html" class="view-more-btn" data-i18n="retwist.figure.viewMore">View More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+                <div class="figure-card">
+                    <img src="../../assets/images/figure_lance.png" alt="Lance設計師作品" class="figure-img">
+                    <div class="figure-info">
+                        <div class="designer-name" data-i18n="retwist.figure.lance.designer">Lance 設計師</div>
+                        <div class="work-title" data-i18n="retwist.figure.lance.title">作品名稱3</div>
+                        <a href="2-Lance/index.html" class="view-more-btn" data-i18n="retwist.figure.viewMore">View More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="figure-card">
+                    <img src="../../assets/images/figure_minami.png" alt="Minami設計師作品" class="figure-img">
+                    <div class="figure-info">
+                        <div class="designer-name" data-i18n="retwist.figure.minami.designer">Minami 設計師</div>
+                        <div class="work-title" data-i18n="retwist.figure.minami.title">作品名稱4</div>
+                        <a href="3-Minami/index.html" class="view-more-btn" data-i18n="retwist.figure.viewMore">View More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+                <div class="figure-card">
+                    <img src="../../assets/images/figure_nosigner.png" alt="Nosigner設計師作品" class="figure-img">
+                    <div class="figure-info">
+                        <div class="designer-name" data-i18n="retwist.figure.nosigner.designer">無名設計師</div>
+                        <div class="work-title" data-i18n="retwist.figure.nosigner.title">作品名稱5</div>
+                        <a href="4-Nosigner/index.html" class="view-more-btn" data-i18n="retwist.figure.viewMore">View More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="figure-card">
+                    <img src="../../assets/images/figure_shawn.png" alt="Shawn設計師作品" class="figure-img">
+                    <div class="figure-info">
+                        <div class="designer-name" data-i18n="retwist.figure.shawn.designer">Shawn 設計師</div>
+                        <div class="work-title" data-i18n="retwist.figure.shawn.title">Mute Cat: Silence is Golden</div>
+                        <a href="5-Shawn/index.html" class="view-more-btn" data-i18n="retwist.figure.viewMore">View More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="250">
+                <div class="figure-card">
+                    <img src="../../assets/images/figure_shikai.png" alt="Shikai設計師作品" class="figure-img">
+                    <div class="figure-info">
+                        <div class="designer-name" data-i18n="retwist.figure.shikai.designer">Shikai 設計師</div>
+                        <div class="work-title" data-i18n="retwist.figure.shikai.title">作品名稱7</div>
+                        <a href="6-Shikai/index.html" class="view-more-btn" data-i18n="retwist.figure.viewMore">View More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="figure-card">
+                    <img src="../../assets/images/figure_shinyayoshida.png" alt="Shinya設計師作品" class="figure-img">
+                    <div class="figure-info">
+                        <div class="designer-name" data-i18n="retwist.figure.shinya.designer">Shin 設計師</div>
+                        <div class="work-title" data-i18n="retwist.figure.shinya.title">作品名稱8</div>
+                        <a href="7-Shinya/index.html" class="view-more-btn" data-i18n="retwist.figure.viewMore">View More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="350">
+                <div class="figure-card">
+                    <img src="../../assets/images/figure_yenan.png" alt="Yenan設計師作品" class="figure-img">
+                    <div class="figure-info">
+                        <div class="designer-name" data-i18n="retwist.figure.yenan.designer">Yenan 設計師</div>
+                        <div class="work-title" data-i18n="retwist.figure.yenan.title">作品名稱10</div>
+                        <a href="8-YENAN/index.html" class="view-more-btn" data-i18n="retwist.figure.viewMore">View More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="figure-card">
+                    <img src="../../assets/images/figure_yenpochun.png" alt="Yenpochun設計師作品" class="figure-img">
+                    <div class="figure-info">
+                        <div class="designer-name" data-i18n="retwist.figure.yenpochun.designer">Yenpochun 設計師</div>
+                        <div class="work-title" data-i18n="retwist.figure.yenpochun.title">作品名稱11</div>
+                        <a href="9-YENPOCHUN/index.html" class="view-more-btn" data-i18n="retwist.figure.viewMore">View More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="75">
+                <div class="figure-card">
+                    <img src="../../assets/images/figure_kairi.png" alt="Kairi設計師作品" class="figure-img">
+                    <div class="figure-info">
+                        <div class="designer-name" data-i18n="retwist.figure.kairi.designer">Kairi 設計師</div>
+                        <div class="work-title" data-i18n="retwist.figure.kairi.title">生態循環</div>
+                        <a href="10-KAIRI/index.html" class="view-more-btn" data-i18n="retwist.figure.viewMore">View More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-nav">
+                <a href="../../index.html#mission" data-i18n="nav.mission">Our Mission</a>
+                <a href="../../index.html#process" data-i18n="nav.process">Our Process</a>
+                <a href="../../index.html#services" data-i18n="nav.services">Our Services</a>
+                <a href="../index.html" data-i18n="nav.retwist">RE:TWIST Project</a>
+                <a href="../../index.html#contact" data-i18n="nav.contact">Contact Us</a>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/company/ddoott" target="_blank" title="LinkedIn">
+                    <img src="../../assets/images/linkedin-logo.png" alt="LinkedIn Logo">
+                </a>
+                <a href="https://www.instagram.com/taiwan_dotdesign" target="_blank" title="Instagram">
+                    <img src="../../assets/images/instagram-logo.png" alt="Instagram Logo">
+                </a>
+                <a href="https://www.facebook.com/super.dotdesign" target="_blank" title="Facebook">
+                    <img src="../../assets/images/facebook-logo.png" alt="Facebook Logo">
+                </a>
+            </div>
+            
+            <p data-i18n="retwist.footer.copyright">© 2025 re-ing. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../translation.js"></script>
+    <script>
+        // 初始化 AOS
+        AOS.init();
+
+        // 更新當前語言顯示的函數
+        function updateCurrentLang(lang) {
+            const currentLangSpan = document.querySelector('.current-lang');
+            if (currentLangSpan) {
+                const langCodes = {
+                    'en': 'EN',
+                    'zh': '中',
+                    'ja': '日',
+                    'nl': 'NL'
+                };
+                currentLangSpan.textContent = langCodes[lang] || 'EN';
+            }
+        }
+
+        // 語言切換函數
+        function switchLanguage(lang) {
+            if (typeof translations === 'undefined') {
+                console.error('Translations not loaded');
+                return;
+            }
+            
+            if (!translations[lang]) {
+                console.error('Language not found:', lang);
+                return;
+            }
+            
+            document.documentElement.setAttribute('data-lang', lang);
+            document.documentElement.lang = lang;
+
+            // 更新所有翻譯元素
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+
+            // 更新 placeholder 屬性
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    element.setAttribute('placeholder', translations[lang][key]);
+                }
+            });
+
+            localStorage.setItem('language', lang);
+            updateCurrentLang(lang);
+        }
+
+        // DOM 載入完成後初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            // 檢查翻譯是否可用
+            if (typeof translations !== 'undefined') {
+                const savedLang = localStorage.getItem('language') || 'en';
+                switchLanguage(savedLang);
+            } else {
+                // 延遲重試
+                setTimeout(() => {
+                    if (typeof translations !== 'undefined') {
+                        const savedLang = localStorage.getItem('language') || 'en';
+                        switchLanguage(savedLang);
+                    }
+                }, 100);
+            }
+        });
+    </script>
+</body>
+
+</html>

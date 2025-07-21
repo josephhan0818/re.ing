@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日式埴輪猫 NYA-NIWA - Minami Design | RE:TWIST Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="../../style1.css">
+    <style>
+        /* Same styling as Lance Design page */
+        .designer-avatar { text-align: center; }
+        .designer-photo { width: 100%; max-width: 300px; height: auto; border-radius: 0 !important; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        body { color: #333333; }
+        .figure-title { color: #000000; margin-bottom: 1rem; font-weight: 300; letter-spacing: -0.02em; }
+        .figure-dimensions { color: #666666; margin-bottom: 1rem; font-size: 0.9rem; font-weight: 300; }
+        .designer-badge { margin-bottom: 1.5rem; display: inline-block; }
+        .designer-badge span { color: #ffffff; background: #000000; padding: 0.3rem 0.8rem; border: 1px solid #000000; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; display: inline-block; }
+        .figure-description { color: #555555; margin-bottom: 2rem; line-height: 1.7; font-weight: 300; }
+        .figure-details { margin-top: 2rem; }
+        .detail-item { color: #666666; margin-bottom: 0.8rem; font-size: 0.9rem; display: flex; align-items: center; padding: 0.5rem 0; border-left: 3px solid #000000; padding-left: 1rem; }
+        .section-title { color: #000000; margin-bottom: 3rem; }
+        .story-content p { color: #555555; margin-bottom: 2rem; }
+        .designer-bio h3 { color: #000000; margin-bottom: 1rem; }
+        .designer-location { color: #666666; margin-bottom: 2rem; }
+        .designer-bio p { color: #555555; margin-bottom: 1.5rem; }
+        .related-card h4 { color: #000000; margin-bottom: 0.5rem; }
+        .related-card p { color: #666666; margin-bottom: 1rem; }
+        .btn { border-radius: 0 !important; }
+        .btn-outline-primary { border: 2px solid #333333; color: #333333; background: transparent; }
+        .btn-outline-primary:hover { background: #333333; color: white; border-color: #333333; }
+        .btn-outline-secondary { border: 2px solid #666666; color: #666666; background: transparent; }
+        .btn-outline-secondary:hover { background: #666666; color: white; }
+        .btn-primary { background: #000000; border: 2px solid #000000; color: white; }
+        .btn-primary:hover { background: #333333; border-color: #333333; }
+        .gallery-item { border-radius: 0 !important; }
+        .gallery-image { border-radius: 0 !important; }
+        .related-card { border-radius: 0 !important; border: 1px solid #dee2e6; }
+        .related-card img { border-radius: 0 !important; }
+        .figure-main-image { border-radius: 0 !important; margin-bottom: 2rem; }
+        .figure-image-container { margin-bottom: 3rem; }
+        .figure-info { padding-left: 1.5rem; }
+        .breadcrumb { background: none; padding: 0; }
+        .breadcrumb-item + .breadcrumb-item::before { content: ">"; color: #6c757d; }
+        .breadcrumb-item a { color: #666666; text-decoration: none; }
+        .breadcrumb-item a:hover { color: #000000; }
+        .breadcrumb-item.active { color: #000000; }
+        .nav-link { color: #333333 !important; }
+        .nav-link:hover { color: #000000 !important; }
+        footer { background: #000000; color: #ffffff; }
+        .navbar-nav { align-items: center; }
+        .lang-dropdown { display: flex; align-items: center; }
+        .lang-toggle { background: transparent; border: none; color: #333333; padding: 0.5rem 0.75rem; display: flex; align-items: center; text-decoration: none; transition: color 0.3s ease; }
+        .lang-toggle:hover { color: #000000; }
+        .lang-toggle img { margin-right: 0.5rem; }
+        .dropdown-menu { border: none; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); border-radius: 0; }
+        .dropdown-item { color: #333333; padding: 0.5rem 1rem; transition: background-color 0.3s ease; }
+        .dropdown-item:hover { background-color: #f8f9fa; color: #000000; }
+        @media (max-width: 991px) { .navbar-nav { align-items: flex-start; } .lang-dropdown { margin-top: 0.5rem; } .lang-toggle { padding: 0.5rem 0; } }
+        @media (max-width: 768px) { .figure-info { padding-left: 0; margin-top: 2rem; } .figure-image-container { margin-bottom: 2rem; } .designer-badge { margin-bottom: 1rem; } }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <img src="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" alt="re-ing Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars navbar-toggler-icon"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#mission" data-i18n="nav.mission">Our Mission</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#process" data-i18n="nav.process">Our Process</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#services" data-i18n="nav.services">Our Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html" data-i18n="nav.retwist">RE:TWIST 轉圈圈計畫</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#why-choose-us" data-i18n="nav.whyChooseUs">Why Choose Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#our-clients" data-i18n="nav.ourClients">Our Clients</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#contact" data-i18n="nav.contact">Contact Us</a></li>
+                    <li class="nav-item dropdown lang-dropdown">
+                        <a class="lang-toggle dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../../../assets/images/language.png" alt="Language Icon" style="width: 20px; height: auto;">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('en')">English</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('zh')">中文</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('nl')">Nederlands</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('ja')">日本語</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../../../index.html" data-i18n="common.home">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../../index.html" data-i18n="nav.retwist">RE:TWIST Project</a></li>
+                    <li class="breadcrumb-item"><a href="../index.html" data-i18n="retwist.series.taiwanJapan.title">Taiwan-Japan Collaboration Series</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" data-i18n="designer.minami.title">Japanese Haniwa Cat NYA-NIWA</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="figure-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="figure-image-container">
+                        <img src="../../../assets/images/figure_minami.png"
+                             class="figure-main-image"
+                             data-i18n-alt="designer.minami.title"
+                             alt="Japanese Haniwa Cat NYA-NIWA by Minami Design">
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="figure-info">
+                        <h1 class="figure-title" data-i18n="designer.minami.title">日式埴輪猫 NYA-NIWA</h1>
+                        <div class="figure-dimensions">
+                            <span>L 3.5cm × W 3.0cm × H 4.0cm</span>
+                        </div>
+                        <div class="designer-badge">
+                            <span>Minami Design</span>
+                        </div>
+                        <p class="figure-description" data-i18n="designer.minami.story">
+                            Drawing from ancient Japanese Haniwa pottery traditions, this design reimagines historical clay figures as contemporary feline guardians, bridging millennia of cultural heritage.
+                        </p>
+                        <div class="figure-details">
+                            <div class="detail-item">
+                                <span>Traditional Haniwa Style</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>Feline Guardian Spirit</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>Ancient Japanese Heritage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Story Section -->
+    <section class="design-story">
+        <div class="container">
+            <h2 class="section-title" data-i18n="common.designStory">Design Story</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <div class="story-content">
+                        <p>The 日式埴輪猫 NYA-NIWA represents a profound connection between ancient Japanese funerary art and contemporary design sensibilities. Minami Design draws inspiration from Haniwa clay figures, which were placed around burial mounds during the Kofun period (300-538 CE) to protect and accompany the deceased into the afterlife.</p>
+                        <p>This design transforms the traditional cylindrical Haniwa form into a charming feline figure, maintaining the characteristic simplicity and spiritual significance of the original artifacts. The minimalist features and earthy texture evoke the handcrafted nature of ancient pottery while infusing the piece with the protective and lucky qualities associated with cats in Japanese culture.</p>
+                        <p>NYA-NIWA serves as both a cultural bridge and a modern talisman, embodying the belief that our ancestors' wisdom and protection continue to guide us. Each piece carries the weight of history while celebrating the enduring bond between humans and their feline companions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="figure-gallery">
+        <div class="container">
+            <h2 class="section-title" data-i18n="common.gallery">Gallery</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up">
+                    <div class="gallery-item">
+                        <img src="../../../assets/images/Minami-1.jpg" alt="NYA-NIWA - View 1" class="gallery-image">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gallery-item">
+                        <img src="../../../assets/images/Minami-2.jpg" alt="NYA-NIWA - View 2" class="gallery-image">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gallery-item">
+                        <img src="../../../assets/images/Minami-3.jpg" alt="NYA-NIWA - View 3" class="gallery-image">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="gallery-item">
+                        <img src="../../../assets/images/Minami-4.jpg" alt="NYA-NIWA - View 4" class="gallery-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Designer Profile Section -->
+    <section class="designer-profile">
+        <div class="container">
+            <h2 class="section-title" data-i18n="designer.minami.aboutTitle">About Minami Design</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-4" data-aos="fade-right">
+                    <div class="designer-avatar">
+                        <img src="../../../assets/images/designer-avatar-Minami.jpg" alt="Minami Design" class="designer-photo">
+                    </div>
+                </div>
+                <div class="col-lg-8" data-aos="fade-left">
+                    <div class="designer-bio">
+                        <h3>Minami Design</h3>
+                        <p class="designer-location">Based in Japan</p>
+                        <p>Minami Design is deeply rooted in the study and preservation of Japanese cultural heritage. With a Master's degree in Archaeology and extensive experience in traditional pottery techniques, Minami brings authentic historical knowledge to contemporary design challenges.</p>
+                        <p>Their work focuses on making ancient Japanese art forms accessible to modern audiences while maintaining respect for cultural origins. Minami Design believes that understanding our past is essential for creating meaningful design in the present, and their pieces serve as educational tools that celebrate Japan's rich artistic legacy.</p>
+                        <div class="designer-links">
+                            <a href="#" class="btn btn-outline-primary" data-i18n="common.viewPortfolio">View Portfolio</a>
+                            <a href="#" class="btn btn-outline-secondary" data-i18n="common.contactDesigner">Contact Designer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Figures Section -->
+    <section class="related-figures">
+        <div class="container">
+            <h2 class="section-title" data-i18n="common.otherDesigners">Other Designers</h2>
+            <div class="row" id="related-figures-container">
+                <!-- Dynamically populated by JavaScript -->
+            </div>
+            <div class="text-center mt-4">
+                <a href="../index.html" class="btn btn-outline-primary" data-i18n="common.viewAllFigures">View All Figures</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><span data-i18n="retwist.footer.copyright">© 2025 re-ing. All rights reserved.</span></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./translations.js"></script>
+    <script type="module" src="../index.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init();
+
+        // Language switching function
+        function switchLanguage(lang) {
+            console.log('Switching to language:', lang);
+            
+            if (typeof minamiTranslations === 'undefined') {
+                console.error('Translations not loaded');
+                return false;
+            }
+            
+            if (!minamiTranslations[lang]) {
+                console.error('Language not found:', lang);
+                return false;
+            }
+            
+            // Set language attributes
+            document.documentElement.setAttribute('data-lang', lang);
+            document.documentElement.lang = lang;
+
+            // Update all translation elements including title
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (minamiTranslations[lang] && minamiTranslations[lang][key]) {
+                    if (element.tagName.toLowerCase() === 'title') {
+                        element.textContent = minamiTranslations[lang][key] + ' - Minami Design | RE:TWIST Project';
+                    } else {
+                        element.innerHTML = minamiTranslations[lang][key];
+                    }
+                } else {
+                    console.warn('Missing translation for key:', key, 'in language:', lang);
+                }
+            });
+
+            // Update alt attributes
+            document.querySelectorAll('[data-i18n-alt]').forEach(element => {
+                const key = element.getAttribute('data-i18n-alt');
+                if (minamiTranslations[lang] && minamiTranslations[lang][key]) {
+                    element.alt = minamiTranslations[lang][key];
+                }
+            });
+
+            // Update related figures with new language
+            if (typeof generateRelatedFigures === 'function') {
+                generateRelatedFigures();
+            }
+
+            // Save language preference
+            localStorage.setItem('language', lang);
+            
+            // Close dropdown
+            const dropdown = bootstrap.Dropdown.getInstance(document.getElementById('langDropdown'));
+            if (dropdown) {
+                dropdown.hide();
+            }
+            
+            return false;
+        }
+
+        // Minami Translations
+        const minamiTranslations = {
+          en: {
+            // Navigation
+            "nav.mission": "Our Mission",
+            "nav.process": "Our Process", 
+            "nav.services": "Our Services",
+            "nav.retwist": "RE:TWIST Project",
+            "nav.whyChooseUs": "Why Choose Us",
+            "nav.ourClients": "Our Clients",
+            "nav.contact": "Contact Us",
+            
+            // Common
+            "common.home": "Home",
+            "common.designStory": "Design Story",
+            "common.gallery": "Gallery",
+            "common.otherDesigners": "Other Designers",
+            "common.viewAllFigures": "View All Figures",
+            "common.viewPortfolio": "View Portfolio",
+            "common.contactDesigner": "Contact Designer",
+            "common.by": "by",
+            "common.viewDetails": "View Details",
+            
+            // Minami specific
+            "designer.minami.title": "Japanese Haniwa Cat NYA-NIWA",
+            "designer.minami.detail1": "Ancient Japanese Heritage",
+            "designer.minami.detail2": "Clay Tradition",
+            "designer.minami.detail3": "Cultural Fusion",
+            "designer.minami.aboutTitle": "About Minami Design",
+            "designer.minami.location": "Based in Japan",
+            "designer.minami.bio1": "Minami Design draws inspiration from ancient Japanese Haniwa pottery figures, creating modern interpretations that bridge traditional craftsmanship with contemporary design.",
+            "designer.minami.bio2": "Their work celebrates Japan's rich archaeological heritage through playful, cat-inspired forms.",
+            "designer.minami.story": "NYA-NIWA reimagines the ancient Haniwa tradition through the lens of contemporary Japanese cat culture.",
+            
+            // Designer titles for related figures
+            "designer.uo.title": "Enshunada Replica",
+            "designer.lance.title": "Lucky Cannelé Cat",
+            "designer.nosigner.title": "Bubble Mold Cat",
+            "designer.shawn.title": "SHAWN Design",
+            "designer.shikai.title": "Box Lucky Cat",
+            "designer.shinya.title": "Shinya Design",
+            "designer.yenan.title": "YENAN Design",
+            "designer.yenpochun.title": "Lucky Ocean Cat",
+            "designer.kairi.title": "KAIRI Design",
+            
+            // Series and footer
+            "retwist.series.taiwanJapan.title": "Taiwan-Japan Collaboration Series",
+            "retwist.footer.copyright": "© 2025 re-ing. All rights reserved."
+          },
+          
+          zh: {
+            // Navigation
+            "nav.mission": "我們的使命",
+            "nav.process": "我們的流程",
+            "nav.services": "我們的服務", 
+            "nav.retwist": "RE:TWIST 轉圈圈計畫",
+            "nav.whyChooseUs": "為何選擇我們",
+            "nav.ourClients": "我們的客戶",
+            "nav.contact": "聯絡我們",
+            
+            // Common
+            "common.home": "首頁",
+            "common.designStory": "設計故事",
+            "common.gallery": "作品集",
+            "common.otherDesigners": "其他設計師",
+            "common.viewAllFigures": "查看所有作品",
+            "common.viewPortfolio": "查看作品集",
+            "common.contactDesigner": "聯絡設計師",
+            "common.by": "由",
+            "common.viewDetails": "查看詳情",
+            
+            // Minami specific
+            "designer.minami.title": "日式埴輪猫 NYA-NIWA",
+            "designer.minami.detail1": "古代日本遺產",
+            "designer.minami.detail2": "陶土傳統",
+            "designer.minami.detail3": "文化融合",
+            "designer.minami.aboutTitle": "關於 Minami Design",
+            "designer.minami.location": "日本",
+            "designer.minami.bio1": "Minami Design 從古代日本埴輪陶偶中汲取靈感，創造出連接傳統工藝與當代設計的現代詮釋。",
+            "designer.minami.bio2": "他們的作品通過有趣的貓咪形象慶祝日本豐富的考古遺產。",
+            "designer.minami.story": "NYA-NIWA 通過當代日本貓文化的視角重新詮釋古代埴輪傳統。",
+            
+            // Designer titles for related figures
+            "designer.uo.title": "遠州灘復刻版",
+            "designer.lance.title": "幸運可麗露貓",
+            "designer.nosigner.title": "泡泡模具貓",
+            "designer.shawn.title": "SHAWN 設計",
+            "designer.shikai.title": "盒子招財貓",
+            "designer.shinya.title": "Shinya 設計",
+            "designer.yenan.title": "YENAN 設計",
+            "designer.yenpochun.title": "海洋招財貓",
+            "designer.kairi.title": "KAIRI 設計",
+            
+            // Series and footer
+            "retwist.series.taiwanJapan.title": "台日合作系列",
+            "retwist.footer.copyright": "© 2025 re-ing. 保留所有權利。"
+          },
+          
+          ja: {
+            // Navigation
+            "nav.mission": "私たちの使命",
+            "nav.process": "私たちのプロセス",
+            "nav.services": "私たちのサービス",
+            "nav.retwist": "RE:TWIST プロジェクト",
+            "nav.whyChooseUs": "選ばれる理由",
+            "nav.ourClients": "導入事例",
+            "nav.contact": "お問い合わせ",
+            
+            // Common
+            "common.home": "ホーム",
+            "common.designStory": "デザインストーリー",
+            "common.gallery": "ギャラリー",
+            "common.otherDesigners": "他のデザイナー",
+            "common.viewAllFigures": "すべての作品を見る",
+            "common.viewPortfolio": "ポートフォリオを見る",
+            "common.contactDesigner": "デザイナーに連絡",
+            "common.by": "設計者",
+            "common.viewDetails": "詳細を見る",
+            
+            // Minami specific
+            "designer.minami.title": "日式埴輪猫 NYA-NIWA",
+            "designer.minami.detail1": "古代日本の遺産",
+            "designer.minami.detail2": "粘土の伝統",
+            "designer.minami.detail3": "文化融合",
+            "designer.minami.aboutTitle": "Minami Designについて",
+            "designer.minami.location": "日本在住",
+            "designer.minami.bio1": "Minami Designは古代日本の埴輪土偶からインスピレーションを得て、伝統的な職人技と現代デザインを橋渡しする現代的な解釈を創造しています。",
+            "designer.minami.bio2": "彼らの作品は、遊び心のある猫をモチーフにした形を通じて日本の豊かな考古学的遺産を祝福しています。",
+            "designer.minami.story": "NYA-NIWAは、現代日本の猫文化のレンズを通して古代埴輪の伝統を再構築しています。",
+            
+            // Designer titles for related figures
+            "designer.uo.title": "遠州灘レプリカ",
+            "designer.lance.title": "ラッキーカヌレ猫",
+            "designer.nosigner.title": "バブルモールド猫",
+            "designer.shawn.title": "SHAWNデザイン",
+            "designer.shikai.title": "ボックス招き猫",
+            "designer.shinya.title": "Shinyaデザイン",
+            "designer.yenan.title": "YENANデザイン",
+            "designer.yenpochun.title": "海洋招き猫",
+            "designer.kairi.title": "KAIRIデザイン",
+            
+            // Series and footer
+            "retwist.series.taiwanJapan.title": "台日コラボレーションシリーズ",
+            "retwist.footer.copyright": "© 2025 re-ing. 全著作権所有。"
+          },
+          
+          nl: {
+            // Navigation
+            "nav.mission": "Onze Missie",
+            "nav.process": "Ons Proces",
+            "nav.services": "Onze Diensten",
+            "nav.retwist": "RE:TWIST Project",
+            "nav.whyChooseUs": "Waarom Voor Ons Kiezen",
+            "nav.ourClients": "Onze Klanten",
+            "nav.contact": "Contacteer Ons",
+            
+            // Common
+            "common.home": "Thuis",
+            "common.designStory": "Ontwerpverhaal",
+            "common.gallery": "Galerij",
+            "common.otherDesigners": "Andere Ontwerpers",
+            "common.viewAllFigures": "Alle Figuren Bekijken",
+            "common.viewPortfolio": "Portfolio Bekijken",
+            "common.contactDesigner": "Contact Ontwerper",
+            "common.by": "door",
+            "common.viewDetails": "Details Bekijken",
+            
+            // Minami specific
+            "designer.minami.title": "Japanse Haniwa Kat NYA-NIWA",
+            "designer.minami.detail1": "Oude Japanse Erfgoed",
+            "designer.minami.detail2": "Klei Traditie",
+            "designer.minami.detail3": "Culturele Fusie",
+            "designer.minami.aboutTitle": "Over Minami Design",
+            "designer.minami.location": "Gevestigd in Japan",
+            "designer.minami.bio1": "Minami Design put inspiratie uit oude Japanse Haniwa pottenbakkersbeelden en creëert moderne interpretaties die traditioneel vakmanschap verbinden met hedendaags ontwerp.",
+            "designer.minami.bio2": "Hun werk viert Japan's rijke archeologische erfgoed door speelse, kat-geïnspireerde vormen.",
+            "designer.minami.story": "NYA-NIWA herbeeldt de oude Haniwa traditie door de lens van hedendaagse Japanse katcultuur.",
+            
+            // Designer titles for related figures
+            "designer.uo.title": "Enshunada Replica",
+            "designer.lance.title": "Gelukkige Cannelé Kat",
+            "designer.nosigner.title": "Bubble Mold Kat",
+            "designer.shawn.title": "SHAWN Ontwerp",
+            "designer.shikai.title": "Doos Gelukskat",
+            "designer.shinya.title": "Shinya Ontwerp",
+            "designer.yenan.title": "YENAN Ontwerp",
+            "designer.yenpochun.title": "Oceaan Gelukskat",
+            "designer.kairi.title": "KAIRI Ontwerp",
+            
+            // Series and footer
+            "retwist.series.taiwanJapan.title": "Taiwan-Japan Samenwerking Serie",
+            "retwist.footer.copyright": "© 2025 re-ing. Alle rechten voorbehouden."
+          }
+        };
+
+        // Designer data for this page
+        const currentPageDesigner = {
+            name: "Minami Design",
+            folder: "3-Minami"
+        };
+
+        // All designers data for related figures
+        const allDesigners = [
+            { name: "UO Design", titleKey: "designer.uo.title", folder: "1-UO", image: "figure_UO.png" },
+            { name: "Lance Design", titleKey: "designer.lance.title", folder: "2-Lance", image: "figure_lance.png" },
+            { name: "Nosigner", titleKey: "designer.nosigner.title", folder: "4-Nosigner", image: "figure_nosigner.png" },
+            { name: "SHAWN", titleKey: "designer.shawn.title", folder: "5-SHAWN", image: "figure_shawn.png" },
+            { name: "SHIKAI", titleKey: "designer.shikai.title", folder: "6-Shikai", image: "figure_shikai.png" },
+            { name: "Shinya Yoshida", titleKey: "designer.shinya.title", folder: "7-Shinya", image: "figure_shinyayoshida.png" },
+            { name: "YENAN", titleKey: "designer.yenan.title", folder: "8-YENAN", image: "figure_yenan.png" },
+            { name: "YENPOCHUN", titleKey: "designer.yenpochun.title", folder: "9-Yenpochun", image: "figure_yenpochun.png" },
+            { name: "KAIRI", titleKey: "designer.kairi.title", folder: "10-KAIRI", image: "figure_kairi.png" }
+        ];
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to get 3 random designers excluding current one
+            function getRandomDesigners(designers, exclude, count = 3) {
+                const filtered = designers.filter(designer => designer.name !== exclude);
+                const shuffled = filtered.sort(() => 0.5 - Math.random());
+                return shuffled.slice(0, count);
+            }
+
+            // Generate related figures HTML
+            function generateRelatedFigures() {
+                // Cache the randomly selected designers to avoid re-randomizing on language switch
+                if (!window.selectedDesigners) {
+                    window.selectedDesigners = getRandomDesigners(allDesigners, currentPageDesigner.name, 3);
+                }
+                const randomDesigners = window.selectedDesigners;
+                const container = document.getElementById('related-figures-container');
+                const currentLang = document.documentElement.getAttribute('data-lang') || 'en';
+                
+                let html = '';
+                randomDesigners.forEach((designer, index) => {
+                    const translatedTitle = minamiTranslations[currentLang] && minamiTranslations[currentLang][designer.titleKey] 
+                        ? minamiTranslations[currentLang][designer.titleKey] 
+                        : designer.titleKey;
+                    const byText = minamiTranslations[currentLang]['common.by'] || 'by';
+                    const viewDetailsText = minamiTranslations[currentLang]['common.viewDetails'] || 'View Details';
+                        
+                    html += `
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="${index * 100}">
+                            <div class="related-card">
+                                <img src="../../../assets/images/${designer.image}" alt="${translatedTitle}">
+                                <div class="card-content">
+                                    <h4>${translatedTitle}</h4>
+                                    <p>${byText} ${designer.name}</p>
+                                    <a href="../${designer.folder}/index.html" class="btn btn-primary">${viewDetailsText}</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+            }
+
+            // Generate related figures
+            // Expose to global scope for language switching
+            window.generateRelatedFigures = generateRelatedFigures;
+            generateRelatedFigures();
+
+            // Initialize language from embedded translations
+            if (typeof minamiTranslations !== 'undefined') {
+                const savedLang = localStorage.getItem('language') || 'en';
+                switchLanguage(savedLang);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歐巴司 Owl Pass - Lucky Bang 系列</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="../../style.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+    <style>
+        body {
+            font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero-section::before {
+            content: '🦉';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            top: 20%;
+            right: 10%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            color: white;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            opacity: 0.9;
+        }
+
+        /* Fortune Section */
+        .fortune-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            text-align: center;
+        }
+
+        .fortune-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .owl-avatar {
+            width: 150px;
+            height: 150px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            font-size: 4rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .owl-avatar:hover {
+            transform: scale(1.1);
+        }
+
+        .fortune-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 2rem 0;
+        }
+
+        .fortune-btn:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .fortune-result {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .fortune-result.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fortune-text {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .fortune-category {
+            font-size: 1rem;
+            color: #667eea;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Product Info Section */
+        .product-info {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .product-image {
+            text-align: center;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .product-details h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: #667eea;
+        }
+
+        .spec-item {
+            display: flex;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .spec-label {
+            font-weight: 500;
+            min-width: 120px;
+            color: #666;
+        }
+
+        .spec-value {
+            color: #333;
+        }
+
+        .model-section {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+
+        .model-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        model-viewer {
+            width: 100%;
+            height: 500px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay span {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2rem;
+            color: white;
+            background: rgba(0,0,0,0.5);
+            border: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+        }
+
+        .close-btn:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+            transform: translateY(-50%);
+        }
+
+        .nav-btn {
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .gallery-item img {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <img src="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" alt="re-ing Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars navbar-toggler-icon"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#mission">Our Mission</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#process">Our Process</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#services">Our Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html">RE:TWIST 轉圈圈計畫</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Lucky Bang 系列</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <h1 class="hero-title">歐巴司</h1>
+                <p class="hero-subtitle">Owl Pass</p>
+                <p class="hero-description">
+                    「歐巴司」為「All Pass」的諧音。貓頭鷹化身智慧占卜小物，肚子裡藏有多款幸運籤。隨手一搖，看看今天的好運是否正朝你飛來！
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fortune Section -->
+    <section class="fortune-section">
+        <div class="container">
+            <div class="fortune-container" data-aos="fade-up">
+                <h2 style="font-size: 2.5rem; font-weight: 300; margin-bottom: 2rem; color: #333;">智慧占卜</h2>
+                <div class="owl-avatar" onclick="shakeFortune()">🦉</div>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #666;">點擊智慧貓頭鷹獲取今日運勢</p>
+                <button class="fortune-btn" onclick="getFortune()">搖一搖 獲取籤詩</button>
+                <div class="fortune-result" id="fortuneResult">
+                    <div class="fortune-text" id="fortuneText">點擊按鈕開始占卜...</div>
+                    <div class="fortune-category" id="fortuneCategory"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Info Section -->
+    <section class="product-info">
+        <div class="container">
+            <div class="product-grid">
+                <div class="product-image" data-aos="fade-right">
+                    <img src="../../../assets/images/owl_pass.png" alt="歐巴司 Owl Pass">
+                </div>
+                <div class="product-details" data-aos="fade-left">
+                    <h2>產品規格</h2>
+                    <div class="spec-item">
+                        <div class="spec-label">產品名稱：</div>
+                        <div class="spec-value">歐巴司 Owl Pass</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">系列：</div>
+                        <div class="spec-value">Lucky Bang 系列</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">主要功能：</div>
+                        <div class="spec-value">幸運籤占卜 / 裝飾擺件</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">材質：</div>
+                        <div class="spec-value">高品質塑膠</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">配件：</div>
+                        <div class="spec-value">內含多款幸運籤</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">狀態：</div>
+                        <div class="spec-value">已推出</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preview Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">產品預覽圖片</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="../../../assets/images/owl-pass-preview-1.jpg" alt="歐巴司 - 正面展示" onclick="openModal(this)">
+                    <div class="gallery-overlay">
+                        <span>正面展示</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="../../../assets/images/owl-pass-preview-2.jpg" alt="歐巴司 - 側面展示" onclick="openModal(this)">
+                    <div class="gallery-overlay">
+                        <span>側面展示</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="../../../assets/images/owl-pass-preview-3.jpg" alt="歐巴司 - 籤條細節" onclick="openModal(this)">
+                    <div class="gallery-overlay">
+                        <span>籤條細節</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
+                    <img src="../../../assets/images/owl-pass-preview-4.jpg" alt="歐巴司 - 使用情境" onclick="openModal(this)">
+                    <div class="gallery-overlay">
+                        <span>使用情境</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="500">
+                    <img src="../../../assets/images/owl-pass-preview-5.jpg" alt="歐巴司 - 背面展示" onclick="openModal(this)">
+                    <div class="gallery-overlay">
+                        <span>背面展示</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal-overlay" onclick="closeModal()">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div class="modal-nav">
+                <button onclick="prevImage()" class="nav-btn prev-btn">&#10094;</button>
+                <button onclick="nextImage()" class="nav-btn next-btn">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3D Model Section -->
+    <section class="model-section">
+        <div class="container">
+            <div class="model-container" data-aos="fade-up">
+                <h2 style="font-size: 2.5rem; font-weight: 300; margin-bottom: 2rem; color: #333;">360° 模型預覽</h2>
+                <model-viewer 
+                    alt="歐巴司 Owl Pass 3D 模型" 
+                    src="../../../assets/3d_obj/owl_pass.glb" 
+                    shadow-intensity="1" 
+                    environment-image="neutral"
+                    exposure="1.2"
+                    camera-controls 
+                    touch-action="pan-y"
+                    auto-rotate
+                    auto-rotate-delay="1000"
+                    rotation-per-second="30deg">
+                </model-viewer>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">產品特色</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">🦉</div>
+                    <h3>智慧象徵</h3>
+                    <p>貓頭鷹代表智慧與洞察力，為您帶來明智的指引。</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">🎴</div>
+                    <h3>多款籤詩</h3>
+                    <p>內含多種幸運籤，每次搖擺都有不同的驚喜與啟發。</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">✨</div>
+                    <h3>All Pass</h3>
+                    <p>寓意萬事順利，讓好運伴隨您的每一天。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #000; padding: 4rem 0; text-align: center; color: #fff;">
+        <div class="container">
+            <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                <a href="../../../index.html#mission" style="color: #fff; text-decoration: none;">Our Mission</a>
+                <a href="../../../index.html#process" style="color: #fff; text-decoration: none;">Our Process</a>
+                <a href="../../../index.html#services" style="color: #fff; text-decoration: none;">Our Services</a>
+                <a href="../../index.html" style="color: #fff; text-decoration: none;">RE:TWIST Project</a>
+                <a href="../index.html" style="color: #fff; text-decoration: none;">Lucky Bang 系列</a>
+                <a href="../../../index.html#contact" style="color: #fff; text-decoration: none;">Contact Us</a>
+            </div>
+            <p>© 2025 re-ing. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        AOS.init();
+
+        const fortunes = [
+            { text: "今日是你展現才華的絕佳時機，勇敢地踏出第一步！", category: "事業運" },
+            { text: "愛情之花即將綻放，保持開放的心態迎接緣分。", category: "愛情運" },
+            { text: "財運亨通，投資理財都有不錯的機會。", category: "財運" },
+            { text: "身體健康是最大的財富，記得適度運動和休息。", category: "健康運" },
+            { text: "朋友將為你帶來重要的訊息，多與他人交流。", category: "人際運" },
+            { text: "學習新知識將為你開啟新的可能性。", category: "學習運" },
+            { text: "內心的平靜比外在的成就更重要。", category: "心靈運" },
+            { text: "家庭和睦是幸福的根基，多陪伴家人。", category: "家庭運" },
+            { text: "創意靈感即將湧現，記得隨時記錄想法。", category: "創意運" },
+            { text: "旅行將帶給你新的視野和體驗。", category: "旅行運" }
+        ];
+
+        function shakeFortune() {
+            const owl = document.querySelector('.owl-avatar');
+            owl.style.transform = 'rotate(20deg)';
+            setTimeout(() => {
+                owl.style.transform = 'rotate(-20deg)';
+            }, 150);
+            setTimeout(() => {
+                owl.style.transform = 'rotate(0deg)';
+            }, 300);
+        }
+
+        function getFortune() {
+            const result = document.getElementById('fortuneResult');
+            const text = document.getElementById('fortuneText');
+            const category = document.getElementById('fortuneCategory');
+            
+            // Hide result first
+            result.classList.remove('show');
+            
+            // Shake animation
+            shakeFortune();
+            
+            setTimeout(() => {
+                const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+                text.textContent = randomFortune.text;
+                category.textContent = randomFortune.category;
+                result.classList.add('show');
+            }, 500);
+        }
+
+        // Initialize with first fortune
+        setTimeout(() => {
+            getFortune();
+        }, 1000);
+
+        // Gallery Modal Functions
+        let currentImageIndex = 0;
+        const galleryImages = [
+            '../../../assets/images/owl-pass-preview-1.jpg',
+            '../../../assets/images/owl-pass-preview-2.jpg',
+            '../../../assets/images/owl-pass-preview-3.jpg',
+            '../../../assets/images/owl-pass-preview-4.jpg',
+            '../../../assets/images/owl-pass-preview-5.jpg'
+        ];
+
+        function openModal(img) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            currentImageIndex = galleryImages.indexOf(img.src);
+            
+            modal.classList.add('active');
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            const modalImg = document.getElementById('modalImage');
+            modalImg.src = galleryImages[currentImageIndex];
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            const modalImg = document.getElementById('modalImage');
+            modalImg.src = galleryImages[currentImageIndex];
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+
+</html>

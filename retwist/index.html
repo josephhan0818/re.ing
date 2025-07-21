@@ -4,217 +4,887 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Figure Introductions | re-ing</title>
-    <!-- ...existing code for fonts, bootstrap, aos, fontawesome, styles... -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap"
-        rel="stylesheet">
+    <title>RE:TWIST 轉圈圈計畫 - 所有系列</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="script.js">
     <style>
-        /* ...existing code... */
-        .figure-card {
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            padding: 2rem;
-            margin-bottom: 2rem;
+        /* 現代簡約黑白配色風格 */
+        body {
+            font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        html[data-lang="zh"] * {
+            font-family: 'Noto Sans TC', 'Montserrat', sans-serif !important;
+        }
+
+        /* Header - 調整為淺色背景並修復被遮擋問題 */
+        header {
+            background: #f8f9fa;
+            position: relative;
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        header .container {
+            padding: 4rem 0 2rem 0;
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
             text-align: center;
-            transition: box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
-        .figure-card:hover {
-            box-shadow: 0 8px 24px rgba(34, 211, 238, 0.15);
+        header h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            color: #000000;
+            margin: 0;
+            letter-spacing: -0.02em;
         }
 
-        .figure-img {
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-            border: 2px solid #22d3ee;
-        }
-
-        .designer-name {
-            font-weight: 600;
+        header p {
             font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: #10b981;
+            color: #666666;
+            margin-top: 1rem;
+            font-weight: 300;
+            max-width: 600px;
         }
 
-        .work-title {
-            font-weight: 700;
+        /* Content Sections - 黑白配色 */
+        .content-section {
+            padding: 6rem 0;
+            background: #ffffff;
+        }
+
+        .content-section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .content-row {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .content-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .content-image {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .content-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            filter: grayscale(20%);
+            transition: filter 0.3s ease;
+        }
+
+        .content-image img:hover {
+            filter: grayscale(0%);
+        }
+
+        .content-text {
+            flex: 1;
+        }
+
+        .content-text h3 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #000000;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .content-text p {
             font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: #1f2937;
+            color: #333333;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-weight: 300;
         }
 
-        .work-desc {
-            font-size: 0.95rem;
-            color: #4b5563;
-            margin-bottom: 0.5rem;
+        /* Page Title - 簡約設計 */
+        .page-title {
+            padding: 6rem 0 4rem 0;
+            text-align: center;
+            background: #ffffff;
+        }
+
+        .page-title h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            color: #000000;
+            letter-spacing: -0.02em;
+            margin: 0;
+        }
+
+        .page-title p {
+            font-size: 1.2rem;
+            color: #666666;
+            margin-top: 1rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Series Poster Grid - 重新設計 */
+        .series-posters {
+            padding: 6rem 0;
+            background: #ffffff;
+        }
+
+        .poster-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .series-poster {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            border-radius: 0;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e5e5;
+        }
+
+        .series-poster:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+        }
+
+        .series-poster::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.5) 100%);
+            z-index: 2;
+            transition: opacity 0.3s ease;
+        }
+
+        .series-poster:hover::before {
+            opacity: 0.8;
+        }
+
+        .poster-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s ease;
+            filter: grayscale(100%);
+        }
+
+        .series-poster:hover .poster-bg {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        .taiwan-japan-poster .poster-bg {
+            background-image: url('../assets/images/banner-1.png');
+        }
+
+        .lucky-bang-poster .poster-bg {
+            background-image: url('../assets/images/banner_luckybang_1.jpg');
+        }
+
+        .poster-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 3rem;
+            color: #ffffff;
+            z-index: 3;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, transparent 100%);
+        }
+
+        .poster-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .poster-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            line-height: 1.6;
+        }
+
+        .poster-meta {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        .poster-status {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            border-radius: 0;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: 1px solid #ffffff;
+        }
+
+        .status-active {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        .status-coming-soon {
+            background: rgba(245, 158, 11, 0.2);
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        /* Project Introduction - 簡約設計 */
+        .project-intro {
+            padding: 6rem 0;
+            background: #f8f9fa;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .intro-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .intro-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #000000;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .intro-description {
+            font-size: 1.1rem;
+            color: #333333;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .concept-points {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .concept-point {
+            padding: 2rem 1.5rem;
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            font-size: 0.9rem;
+            color: #666666;
+            font-weight: 300;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .concept-point:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer - 簡約設計 */
+        footer {
+            background: #000000;
+            padding: 4rem 0;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        footer p {
+            margin: 0;
+            font-weight: 300;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: #22D3EE;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: #ffffff;
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links a:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* 確保 FontAwesome icons 正常載入 */
+        .fab {
+            font-family: "Font Awesome 6 Brands" !important;
+            font-weight: 400 !important;
+        }
+        
+        .fas {
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
+        }
+
+        /* 如果 FontAwesome 無法載入，使用文字替代 */
+        .social-links a::before {
+            content: attr(title);
+            font-size: 0.8rem;
+            display: none;
+        }
+
+        .social-links a i {
+            display: inline-block;
+        }
+
+        /* 當 FontAwesome 未載入時顯示文字 */
+        .social-links a:not([class*="fa-"]) i::after {
+            content: attr(title);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background: #FFFFFF !important;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .navbar-brand img {
+            height: 48px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand img:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-link {
+            color: #1F2937 !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #22D3EE;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #22D3EE !important;
+            transform: translateY(-2px);
+        }
+
+        /* Language Dropdown - 與設計師頁面保持一致 */
+        .lang-dropdown {
+            display: flex;
+            align-items: center;
+        }
+
+        .lang-toggle {
+            background: transparent;
+            border: none;
+            color: #333333;
+            padding: 0.5rem 0.75rem;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            box-shadow: none !important;
+            outline: none !important;
+        }
+
+        .lang-toggle:hover {
+            color: #000000;
+        }
+
+        .lang-toggle:focus {
+            box-shadow: none !important;
+            outline: none !important;
+        }
+
+        .lang-toggle img {
+            margin-right: 0.5rem;
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 0;
+        }
+
+        .dropdown-item {
+            color: #333333;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+            color: #000000;
+        }
+
+        .dropdown-item:focus {
+            background-color: #f8f9fa;
+            color: #000000;
+            outline: none;
+        }
+
+        /* 移除 Bootstrap dropdown 的默認樣式 */
+        .dropdown-toggle::after {
+            display: none;
+        }
+
+        .dropdown-toggle:focus {
+            box-shadow: none !important;
+        }
+
+        @media (max-width: 991px) {
+            .navbar-nav {
+                align-items: flex-start;
+            }
+            
+            .lang-dropdown {
+                margin-top: 0.5rem;
+            }
+            
+            .lang-toggle {
+                padding: 0.5rem 0;
+            }
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 992px) {
+            .content-row,
+            .content-row.reverse {
+                flex-direction: column;
+                gap: 3rem;
+            }
+
+            .content-text h3 {
+                font-size: 2rem;
+            }
+
+            .page-title h1 {
+                font-size: 2.5rem;
+            }
+
+            .intro-title {
+                font-size: 2rem;
+            }
+
+            .concept-points {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                margin-top: 70px;
+                min-height: 35vh;
+            }
+
+            header .container {
+                padding: 3rem 0 2rem 0;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .poster-title {
+                font-size: 2rem;
+            }
+
+            .poster-subtitle {
+                font-size: 1rem;
+            }
+
+            .poster-content {
+                padding: 2rem;
+            }
+
+            .series-poster {
+                height: 50vh;
+                min-height: 350px;
+            }
+
+            .poster-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .concept-points {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .concept-point {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header {
+                margin-top: 60px;
+                min-height: 30vh;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            .poster-title {
+                font-size: 1.8rem;
+            }
+
+            .poster-content {
+                padding: 1.5rem;
+            }
+
+            .series-poster {
+                height: 45vh;
+                min-height: 300px;
+            }
+
+            header .title-image,
+            header .subtitle-image {
+                height: 45px;
+            }
+
+            header .banner-images {
+                gap: 1rem;
+                flex-direction: column;
+            }
+
+            .content-section {
+                padding: 4rem 0;
+            }
+
+            .page-title {
+                padding: 4rem 0 3rem 0;
+            }
+
+            .project-intro {
+                padding: 4rem 0;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- ...existing code for navbar/banner from index.html... -->
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="../index.html">
                 <img src="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" alt="re-ing Logo">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <i class="fas fa-bars navbar-toggler-icon"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <!-- ...existing nav items... -->
-                    <li class="nav-item"><a class="nav-link" href="../index.html#mission" data-i18n="nav.mission">Our
-                            Mission</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../index.html#process" data-i18n="nav.process">Our
-                            Process</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../index.html#services" data-i18n="nav.services">Our
-                            Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://www.reing365.com/retwist" target="_blank"
-                            data-i18n="nav.retwist">RE:TWIST 轉圈圈計畫</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../index.html#why-choose-us" data-i18n="nav.whyChooseUs">Why
-                            Choose Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../index.html#our-clients" data-i18n="nav.ourClients">Our
-                            Clients</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../index.html#contact" data-i18n="nav.contact">Contact
-                            Us</a></li>
-                    <li class="nav-item lang-dropdown">
-                        <button class="lang-toggle" type="button" id="langDropdown" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                    <li class="nav-item"><a class="nav-link" href="../index.html#mission" data-i18n="nav.mission">Our Mission</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#process" data-i18n="nav.process">Our Process</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#services" data-i18n="nav.services">Our Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav.retwist">RE:TWIST 轉圈圈計畫</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#why-choose-us" data-i18n="nav.whyChooseUs">Why Choose Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#our-clients" data-i18n="nav.ourClients">Our Clients</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#contact" data-i18n="nav.contact">Contact Us</a></li>
+                    <li class="nav-item dropdown lang-dropdown">
+                        <a class="lang-toggle dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="../assets/images/language.png" alt="Language Icon" style="width: 20px; height: auto;">
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
+                        </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
                             <li><a class="dropdown-item" href="#" onclick="switchLanguage('en')">English</a></li>
                             <li><a class="dropdown-item" href="#" onclick="switchLanguage('zh')">中文</a></li>
                             <li><a class="dropdown-item" href="#" onclick="switchLanguage('nl')">Nederlands</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('ja')">日本語</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <!-- Header - 簡化版本 -->
     <header>
         <div class="container">
-            <h1 data-i18n="figures.bannerTitle">Figure Introductions</h1>
-            <p data-i18n="figures.bannerSubtitle">Meet our designers and their creations.</p>
+            <h1 data-i18n="retwist.allSeries.title">RE:TWIST 扭蛋系列總覽</h1>
+            <p data-i18n="retwist.allSeries.subtitle">探索我們不同的永續扭蛋設計系列，每個系列都承載著獨特的文化意涵與環保理念</p>
         </div>
     </header>
-    <!-- 公仔介紹區塊 -->
-    <section id="figures" class="container" style="padding:5rem 0;">
-        <h2 class="section-title" data-i18n="figures.sectionTitle">十款公仔設計師與作品介紹</h2>
-        <div class="row justify-content-center">
-            <!-- Remove Lulu Chair (figure1.jpg) -->
-            <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                <div class="figure-card">
-                    <img src="../assets/images/figure2.jpg" alt="Figure 2" class="figure-img">
-                    <div class="designer-name">設計師B Designer B</div>
-                    <div class="work-title">作品名稱2 Work Title 2</div>
-                    <div class="work-desc">作品介紹內容2。This is the description for figure 2.</div>
+
+    <!-- Series Posters -->
+    <section class="series-posters">
+        <div class="poster-container">
+            <!-- Taiwan-Japan Collaboration Series -->
+            <div class="series-poster taiwan-japan-poster" data-aos="fade-up" onclick="window.location.href='designers_2025/index.html'">
+                <div class="poster-bg"></div>
+                <div class="poster-content">
+                    <h2 class="poster-title" data-i18n="retwist.series.taiwanJapan.title">台日合作系列</h2>
+                    <p class="poster-subtitle" data-i18n="retwist.series.taiwanJapan.desc">
+                        邀集台灣與日本各五位設計師，以招財貓為共同主題，使用100%回收保麗龍創作永續扭蛋公仔。每件作品都融合了設計師的文化背景與環保理念。
+                    </p>
+                    <div class="poster-meta">
+                        <span>10位設計師 • 10件作品</span>
+                        <span class="poster-status status-active">已發布</span>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
-                <div class="figure-card">
-                    <img src="../assets/images/figure3.jpg" alt="Figure 3" class="figure-img">
-                    <div class="designer-name">設計師C Designer C</div>
-                    <div class="work-title">作品名稱3 Work Title 3</div>
-                    <div class="work-desc">作品介紹內容3。This is the description for figure 3.</div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="figure-card">
-                    <img src="../assets/images/figure4.jpg" alt="Figure 4" class="figure-img">
-                    <div class="designer-name">設計師D Designer D</div>
-                    <div class="work-title">作品名稱4 Work Title 4</div>
-                    <div class="work-desc">作品介紹內容4。This is the description for figure 4.</div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
-                <div class="figure-card">
-                    <img src="../assets/images/figure5.jpg" alt="Figure 5" class="figure-img">
-                    <div class="designer-name">設計師E Designer E</div>
-                    <div class="work-title">作品名稱5 Work Title 5</div>
-                    <div class="work-desc">作品介紹內容5。This is the description for figure 5.</div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="figure-card">
-                    <img src="../assets/images/figure6.jpg" alt="Figure 6" class="figure-img">
-                    <div class="designer-name">設計師F Designer F</div>
-                    <div class="work-title">作品名稱6 Work Title 6</div>
-                    <div class="work-desc">作品介紹內容6。This is the description for figure 6.</div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="250">
-                <div class="figure-card">
-                    <img src="../assets/images/figure7.jpg" alt="Figure 7" class="figure-img">
-                    <div class="designer-name">設計師G Designer G</div>
-                    <div class="work-title">作品名稱7 Work Title 7</div>
-                    <div class="work-desc">作品介紹內容7。This is the description for figure 7.</div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="figure-card">
-                    <img src="../assets/images/figure8.jpg" alt="Figure 8" class="figure-img">
-                    <div class="designer-name">設計師H Designer H</div>
-                    <div class="work-title">作品名稱8 Work Title 8</div>
-                    <div class="work-desc">作品介紹內容8。This is the description for figure 8.</div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="350">
-                <div class="figure-card">
-                    <img src="../assets/images/figure9.jpg" alt="Figure 9" class="figure-img">
-                    <div class="designer-name">設計師I Designer I</div>
-                    <div class="work-title">作品名稱9 Work Title 9</div>
-                    <div class="work-desc">作品介紹內容9。This is the description for figure 9.</div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
-                <div class="figure-card">
-                    <img src="../assets/images/figure10.jpg" alt="Figure 10" class="figure-img">
-                    <div class="designer-name">設計師J Designer J</div>
-                    <div class="work-title">作品名稱10 Work Title 10</div>
-                    <div class="work-desc">作品介紹內容10。This is the description for figure 10.</div>
+
+            <!-- Lucky Bang Series -->
+            <div class="series-poster lucky-bang-poster" data-aos="fade-up" data-aos-delay="200" onclick="window.location.href='lucky_bang/index.html'">
+                <div class="poster-bg"></div>
+                <div class="poster-content">
+                    <h2 class="poster-title" data-i18n="retwist.series.comingSoon.title">Lucky Bang 系列</h2>
+                    <p class="poster-subtitle" data-i18n="retwist.series.comingSoon.desc">
+                        全新的扭蛋系列即將登場，將帶來更多創新設計與永續理念的結合。敬請期待這個充滿驚喜的新系列。
+                    </p>
+                    <div class="poster-meta">
+                        <span>創新系列 • 永續設計</span>
+                        <span class="poster-status status-coming-soon">即將推出</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ...existing code for footer... -->
+
+    <!-- Project Introduction Section - 移動到這裡 -->
+    <section class="content-section" style="background: #f8f9fa;">
+        <div class="content-row">
+            <div class="content-text">
+                <h3 data-i18n="retwist.about.title">關於 RE:TWIST: 循環轉圈圈計畫</h3>
+                <p data-i18n="retwist.background.p1">
+                    扭蛋（Gashapon）是亞洲廣受歡迎的娛樂形式，透過投幣與隨機掉落的機制帶來驚喜與收集樂趣。然而，99%以上的扭蛋玩具都是使用一次性塑膠製作，包含扭蛋機與扭蛋殼。我們認為未來的扭蛋機，應該要是符合永續指標，且足夠吸引人的產品。
+                </p>
+                <p data-i18n="retwist.background.p2">
+                    本計畫旨在從未來設計的視角，重新審視扭蛋產業，思考其社會意義與永續可能。我們提出問題：「一個大眾熟悉的娛樂形式，是否也能成為環境教育與材料創新的載體？」
+                </p>
+            </div>
+            <div class="content-image">
+                <img src="../assets/images/gatcha_machine2.png" alt="RE:TWIST 計畫概念" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Introduction -->
+    <section class="project-intro">
+        <div class="intro-content" data-aos="fade-up">
+            <h3 class="intro-title" data-i18n="retwist.concept.title">重新定義扭蛋的未來</h3>
+            <p class="intro-description" data-i18n="retwist.concept.desc">
+                RE:TWIST 不僅是扭蛋設計計畫，更是對未來娛樂產業永續發展的思考。我們相信，每一個小小的扭蛋都能承載深刻的環保理念與文化故事。
+            </p>
+            <div class="concept-points">
+                <div class="concept-point" data-i18n="retwist.concept.point1">100% 使用回收材料製作</div>
+                <div class="concept-point" data-i18n="retwist.concept.point2">跨文化設計師合作</div>
+                <div class="concept-point" data-i18n="retwist.concept.point3">推動循環經濟理念</div>
+                <div class="concept-point" data-i18n="retwist.concept.point4">結合娛樂與環境教育</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p data-i18n="footer.copyright">© 2025 re-ing. All rights reserved.</p>
-        <div class="social-links">
-            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <div class="container">
+            <div class="footer-nav">
+                <a href="../index.html#mission" data-i18n="nav.mission">Our Mission</a>
+                <a href="../index.html#process" data-i18n="nav.process">Our Process</a>
+                <a href="../index.html#services" data-i18n="nav.services">Our Services</a>
+                <a href="index.html" data-i18n="nav.retwist">RE:TWIST Project</a>
+                <a href="../index.html#contact" data-i18n="nav.contact">Contact Us</a>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/company/ddoott" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/taiwan_dotdesign" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/super.dotdesign" target="_blank" title="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </div>
+
+            <p data-i18n="retwist.footer.copyright">© 2025 re-ing. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../translations.js"></script>
-    <script src="figures.js"></script>
+    <script src="translation.js"></script>
     <script>
-        // ...existing code for AOS, language switch, etc...
+        // Initialize AOS
         AOS.init();
+
+        // Language switching functionality
         function switchLanguage(lang) {
-          setLanguage(lang);
-          localStorage.setItem('language', lang);
+            console.log('Switching to language:', lang);
+            
+            if (typeof translations === 'undefined') {
+                console.error('Translations not loaded');
+                return false;
+            }
+            
+            if (!translations[lang]) {
+                console.error('Language not found:', lang);
+                return false;
+            }
+            
+            // Set language attributes
+            document.documentElement.setAttribute('data-lang', lang);
+            document.documentElement.lang = lang;
+
+            // Update all translation elements including title
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName.toLowerCase() === 'title') {
+                        element.textContent = translations[lang][key];
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
+                } else {
+                    console.warn('Missing translation for key:', key, 'in language:', lang);
+                }
+            });
+
+            // Save language preference
+            localStorage.setItem('language', lang);
+            
+            // Close dropdown
+            const dropdown = bootstrap.Dropdown.getInstance(document.getElementById('langDropdown'));
+            if (dropdown) {
+                dropdown.hide();
+            }
+            
+            return false;
         }
-        document.addEventListener('DOMContentLoaded', () => {
-          const savedLang = localStorage.getItem('language') || 'en';
-          setLanguage(savedLang);
+
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize language from saved preference
+            if (typeof translations !== 'undefined') {
+                const savedLang = localStorage.getItem('language') || 'en';
+                switchLanguage(savedLang);
+            }
         });
-        // ...existing code...
-      </script>
+
+        // Add cursor pointer and hover effects for posters
+        document.querySelectorAll('.series-poster').forEach(poster => {
+            poster.style.cursor = 'pointer';
+
+            poster.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-10px)';
+            });
+
+            poster.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
 </body>
 
 </html>

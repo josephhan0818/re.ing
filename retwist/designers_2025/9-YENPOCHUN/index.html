@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="designer.yenpochun.title">海洋招財貓</title>
+    <meta name="description" content="RE:TWIST Project - YENPOCHUN Design">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/brands.min.css">
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="../../style1.css">
+    <style>
+        /* Same styling as other designer pages */
+        .designer-avatar { text-align: center; }
+        .designer-photo { width: 100%; max-width: 300px; height: auto; border-radius: 0 !important; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        body { color: #333333; }
+        .figure-title { color: #000000; margin-bottom: 1rem; font-weight: 300; letter-spacing: -0.02em; }
+        .figure-dimensions { color: #666666; margin-bottom: 1rem; font-size: 0.9rem; font-weight: 300; }
+        .designer-badge { margin-bottom: 1.5rem; display: inline-block; }
+        .designer-badge span { color: #ffffff; background: #000000; padding: 0.3rem 0.8rem; border: 1px solid #000000; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; display: inline-block; }
+        .figure-description { color: #555555; margin-bottom: 2rem; line-height: 1.7; font-weight: 300; }
+        .figure-details { margin-top: 2rem; }
+        .detail-item { color: #666666; margin-bottom: 0.8rem; font-size: 0.9rem; display: flex; align-items: center; padding: 0.5rem 0; border-left: 3px solid #000000; padding-left: 1rem; }
+        .section-title { color: #000000; margin-bottom: 3rem; }
+        .story-content p { color: #555555; margin-bottom: 2rem; }
+        .designer-bio h3 { color: #000000; margin-bottom: 1rem; }
+        .designer-location { color: #666666; margin-bottom: 2rem; }
+        .designer-bio p { color: #555555; margin-bottom: 1.5rem; }
+        .related-card h4 { color: #000000; margin-bottom: 0.5rem; }
+        .related-card p { color: #666666; margin-bottom: 1rem; }
+        .btn { border-radius: 0 !important; }
+        .btn-outline-primary { border: 2px solid #333333; color: #333333; background: transparent; }
+        .btn-outline-primary:hover { background: #333333; color: white; border-color: #333333; }
+        .btn-outline-secondary { border: 2px solid #666666; color: #666666; background: transparent; }
+        .btn-outline-secondary:hover { background: #666666; color: white; }
+        .btn-primary { background: #000000; border: 2px solid #000000; color: white; }
+        .btn-primary:hover { background: #333333; border-color: #333333; }
+        .gallery-item { border-radius: 0 !important; }
+        .gallery-image { border-radius: 0 !important; }
+        .related-card { border-radius: 0 !important; border: 1px solid #dee2e6; }
+        .related-card img { border-radius: 0 !important; }
+        .figure-main-image { border-radius: 0 !important; margin-bottom: 2rem; }
+        .figure-image-container { margin-bottom: 3rem; }
+        .figure-info { padding-left: 1.5rem; }
+        .breadcrumb { background: none; padding: 0; }
+        .breadcrumb-item + .breadcrumb-item::before { content: ">"; color: #6c757d; }
+        .breadcrumb-item a { color: #666666; text-decoration: none; }
+        .breadcrumb-item a:hover { color: #000000; }
+        .breadcrumb-item.active { color: #000000; }
+        .nav-link { color: #333333 !important; }
+        .nav-link:hover { color: #000000 !important; }
+        footer { background: #000000; color: #ffffff; }
+        .navbar-nav { align-items: center; }
+        .lang-dropdown { display: flex; align-items: center; }
+        .lang-toggle { background: transparent; border: none; color: #333333; padding: 0.5rem 0.75rem; display: flex; align-items: center; text-decoration: none; transition: color 0.3s ease; }
+        .lang-toggle:hover { color: #000000; }
+        .lang-toggle img { margin-right: 0.5rem; }
+        .dropdown-menu { border: none; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); border-radius: 0; }
+        .dropdown-item { color: #333333; padding: 0.5rem 1rem; transition: background-color 0.3s ease; }
+        .dropdown-item:hover { background-color: #f8f9fa; color: #000000; }
+        @media (max-width: 991px) { .navbar-nav { align-items: flex-start; } .lang-dropdown { margin-top: 0.5rem; } .lang-toggle { padding: 0.5rem 0; } }
+        @media (max-width: 768px) { .figure-info { padding-left: 0; margin-top: 2rem; } .figure-image-container { margin-bottom: 2rem; } .designer-badge { margin-bottom: 1rem; } }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <img src="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" alt="re-ing Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars navbar-toggler-icon"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#mission" data-i18n="nav.mission">Our Mission</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#process" data-i18n="nav.process">Our Process</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#services" data-i18n="nav.services">Our Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html" data-i18n="nav.retwist">RE:TWIST 轉圈圈計畫</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#why-choose-us" data-i18n="nav.whyChooseUs">Why Choose Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#our-clients" data-i18n="nav.ourClients">Our Clients</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#contact" data-i18n="nav.contact">Contact Us</a></li>
+                    <li class="nav-item dropdown lang-dropdown">
+                        <a class="lang-toggle dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../../../assets/images/language.png" alt="Language Icon" style="width: 20px; height: auto;">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('en'); return false;">English</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('zh'); return false;">中文</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('nl'); return false;">Nederlands</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('ja'); return false;">日本語</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../../../index.html" data-i18n="common.home">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../../index.html" data-i18n="nav.retwist">RE:TWIST Project</a></li>
+                    <li class="breadcrumb-item"><a href="../index.html" data-i18n="retwist.series.taiwanJapan.title">台日合作系列</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">YENPOCHUN Design</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="figure-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="figure-image-container">
+                        <img src="../../../assets/images/figure_yenpochun.png" alt="" data-i18n-alt="designer.yenpochun.title" class="figure-main-image">
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="figure-info">
+                        <h1 class="figure-title" data-i18n="designer.yenpochun.title">Neco</h1>
+                        <div class="figure-dimensions">
+                            <span>L 3.3cm × W 2.9cm × H 4.0cm</span>
+                        </div>
+                        <div class="designer-badge">
+                            <span>YENPOCHUN</span>
+                        </div>
+                        <div class="figure-details">
+                            <div class="detail-item">
+                                <span data-i18n="designer.yenpochun.detail1">Art-Design Fusion</span>
+                            </div>
+                            <div class="detail-item">
+                                <span data-i18n="designer.yenpochun.detail2">Boundary Pushing</span>
+                            </div>
+                            <div class="detail-item">
+                                <span data-i18n="designer.yenpochun.detail3">Functional Integrity</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Story Section -->
+    <section class="design-story">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-i18n="common.designStory">Design Story</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <div class="story-content">
+                        <p data-i18n="designer.yenpochun.story">Neco是⼀款⽤回收海洋廢棄物製作的招財貓扭蛋公仔，將傳統招福的「招⼿」動作與海洋浮標的造型完美結合，傳遞「厄運轉好運」的溫暖信念。每⼀隻Neco都來⾃被丟棄的海洋塑料，經過再造後，以輕盈搖擺的姿態重新回到⼈們⼿中，就像壞運氣被輕輕推開，好運氣不斷招⼿⽴來。 Neco體現Retwist「不僅是回收，更是復甦」的精神——曾漂浮在海上的廢棄物，如今變成傳遞希望的使者。當我們轉動扭蛋，看著它微微搖晃時，彷彿訴說著「被遺忘的事物，總能以新的⽅式找回價值」。透過設計，讓環保不只是⼀句⼝號，Neco邀請每個⼈⽤輕鬆的⽅式參與永續⾏動，就從收藏⼀隻扭蛋公仔開始，重新思考我們與海洋的關係</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="figure-gallery">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-i18n="common.gallery">Gallery</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up">
+                    <div class="gallery-item">
+                        <img src="../../../assets/images/YENPOCHUN-1.jpg" alt="YENPOCHUN Design - View 1" class="gallery-image">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gallery-item">
+                        <img src="../../../assets/images/YENPOCHUN-2.jpg" alt="YENPOCHUN Design - View 2" class="gallery-image">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gallery-item">
+                        <img src="../../../assets/images/YENPOCHUN-3.jpg" alt="YENPOCHUN Design - View 3" class="gallery-image">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="gallery-item">
+                        <img src="../../../assets/images/YENPOCHUN-4.jpg" alt="YENPOCHUN Design - View 4" class="gallery-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Designer Profile Section -->
+    <section class="designer-profile">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-i18n="designer.yenpochun.aboutTitle">About YENPOCHUN</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-4" data-aos="fade-right">
+                    <div class="designer-avatar">
+                        <img src="../../../assets/images/designer-avatar-YENPOCHUN.jpg" alt="YENPOCHUN" class="designer-photo">
+                    </div>
+                </div>
+                <div class="col-lg-8" data-aos="fade-left">
+                    <div class="designer-bio">
+                        <h3>YENPOCHUN</h3>
+                        <p class="designer-location" data-i18n="designer.yenpochun.location">Based in Taiwan</p>
+                        <p data-i18n="designer.yenpochun.bio1">YENPOCHUN is an experimental designer who thrives on challenging conventional design paradigms. Their work exists at the intersection of art and design, constantly pushing boundaries while maintaining practical functionality.</p>
+                        <p data-i18n="designer.yenpochun.bio2">With a background in both fine arts and industrial design, YENPOCHUN brings a unique perspective to their creative process, resulting in pieces that are both thought-provoking and useful in everyday life.</p>
+                        <div class="designer-links">
+                            <a href="#" class="btn btn-outline-primary" data-i18n="common.viewPortfolio">View Portfolio</a>
+                            <a href="#" class="btn btn-outline-secondary" data-i18n="common.contactDesigner">Contact Designer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- Related Figures Section -->
+    <section class="related-figures">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-i18n="common.otherDesigners">Other Designers</h2>
+            <div class="row" id="related-figures-container">
+                <!-- Dynamically populated by JavaScript -->
+            </div>
+            <div class="text-center mt-4">
+                <a href="../index.html" class="btn btn-outline-primary" data-i18n="common.viewAllFigures">View All Figures</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p data-i18n="retwist.footer.copyright">© 2025 re-ing. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../translations.js"></script>
+    <script src="../../../script.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init();
+
+        // Language switching function
+        function switchLanguage(lang) {
+            console.log('Switching to language:', lang);
+            
+            if (typeof yenpochunTranslations === 'undefined') {
+                console.error('Translations not loaded');
+                return false;
+            }
+            
+            if (!yenpochunTranslations[lang]) {
+                console.error('Language not found:', lang);
+                return false;
+            }
+            
+            // Set language attributes
+            document.documentElement.setAttribute('data-lang', lang);
+            document.documentElement.lang = lang;
+
+            // Update all translation elements including title
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (yenpochunTranslations[lang] && yenpochunTranslations[lang][key]) {
+                    if (element.tagName.toLowerCase() === 'title') {
+                        element.textContent = yenpochunTranslations[lang][key] + ' - YENPOCHUN | RE:TWIST Project';
+                    } else {
+                        element.innerHTML = yenpochunTranslations[lang][key];
+                    }
+                } else {
+                    console.warn('Missing translation for key:', key, 'in language:', lang);
+                }
+            });
+
+            // Update alt attributes
+            document.querySelectorAll('[data-i18n-alt]').forEach(element => {
+                const key = element.getAttribute('data-i18n-alt');
+                if (yenpochunTranslations[lang] && yenpochunTranslations[lang][key]) {
+                    element.alt = yenpochunTranslations[lang][key];
+                }
+            });
+
+            // Update related figures with new language
+            if (typeof generateRelatedFigures === 'function') {
+                generateRelatedFigures();
+            }
+
+            // Save language preference
+            localStorage.setItem('language', lang);
+            
+            // Close dropdown
+            const dropdown = bootstrap.Dropdown.getInstance(document.getElementById('langDropdown'));
+            if (dropdown) {
+                dropdown.hide();
+            }
+            
+            return false;
+        }
+
+        // YENPOCHUN Translations
+        const yenpochunTranslations = {
+          en: {
+            // Navigation
+            "nav.mission": "Our Mission",
+            "nav.process": "Our Process", 
+            "nav.services": "Our Services",
+            "nav.retwist": "RE:TWIST Project",
+            "nav.whyChooseUs": "Why Choose Us",
+            "nav.ourClients": "Our Clients",
+            "nav.contact": "Contact Us",
+            
+            // Common
+            "common.home": "Home",
+            "common.designStory": "Design Story",
+            "common.gallery": "Gallery",
+            "common.otherDesigners": "Other Designers",
+            "common.viewAllFigures": "View All Figures",
+            "common.viewPortfolio": "View Portfolio",
+            "common.contactDesigner": "Contact Designer",
+            "common.by": "by",
+            "common.viewDetails": "View Details",
+            
+            // YENPOCHUN specific
+            "designer.yenpochun.title": "Lucky Ocean Cat",
+            "designer.yenpochun.pageTitle": "Lucky Ocean Cat - YENPOCHUN | RE:TWIST Project",
+            "designer.yenpochun.detail1": "Ocean Buoy Inspiration",
+            "designer.yenpochun.detail2": "Swaying Fortune Gesture",
+            "designer.yenpochun.detail3": "Revival Over Recycling",
+            "designer.yenpochun.aboutTitle": "About YENPOCHUN",
+            "designer.yenpochun.location": "Based in Taiwan",
+            "designer.yenpochun.bio1": "YENPOCHUN is an experimental designer who thrives on challenging conventional design paradigms. Their work exists at the intersection of art and design, constantly pushing boundaries while maintaining practical functionality.",
+            "designer.yenpochun.bio2": "With a background in both fine arts and industrial design, YENPOCHUN brings a unique perspective to their creative process, resulting in pieces that are both thought-provoking and useful in everyday life.",
+            "designer.yenpochun.story": "Neco is a lucky cat gashapon figurine made from recycled ocean waste, perfectly combining the traditional 'beckoning' gesture of fortune with the shape of ocean buoys, conveying the warm belief of 'turning bad luck into good luck'. Each Neco comes from discarded ocean plastic that, after reprocessing, returns to people's hands in a light, swaying posture—as if bad luck is gently pushed away and good luck keeps beckoning. Neco embodies the Retwist spirit of 'not just recycling, but revival'—waste that once floated at sea has now become a messenger of hope. When we turn the gashapon and watch it gently sway, it seems to tell us that 'forgotten things can always find their value again in new ways'. Through design, environmental protection becomes more than just a slogan. Neco invites everyone to participate in sustainable action in a relaxed way, starting with collecting a gashapon figurine and rethinking our relationship with the ocean.",
+            
+            // Designer titles for related figures
+            "designer.uo.title": "Enshunada Replica",
+            "designer.lance.title": "Lucky Cannelé Cat",
+            "designer.minami.title": "Japanese Haniwa Cat NYA-NIWA",
+            "designer.nosigner.title": "Bubble Mold Cat",
+            "designer.shawn.title": "SHAWN Design",
+            "designer.shikai.title": "Box Lucky Cat",
+            "designer.shinya.title": "Shinya Design",
+            "designer.yenan.title": "YENAN Design",
+            "designer.kairi.title": "KAIRI Design",
+            
+            // Series and footer
+            "retwist.series.taiwanJapan.title": "Taiwan-Japan Collaboration Series",
+            "retwist.footer.copyright": "© 2025 re-ing. All rights reserved."
+          },
+          
+          zh: {
+            // Navigation
+            "nav.mission": "我們的使命",
+            "nav.process": "我們的流程",
+            "nav.services": "我們的服務", 
+            "nav.retwist": "RE:TWIST 轉圈圈計畫",
+            "nav.whyChooseUs": "為何選擇我們",
+            "nav.ourClients": "我們的客戶",
+            "nav.contact": "聯絡我們",
+            
+            // Common
+            "common.home": "首頁",
+            "common.designStory": "設計故事",
+            "common.gallery": "作品集",
+            "common.otherDesigners": "其他設計師",
+            "common.viewAllFigures": "查看所有作品",
+            "common.viewPortfolio": "查看作品集",
+            "common.contactDesigner": "聯絡設計師",
+            "common.by": "由",
+            "common.viewDetails": "查看詳情",
+            
+            // YENPOCHUN specific
+            "designer.yenpochun.title": "海洋招財貓",
+            "designer.yenpochun.pageTitle": "海洋招財貓 - YENPOCHUN | RE:TWIST Project",
+            "designer.yenpochun.detail1": "海洋浮標靈感",
+            "designer.yenpochun.detail2": "搖擺招福姿態",
+            "designer.yenpochun.detail3": "復甦勝於回收",
+            "designer.yenpochun.aboutTitle": "關於 YENPOCHUN",
+            "designer.yenpochun.location": "台灣",
+            "designer.yenpochun.bio1": "YENPOCHUN 是一位實驗性設計師，擅長挑戰傳統設計範式。他的作品存在於藝術與設計的交界處，不斷推動界限，同時保持實用功能性。",
+            "designer.yenpochun.bio2": "具有美術和工業設計背景，YENPOCHUN 為創作過程帶來獨特的視角，創造出既發人深思又在日常生活中實用的作品。",
+            "designer.yenpochun.story": "Neco是⼀款⽤回收海洋廢棄物製作的招財貓扭蛋公仔，將傳統招福的「招⼿」動作與海洋浮標的造型完美結合，傳遞「厄運轉好運」的溫暖信念。每⼀隻Neco都來⾃被丟棄的海洋塑料，經過再造後，以輕盈搖擺的姿態重新回到⼈們⼿中，就像壞運氣被輕輕推開，好運氣不斷招⼿⽽來。Neco體現Retwist「不僅是回收，更是復甦」的精神——曾漂浮在海上的廢棄物，如今變成傳遞希望的使者。當我們轉動扭蛋，看著它微微搖晃時，彷彿訴說著「被遺忘的事物，總能以新的⽅式找回價值」。透過設計，讓環保不只是⼀句⼝號，Neco邀請每個⼈⽤輕鬆的⽅式參與永續⾏動，就從收藏⼀隻扭蛋公仔開始，重新思考我們與海洋的關係。",
+            
+            // Designer titles for related figures
+            "designer.uo.title": "遠州灘復刻版",
+            "designer.lance.title": "幸運可麗露貓",
+            "designer.minami.title": "日式埴輪猫 NYA-NIWA",
+            "designer.nosigner.title": "泡泡模具貓",
+            "designer.shawn.title": "SHAWN 設計",
+            "designer.shikai.title": "盒子招財貓",
+            "designer.shinya.title": "Shinya 設計",
+            "designer.yenan.title": "YENAN 設計",
+            "designer.kairi.title": "KAIRI 設計",
+            "designer.yenpochun.title": "海洋招財貓",
+            
+            // Series and footer
+            "retwist.series.taiwanJapan.title": "台日合作系列",
+            "retwist.footer.copyright": "© 2025 re-ing. 保留所有權利。"
+          },
+          
+          ja: {
+            // Navigation
+            "nav.mission": "私たちの使命",
+            "nav.process": "私たちのプロセス",
+            "nav.services": "私たちのサービス",
+            "nav.retwist": "RE:TWIST プロジェクト",
+            "nav.whyChooseUs": "選ばれる理由",
+            "nav.ourClients": "導入事例",
+            "nav.contact": "お問い合わせ",
+            
+            // Common
+            "common.home": "ホーム",
+            "common.designStory": "デザインストーリー",
+            "common.gallery": "ギャラリー",
+            "common.otherDesigners": "他のデザイナー",
+            "common.viewAllFigures": "すべての作品を見る",
+            "common.viewPortfolio": "ポートフォリオを見る",
+            "common.contactDesigner": "デザイナーに連絡",
+            "common.by": "設計者",
+            "common.viewDetails": "詳細を見る",
+            
+            // YENPOCHUN specific
+            "designer.yenpochun.title": "海洋招き猫",
+            "designer.yenpochun.pageTitle": "海洋招き猫 - YENPOCHUN | RE:TWIST Project",
+            "designer.yenpochun.detail1": "海洋ブイインスピレーション",
+            "designer.yenpochun.detail2": "揺れる招福ジェスチャー",
+            "designer.yenpochun.detail3": "リサイクルを超えた復活",
+            "designer.yenpochun.aboutTitle": "YENPOCHUNについて",
+            "designer.yenpochun.location": "台湾在住",
+            "designer.yenpochun.bio1": "YENPOCHUNは、従来のデザインパラダイムに挑戦することを得意とする実験的デザイナーです。彼の作品はアートとデザインの交差点に存在し、実用的な機能性を維持しながら常に境界を押し広げています。",
+            "designer.yenpochun.bio2": "美術と工業デザインの両方の背景を持つYENPOCHUNは、創作プロセスにユニークな視点をもたらし、思考を刺激しながら日常生活で有用な作品を生み出しています。",
+            "designer.yenpochun.story": "Necoは、リサイクルされた海洋廃棄物で作られた招き猫ガシャポンフィギュアで、伝統的な招福の「招き手」動作と海洋ブイの形状を完璧に組み合わせ、「悪運を良運に変える」という温かい信念を伝えています。各Necoは廃棄された海洋プラスチックから生まれ、再加工後、軽やかに揺れる姿で人々の手に戻ります—まるで悪運が優しく押し流され、良運が絶えず手招きしているかのようです。NecoはRetwistの「単なるリサイクルではなく、復活」の精神を体現しています—かつて海に漂っていた廃棄物が、今や希望の使者となったのです。ガシャポンを回して、それが微かに揺れるのを見るとき、「忘れられたものは、常に新しい方法で価値を見つけることができる」と語りかけているようです。デザインを通じて、環境保護は単なるスローガン以上のものになります。Necoは、ガシャポンフィギュアを集めることから始めて、海洋との関係を再考し、リラックスした方法で持続可能な行動に参加することを皆に呼びかけています。",
+            
+            // Designer titles for related figures
+            "designer.uo.title": "遠州灘レプリカ",
+            "designer.lance.title": "ラッキーカヌレ猫",
+            "designer.minami.title": "日式埴輪猫 NYA-NIWA",
+            "designer.nosigner.title": "バブルモールド猫",
+            "designer.shawn.title": "SHAWNデザイン",
+            "designer.shikai.title": "ボックス招き猫",
+            "designer.shinya.title": "Shinyaデザイン",
+            "designer.yenan.title": "YENANデザイン",
+            "designer.kairi.title": "KAIRIデザイン",
+            "designer.yenpochun.title": "海洋招き猫",
+            
+            // Series and footer
+            "retwist.series.taiwanJapan.title": "台日コラボレーションシリーズ",
+            "retwist.footer.copyright": "© 2025 re-ing. 全著作権所有。"
+          },
+          
+          nl: {
+            // Navigation
+            "nav.mission": "Onze Missie",
+            "nav.process": "Ons Proces",
+            "nav.services": "Onze Diensten",
+            "nav.retwist": "RE:TWIST Project",
+            "nav.whyChooseUs": "Waarom Voor Ons Kiezen",
+            "nav.ourClients": "Onze Klanten",
+            "nav.contact": "Contacteer Ons",
+            
+            // Common
+            "common.home": "Thuis",
+            "common.designStory": "Ontwerpverhaal",
+            "common.gallery": "Galerij",
+            "common.otherDesigners": "Andere Ontwerpers",
+            "common.viewAllFigures": "Alle Figuren Bekijken",
+            "common.viewPortfolio": "Portfolio Bekijken",
+            "common.contactDesigner": "Contact Ontwerper",
+            "common.by": "door",
+            "common.viewDetails": "Details Bekijken",
+            
+            // YENPOCHUN specific
+            "designer.yenpochun.title": "Oceaan Gelukskat",
+            "designer.yenpochun.pageTitle": "Oceaan Gelukskat - YENPOCHUN | RE:TWIST Project",
+            "designer.yenpochun.detail1": "Oceaan Boei Inspiratie",
+            "designer.yenpochun.detail2": "Wiegende Geluksgebaar",
+            "designer.yenpochun.detail3": "Heropleving Boven Recycling",
+            "designer.yenpochun.aboutTitle": "Over YENPOCHUN",
+            "designer.yenpochun.location": "Gevestigd in Taiwan",
+            "designer.yenpochun.bio1": "YENPOCHUN is een experimentele ontwerper die gedijt op het uitdagen van conventionele ontwerpparadigma's. Hun werk bestaat op het snijvlak van kunst en ontwerp, waarbij ze voortdurend grenzen verleggen terwijl ze praktische functionaliteit behouden.",
+            "designer.yenpochun.bio2": "Met een achtergrond in zowel beeldende kunst als industrieel ontwerp, brengt YENPOCHUN een uniek perspectief naar hun creatieve proces, resulterend in stukken die zowel tot nadenken aanzetten als nuttig zijn in het dagelijks leven.",
+            "designer.yenpochun.story": "Neco is een gelukskat gashapon-figuur gemaakt van gerecycled oceaanafval, dat het traditionele 'wenkende' gebaar van fortuin perfect combineert met de vorm van oceaanboeien, waardoor het warme geloof van 'pech omzetten in geluk' wordt overgebracht. Elke Neco komt voort uit weggegooid oceaanplastic dat, na herverwerking, terugkeert in de handen van mensen in een lichte, wiegende houding—alsof pech zachtjes wordt weggeduwd en geluk blijft wenken. Neco belichaamt de Retwist-geest van 'niet alleen recycling, maar heropleving'—afval dat ooit op zee dreef, is nu een boodschapper van hoop geworden. Wanneer we de gashapon draaien en het zachtjes zien wiegen, lijkt het ons te vertellen dat 'vergeten dingen altijd hun waarde opnieuw kunnen vinden op nieuwe manieren'. Door ontwerp wordt milieubescherming meer dan alleen een slogan. Neco nodigt iedereen uit om op een ontspannen manier deel te nemen aan duurzame actie, beginnend met het verzamelen van een gashapon-figuur en het heroverwegen van onze relatie met de oceaan.",
+            
+            // Designer titles for related figures
+            "designer.uo.title": "Enshunada Replica",
+            "designer.lance.title": "Gelukkige Cannelé Kat",
+            "designer.minami.title": "Japanse Haniwa Kat NYA-NIWA",
+            "designer.nosigner.title": "Bubble Mold Kat",
+            "designer.shawn.title": "SHAWN Ontwerp",
+            "designer.shikai.title": "Doos Gelukskat",
+            "designer.shinya.title": "Shinya Ontwerp",
+            "designer.yenan.title": "YENAN Ontwerp",
+            "designer.kairi.title": "KAIRI Ontwerp",
+            "designer.yenpochun.title": "Oceaan Gelukskat",
+            
+            // Series and footer
+            "retwist.series.taiwanJapan.title": "Taiwan-Japan Samenwerking Serie",
+            "retwist.footer.copyright": "© 2025 re-ing. Alle rechten voorbehouden."
+          }
+        };
+
+        // Designer data for this page
+        const currentPageDesigner = {
+            name: "YENPOCHUN",
+            folder: "9-Yenpochun"
+        };
+
+        // All designers data for related figures
+        const allDesigners = [
+            { name: "UO Design", titleKey: "designer.uo.title", folder: "1-UO", image: "figure_UO.png" },
+            { name: "Lance Design", titleKey: "designer.lance.title", folder: "2-Lance", image: "figure_lance.png" },
+            { name: "Minami Design", titleKey: "designer.minami.title", folder: "3-Minami", image: "figure_minami.png" },
+            { name: "Nosigner", titleKey: "designer.nosigner.title", folder: "4-Nosigner", image: "figure_nosigner.png" },
+            { name: "SHAWN", titleKey: "designer.shawn.title", folder: "5-SHAWN", image: "figure_shawn.png" },
+            { name: "SHIKAI", titleKey: "designer.shikai.title", folder: "6-Shikai", image: "figure_shikai.png" },
+            { name: "Shinya Yoshida", titleKey: "designer.shinya.title", folder: "7-Shinya", image: "figure_shinyayoshida.png" },
+            { name: "YENAN", titleKey: "designer.yenan.title", folder: "8-YENAN", image: "figure_yenan.png" },
+            { name: "YENPOCHUN", titleKey: "designer.yenpochun.title", folder: "9-Yenpochun", image: "figure_yenpochun.png" },
+            { name: "KAIRI", titleKey: "designer.kairi.title", folder: "10-KAIRI", image: "figure_kairi.png" }
+        ];
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to get 3 random designers excluding current one
+            function getRandomDesigners(designers, exclude, count = 3) {
+                const filtered = designers.filter(designer => designer.name !== exclude);
+                const shuffled = filtered.sort(() => 0.5 - Math.random());
+                return shuffled.slice(0, count);
+            }
+
+            // Generate related figures HTML
+            function generateRelatedFigures() {
+                // Cache the randomly selected designers to avoid re-randomizing on language switch
+                if (!window.selectedDesigners) {
+                    window.selectedDesigners = getRandomDesigners(allDesigners, currentPageDesigner.name, 3);
+                }
+                const randomDesigners = window.selectedDesigners;
+                const container = document.getElementById('related-figures-container');
+                const currentLang = document.documentElement.getAttribute('data-lang') || 'en';
+                
+                let html = '';
+                randomDesigners.forEach((designer, index) => {
+                    const translatedTitle = yenpochunTranslations[currentLang] && yenpochunTranslations[currentLang][designer.titleKey] 
+                        ? yenpochunTranslations[currentLang][designer.titleKey] 
+                        : designer.titleKey;
+                    const byText = yenpochunTranslations[currentLang]['common.by'] || 'by';
+                    const viewDetailsText = yenpochunTranslations[currentLang]['common.viewDetails'] || 'View Details';
+                        
+                    html += `
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="${index * 100}">
+                            <div class="related-card">
+                                <img src="../../../assets/images/${designer.image}" alt="${translatedTitle}">
+                                <div class="card-content">
+                                    <h4>${translatedTitle}</h4>
+                                    <p>${byText} ${designer.name}</p>
+                                    <a href="../${designer.folder}/index.html" class="btn btn-primary">${viewDetailsText}</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+            }
+
+            // Generate related figures
+            // Expose to global scope for language switching
+            window.generateRelatedFigures = generateRelatedFigures;
+            generateRelatedFigures();
+
+            // Initialize language from embedded translations
+            if (typeof yenpochunTranslations !== 'undefined') {
+                const savedLang = localStorage.getItem('language') || 'en';
+                switchLanguage(savedLang);
+            }
+        });
+    </script>
+</body>
+
+</html>

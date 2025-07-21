@@ -93,9 +93,102 @@ function showNewsletterThankYou(event) {
   }).catch(error => console.error('Error:', error));
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const savedLang = localStorage.getItem('language') || 'en';
-  setLanguage(savedLang); // Use the setLanguage function from translations.js
+document.addEventListener('DOMContentLoaded', function() {
+  // Header Scroll Effect
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // Mobile Menu Toggle
+  const hamburger = document.querySelector('.hamburger');
+  const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+  const closeBtn = document.querySelector('.mobile-nav-overlay .close-btn');
+
+  hamburger.addEventListener('click', () => {
+    mobileNavOverlay.classList.add('active');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    mobileNavOverlay.classList.remove('active');
+  });
+
+  // Designer Grid (Placeholder - Replace with actual data)
+  const designerGrid = document.querySelector('.designer-grid');
+  if (designerGrid) {
+    const designers = [
+      { name: 'Designer A', series: 'Series 1', image: 'https://via.placeholder.com/400x300' },
+      { name: 'Designer B', series: 'Series 2', image: 'https://via.placeholder.com/400x300' },
+      { name: 'Designer C', series: 'Series 3', image: 'https://via.placeholder.com/400x300' },
+      { name: 'Designer D', series: 'Series 4', image: 'https://via.placeholder.com/400x300' },
+      { name: 'Designer E', series: 'Series 5', image: 'https://via.placeholder.com/400x300' },
+      { name: 'Designer F', series: 'Series 6', image: 'https://via.placeholder.com/400x300' },
+      { name: 'Designer G', series: 'Series 7', image: 'https://via.placeholder.com/400x300' },
+      { name: 'Designer H', series: 'Series 8', image: 'https://via.placeholder.com/400x300' },
+      { name: 'Designer I', series: 'Series 9', image: 'https://via.placeholder.com/400x300' },
+      { name: 'Designer J', series: 'Series 10', image: 'https://via.placeholder.com/400x300' }
+    ];
+
+    designers.forEach(designer => {
+      const card = document.createElement('div');
+      card.classList.add('designer-card');
+      card.innerHTML = `
+        <img src="${designer.image}" alt="${designer.name}">
+        <div class="card-info">
+          <h3 class="designer-name">${designer.name}</h3>
+          <p class="series-name">${designer.series}</p>
+        </div>
+      `;
+      designerGrid.appendChild(card);
+    });
+  }
+
+  // RE:TWIST Designer Grid (Placeholder - Replace with actual data)
+  const retwistDesignerGrid = document.querySelector('.retwist-section .designer-grid');
+  if (retwistDesignerGrid) {
+    const designers = [
+      { name: 'Designer A', series: 'Series 1', image: 'https://via.placeholder.com/400x300' },
+      { name: 'Designer B', series: 'Series 2', image: 'https://via.placeholder.com/400x300' },
+      { name: 'Designer C', series: 'Series 3', image: 'https://via.placeholder.com/400x300' },
+      { name: 'Designer D', series: 'Series 4', image: 'https://via.placeholder.com/400x300' },
+      { name: 'Designer E', series: 'Series 5', image: 'https://via.placeholder.com/400x300' },
+      { name: 'Designer F', series: 'Series 6', image: 'https://via.placeholder.com/400x300' },
+      { name: 'Designer G', series: 'Series 7', image: 'https://via.placeholder.com/400x300' },
+      { name: 'Designer H', series: 'Series 8', image: 'https://via.placeholder.com/400x300' },
+      { name: 'Designer I', series: 'Series 9', image: 'https://via.placeholder.com/400x300' },
+      { name: 'Designer J', series: 'Series 10', image: 'https://via.placeholder.com/400x300' }
+    ];
+
+    designers.forEach(designer => {
+      const card = document.createElement('div');
+      card.classList.add('designer-card');
+      card.innerHTML = `
+        <img src="${designer.image}" alt="${designer.name}">
+        <div class="card-info">
+          <h3 class="designer-name">${designer.name}</h3>
+          <p class="series-name">${designer.series}</p>
+        </div>
+      `;
+      retwistDesignerGrid.appendChild(card);
+    });
+  }
+
+  // Language switch function
+  function switchLanguage(lang) {
+    setLanguage(lang);
+    localStorage.setItem('language', lang);
+    document.documentElement.setAttribute('data-lang', lang);
+  }
+
+  // Initialize language on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('language') || 'en';
+    setLanguage(savedLang);
+  });
 
   // Update Awards section title
   const awardsTitle = document.querySelector('#awards h2 span');

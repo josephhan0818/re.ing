@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Bang 系列 - RE:TWIST 轉圈圈計畫</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../style.css">
+    <!-- Import the component -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+    <style>
+        /* 黑白銳利設計風格 */
+        body {
+            font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        html[data-lang="zh"] * {
+            font-family: 'Noto Sans TC', 'Montserrat', sans-serif !important;
+        }
+
+        /* Header - 使用 Lucky Bang Banner 並添加浮動特效 */
+        header {
+            background: url('../../assets/images/banner_luckybang_1.jpg') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 80px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: url('../../assets/images/banner_luckybang_1.jpg') no-repeat center center;
+            background-size: cover;
+            z-index: 0;
+            animation: floatBackground 8s ease-in-out infinite;
+        }
+
+        @keyframes floatBackground {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        header .container {
+            padding: 4rem 0 2rem 0;
+            max-width: 1000px;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .series-title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .series-subtitle {
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .series-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #ffffff;
+            display: block;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 6rem 0;
+            background: #ffffff;
+        }
+
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #000000;
+            text-align: center;
+            margin-bottom: 4rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: #000000;
+            margin: 2rem auto;
+        }
+
+        /* Figure Grid 修正圖片尺寸 */
+        .figures-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .figure-card {
+            position: relative;
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            border-radius: 0;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            height: 500px;
+        }
+
+        .figure-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .figure-image {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .figure-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: grayscale(100%);
+        }
+
+        .figure-card:hover .figure-image img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        .figure-info {
+            padding: 2rem;
+            background: #ffffff;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .figure-name {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #000000;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .figure-name-en {
+            font-size: 1rem;
+            color: #666666;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .figure-description {
+            font-size: 0.9rem;
+            color: #666666;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #000000;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            z-index: 2;
+        }
+
+        /* About Section */
+        .about-section {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            color: #333333;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+
+        .concept-highlights {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .highlight-item {
+            padding: 2rem 1.5rem;
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .highlight-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight-icon {
+            font-size: 2rem;
+            color: #000000;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #000000;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .highlight-desc {
+            font-size: 0.9rem;
+            color: #666666;
+            font-weight: 300;
+        }
+
+        /* 3D Model Viewer Section */
+        .model-viewer-section {
+            padding: 6rem 0;
+            background: #f8f9fa;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .model-viewer-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .model-viewer-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #000000;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .model-viewer-description {
+            font-size: 1.1rem;
+            color: #333333;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        model-viewer {
+            width: 100%;
+            height: 500px;
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            border-radius: 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            --poster-color: #f8f9fa;
+            --progress-bar-color: #000000;
+            --progress-bar-height: 2px;
+            --progress-mask: #ffffff;
+        }
+
+        model-viewer:not([loaded]) {
+            background: #f8f9fa;
+        }
+
+        model-viewer[loading] {
+            opacity: 1;
+        }
+
+        /* 新版本的 model-viewer 樣式 */
+        model-viewer > #default-progress-mask {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f8f9fa;
+            opacity: 0.8;
+        }
+
+        model-viewer > #default-progress-bar {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            height: 2px;
+            background: #000000;
+            border-radius: 1px;
+        }
+
+        model-viewer:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+        }
+
+        .model-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .model-info {
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            color: #666666;
+            font-weight: 300;
+            margin-top: 2rem;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background: #FFFFFF !important;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .navbar-brand img {
+            height: 48px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand img:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-link {
+            color: #1F2937 !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #000000;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #000000 !important;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #000000;
+            padding: 4rem 0;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        footer .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        footer .footer-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-nav a:hover {
+            color: #cccccc;
+        }
+
+        footer .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        footer .social-links a {
+            color: #ffffff;
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        footer .social-links a:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* 確保 FontAwesome icons 正常載入 */
+        .fab,
+        .fas {
+            font-family: "Font Awesome 6 Brands", "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+
+        /* 響應式設計調整 */
+        @media (max-width: 1200px) {
+            .figures-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .concept-highlights {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                margin-top: 70px;
+                min-height: 50vh;
+            }
+
+            .series-title {
+                font-size: 2.5rem;
+            }
+
+            .series-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .figures-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .concept-highlights {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .figure-card {
+                height: 450px;
+            }
+
+            .figure-image {
+                height: 250px;
+            }
+
+            .figure-info {
+                height: 200px;
+                padding: 1.5rem;
+            }
+
+            model-viewer {
+                height: 400px;
+            }
+
+            .model-viewer-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header {
+                margin-top: 60px;
+                min-height: 40vh;
+            }
+
+            .series-title {
+                font-size: 2.2rem;
+            }
+
+            .figure-card {
+                height: 400px;
+            }
+
+            .figure-image {
+                height: 220px;
+            }
+
+            .figure-info {
+                height: 180px;
+                padding: 1.5rem;
+            }
+
+            model-viewer {
+                height: 350px;
+            }
+
+            .model-viewer-title {
+                font-size: 1.8rem;
+            }
+
+            .model-viewer-section {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+                <img src="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" alt="re-ing Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars navbar-toggler-icon"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#mission">Our Mission</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#process">Our Process</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#services">Our Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html">RE:TWIST 轉圈圈計畫</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1 class="series-title">Lucky Bang 系列</h1>
+            <p class="series-subtitle">
+                好運降臨！四款趣味占卜公仔，結合傳統幸運元素與現代設計，讓每一次搖擺都充滿驚喜與期待。
+            </p>
+            <div class="series-stats">
+                <div class="stat-item">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">款式</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">已推出</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">好運</span>
+                    <span class="stat-label">主題</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Figures Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">系列作品展示</h2>
+            <div class="figures-grid">
+                <!-- 囍八朗 Rocky Roll -->
+                <div class="figure-card" data-aos="fade-up">
+                    <div class="status-badge">已推出</div>
+                    <div class="figure-image">
+                        <img src="../../assets/images/rocky_roll.png" alt="囍八朗 Rocky Roll" loading="lazy">
+                    </div>
+                    <div class="figure-info">
+                        <h3 class="figure-name">囍八朗</h3>
+                        <p class="figure-name-en">Rocky Roll</p>
+                        <p class="figure-description">
+                            「囍八朗」為「十八骰仔」的諧音，造型逗趣的小雞變身成骰盅，藏有兩顆骰子！讓你隨時隨地都能與朋友開局一場熱血的「囍八朗」幸運擲骰遊戲！
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 歐巴司 Owl Pass -->
+                <div class="figure-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="status-badge">已推出</div>
+                    <div class="figure-image">
+                        <img src="../../assets/images/owl_pass.png" alt="歐巴司 Owl Pass" loading="lazy">
+                    </div>
+                    <div class="figure-info">
+                        <h3 class="figure-name">歐巴司</h3>
+                        <p class="figure-name-en">Owl Pass</p>
+                        <p class="figure-description">
+                            「歐巴司」為「All Pass」的諧音。貓頭鷹化身智慧占卜小物，肚子裡藏有多款幸運籤。隨手一搖，看看今天的好運是否正朝你飛來！
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 8財貓 Lucky Kitty -->
+                <div class="figure-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="status-badge">已推出</div>
+                    <div class="figure-image">
+                        <img src="../../assets/images/lucky_kitty.png" alt="8財貓 Lucky Kitty" loading="lazy">
+                    </div>
+                    <div class="figure-info">
+                        <h3 class="figure-name">8財貓</h3>
+                        <p class="figure-name-en">Lucky Kitty</p>
+                        <p class="figure-description">
+                            傳統幸運錢幣占卜，設計成招財貓造型的趣味占卜道具。透過投擲硬幣的正反面來解析每日運勢，是與朋友一起玩樂的小小開運神器。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 保寶唄 BaoBao go(Gold) -->
+                <div class="figure-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="status-badge">已推出</div>
+                    <div class="figure-image">
+                        <img src="../../assets/images/baobao_gold.png" alt="保寶唄 BaoBao go(Gold)" loading="lazy">
+                    </div>
+                    <div class="figure-info">
+                        <h3 class="figure-name">保寶唄</h3>
+                        <p class="figure-name-en">BaoBao go(Gold)</p>
+                        <p class="figure-description">
+                            可愛的元寶，也可以擲茭！「寶唄」諧音「筊杯」擲出你的幸運指引，還可收納幸運小物，寓意「錢財滾滾、福運連連」。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section">
+        <div class="about-section" data-aos="fade-up">
+            <h2 class="section-title">關於 Lucky Bang 系列</h2>
+            <div class="about-content">
+                <p>
+                    Lucky Bang 系列將傳統的幸運占卜元素融入現代扭蛋設計中，每一款都蘊含著深厚的文化意涵與趣味互動體驗。從骰子遊戲到籤詩占卜，從硬幣擲卜到筊杯祈福，這些熟悉的幸運儀式被重新詮釋為可愛的收藏公仔。
+                </p>
+                <p>
+                    每件作品不僅是裝飾品，更是能與朋友分享歡樂時光的互動玩具。透過創意的諧音命名和巧妙的功能設計，Lucky Bang 系列讓傳統文化以全新的面貌重現，為現代生活注入一絲幸運與樂趣。
+                </p>
+            </div>
+
+            <div class="concept-highlights">
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-dice"></i>
+                    </div>
+                    <h4 class="highlight-title">互動樂趣</h4>
+                    <p class="highlight-desc">每款公仔都具備獨特的互動功能</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 class="highlight-title">幸運元素</h4>
+                    <p class="highlight-desc">融合傳統占卜與現代設計</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h4 class="highlight-title">文化傳承</h4>
+                    <p class="highlight-desc">讓傳統文化以新形式延續</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4 class="highlight-title">分享歡樂</h4>
+                    <p class="highlight-desc">與朋友一同體驗幸運時刻</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Model Viewer Section -->
+    <section class="model-viewer-section">
+        <div class="model-viewer-container" data-aos="fade-up">
+            <h2 class="model-viewer-title">3D 模型預覽</h2>
+            <p class="model-viewer-description">
+                透過互動式 3D 模型，360° 全方位欣賞 Lucky Bang 系列的精緻設計細節。您可以旋轉、縮放模型，深入探索每個作品的獨特魅力。
+            </p>
+            
+            <model-viewer 
+                alt="Lucky Bang 3D 模型展示" 
+                src="../../assets/3d_obj/Lucky.glb" 
+                shadow-intensity="1" 
+                environment-image="neutral"
+                exposure="1.2"
+                camera-controls 
+                touch-action="pan-y"
+                auto-rotate
+                auto-rotate-delay="1000"
+                rotation-per-second="30deg"
+                data-aos="zoom-in"
+                data-aos-delay="200">
+            </model-viewer>
+            
+            <div class="model-info">
+                <strong>操作說明：</strong>
+                拖拽旋轉 • 滾輪縮放 • 雙指手勢操作 • 自動旋轉展示
+                <br><br>
+                <small style="color: #999;">
+                    如果模型顯示為黑色，可能的原因：<br>
+                    1. GLB 檔案未嵌入貼圖 (需要重新匯出並勾選 "Embed Textures")<br>
+                    2. 缺少環境光照 (已添加 environment-image="neutral")<br>
+                    3. 瀏覽器不支援 WebGL<br>
+                    4. 模型材質設定問題<br><br>
+                    <strong>建議：</strong> 如果問題持續，請重新匯出 GLB 檔案並確保勾選 "Embed Textures" 選項
+                </small>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-nav">
+                <a href="../../index.html#mission">Our Mission</a>
+                <a href="../../index.html#process">Our Process</a>
+                <a href="../../index.html#services">Our Services</a>
+                <a href="../index.html">RE:TWIST Project</a>
+                <a href="../../index.html#contact">Contact Us</a>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/company/ddoott" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/taiwan_dotdesign" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/super.dotdesign" target="_blank" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+
+            <p>© 2025 re-ing. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init();
+
+        // Add hover effects to figure cards
+        document.querySelectorAll('.figure-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // 3D Model Viewer 設置和錯誤處理 (新版本 4.0.0)
+        const modelViewer = document.querySelector('model-viewer');
+        
+        if (modelViewer) {
+            // 監聽模型載入事件
+            modelViewer.addEventListener('load', () => {
+                console.log('3D 模型載入成功');
+                // 載入成功後隱藏進度條
+                const progressMask = modelViewer.querySelector('#default-progress-mask');
+                if (progressMask) {
+                    progressMask.style.display = 'none';
+                }
+                
+                // 檢查模型是否有材質
+                const model = modelViewer.model;
+                if (model) {
+                    console.log('模型材質數量:', model.materials.length);
+                    model.materials.forEach((material, index) => {
+                        console.log(`材質 ${index}:`, material.name, material);
+                    });
+                }
+            });
+
+            modelViewer.addEventListener('error', (event) => {
+                console.error('3D 模型載入錯誤:', event.detail);
+                // 如果載入失敗，顯示錯誤信息
+                const errorDiv = document.createElement('div');
+                errorDiv.innerHTML = `
+                    <div style="padding: 2rem; text-align: center; color: #666; background: #f8f9fa; border: 1px solid #e5e5e5;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 1rem; color: #dc3545;"></i>
+                        <p><strong>3D 模型載入失敗</strong></p>
+                        <p>可能的原因：</p>
+                        <ul style="text-align: left; display: inline-block; margin: 1rem 0;">
+                            <li>檔案路徑不正確</li>
+                            <li>GLB 檔案損壞或格式不支援</li>
+                            <li>GLB 檔案未嵌入貼圖 (需重新匯出)</li>
+                            <li>瀏覽器不支援 WebGL</li>
+                            <li>網路連接問題</li>
+                        </ul>
+                        <p style="font-size: 0.8rem; color: #999;">檔案路徑: ../../assets/3d_obj/Lucky.glb</p>
+                        <button onclick="reloadModel()" style="padding: 0.5rem 1rem; background: #000; color: #fff; border: none; cursor: pointer; margin-right: 1rem;">重新載入</button>
+                        <button onclick="testAlternativeModel()" style="padding: 0.5rem 1rem; background: #666; color: #fff; border: none; cursor: pointer;">測試範例模型</button>
+                    </div>
+                `;
+                modelViewer.parentNode.insertBefore(errorDiv, modelViewer.nextSibling);
+            });
+
+            // 監聽模型準備就緒事件
+            modelViewer.addEventListener('model-visibility', (event) => {
+                if (event.detail.visible) {
+                    console.log('3D 模型已準備就緒並顯示');
+                }
+            });
+
+            // 強制重新載入模型的函數
+            window.reloadModel = function() {
+                console.log('重新載入 3D 模型...');
+                const src = modelViewer.getAttribute('src');
+                modelViewer.setAttribute('src', '');
+                setTimeout(() => {
+                    modelViewer.setAttribute('src', src);
+                    // 移除之前的錯誤訊息
+                    const errorDiv = modelViewer.parentNode.querySelector('div[style*="padding: 2rem"]');
+                    if (errorDiv) {
+                        errorDiv.remove();
+                    }
+                }, 100);
+            };
+
+            // 測試範例模型的函數
+            window.testAlternativeModel = function() {
+                console.log('載入測試用範例模型...');
+                modelViewer.setAttribute('src', 'https://modelviewer.dev/shared-assets/models/Astronaut.glb');
+                // 移除之前的錯誤訊息
+                const errorDiv = modelViewer.parentNode.querySelector('div[style*="padding: 2rem"]');
+                if (errorDiv) {
+                    errorDiv.remove();
+                }
+            };
+
+            // 檢查 WebGL 支援
+            const canvas = document.createElement('canvas');
+            const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+            if (!gl) {
+                console.warn('瀏覽器不支援 WebGL，3D 模型可能無法正常顯示');
+                alert('您的瀏覽器不支援 WebGL，3D 模型可能無法正常顯示。請更新瀏覽器或使用支援 WebGL 的瀏覽器。');
+            } else {
+                console.log('WebGL 支援正常');
+            }
+        }
+    </script>
+</body>
+
+</html>

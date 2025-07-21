@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8財貓 Lucky Kitty - Lucky Bang 系列</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="../../style.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+    <style>
+        body {
+            font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+        }
+
+        /* Hero Section - Minimalist Black & White */
+        .hero-section {
+            background: linear-gradient(135deg, #000000 0%, #333333 100%);
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>') repeat;
+            background-size: 50px 50px;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-50px); }
+        }
+
+        .hero-content {
+            color: white;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 100;
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            opacity: 0.8;
+            letter-spacing: 0.2em;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            opacity: 0.7;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* Coin Flip Section - Clean Monochrome */
+        .coin-flip-section {
+            padding: 6rem 0;
+            background: #f8f9fa;
+            text-align: center;
+            color: #333;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .coin-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 3rem 0;
+        }
+
+        .coin {
+            width: 120px;
+            height: 120px;
+            background: #ffffff;
+            border: 3px solid #000000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .coin:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .coin.flipping {
+            animation: coinFlip 1s ease-in-out;
+        }
+
+        @keyframes coinFlip {
+            0% { transform: rotateY(0deg); }
+            50% { transform: rotateY(180deg) scale(1.1); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        .coin-btn {
+            background: #000000;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .coin-btn:hover {
+            background: #333333;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .coin-result {
+            background: white;
+            color: #333;
+            padding: 2rem;
+            border: 1px solid #e5e5e5;
+            margin-top: 2rem;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .coin-result.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .result-text {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            color: #000000;
+        }
+
+        .result-meaning {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* Lucky Cat - Minimalist Animation */
+        .lucky-cat {
+            display: inline-block;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Product Info Section - Clean Layout */
+        .product-info {
+            padding: 6rem 0;
+            background: white;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .product-image {
+            text-align: center;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .product-details h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .spec-item {
+            display: flex;
+            margin-bottom: 0.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-left: 3px solid #000000;
+        }
+
+        .spec-label {
+            font-weight: 500;
+            min-width: 120px;
+            color: #000000;
+            font-size: 0.9rem;
+        }
+
+        .spec-value {
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        /* Gallery Section - Grid Layout */
+        .gallery-section {
+            padding: 6rem 0;
+            background: #f8f9fa;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1px;
+            margin-top: 3rem;
+            background: #e5e5e5;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            background: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            z-index: 10;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: filter 0.3s ease;
+            filter: grayscale(100%);
+        }
+
+        .gallery-item:hover img {
+            filter: grayscale(0%);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay span {
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Modal Styles - Clean Design */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            background: white;
+            border: 1px solid #e5e5e5;
+            overflow: hidden;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            color: black;
+            background: white;
+            border: 1px solid #e5e5e5;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            font-weight: 300;
+        }
+
+        .close-btn:hover {
+            background: #f8f9fa;
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+            transform: translateY(-50%);
+        }
+
+        .nav-btn {
+            background: white;
+            color: black;
+            border: 1px solid #e5e5e5;
+            padding: 1rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: #f8f9fa;
+        }
+
+        /* Model Section - Clean Background */
+        .model-section {
+            padding: 6rem 0;
+            background: white;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .model-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        model-viewer {
+            width: 100%;
+            height: 500px;
+            background: #f8f9fa;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        /* Features Section - Minimal Cards */
+        .features-section {
+            padding: 6rem 0;
+            background: #f8f9fa;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            margin-top: 3rem;
+            background: #e5e5e5;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: #000000;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* Section Titles - Minimal Style */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 1px;
+            background: #000000;
+            margin: 2rem auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .gallery-item img {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" style="background: #ffffff !important; border-bottom: 1px solid #e5e5e5;">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <img src="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" alt="re-ing Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars navbar-toggler-icon"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#mission">Our Mission</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#process">Our Process</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#services">Our Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html">RE:TWIST 轉圈圈計畫</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Lucky Bang 系列</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <h1 class="hero-title">Lucky Kitty</h1>
+                <p class="hero-subtitle">8財貓</p>
+                <p class="hero-description">
+                    傳統幸運錢幣占卜，設計成招財貓造型的趣味占卜道具。透過投擲硬幣的正反面來解析每日運勢，是與朋友一起玩樂的小小開運神器。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coin Flip Section -->
+    <section class="coin-flip-section">
+        <div class="container">
+            <div data-aos="fade-up">
+                <h2 class="section-title">Fortune Telling</h2>
+                <div class="lucky-cat">🐱</div>
+                <p style="font-size: 1rem; margin-bottom: 3rem; color: #666; font-weight: 300;">讓招財貓為你預測今日財運</p>
+                <div class="coin-container">
+                    <div class="coin" id="coin" onclick="flipCoin()">
+                        <span id="coinSide" style="color: #000000;">💰</span>
+                    </div>
+                </div>
+                <button class="coin-btn" onclick="flipCoin()">Flip Coin</button>
+                <div class="coin-result" id="coinResult">
+                    <div class="result-text" id="resultText">點擊硬幣開始占卜...</div>
+                    <div class="result-meaning" id="resultMeaning"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Info Section -->
+    <section class="product-info">
+        <div class="container">
+            <div class="product-grid">
+                <div class="product-image" data-aos="fade-right">
+                    <img src="../../../assets/images/lucky_kitty.png" alt="8財貓 Lucky Kitty">
+                </div>
+                <div class="product-details" data-aos="fade-left">
+                    <h2>Specifications</h2>
+                    <div class="spec-item">
+                        <div class="spec-label">產品名稱：</div>
+                        <div class="spec-value">8財貓 Lucky Kitty</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">系列：</div>
+                        <div class="spec-value">Lucky Bang 系列</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">主要功能：</div>
+                        <div class="spec-value">硬幣占卜 / 招財擺件</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">材質：</div>
+                        <div class="spec-value">高品質塑膠</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">配件：</div>
+                        <div class="spec-value">專用占卜硬幣</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">狀態：</div>
+                        <div class="spec-value">已推出</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preview Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="../../../assets/images/lucky-kitty-preview-1.jpg" alt="8財貓 - 正面展示" onclick="openModal(this)">
+                    <div class="gallery-overlay">
+                        <span>正面展示</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="../../../assets/images/lucky-kitty-preview-2.jpg" alt="8財貓 - 側面展示" onclick="openModal(this)">
+                    <div class="gallery-overlay">
+                        <span>側面展示</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="../../../assets/images/lucky-kitty-preview-3.jpg" alt="8財貓 - 硬幣細節" onclick="openModal(this)">
+                    <div class="gallery-overlay">
+                        <span>硬幣細節</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
+                    <img src="../../../assets/images/lucky-kitty-preview-4.jpg" alt="8財貓 - 使用情境" onclick="openModal(this)">
+                    <div class="gallery-overlay">
+                        <span>使用情境</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="500">
+                    <img src="../../../assets/images/lucky-kitty-preview-5.jpg" alt="8財貓 - 招財手勢" onclick="openModal(this)">
+                    <div class="gallery-overlay">
+                        <span>招財手勢</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal-overlay" onclick="closeModal()">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div class="modal-nav">
+                <button onclick="prevImage()" class="nav-btn prev-btn">&#10094;</button>
+                <button onclick="nextImage()" class="nav-btn next-btn">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3D Model Section -->
+    <section class="model-section">
+        <div class="container">
+            <div class="model-container" data-aos="fade-up">
+                <h2 class="section-title">3D Preview</h2>
+                <model-viewer 
+                    alt="8財貓 Lucky Kitty 3D 模型" 
+                    src="../../../assets/3d_obj/lucky_kitty.glb" 
+                    shadow-intensity="1" 
+                    environment-image="neutral"
+                    exposure="1.2"
+                    camera-controls 
+                    touch-action="pan-y"
+                    auto-rotate
+                    auto-rotate-delay="1000"
+                    rotation-per-second="30deg">
+                </model-viewer>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Features</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">🐱</div>
+                    <h3>Lucky Cat Design</h3>
+                    <p>經典招財貓設計，象徵財運亨通、生意興隆。</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">🪙</div>
+                    <h3>Coin Divination</h3>
+                    <p>傳統硬幣占卜方式，透過正反面預測運勢。</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">💰</div>
+                    <h3>Fortune Boost</h3>
+                    <p>專為提升財運而設計，是理財投資的幸運夥伴。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #000000; padding: 4rem 0; text-align: center; color: #ffffff; border-top: 1px solid #333;">
+        <div class="container">
+            <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                <a href="../../../index.html#mission" style="color: #fff; text-decoration: none;">Our Mission</a>
+                <a href="../../../index.html#process" style="color: #fff; text-decoration: none;">Our Process</a>
+                <a href="../../../index.html#services" style="color: #fff; text-decoration: none;">Our Services</a>
+                <a href="../../index.html" style="color: #fff; text-decoration: none;">RE:TWIST Project</a>
+                <a href="../index.html" style="color: #fff; text-decoration: none;">Lucky Bang 系列</a>
+                <a href="../../../index.html#contact" style="color: #fff; text-decoration: none;">Contact Us</a>
+            </div>
+            <p>© 2025 re-ing. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        AOS.init();
+
+        const coinResults = {
+            heads: [
+                { text: "正面朝上！財運滾滾來！", meaning: "今日是投資理財的好日子，把握機會！" },
+                { text: "金幣正面！貴人運極佳！", meaning: "會有重要人士為你帶來財富機會。" },
+                { text: "招財貓微笑！大吉大利！", meaning: "今日做什麼都會順利，財運特別旺。" }
+            ],
+            tails: [
+                { text: "反面朝上！謹慎理財！", meaning: "今日宜保守投資，避免大額支出。" },
+                { text: "硬幣反面！積蓄為上！", meaning: "適合儲蓄的一天，為未來做準備。" },
+                { text: "招財貓沉思！靜待時機！", meaning: "耐心等待，更好的機會即將到來。" }
+            ]
+        };
+
+        function flipCoin() {
+            const coin = document.getElementById('coin');
+            const coinSide = document.getElementById('coinSide');
+            const result = document.getElementById('coinResult');
+            const resultText = document.getElementById('resultText');
+            const resultMeaning = document.getElementById('resultMeaning');
+            
+            // Hide result first
+            result.classList.remove('show');
+            
+            // Add flipping animation
+            coin.classList.add('flipping');
+            
+            setTimeout(() => {
+                const isHeads = Math.random() < 0.5;
+                const resultType = isHeads ? 'heads' : 'tails';
+                const randomResult = coinResults[resultType][Math.floor(Math.random() * coinResults[resultType].length)];
+                
+                coinSide.textContent = isHeads ? '💰' : '🪙';
+                resultText.textContent = randomResult.text;
+                resultMeaning.textContent = randomResult.meaning;
+                
+                coin.classList.remove('flipping');
+                result.classList.add('show');
+            }, 1000);
+        }
+
+        // Initialize with first result
+        setTimeout(() => {
+            flipCoin();
+        }, 1000);
+
+        // Gallery Modal Functions
+        let currentImageIndex = 0;
+        const galleryImages = [
+            '../../../assets/images/lucky-kitty-preview-1.jpg',
+            '../../../assets/images/lucky-kitty-preview-2.jpg',
+            '../../../assets/images/lucky-kitty-preview-3.jpg',
+            '../../../assets/images/lucky-kitty-preview-4.jpg',
+            '../../../assets/images/lucky-kitty-preview-5.jpg'
+        ];
+
+        function openModal(img) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            currentImageIndex = galleryImages.indexOf(img.src);
+            
+            modal.classList.add('active');
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            const modalImg = document.getElementById('modalImage');
+            modalImg.src = galleryImages[currentImageIndex];
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            const modalImg = document.getElementById('modalImage');
+            modalImg.src = galleryImages[currentImageIndex];
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+
+</html>
