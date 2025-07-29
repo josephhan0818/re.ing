@@ -57,27 +57,34 @@
       transform: scale(1.1);
     }
 
+    .navbar-nav {
+      align-items: center;
+    }
+
     .nav-link {
       color: #1F2937 !important;
       font-weight: 500;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 1rem !important;
+      margin: 0 0.25rem;
       position: relative;
       transition: color 0.3s ease, transform 0.3s ease;
+      border-radius: 0;
     }
 
     .nav-link::after {
       content: '';
       position: absolute;
       bottom: 0;
-      left: 0;
+      left: 50%;
       width: 0;
       height: 2px;
       background: #000000;
       transition: width 0.3s ease;
+      transform: translateX(-50%);
     }
 
     .nav-link:hover::after {
-      width: 100%;
+      width: 80%;
     }
 
     .nav-link:hover {
@@ -88,11 +95,13 @@
     /* Language Dropdown */
     .lang-dropdown {
       position: relative;
+      display: flex;
+      align-items: center;
     }
 
     .lang-toggle {
-      background: none;
-      border: none;
+      background: none !important;
+      border: none !important;
       font-size: 1rem;
       font-weight: 500;
       color: #1F2937;
@@ -100,14 +109,33 @@
       transition: color 0.3s ease;
       display: flex;
       align-items: center;
+      padding: 0.5rem 0.75rem;
+      text-decoration: none;
+      box-shadow: none !important;
     }
 
     .lang-toggle:hover {
       color: #000000;
+      background: transparent !important;
     }
 
-    .lang-toggle i {
-      margin-left: 0.5rem;
+    .lang-toggle:focus {
+      box-shadow: none !important;
+      background: transparent !important;
+    }
+
+    .lang-toggle::after {
+      content: "";
+      border-top: 0.3em solid;
+      border-right: 0.3em solid transparent;
+      border-bottom: 0;
+      border-left: 0.3em solid transparent;
+      margin-left: 0.255em;
+      vertical-align: 0.255em;
+    }
+
+    .lang-toggle img {
+      margin-right: 0.5rem;
     }
 
     .dropdown-menu {
@@ -144,6 +172,33 @@
     .navbar-toggler-icon {
       font-size: 1.5rem;
       color: #1F2937;
+      font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+      font-weight: 900 !important;
+      display: inline-block;
+      font-style: normal;
+      background-image: none !important;
+      width: auto !important;
+      height: auto !important;
+    }
+
+    .navbar-toggler .navbar-toggler-icon::before {
+      content: "\f0c9";
+      font-family: "Font Awesome 6 Free" !important;
+      font-weight: 900 !important;
+    }
+
+    @media (max-width: 991px) {
+      .navbar-nav {
+        align-items: flex-start;
+      }
+
+      .lang-dropdown {
+        margin-top: 0.5rem;
+      }
+
+      .lang-toggle {
+        padding: 0.5rem 0;
+      }
     }
 
     /* Header - 保持背景圖片彩色 */
