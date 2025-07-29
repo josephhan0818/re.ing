@@ -304,6 +304,29 @@
         .view-more-btn i {
             margin-left: 0.3rem;
             font-size: 0.7rem;
+            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+            font-weight: 900 !important;
+            display: inline-block !important;
+            font-style: normal !important;
+        }
+
+        /* Ensure view more button arrow icon displays properly */
+        .view-more-btn .fa-arrow-right::before {
+            content: "\f061";
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
+        }
+
+        /* Fix potential icon issues in Chinese language mode */
+        html[data-lang="zh"] .view-more-btn i {
+            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+            font-weight: 900 !important;
+        }
+
+        html[data-lang="zh"] .view-more-btn .fa-arrow-right::before {
+            content: "\f061" !important;
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
         }
 
         /* Grid Layout - 改為 5×2 網格 */
@@ -321,6 +344,160 @@
             width: 100%;
             padding: 0;
             margin: 0;
+        }
+
+        /* Standardized Navbar - consistent across all pages */
+        .navbar {
+            background: #FFFFFF !important;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .navbar-brand img {
+            height: 48px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand img:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-link {
+            color: #1F2937 !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #22D3EE;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #22D3EE !important;
+            transform: translateY(-2px);
+        }
+
+        /* Fix navbar toggler icon overlap issue */
+        .navbar-toggler {
+            border: none;
+            padding: 0.25rem 0.5rem;
+            outline: none;
+            box-shadow: none;
+            background: transparent;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+            outline: none;
+        }
+
+        /* Remove any duplicate or conflicting navbar-toggler-icon styles */
+        .navbar-toggler-icon {
+            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+            font-weight: 900 !important;
+            font-size: 1.25rem;
+            color: #333333;
+            display: inline-block;
+            font-style: normal;
+            background-image: none !important; /* Remove Bootstrap's default background */
+            width: auto !important; /* Remove Bootstrap's fixed width */
+            height: auto !important; /* Remove Bootstrap's fixed height */
+        }
+
+        /* Ensure no Bootstrap default navbar-toggler styles interfere */
+        .navbar-toggler .navbar-toggler-icon::before {
+            content: "\f0c9"; /* FontAwesome bars icon */
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
+        }
+
+        /* Remove Bootstrap's default navbar-toggler-icon background */
+        .navbar-toggler-icon {
+            background: none !important;
+        }
+
+        /* Language dropdown standardization */
+        .lang-dropdown {
+            display: flex;
+            align-items: center;
+        }
+
+        .lang-toggle {
+            background: transparent;
+            border: none;
+            color: #333333;
+            padding: 0.5rem 0.75rem;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            box-shadow: none !important;
+            outline: none !important;
+        }
+
+        .lang-toggle:hover {
+            color: #000000;
+        }
+
+        .lang-toggle:focus {
+            box-shadow: none !important;
+            outline: none !important;
+        }
+
+        .lang-toggle img {
+            margin-right: 0.5rem;
+        }
+
+        .lang-toggle i {
+            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+            font-weight: 900 !important;
+            margin-left: 0.5rem;
+            font-size: 0.8rem;
+            color: #333333;
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 0;
+        }
+
+        .dropdown-item {
+            color: #333333;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-item:hover,
+        .dropdown-item:focus {
+            background-color: #f8f9fa;
+            color: #000000;
+            outline: none;
+        }
+
+        /* Remove Bootstrap dropdown arrow */
+        .dropdown-toggle::after {
+            display: none;
+        }
+
+        .dropdown-toggle:focus {
+            box-shadow: none !important;
         }
 
         /* Footer - 簡約設計 */
@@ -347,31 +524,44 @@
         footer .social-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         footer .social-links a {
             color: #ffffff;
             font-size: 1.5rem;
             transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
         }
 
         footer .social-links a:hover {
-            color: #22D3EE;
-            transform: translateY(-3px);
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
 
-        footer .social-links img {
-            width: 24px;
-            height: 24px;
-            filter: brightness(0) invert(1);
-            transition: filter 0.3s ease, transform 0.3s ease;
+        /* Ensure social media icons are black/white only */
+        footer .social-links a i {
+            color: #ffffff !important;
+            font-family: "Font Awesome 6 Brands", "FontAwesome", Arial, sans-serif !important;
+            font-weight: 400 !important;
+            display: inline-block !important;
+            font-style: normal !important;
+            font-variant: normal !important;
+            text-rendering: auto !important;
+            line-height: 1 !important;
+            transition: color 0.3s ease;
         }
 
-        footer .social-links a:hover img {
-            filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(180deg);
-            transform: translateY(-3px);
+        footer .social-links a:hover i {
+            color: #ffffff !important;
         }
 
         footer .footer-nav {
@@ -392,127 +582,6 @@
 
         footer .footer-nav a:hover {
             color: #22D3EE;
-        }
-
-        /* Navbar Styles */
-        .navbar {
-            background: #FFFFFF !important;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-
-        .navbar-brand img {
-            height: 48px;
-            transition: transform 0.3s ease;
-        }
-
-        .navbar-brand img:hover {
-            transform: scale(1.1);
-        }
-
-        .nav-link {
-            color: #1F2937 !important;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            position: relative;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #22D3EE;
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .nav-link:hover {
-            color: #22D3EE !important;
-            transform: translateY(-2px);
-        }
-
-        /* Language Dropdown */
-        .lang-dropdown {
-            position: relative;
-        }
-
-        .lang-toggle {
-            background: none;
-            border: none;
-            font-size: 1rem;
-            font-weight: 500;
-            color: #1F2937;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-        }
-
-        .lang-toggle:hover {
-            color: #22D3EE;
-        }
-
-        .lang-toggle i {
-            margin-left: 0.5rem;
-        }
-
-        .dropdown-menu {
-            min-width: 120px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border: none;
-            padding: 0.5rem 0;
-        }
-
-        .dropdown-item {
-            font-size: 0.9rem;
-            padding: 0.5rem 1rem;
-            color: #1F2937;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-
-        .dropdown-item:hover {
-            background: #22D3EE;
-            color: #FFFFFF;
-        }
-
-        .navbar-toggler {
-            border: none;
-            outline: none;
-            box-shadow: none;
-        }
-
-        .navbar-toggler:focus {
-            outline: none;
-            box-shadow: none;
-        }
-
-        .navbar-toggler-icon {
-            font-size: 1.5rem;
-            color: #1F2937;
-            display: inline-block;
-            vertical-align: middle;
-        }
-
-        .navbar-toggler svg {
-            display: none;
-            vertical-align: middle;
-        }
-
-        .navbar-toggler.font-awesome-fail .navbar-toggler-icon {
-            display: none;
-        }
-
-        .navbar-toggler.font-awesome-fail svg {
-            display: inline-block;
         }
 
         /* 響應式設計 */
@@ -606,35 +675,26 @@
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars navbar-toggler-icon"></i>
-                <!-- Fallback SVG for hamburger icon -->
-                <svg class="d-none" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 6H21V8H3V6ZM3 11H21V13H3V11ZM3 16H21V18H3V16Z" fill="#1F2937"/>
-                </svg>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../../index.html#mission" data-i18n="nav.mission">Our Mission</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="../../index.html#process" data-i18n="nav.process">Our Process</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="../../index.html#services" data-i18n="nav.services">Our Services</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#mission" data-i18n="nav.mission">Our Mission</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#process" data-i18n="nav.process">Our Process</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#services" data-i18n="nav.services">Our Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="../index.html" data-i18n="nav.retwist">RE:TWIST 轉圈圈計畫</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../index.html#why-choose-us" data-i18n="nav.whyChooseUs">Why Choose Us</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="../../index.html#our-clients" data-i18n="nav.ourClients">Our Clients</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="../../index.html#contact" data-i18n="nav.contact">Contact Us</a>
-                    </li>
-                    <li class="nav-item lang-dropdown">
-                        <button class="lang-toggle" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="../../assets/images/language.png" alt="Language Icon" style="width: 20px; height: auto;"> <i class="fas fa-chevron-down"></i>
-                        </button>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#why-choose-us" data-i18n="nav.whyChooseUs">Why Choose Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#our-clients" data-i18n="nav.ourClients">Our Clients</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#contact" data-i18n="nav.contact">Contact Us</a></li>
+                    <li class="nav-item dropdown lang-dropdown">
+                        <a class="lang-toggle dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../../assets/images/language.png" alt="Language Icon" style="width: 20px; height: auto;">
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
-                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('en')">English</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('zh')">中文</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('nl')">Nederlands</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('ja')">日本語</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('en'); return false;">English</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('zh'); return false;">中文</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('nl'); return false;">Nederlands</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('ja'); return false;">日本語</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -727,7 +787,7 @@
                     <img src="../../assets/images/figure_UO.png" alt="UO設計師作品" class="figure-img">
                     <div class="figure-info">
                         <div class="designer-name" data-i18n="retwist.figure.uo.designer">UO</div>
-                        <div class="work-title" data-i18n="retwist.figure.uo.title">和諧共生</div>
+                        <div class="work-title" data-i18n="retwist.figure.uo.title">Enshunada Replica</div>
                         <a href="1-UO/index.html" class="view-more-btn" data-i18n="retwist.figure.viewMore">View More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -737,8 +797,8 @@
                 <div class="figure-card">
                     <img src="../../assets/images/figure_lance.png" alt="Lance設計師作品" class="figure-img">
                     <div class="figure-info">
-                        <div class="designer-name" data-i18n="retwist.figure.lance.designer">Lance 設計師</div>
-                        <div class="work-title" data-i18n="retwist.figure.lance.title">作品名稱3</div>
+                        <div class="designer-name" data-i18n="retwist.figure.lance.designer">Lance Han</div>
+                        <div class="work-title" data-i18n="retwist.figure.lance.title">Lucky Cannelé Cat</div>
                         <a href="2-Lance/index.html" class="view-more-btn" data-i18n="retwist.figure.viewMore">View More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -748,8 +808,8 @@
                 <div class="figure-card">
                     <img src="../../assets/images/figure_minami.png" alt="Minami設計師作品" class="figure-img">
                     <div class="figure-info">
-                        <div class="designer-name" data-i18n="retwist.figure.minami.designer">Minami 設計師</div>
-                        <div class="work-title" data-i18n="retwist.figure.minami.title">作品名稱4</div>
+                        <div class="designer-name" data-i18n="retwist.figure.minami.designer">HIRONARI MINAMI</div>
+                        <div class="work-title" data-i18n="retwist.figure.minami.title">日式埴輪猫 NYA-NIWA</div>
                         <a href="3-Minami/index.html" class="view-more-btn" data-i18n="retwist.figure.viewMore">View More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -759,8 +819,8 @@
                 <div class="figure-card">
                     <img src="../../assets/images/figure_nosigner.png" alt="Nosigner設計師作品" class="figure-img">
                     <div class="figure-info">
-                        <div class="designer-name" data-i18n="retwist.figure.nosigner.designer">無名設計師</div>
-                        <div class="work-title" data-i18n="retwist.figure.nosigner.title">作品名稱5</div>
+                        <div class="designer-name" data-i18n="retwist.figure.nosigner.designer">Eisuke Tachikawa</div>
+                        <div class="work-title" data-i18n="retwist.figure.nosigner.title">Bubble Mold Cat</div>
                         <a href="4-Nosigner/index.html" class="view-more-btn" data-i18n="retwist.figure.viewMore">View More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -770,7 +830,7 @@
                 <div class="figure-card">
                     <img src="../../assets/images/figure_shawn.png" alt="Shawn設計師作品" class="figure-img">
                     <div class="figure-info">
-                        <div class="designer-name" data-i18n="retwist.figure.shawn.designer">Shawn 設計師</div>
+                        <div class="designer-name" data-i18n="retwist.figure.shawn.designer">Shawn Lee</div>
                         <div class="work-title" data-i18n="retwist.figure.shawn.title">Mute Cat: Silence is Golden</div>
                         <a href="5-Shawn/index.html" class="view-more-btn" data-i18n="retwist.figure.viewMore">View More <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -781,8 +841,8 @@
                 <div class="figure-card">
                     <img src="../../assets/images/figure_shikai.png" alt="Shikai設計師作品" class="figure-img">
                     <div class="figure-info">
-                        <div class="designer-name" data-i18n="retwist.figure.shikai.designer">Shikai 設計師</div>
-                        <div class="work-title" data-i18n="retwist.figure.shikai.title">作品名稱7</div>
+                        <div class="designer-name" data-i18n="retwist.figure.shikai.designer">Shikai Tseng</div>
+                        <div class="work-title" data-i18n="retwist.figure.shikai.title">Box Manekineko</div>
                         <a href="6-Shikai/index.html" class="view-more-btn" data-i18n="retwist.figure.viewMore">View More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -792,8 +852,8 @@
                 <div class="figure-card">
                     <img src="../../assets/images/figure_shinyayoshida.png" alt="Shinya設計師作品" class="figure-img">
                     <div class="figure-info">
-                        <div class="designer-name" data-i18n="retwist.figure.shinya.designer">Shin 設計師</div>
-                        <div class="work-title" data-i18n="retwist.figure.shinya.title">作品名稱8</div>
+                        <div class="designer-name" data-i18n="retwist.figure.shinya.designer">SHINYA YOSHIDA</div>
+                        <div class="work-title" data-i18n="retwist.figure.shinya.title">GROOMI NEKO</div>
                         <a href="7-Shinya/index.html" class="view-more-btn" data-i18n="retwist.figure.viewMore">View More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -803,8 +863,8 @@
                 <div class="figure-card">
                     <img src="../../assets/images/figure_yenan.png" alt="Yenan設計師作品" class="figure-img">
                     <div class="figure-info">
-                        <div class="designer-name" data-i18n="retwist.figure.yenan.designer">Yenan 設計師</div>
-                        <div class="work-title" data-i18n="retwist.figure.yenan.title">作品名稱10</div>
+                        <div class="designer-name" data-i18n="retwist.figure.yenan.designer">Yen An Chen</div>
+                        <div class="work-title" data-i18n="retwist.figure.yenan.title">Coin Cat</div>
                         <a href="8-YENAN/index.html" class="view-more-btn" data-i18n="retwist.figure.viewMore">View More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -814,8 +874,8 @@
                 <div class="figure-card">
                     <img src="../../assets/images/figure_yenpochun.png" alt="Yenpochun設計師作品" class="figure-img">
                     <div class="figure-info">
-                        <div class="designer-name" data-i18n="retwist.figure.yenpochun.designer">Yenpochun 設計師</div>
-                        <div class="work-title" data-i18n="retwist.figure.yenpochun.title">作品名稱11</div>
+                        <div class="designer-name" data-i18n="retwist.figure.yenpochun.designer">Po Chun Yen</div>
+                        <div class="work-title" data-i18n="retwist.figure.yenpochun.title">Neco</div>
                         <a href="9-YENPOCHUN/index.html" class="view-more-btn" data-i18n="retwist.figure.viewMore">View More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -825,8 +885,8 @@
                 <div class="figure-card">
                     <img src="../../assets/images/figure_kairi.png" alt="Kairi設計師作品" class="figure-img">
                     <div class="figure-info">
-                        <div class="designer-name" data-i18n="retwist.figure.kairi.designer">Kairi 設計師</div>
-                        <div class="work-title" data-i18n="retwist.figure.kairi.title">生態循環</div>
+                        <div class="designer-name" data-i18n="retwist.figure.kairi.designer">KAIRI EGUCHI</div>
+                        <div class="work-title" data-i18n="retwist.figure.kairi.title">castaway cat</div>
                         <a href="10-KAIRI/index.html" class="view-more-btn" data-i18n="retwist.figure.viewMore">View More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -844,19 +904,19 @@
                 <a href="../index.html" data-i18n="nav.retwist">RE:TWIST Project</a>
                 <a href="../../index.html#contact" data-i18n="nav.contact">Contact Us</a>
             </div>
-            
+
             <div class="social-links">
                 <a href="https://www.linkedin.com/company/ddoott" target="_blank" title="LinkedIn">
-                    <img src="../../assets/images/linkedin-logo.png" alt="LinkedIn Logo">
+                    <i class="fab fa-linkedin"></i>
                 </a>
                 <a href="https://www.instagram.com/taiwan_dotdesign" target="_blank" title="Instagram">
-                    <img src="../../assets/images/instagram-logo.png" alt="Instagram Logo">
+                    <i class="fab fa-instagram"></i>
                 </a>
                 <a href="https://www.facebook.com/super.dotdesign" target="_blank" title="Facebook">
-                    <img src="../../assets/images/facebook-logo.png" alt="Facebook Logo">
+                    <i class="fab fa-facebook"></i>
                 </a>
             </div>
-            
+
             <p data-i18n="retwist.footer.copyright">© 2025 re-ing. All rights reserved.</p>
         </div>
     </footer>
@@ -866,73 +926,316 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../translation.js"></script>
     <script>
-        // 初始化 AOS
+        // Initialize AOS
         AOS.init();
 
-        // 更新當前語言顯示的函數
-        function updateCurrentLang(lang) {
-            const currentLangSpan = document.querySelector('.current-lang');
-            if (currentLangSpan) {
-                const langCodes = {
-                    'en': 'EN',
-                    'zh': '中',
-                    'ja': '日',
-                    'nl': 'NL'
-                };
-                currentLangSpan.textContent = langCodes[lang] || 'EN';
-            }
-        }
-
-        // 語言切換函數
+        // Language switching functionality with complete fallback translations
         function switchLanguage(lang) {
-            if (typeof translations === 'undefined') {
-                console.error('Translations not loaded');
-                return;
-            }
+            console.log('Switching to language:', lang);
             
-            if (!translations[lang]) {
+            // Complete fallback translations including correct designer information
+            const fallbackTranslations = {
+                en: {
+                    "retwist.relevance.title": "Social Relevance and Environmental Vision",
+                    "retwist.relevance.p1": "Both Japan and Taiwan are island nations that have long faced marine waste issues. This project brings together five designers from each region, attempting to use styrofoam (expanded polystyrene) - the highest proportion material in marine waste - as design material, transforming it into collectible figures with cultural and narrative significance.",
+                    "retwist.relevance.p2": "We use 100% styrofoam to design figures, using single materials to make figures easily enter the circulation system. We not only view styrofoam as the source of design problems, but also as the starting point for creating future value, introducing systematic reflection through creative design to explore how design can intervene in contemporary plastic circulation and production logic.",
+                    "retwist.culture.title": "Cultural Perspective and Design Strategy",
+                    "retwist.culture.p1": "This collaboration uses 'Lucky Cat' as a common theme. As a symbol of luck and wealth in Japanese folk beliefs, the Lucky Cat has already crossed borders and become a globally recognized cultural symbol. We encourage designers to integrate their own cultural experiences and environmental observations on this basis, reinterpreting and innovatively interpreting traditional symbols.",
+                    "retwist.culture.p2": "Through the translation of design language, we hope to let viewers rethink the meaning of 'value' and 'collection': In an era of material excess, what should we truly cherish?",
+                    "retwist.vision.title": "Innovative Thinking and Future Vision",
+                    "retwist.vision.p1": "This is not only a creation of sustainable toys, but also a proposal for future gashapon systems:",
+                    "retwist.vision.item1.title": "Material Innovation:",
+                    "retwist.vision.item1.content": "Introducing low-energy, regionally implementable styrofoam recycling processes to create new life for difficult-to-recycle materials.",
+                    "retwist.vision.item2.title": "International Cooperation:",
+                    "retwist.vision.item2.content": "Cross-cultural exchange among designers, jointly facing global ecological challenges, demonstrating the integration and connectivity of design.",
+                    "retwist.vision.item3.title": "Scalable Applications:",
+                    "retwist.vision.item3.content": "Future cooperation with brands such as BANDAI and Kura Sushi is expected to bring sustainable gashapon into the mass market.",
+                    "retwist.vision.item4.title": "Cultural Narrative Transformation:",
+                    "retwist.vision.item4.content": "Each figure is a design story, combining aesthetics, fun and deep meaning, shaping the possibilities of future narrative.",
+                    "retwist.figures.title": "Designer Works Exhibition",
+                    "retwist.figure.uo.designer": "UO",
+                    "retwist.figure.uo.title": "Enshunada Replica",
+                    "retwist.figure.lance.designer": "Lance Han",
+                    "retwist.figure.lance.title": "Lucky Cannelé Cat",
+                    "retwist.figure.minami.designer": "HIRONARI MINAMI",
+                    "retwist.figure.minami.title": "日式埴輪猫 NYA-NIWA",
+                    "retwist.figure.nosigner.designer": "Eisuke Tachikawa",
+                    "retwist.figure.nosigner.title": "Bubble Mold Cat",
+                    "retwist.figure.shawn.designer": "Shawn Lee",
+                    "retwist.figure.shawn.title": "Mute Cat: Silence is Golden",
+                    "retwist.figure.shikai.designer": "Shikai Tseng",
+                    "retwist.figure.shikai.title": "Box Manekineko",
+                    "retwist.figure.shinya.designer": "SHINYA YOSHIDA",
+                    "retwist.figure.shinya.title": "GROOMI NEKO",
+                    "retwist.figure.yenan.designer": "Yen An Chen",
+                    "retwist.figure.yenan.title": "Coin Cat",
+                    "retwist.figure.yenpochun.designer": "Po Chun Yen",
+                    "retwist.figure.yenpochun.title": "Neco",
+                    "retwist.figure.kairi.designer": "KAIRI EGUCHI",
+                    "retwist.figure.kairi.title": "castaway cat",
+                    "nav.mission": "Our Mission",
+                    "nav.process": "Our Process",
+                    "nav.services": "Our Services",
+                    "nav.retwist": "RE:TWIST Project",
+                    "nav.whyChooseUs": "Why Choose Us",
+                    "nav.ourClients": "Our Clients",
+                    "nav.contact": "Contact Us",
+                    "retwist.footer.copyright": "© 2025 re-ing. All rights reserved."
+                },
+                zh: {
+                    "retwist.relevance.title": "社會關聯性與環境前瞻性",
+                    "retwist.relevance.p1": "日本與台灣皆為海島國家，長期面對海洋廢棄物問題。此次計畫邀集兩地各五位設計師，嘗試以海廢中比例最高的材料——保麗龍（發泡聚苯乙烯）作為設計素材，將其轉化為具文化與敘事性的收藏公仔。",
+                    "retwist.relevance.p2": "我們使用100%的保麗龍設計公仔，使用單一材料讓公仔容易進入循環系統。我們不僅將保麗龍視為設計問題的源頭，更視其為創造未來價值的起點，透過創意設計導入系統性反思，探討設計如何介入當代的塑膠循環與生產邏輯。",
+                    "retwist.culture.title": "文化視角與設計策略",
+                    "retwist.culture.p1": "本次合作以「招財貓」為共通命題。作為日本民間信仰中象徵幸運與財富的角色，招財貓早已跨越國界，成為全球廣為人知的文化符號。我們鼓勵設計師在此基礎上，融合自身文化經驗與環境觀察，對傳統符號進行再詮釋與創新演繹。",
+                    "retwist.culture.p2": "透過設計語言的轉譯，我們希望讓觀者重新思考「價值」與「收集」的意義：在物質過剩的時代，我們真正應該珍視的是什麼？",
+                    "retwist.vision.title": "創新思維與未來願景",
+                    "retwist.vision.p1": "這不僅是一次永續玩具的創作，更是對未來扭蛋系統的提案：",
+                    "retwist.vision.item1.title": "材料創新：",
+                    "retwist.vision.item1.content": "導入低能耗、可地區性實施的保麗龍回收加工流程，為困難回收的材質開創新生命。",
+                    "retwist.vision.item2.title": "跨國合作：",
+                    "retwist.vision.item2.content": "設計師跨文化交流，共同面對全球性生態挑戰，展現設計的整合力與連結性。",
+                    "retwist.vision.item3.title": "可擴展應用：",
+                    "retwist.vision.item3.content": "未來有望與如萬代（BANDAI）、藏壽司（Kura Sushi）等品牌合作，將永續扭蛋帶入大眾市場。",
+                    "retwist.vision.item4.title": "文化敘事轉化：",
+                    "retwist.vision.item4.content": "每一隻公仔都是一段設計故事，兼具美感、趣味與深層意義，形塑未來敘事的可能性。",
+                    "retwist.figures.title": "設計師作品展示",
+                    "retwist.figure.uo.designer": "UO",
+                    "retwist.figure.uo.title": "Enshunada Replica",
+                    "retwist.figure.lance.designer": "韓世國",
+                    "retwist.figure.lance.title": "幸運的可麗露貓",
+                    "retwist.figure.minami.designer": "南大成",
+                    "retwist.figure.minami.title": "日式埴輪猫 NYA-NIWA",
+                    "retwist.figure.nosigner.designer": "太刀川英輔",
+                    "retwist.figure.nosigner.title": "Bubble Mold Cat",
+                    "retwist.figure.shawn.designer": "李聖恩",
+                    "retwist.figure.shawn.title": "沉默是金｜Mute Cat",
+                    "retwist.figure.shikai.designer": "曾熙凱",
+                    "retwist.figure.shikai.title": "海箱貓",
+                    "retwist.figure.shinya.designer": "吉田真也",
+                    "retwist.figure.shinya.title": "GROOMI NEKO",
+                    "retwist.figure.yenan.designer": "陳彥安",
+                    "retwist.figure.yenan.title": "硬幣貓",
+                    "retwist.figure.yenpochun.designer": "顏伯駿",
+                    "retwist.figure.yenpochun.title": "Neco",
+                    "retwist.figure.kairi.designer": "江口海里",
+                    "retwist.figure.kairi.title": "漂流猫",
+                    "nav.mission": "我們的使命",
+                    "nav.process": "我們的流程",
+                    "nav.services": "我們的服務",
+                    "nav.retwist": "RE:TWIST 轉圈圈計畫",
+                    "nav.whyChooseUs": "為何選擇我們",
+                    "nav.ourClients": "我們的客戶",
+                    "nav.contact": "聯絡我們",
+                    "retwist.footer.copyright": "© 2025 re-ing. 保留所有權利。"
+                },
+                ja: {
+                    "retwist.relevance.title": "社会関連性と環境先見性",
+                    "retwist.relevance.p1": "日本と台湾はともに島国で、長期間海洋廃棄物問題に直面しています。このプロジェクトでは両地域から各5名のデザイナーを招集し、海洋廃棄物の中で最も高い割合を占める材料である発泡スチロール（発泡ポリスチレン）をデザイン素材として使用し、文化的で物語性のあるコレクション フィギュアに変換することを試みています。",
+                    "retwist.relevance.p2": "私たちは100%発泡スチロールを使用してフィギュアをデザインし、単一素材を使用することでフィギュアが循環システムに容易に入ることができます。私たちは発泡スチロールをデザイン問題の源としてだけでなく、未来価値創造の出発点として捉え、創造的デザインを通じてシステム的反省を導入し、デザインが現代のプラスチック循環と生産ロジックにどのように介入できるかを探求します。",
+                    "retwist.culture.title": "文化的視点とデザイン戦略",
+                    "retwist.culture.p1": "今回のコラボレーションでは「招き猫」を共通テーマとしています。日本の民間信仰で幸運と富の象徴である招き猫は、すでに国境を越えて世界的に知られた文化シンボルとなっています。私たちはデザイナーがこの基盤の上で、自身の文化体験と環境観察を融合し、伝統的シンボルの再解釈と革新的演出を行うことを奨励します。",
+                    "retwist.culture.p2": "デザイン言語の翻訳を通じて、私たちは観者に「価値」と「収集」の意味を再考してもらいたいと考えています：物質過剰の時代に、私たちが本当に大切にすべきものは何でしょうか？",
+                    "retwist.vision.title": "革新的思考と未来ビジョン",
+                    "retwist.vision.p1": "これは持続可能なおもちゃの創作だけでなく、未来のガシャポンシステムへの提案でもあります：",
+                    "retwist.vision.item1.title": "材料革新：",
+                    "retwist.vision.item1.content": "低エネルギー消費で地域実施可能な発泡スチロールリサイクル加工プロセスを導入し、リサイクル困難な材質に新しい生命を創造します。",
+                    "retwist.vision.item2.title": "国際協力：",
+                    "retwist.vision.item2.content": "デザイナーの異文化交流により、グローバルな生態的課題に共同で対処し、デザインの統合力と連結性を示します。",
+                    "retwist.vision.item3.title": "拡張可能応用：",
+                    "retwist.vision.item3.content": "将来的にはBANDAI、くら寿司などのブランドとの協力が期待され、持続可能なガシャポンを大衆市場に導入します。",
+                    "retwist.vision.item4.title": "文化物語変換：",
+                    "retwist.vision.item4.content": "各フィギュアはデザインストーリーであり、美感、面白さ、深い意味を兼ね備え、未来物語の可能性を形成します。",
+                    "retwist.figures.title": "デザイナー作品展示",
+                    "retwist.figure.uo.designer": "UO",
+                    "retwist.figure.uo.title": "Enshunada Replica",
+                    "retwist.figure.lance.designer": "Lance Han",
+                    "retwist.figure.lance.title": "幸運のカヌレ猫",
+                    "retwist.figure.minami.designer": "南　大成",
+                    "retwist.figure.minami.title": "日式埴輪猫 NYA-NIWA",
+                    "retwist.figure.nosigner.designer": "太刀川英輔",
+                    "retwist.figure.nosigner.title": "Bubble Mold Cat",
+                    "retwist.figure.shawn.designer": "李 聖恩 / リ・セイオン",
+                    "retwist.figure.shawn.title": "ミュートキャット：沈黙は金",
+                    "retwist.figure.shikai.designer": "Shikai Tseng",
+                    "retwist.figure.shikai.title": "海箱貓",
+                    "retwist.figure.shinya.designer": "吉田真也",
+                    "retwist.figure.shinya.title": "グルーミネコ",
+                    "retwist.figure.yenan.designer": "陳彦安",
+                    "retwist.figure.yenan.title": "コインねこ",
+                    "retwist.figure.yenpochun.designer": "Po Chun Yen",
+                    "retwist.figure.yenpochun.title": "Neco",
+                    "retwist.figure.kairi.designer": "江口海里",
+                    "retwist.figure.kairi.title": "流れ着いた猫",
+                    "nav.mission": "私たちの使命",
+                    "nav.process": "私たちのプロセス",
+                    "nav.services": "私たちのサービス",
+                    "nav.retwist": "RE:TWIST プロジェクト",
+                    "nav.whyChooseUs": "選ばれる理由",
+                    "nav.ourClients": "導入事例",
+                    "nav.contact": "お問い合わせ",
+                    "retwist.footer.copyright": "© 2025 re-ing. 全著作権所有。"
+                },
+                nl: {
+                    "retwist.relevance.title": "Sociale Relevantie en Milieuvisie",
+                    "retwist.relevance.p1": "Zowel Japan als Taiwan zijn eilandnaties die al lange tijd te maken hebben met mariene afvalproblemen. Dit project brengt vijf ontwerpers uit elke regio samen en probeert piepschuim (geëxpandeerd polystyreen) - het materiaal met het hoogste aandeel in mariene afval - te gebruiken als ontwerpmateriaal, en transformeert het in verzamelfiguren met culturele en verhalende betekenis.",
+                    "retwist.relevance.p2": "We gebruiken 100% piepschuim om figuren te ontwerpen, waarbij we enkele materialen gebruiken om figuren gemakkelijk het circulatiesysteem te laten betreden. We beschouwen piepschuim niet alleen als de bron van ontwerpproblemen, maar ook als het startpunt voor het creëren van toekomstige waarde, waarbij we systematische reflectie introduceren door creatief ontwerp om te onderzoeken hoe ontwerp kan ingrijpen in hedendaagse plastic circulatie en productielogica.",
+                    "retwist.culture.title": "Cultureel Perspectief en Ontwerpstrategie",
+                    "retwist.culture.p1": "Deze samenwerking gebruikt 'Gelukskat' als gemeenschappelijk thema. Als symbool van geluk en rijkdom in Japanse volksgelovig, heeft de Gelukskat al grenzen overschreden en is een wereldwijd erkend cultureel symbool geworden. We moedigen ontwerpers aan om hun eigen culturele ervaringen en milieuwaarnemingen te integreren op deze basis, traditionele symbolen opnieuw te interpreteren en innovatief te interpreteren.",
+                    "retwist.culture.p2": "Door de vertaling van ontwerptaal hopen we kijkers te laten nadenken over de betekenis van 'waarde' en 'verzameling': In een tijdperk van materiële overvloed, wat zouden we werkelijk moeten koesteren?",
+                    "retwist.vision.title": "Innovatief Denken en Toekomstvisie",
+                    "retwist.vision.p1": "Dit is niet alleen een creatie van duurzaam speelgoed, maar ook een voorstel voor toekomstige gashapon-systemen:",
+                    "retwist.vision.item1.title": "Materiaalinnovatie:",
+                    "retwist.vision.item1.content": "Invoering van laag-energie, regionaal implementeerbare piepschuim recycling processen om nieuw leven te creëren voor moeilijk te recyclen materialen.",
+                    "retwist.vision.item2.title": "Internationale Samenwerking:",
+                    "retwist.vision.item2.content": "Interculturele uitwisseling tussen ontwerpers, gezamenlijk het aangaan van mondiale ecologische uitdagingen, het demonstreren van de integratie en connectiviteit van ontwerp.",
+                    "retwist.vision.item3.title": "Schaalbare Toepassingen:",
+                    "retwist.vision.item3.content": "Toekomstige samenwerking met merken zoals BANDAI en Kura Sushi wordt verwacht om duurzame gashapon naar de massa markt te brengen.",
+                    "retwist.vision.item4.title": "Culturele Verhaal Transformatie:",
+                    "retwist.vision.item4.content": "Elke figuur is een ontwerp verhaal, combineert esthetiek, plezier en diepe betekenis, vormt de mogelijkheden van toekomstige verhaal.",
+                    "retwist.figures.title": "Ontwerper Werken Tentoonstelling",
+                    "retwist.figure.uo.designer": "UO",
+                    "retwist.figure.uo.title": "Enshunada Replica",
+                    "retwist.figure.lance.designer": "Lance Han",
+                    "retwist.figure.lance.title": "Lucky Cannelé Cat",
+                    "retwist.figure.minami.designer": "HIRONARI MINAMI",
+                    "retwist.figure.minami.title": "日式埴輪猫 NYA-NIWA",
+                    "retwist.figure.nosigner.designer": "Eisuke Tachikawa",
+                    "retwist.figure.nosigner.title": "Bubble Mold Cat",
+                    "retwist.figure.shawn.designer": "Shawn Lee",
+                    "retwist.figure.shawn.title": "Mute Cat: Silence is Golden",
+                    "retwist.figure.shikai.designer": "Shikai Tseng",
+                    "retwist.figure.shikai.title": "Box Manekineko",
+                    "retwist.figure.shinya.designer": "SHINYA YOSHIDA",
+                    "retwist.figure.shinya.title": "GROOMI NEKO",
+                    "retwist.figure.yenan.designer": "Yen An Chen",
+                    "retwist.figure.yenan.title": "Coin Cat",
+                    "retwist.figure.yenpochun.designer": "Po Chun Yen",
+                    "retwist.figure.yenpochun.title": "Neco",
+                    "retwist.figure.kairi.designer": "KAIRI EGUCHI",
+                    "retwist.figure.kairi.title": "castaway cat",
+                    "nav.mission": "Onze Missie",
+                    "nav.process": "Ons Proces",
+                    "nav.services": "Onze Diensten",
+                    "nav.retwist": "RE:TWIST Project",
+                    "nav.whyChooseUs": "Waarom Voor Ons Kiezen",
+                    "nav.ourClients": "Onze Klanten",
+                    "nav.contact": "Contacteer Ons",
+                    "retwist.footer.copyright": "© 2025 re-ing. Alle rechten voorbehouden."
+                }
+            };
+            
+            // Use external translations if available, otherwise use fallback
+            const currentTranslations = (typeof translations !== 'undefined' && translations[lang]) ? translations[lang] : fallbackTranslations[lang];
+            
+            if (!currentTranslations) {
                 console.error('Language not found:', lang);
-                return;
+                return false;
             }
             
+            // Set language attributes
             document.documentElement.setAttribute('data-lang', lang);
             document.documentElement.lang = lang;
 
-            // 更新所有翻譯元素
+            // Update all translation elements including title
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    element.innerHTML = translations[lang][key];
+                if (currentTranslations[key]) {
+                    if (element.tagName.toLowerCase() === 'title') {
+                        element.textContent = currentTranslations[key];
+                    } else {
+                        element.innerHTML = currentTranslations[key];
+                    }
+                } else {
+                    console.warn('Missing translation for key:', key, 'in language:', lang);
                 }
             });
 
-            // 更新 placeholder 屬性
+            // Update placeholder attributes
             document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
                 const key = element.getAttribute('data-i18n-placeholder');
-                if (translations[lang] && translations[lang][key]) {
-                    element.setAttribute('placeholder', translations[lang][key]);
+                if (currentTranslations[key]) {
+                    element.setAttribute('placeholder', currentTranslations[key]);
                 }
             });
 
+            // Save language preference
             localStorage.setItem('language', lang);
-            updateCurrentLang(lang);
+            
+            // Close dropdown
+            const dropdown = bootstrap.Dropdown.getInstance(document.getElementById('langDropdown'));
+            if (dropdown) {
+                dropdown.hide();
+            }
+            
+            return false;
         }
 
-        // DOM 載入完成後初始化
-        document.addEventListener('DOMContentLoaded', () => {
-            // 檢查翻譯是否可用
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize language from saved preference with improved error handling
+            const savedLang = localStorage.getItem('language') || 'en';
+            
+            // Try to load translations first
             if (typeof translations !== 'undefined') {
-                const savedLang = localStorage.getItem('language') || 'en';
                 switchLanguage(savedLang);
             } else {
-                // 延遲重試
-                setTimeout(() => {
-                    if (typeof translations !== 'undefined') {
-                        const savedLang = localStorage.getItem('language') || 'en';
-                        switchLanguage(savedLang);
-                    }
-                }, 100);
+                // If translations not loaded, wait and try again with fallback
+                setTimeout(function() {
+                    switchLanguage(savedLang);
+                }, 200);
             }
+        });
+
+        // FontAwesome fallback detection for all icons including view more buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                const testElement = document.createElement('i');
+                testElement.className = 'fas fa-arrow-right';
+                testElement.style.position = 'absolute';
+                testElement.style.left = '-9999px';
+                document.body.appendChild(testElement);
+                
+                const computedStyle = window.getComputedStyle(testElement);
+                const fontFamily = computedStyle.getPropertyValue('font-family');
+                
+                // Only apply fallbacks if FontAwesome completely fails to load
+                if (!fontFamily.includes('Font Awesome')) {
+                    console.warn('FontAwesome not loading properly, applying minimal fallbacks');
+                    
+                    // Add minimal CSS to ensure icons display properly
+                    const style = document.createElement('style');
+                    style.textContent = `
+                        .social-links a i {
+                            font-family: "Font Awesome 6 Brands", "FontAwesome", Arial, sans-serif !important;
+                            font-weight: 400 !important;
+                            color: #ffffff !important;
+                        }
+                        .navbar-toggler-icon {
+                            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+                            font-weight: 900 !important;
+                        }
+                        .lang-toggle i {
+                            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+                            font-weight: 900 !important;
+                        }
+                        .view-more-btn i {
+                            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+                            font-weight: 900 !important;
+                        }
+                        .view-more-btn .fa-arrow-right::before {
+                            content: "→" !important;
+                            font-family: Arial, sans-serif !important;
+                            font-weight: normal !important;
+                        }
+                    `;
+                    document.head.appendChild(style);
+                } else {
+                    console.log('FontAwesome loaded successfully');
+                }
+                
+                document.body.removeChild(testElement);
+            }, 100);
         });
     </script>
 </body>

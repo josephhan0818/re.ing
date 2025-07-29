@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title data-i18n="designer.kairi.title">KAIRI Design - KAIRI | RE:TWIST Project</title>
+        <title data-i18n="designer.kairi.title">castaway cat - KAIRI | RE:TWIST Project</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
@@ -37,8 +37,32 @@
         .btn-outline-secondary:hover { background: #666666; color: white; }
         .btn-primary { background: #000000; border: 2px solid #000000; color: white; }
         .btn-primary:hover { background: #333333; border-color: #333333; }
-        .gallery-item { border-radius: 0 !important; }
-        .gallery-image { border-radius: 0 !important; }
+        
+        /* Square gallery styling */
+        .gallery-item { 
+            border-radius: 0 !important; 
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 1;
+            background: #f8f9fa;
+        }
+        
+        .gallery-image { 
+            border-radius: 0 !important; 
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+        
         .related-card { border-radius: 0 !important; border: 1px solid #dee2e6; }
         .related-card img { border-radius: 0 !important; }
         .figure-main-image { border-radius: 0 !important; margin-bottom: 2rem; }
@@ -60,6 +84,35 @@
         .dropdown-menu { border: none; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); border-radius: 0; }
         .dropdown-item { color: #333333; padding: 0.5rem 1rem; transition: background-color 0.3s ease; }
         .dropdown-item:hover { background-color: #f8f9fa; color: #000000; }
+        
+        /* Navigation styling fixes */
+        .navbar-toggler {
+            border: none;
+            padding: 0.25rem 0.5rem;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+        
+        .navbar-toggler-icon {
+            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+            font-weight: 900 !important;
+            font-size: 1.25rem;
+            color: #333333;
+            display: inline-block;
+            font-style: normal;
+            background-image: none !important;
+            width: auto !important;
+            height: auto !important;
+        }
+        
+        .navbar-toggler .navbar-toggler-icon::before {
+            content: "\f0c9";
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
+        }
+        
         @media (max-width: 991px) { .navbar-nav { align-items: flex-start; } .lang-dropdown { margin-top: 0.5rem; } .lang-toggle { padding: 0.5rem 0; } }
         @media (max-width: 768px) { .figure-info { padding-left: 0; margin-top: 2rem; } .figure-image-container { margin-bottom: 2rem; } .designer-badge { margin-bottom: 1rem; } }
     </style>
@@ -122,7 +175,7 @@
                     <li class="breadcrumb-item"><a href="../../../index.html" data-i18n="common.home">Home</a></li>
                     <li class="breadcrumb-item"><a href="../../index.html" data-i18n="nav.retwist">RE:TWIST Project</a></li>
                     <li class="breadcrumb-item"><a href="../index.html" data-i18n="retwist.series.taiwanJapan.title">台日合作系列</a></li>
-                    <li class="breadcrumb-item active" aria-current="page" data-i18n="designer.kairi.title">KAIRI Design</li>
+                    <li class="breadcrumb-item active" aria-current="page" data-i18n="designer.kairi.title">castaway cat</li>
                 </ol>
             </nav>
         </div>
@@ -137,23 +190,20 @@
                         <img src="../../../assets/images/figure_kairi.png"
                              class="figure-main-image"
                              data-i18n-alt="designer.kairi.title"
-                             alt="KAIRI Design">
+                             alt="castaway cat">
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <div class="figure-info">
                         <h1 class="figure-title"
-                            data-i18n="designer.kairi.title">KAIRI Design Figure</h1>
+                            data-i18n="designer.kairi.title">castaway cat Figure</h1>
                         <div class="figure-dimensions">
                             <span>L 3.1cm × W 2.8cm × H 4.2cm</span>
                         </div>
                         <div class="designer-badge">
                             <span>KAIRI</span>
                         </div>
-                        <p class="figure-description"
-                           data-i18n="designer.kairi.story">
-                            KAIRI's design explores the cyclical nature of life and renewal, drawing inspiration from natural ecosystems and the interconnectedness of all living things.
-                        </p>
+                       
                         <div class="figure-details">
                             <div class="detail-item">
                                 <span data-i18n="designer.kairi.detail1">Ecological Cycle</span>
@@ -178,7 +228,7 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto" data-aos="fade-up">
                     <div class="story-content">
-                        <p>標準的な日本の招き猫をモチーフに、ディテールを溶かしたようにモデリングしました。ガラスが海を漂着し、角の無いシーグラスになったような感覚の造形にしました。招き猫はとても有名なモチーフであり、情報が少ないとしてもそれが招き猫であることを人々は認識することができ、またモダンな空間にも調和できるような姿になりました。</p>
+                        <p data-i18n="designer.kairi.story">Taking a standard Japanese maneki-neko (beckoning cat) as the motif, I modeled the form as if its details had melted away. The design evokes the feeling of a piece of glass that has drifted ashore, its sharp corners smoothed by the sea to become sea glass. Because the maneki-neko is such a famous symbol, people can still recognize it even with minimal detail. This new form also allows it to harmonize beautifully with modern interior spaces.</p>
                     </div>
                 </div>
             </div>
@@ -189,27 +239,19 @@
     <section class="figure-gallery">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up" data-i18n="common.gallery">Gallery</h2>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3" data-aos="fade-up">
-                    <div class="gallery-item">
-                        <img src="../../../assets/images/KAIRI-1.jpg" alt="KAIRI Design - View 1" class="gallery-image">
-                    </div>
-                </div>
+            <div class="row g-2">
+                
                 <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="gallery-item">
-                        <img src="../../../assets/images/KAIRI-2.jpg" alt="KAIRI Design - View 2" class="gallery-image">
+                        <img src="../../../assets/images/KAIRI-2.jpg" alt="castaway cat - View 2" class="gallery-image">
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="gallery-item">
-                        <img src="../../../assets/images/KAIRI-3.jpg" alt="KAIRI Design - View 3" class="gallery-image">
+                        <img src="../../../assets/images/KAIRI-3.jpg" alt="castaway cat - View 3" class="gallery-image">
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                    <div class="gallery-item">
-                        <img src="../../../assets/images/KAIRI-4.jpg" alt="KAIRI Design - View 4" class="gallery-image">
-                    </div>
-                </div>
+                
             </div>
         </div>
     </section>
@@ -226,10 +268,10 @@
                 </div>
                 <div class="col-lg-8" data-aos="fade-left">
                     <div class="designer-bio">
-                        <h3>KAIRI</h3>
+                        <h3 data-i18n="designer.kairi.name">KAIRI</h3>
                         <p class="designer-location" data-i18n="designer.kairi.location">Based in Japan</p>
-                        <p>KAIRI is an eco-conscious designer whose work is inspired by natural cycles and the interconnectedness of all living systems. Their designs often reflect themes of renewal, transformation, and the delicate balance that exists in nature.</p>
-                        <p>With a background in environmental science and design, KAIRI brings a unique perspective to their creative work, always considering the broader ecological impact of design choices and seeking to create pieces that honor and protect the natural world.</p>
+                        <p data-i18n="designer.kairi.bio1">Designer and Creative Director. Since 2008, based in Osaka and Tokyo, he has been dedicated to the belief of "building meaningful relationships between people and objects through design." He co-creates design and identity with startups, local factories, and traditional artisans.</p>
+                        <p data-i18n="designer.kairi.bio2">Founder of the design studio KAIRI EGUCHI STUDIO, initiator of DESIGN WEEKEND OSAKA, and owner of the select shop WELD DESIGN STORE.</p>
                         <div class="designer-links">
                             <a href="#" class="btn btn-outline-primary" data-i18n="common.viewPortfolio">View Portfolio</a>
                             <a href="#" class="btn btn-outline-secondary" data-i18n="common.contactDesigner">Contact Designer</a>
@@ -263,8 +305,6 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="./translations.js"></script>
-    <script type="module" src="../index.js"></script>
     <script>
         // Initialize AOS
         AOS.init();
@@ -335,24 +375,32 @@
             "nav.contact": "Contact Us", "common.home": "Home", "common.designStory": "Design Story",
             "common.gallery": "Gallery", "common.otherDesigners": "Other Designers", "common.viewAllFigures": "View All Figures",
             "common.viewPortfolio": "View Portfolio", "common.contactDesigner": "Contact Designer", "common.by": "by",
-            "common.viewDetails": "View Details", "designer.kairi.title": "KAIRI Design", "designer.kairi.aboutTitle": "About KAIRI",
-            "designer.kairi.location": "Based in Japan", "designer.uo.title": "Enshunada Replica", "designer.lance.title": "Lucky Cannelé Cat",
-            "designer.minami.title": "Japanese Haniwa Cat NYA-NIWA", "designer.nosigner.title": "Bubble Mold Cat", "designer.shawn.title": "SHAWN Design",
-            "designer.shikai.title": "Box Lucky Cat", "designer.shinya.title": "Shinya Design", "designer.yenan.title": "YENAN Design",
-            "designer.yenpochun.title": "Lucky Ocean Cat", "retwist.series.taiwanJapan.title": "Taiwan-Japan Collaboration Series",
+            "common.viewDetails": "View Details", "designer.kairi.title": "castaway cat", "designer.kairi.name": "KAIRI",
+            "designer.kairi.aboutTitle": "About KAIRI", "designer.kairi.location": "Based in Japan",
+            "designer.kairi.bio1": "Designer and Creative Director. Since 2008, based in Osaka and Tokyo, he has been dedicated to the belief of \"building meaningful relationships between people and objects through design.\" He co-creates design and identity with startups, local factories, and traditional artisans.",
+            "designer.kairi.bio2": "Founder of the design studio KAIRI EGUCHI STUDIO, initiator of DESIGN WEEKEND OSAKA, and owner of the select shop WELD DESIGN STORE.",
+            "designer.kairi.story": "Taking a standard Japanese maneki-neko (beckoning cat) as the motif, I modeled the form as if its details had melted away. The design evokes the feeling of a piece of glass that has drifted ashore, its sharp corners smoothed by the sea to become sea glass. Because the maneki-neko is such a famous symbol, people can still recognize it even with minimal detail. This new form also allows it to harmonize beautifully with modern interior spaces.",
+            "designer.uo.title": "Enshunada Replica", "designer.lance.title": "Lucky Cannelé Cat",
+            "designer.minami.title": "日式埴輪猫 NYA-NIWA", "designer.nosigner.title": "Bubble Mold Cat", "designer.shawn.title": "Mute Cat: Silence is Golden",
+            "designer.shikai.title": "Box Lucky Cat", "designer.shinya.title": "GROOMI NEKO", "designer.yenan.title": "Coin Cat",
+            "designer.yenpochun.title": "Neco", "retwist.series.taiwanJapan.title": "Taiwan-Japan Collaboration Series",
             "retwist.footer.copyright": "© 2025 re-ing. All rights reserved."
           },
           zh: {
             "nav.mission": "我們的使命", "nav.process": "我們的流程", "nav.services": "我們的服務",
             "nav.retwist": "RE:TWIST 轉圈圈計畫", "nav.whyChooseUs": "為何選擇我們", "nav.ourClients": "我們的客戶",
             "nav.contact": "聯絡我們", "common.home": "首頁", "common.designStory": "設計故事",
-            "common.gallery": "作品集", "common.otherDesigners": "其他設計師", "common.viewAllFigures": "查看所有作品",
-            "common.viewPortfolio": "查看作品集", "common.contactDesigner": "聯絡設計師", "common.by": "由",
-            "common.viewDetails": "查看詳情", "designer.kairi.title": "KAIRI 設計", "designer.kairi.aboutTitle": "關於 KAIRI",
-            "designer.kairi.location": "日本", "designer.uo.title": "遠州灘復刻版", "designer.lance.title": "幸運可麗露貓",
-            "designer.minami.title": "日式埴輪猫 NYA-NIWA", "designer.nosigner.title": "泡泡模具貓", "designer.shawn.title": "SHAWN 設計",
-            "designer.shikai.title": "盒子招財貓", "designer.shinya.title": "Shinya 設計", "designer.yenan.title": "YENAN 設計",
-            "designer.yenpochun.title": "海洋招財貓", "retwist.series.taiwanJapan.title": "台日合作系列",
+            "common.gallery": "設計圖", "common.otherDesigners": "其他設計師", "common.viewAllFigures": "查看所有作品",
+            "common.viewPortfolio": "查看設計圖", "common.contactDesigner": "聯絡設計師", "common.by": "由",
+            "common.viewDetails": "查看詳情", "designer.kairi.title": "漂流貓", "designer.kairi.name": "KAIRI",
+            "designer.kairi.aboutTitle": "關於 KAIRI", "designer.kairi.location": "日本",
+            "designer.kairi.bio1": "設計師、創意總監。自2008年起以大阪與東京為據點，秉持「透過設計建立人與物的良好關係」的信念，與新創企業、地方工廠、傳統工藝職人共同協作設計與品牌識別。",
+            "designer.kairi.bio2": "現為設計工作室 KAIRI EGUCHI STUDIO 負責人，DESIGN WEEKEND OSAKA 發起人，以及選物店 WELD DESIGN STORE 店主。",
+            "designer.kairi.story": "我們以標準的日本招財貓為主題，在建模時彷彿將其細節融化了一般。我們塑造出的形態，帶有一種玻璃漂流至岸邊、稜角被磨平，最終成為「海玻璃 (Sea Glass)」般的質感。招財貓是一個非常知名的象徵，因此即便資訊量（細節）不多，人們依然能夠辨識出它是一隻招財貓。同時，它的樣貌也變得能夠輕易地融入現代風格的空間之中。",
+            "designer.uo.title": "Enshunada Replica", "designer.lance.title": "幸運的可麗露貓",
+            "designer.minami.title": "日式埴輪猫 NYA-NIWA", "designer.nosigner.title": "Bubble Mold Cat", "designer.shawn.title": "沉默是金｜Mute Cat",
+            "designer.shikai.title": "盒子招財貓", "designer.shinya.title": "GROOMI NEKO", "designer.yenan.title": "硬幣貓",
+            "designer.yenpochun.title": "Neco", "retwist.series.taiwanJapan.title": "台日合作系列",
             "retwist.footer.copyright": "© 2025 re-ing. 保留所有權利。"
           },
           ja: {
@@ -361,11 +409,15 @@
             "nav.contact": "お問い合わせ", "common.home": "ホーム", "common.designStory": "デザインストーリー",
             "common.gallery": "ギャラリー", "common.otherDesigners": "他のデザイナー", "common.viewAllFigures": "すべての作品を見る",
             "common.viewPortfolio": "ポートフォリオを見る", "common.contactDesigner": "デザイナーに連絡", "common.by": "設計者",
-            "common.viewDetails": "詳細を見る", "designer.kairi.title": "KAIRIデザイン", "designer.kairi.aboutTitle": "KAIRIについて",
-            "designer.kairi.location": "日本在住", "designer.uo.title": "遠州灘レプリカ", "designer.lance.title": "ラッキーカヌレ猫",
-            "designer.minami.title": "日式埴輪猫 NYA-NIWA", "designer.nosigner.title": "バブルモールド猫", "designer.shawn.title": "SHAWNデザイン",
-            "designer.shikai.title": "ボックス招き猫", "designer.shinya.title": "Shinyaデザイン", "designer.yenan.title": "YENANデザイン",
-            "designer.yenpochun.title": "海洋招き猫", "retwist.series.taiwanJapan.title": "台日コラボレーションシリーズ",
+            "common.viewDetails": "詳細を見る", "designer.kairi.title": "流れ着いた猫", "designer.kairi.name": "KAIRI",
+            "designer.kairi.aboutTitle": "KAIRIについて", "designer.kairi.location": "日本在住",
+            "designer.kairi.bio1": "デザイナー、クリエイティブディレクター。「デザインでモノとヒトのいい関係の構築」を信条に2008年より大阪と東京を拠点に活動し、スタートアップ、町工場、伝統工芸の職人にデザインとアイデンティティを協創する",
+            "designer.kairi.bio2": "デザインスタジオ KAIRI EGUCHI STUDIO代表。DESIGN WEEKEND OSAKA発起人。セレクトショップWELD DESIGN STORE店主。",
+            "designer.kairi.story": "標準的な日本の招き猫をモチーフに、ディテールを溶かしたようにモデリングしました。ガラスが海を漂着し、角の無いシーグラスになったような感覚の造形にしました。招き猫はとても有名なモチーフであり、情報が少ないとしてもそれが招き猫であることを人々は認識することができ、またモダンな空間にも調和できるような姿になりました。",
+            "designer.uo.title": "Enshunada Replica", "designer.lance.title": "ラッキーカヌレ猫",
+            "designer.minami.title": "日式埴輪猫 NYA-NIWA", "designer.nosigner.title": "Bubble Mold Cat", "designer.shawn.title": "ミュートキャット：沈黙は金",
+            "designer.shikai.title": "海箱貓", "designer.shinya.title": "グルーミネコ", "designer.yenan.title": "コインねこ",
+            "designer.yenpochun.title": "Neco", "retwist.series.taiwanJapan.title": "台日コラボレーションシリーズ",
             "retwist.footer.copyright": "© 2025 re-ing. 全著作権所有。"
           },
           nl: {
@@ -374,8 +426,12 @@
             "nav.contact": "Contacteer Ons", "common.home": "Thuis", "common.designStory": "Ontwerpverhaal",
             "common.gallery": "Galerij", "common.otherDesigners": "Andere Ontwerpers", "common.viewAllFigures": "Alle Figuren Bekijken",
             "common.viewPortfolio": "Portfolio Bekijken", "common.contactDesigner": "Contact Ontwerper", "common.by": "door",
-            "common.viewDetails": "Details Bekijken", "designer.kairi.title": "KAIRI Ontwerp", "designer.kairi.aboutTitle": "Over KAIRI",
-            "designer.kairi.location": "Gevestigd in Japan", "designer.uo.title": "Enshunada Replica", "designer.lance.title": "Gelukkige Cannelé Kat",
+            "common.viewDetails": "Details Bekijken", "designer.kairi.title": "Aangespoelde Kat", "designer.kairi.name": "KAIRI EGUCHI",
+            "designer.kairi.aboutTitle": "Over KAIRI EGUCHI", "designer.kairi.location": "Gevestigd in Japan",
+            "designer.kairi.bio1": "Ontwerper en Creatief Directeur. Sinds 2008, gevestigd in Osaka en Tokyo, is hij toegewijd aan het geloof van \"het opbouwen van betekenisvolle relaties tussen mensen en objecten door ontwerp.\" Hij co-creëert ontwerp en identiteit met startups, lokale fabrieken en traditionele ambachtslieden.",
+            "designer.kairi.bio2": "Oprichter van de ontwerpstudio KAIRI EGUCHI STUDIO, initiatiefnemer van DESIGN WEEKEND OSAKA, en eigenaar van de selectiewinkel WELD DESIGN STORE.",
+            "designer.kairi.story": "Met een standaard Japanse maneki-neko (wenkende kat) als motief, modelleerde ik de vorm alsof zijn details waren wegesmolten. Het ontwerp roept het gevoel op van een stuk glas dat aan land is gedreven, zijn scherpe hoeken gladgestreken door de zee om zeeglas te worden. Omdat de maneki-neko zo'n beroemd symbool is, kunnen mensen het nog steeds herkennen, zelfs met minimale details. Deze nieuwe vorm zorgt er ook voor dat het prachtig harmonieert met moderne interieurruimtes.",
+            "designer.uo.title": "Enshunada Replica", "designer.lance.title": "Gelukkige Cannelé Kat",
             "designer.minami.title": "Japanse Haniwa Kat NYA-NIWA", "designer.nosigner.title": "Bubble Mold Kat", "designer.shawn.title": "SHAWN Ontwerp",
             "designer.shikai.title": "Doos Gelukskat", "designer.shinya.title": "Shinya Ontwerp", "designer.yenan.title": "YENAN Ontwerp",
             "designer.yenpochun.title": "Oceaan Gelukskat", "retwist.series.taiwanJapan.title": "Taiwan-Japan Samenwerking Serie",
@@ -388,10 +444,10 @@
 
         // All designers data for related figures
         const allDesigners = [
-            { name: "UO Design", titleKey: "designer.uo.title", folder: "1-UO", image: "figure_UO.png" },
-            { name: "Lance Design", titleKey: "designer.lance.title", folder: "2-Lance", image: "figure_lance.png" },
-            { name: "Minami Design", titleKey: "designer.minami.title", folder: "3-Minami", image: "figure_minami.png" },
-            { name: "Nosigner", titleKey: "designer.nosigner.title", folder: "4-Nosigner", image: "figure_nosigner.png" },
+            { name: "UO", titleKey: "designer.uo.title", folder: "1-UO", image: "figure_UO.png" },
+            { name: "Lance Han", titleKey: "designer.lance.title", folder: "2-Lance", image: "figure_lance.png" },
+            { name: "HIRONARI MINAMI", titleKey: "designer.minami.title", folder: "3-Minami", image: "figure_minami.png" },
+            { name: "Eisuke Tachikawa", titleKey: "designer.nosigner.title", folder: "4-Nosigner", image: "figure_nosigner.png" },
             { name: "SHAWN", titleKey: "designer.shawn.title", folder: "5-SHAWN", image: "figure_shawn.png" },
             { name: "SHIKAI", titleKey: "designer.shikai.title", folder: "6-Shikai", image: "figure_shikai.png" },
             { name: "Shinya Yoshida", titleKey: "designer.shinya.title", folder: "7-Shinya", image: "figure_shinyayoshida.png" },

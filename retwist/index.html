@@ -9,6 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <!-- 額外載入 FontAwesome 的 webfont -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2" rel="preload" as="font" type="font/woff2" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2" rel="preload" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -396,41 +399,30 @@
             transform: translateY(-2px);
         }
 
-        /* 確保 FontAwesome icons 正常載入 */
-        .fab {
-            font-family: "Font Awesome 6 Brands" !important;
-            font-weight: 400 !important;
-        }
-        
-        .fas {
-            font-family: "Font Awesome 6 Free" !important;
-            font-weight: 900 !important;
-        }
-
-        /* 如果 FontAwesome 無法載入，使用文字替代 */
-        .social-links a::before {
-            content: attr(title);
-            font-size: 0.8rem;
-            display: none;
-        }
-
+        /* Ensure social media icons are black/white only */
         .social-links a i {
-            display: inline-block;
+            color: #ffffff !important;
+            font-family: "Font Awesome 6 Brands", "FontAwesome", Arial, sans-serif !important;
+            font-weight: 400 !important;
+            display: inline-block !important;
+            font-style: normal !important;
+            font-variant: normal !important;
+            text-rendering: auto !important;
+            line-height: 1 !important;
+            transition: color 0.3s ease;
         }
 
-        /* 當 FontAwesome 未載入時顯示文字 */
-        .social-links a:not([class*="fa-"]) i::after {
-            content: attr(title);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
+        .social-links a:hover i {
+            color: #ffffff !important;
         }
 
-        /* Navbar Styles */
+        /* Standardized Navbar - consistent across all pages */
         .navbar {
             background: #FFFFFF !important;
             padding: 1rem 2rem;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             z-index: 1000;
+            border-bottom: 1px solid #E5E7EB;
         }
 
         .navbar-brand img {
@@ -448,6 +440,7 @@
             padding: 0.5rem 1rem;
             position: relative;
             transition: color 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
         }
 
         .nav-link::after {
@@ -470,7 +463,64 @@
             transform: translateY(-2px);
         }
 
-        /* Language Dropdown - 與設計師頁面保持一致 */
+        /* Fix navbar toggler icon overlap issue */
+        .navbar-toggler {
+            border: none;
+            padding: 0.25rem 0.5rem;
+            outline: none;
+            box-shadow: none;
+            background: transparent;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+            outline: none;
+        }
+
+        /* Remove any duplicate or conflicting navbar-toggler-icon styles */
+        .navbar-toggler-icon {
+            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+            font-weight: 900 !important;
+            font-size: 1.25rem;
+            color: #333333;
+            display: inline-block;
+            font-style: normal;
+            background-image: none !important; /* Remove Bootstrap's default background */
+            width: auto !important; /* Remove Bootstrap's fixed width */
+            height: auto !important; /* Remove Bootstrap's fixed height */
+        }
+
+        /* Ensure no Bootstrap default navbar-toggler styles interfere */
+        .navbar-toggler .navbar-toggler-icon::before {
+            content: "\f0c9"; /* FontAwesome bars icon */
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
+        }
+
+        /* Remove Bootstrap's default navbar-toggler-icon background */
+        .navbar-toggler-icon {
+            background: none !important;
+        }
+
+        /* Language dropdown icon fixes */
+        .lang-toggle i {
+            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+            font-weight: 900 !important;
+            margin-left: 0.5rem;
+            font-size: 0.8rem;
+            color: #333333;
+        }
+
+        /* Fix potential icon duplication in Chinese language mode */
+        html[data-lang="zh"] .navbar-toggler-icon {
+            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+        }
+
+        html[data-lang="zh"] .lang-toggle i {
+            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+        }
+
+        /* Language dropdown standardization */
         .lang-dropdown {
             display: flex;
             align-items: center;
@@ -502,6 +552,14 @@
             margin-right: 0.5rem;
         }
 
+        .lang-toggle i {
+            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+            font-weight: 900 !important;
+            margin-left: 0.5rem;
+            font-size: 0.8rem;
+            color: #333333;
+        }
+
         .dropdown-menu {
             border: none;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -514,24 +572,25 @@
             transition: background-color 0.3s ease;
         }
 
-        .dropdown-item:hover {
-            background-color: #f8f9fa;
-            color: #000000;
-        }
-
+        .dropdown-item:hover,
         .dropdown-item:focus {
             background-color: #f8f9fa;
             color: #000000;
             outline: none;
         }
 
-        /* 移除 Bootstrap dropdown 的默認樣式 */
+        /* Remove Bootstrap dropdown arrow */
         .dropdown-toggle::after {
             display: none;
         }
 
         .dropdown-toggle:focus {
             box-shadow: none !important;
+        }
+
+        /* Navbar responsive behavior */
+        .navbar-nav {
+            align-items: center;
         }
 
         @media (max-width: 991px) {
@@ -647,16 +706,6 @@
                 min-height: 300px;
             }
 
-            header .title-image,
-            header .subtitle-image {
-                height: 45px;
-            }
-
-            header .banner-images {
-                gap: 1rem;
-                flex-direction: column;
-            }
-
             .content-section {
                 padding: 4rem 0;
             }
@@ -679,7 +728,7 @@
             <a class="navbar-brand" href="../index.html">
                 <img src="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" alt="re-ing Logo">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars navbar-toggler-icon"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -694,12 +743,13 @@
                     <li class="nav-item dropdown lang-dropdown">
                         <a class="lang-toggle dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="../assets/images/language.png" alt="Language Icon" style="width: 20px; height: auto;">
+                            <i class="fas fa-chevron-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
-                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('en')">English</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('zh')">中文</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('nl')">Nederlands</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('ja')">日本語</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('en'); return false;">English</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('zh'); return false;">中文</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('nl'); return false;">Nederlands</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('ja'); return false;">日本語</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -719,7 +769,7 @@
     <section class="series-posters">
         <div class="poster-container">
             <!-- Taiwan-Japan Collaboration Series -->
-            <div class="series-poster taiwan-japan-poster" data-aos="fade-up" onclick="window.location.href='designers_2025/index.html'">
+            <div class="series-poster taiwan-japan-poster" data-aos="fade-up" style="cursor: pointer;" onclick="window.location.href='designers_2025/index.html'">
                 <div class="poster-bg"></div>
                 <div class="poster-content">
                     <h2 class="poster-title" data-i18n="retwist.series.taiwanJapan.title">台日合作系列</h2>
@@ -727,23 +777,23 @@
                         邀集台灣與日本各五位設計師，以招財貓為共同主題，使用100%回收保麗龍創作永續扭蛋公仔。每件作品都融合了設計師的文化背景與環保理念。
                     </p>
                     <div class="poster-meta">
-                        <span>10位設計師 • 10件作品</span>
-                        <span class="poster-status status-active">已發布</span>
+                        <span data-i18n="retwist.series.taiwanJapan.meta">10位設計師 • 10件作品</span>
+                        <span class="poster-status status-active" data-i18n="retwist.series.status.active">已發布</span>
                     </div>
                 </div>
             </div>
 
             <!-- Lucky Bang Series -->
-            <div class="series-poster lucky-bang-poster" data-aos="fade-up" data-aos-delay="200" onclick="window.location.href='lucky_bang/index.html'">
+            <div class="series-poster lucky-bang-poster" data-aos="fade-up" data-aos-delay="200" style="cursor: pointer;" onclick="window.location.href='lucky_bang/index.html'">
                 <div class="poster-bg"></div>
                 <div class="poster-content">
-                    <h2 class="poster-title" data-i18n="retwist.series.comingSoon.title">Lucky Bang 系列</h2>
-                    <p class="poster-subtitle" data-i18n="retwist.series.comingSoon.desc">
-                        全新的扭蛋系列即將登場，將帶來更多創新設計與永續理念的結合。敬請期待這個充滿驚喜的新系列。
+                    <h2 class="poster-title" data-i18n="retwist.series.luckybang.title">Lucky Bang 系列</h2>
+                    <p class="poster-subtitle" data-i18n="retwist.series.luckybang.desc">
+                        全新的扭蛋系列已經登場，帶來更多創新設計與永續理念的結合。這個充滿驚喜的新系列正式與大家見面。
                     </p>
                     <div class="poster-meta">
-                        <span>創新系列 • 永續設計</span>
-                        <span class="poster-status status-coming-soon">即將推出</span>
+                        <span data-i18n="retwist.series.luckybang.meta">創新系列 • 永續設計</span>
+                        <span class="poster-status status-active" data-i18n="retwist.series.status.active">已發布</span>
                     </div>
                 </div>
             </div>
@@ -819,16 +869,130 @@
         // Initialize AOS
         AOS.init();
 
-        // Language switching functionality
+        // Language switching functionality with complete fallback translations
         function switchLanguage(lang) {
             console.log('Switching to language:', lang);
             
-            if (typeof translations === 'undefined') {
-                console.error('Translations not loaded');
-                return false;
-            }
+            // Complete fallback translations including retwist specific content
+            const fallbackTranslations = {
+                en: {
+                    "retwist.allSeries.title": "RE:TWIST Gashapon Series Overview",
+                    "retwist.allSeries.subtitle": "Explore our different sustainable gashapon design series, each carrying unique cultural meanings and environmental concepts",
+                    "retwist.series.taiwanJapan.title": "Taiwan-Japan Collaboration Series",
+                    "retwist.series.taiwanJapan.desc": "Bringing together five designers each from Taiwan and Japan, with the lucky cat as a common theme, using 100% recycled styrofoam to create sustainable gashapon figures. Each piece integrates the designer's cultural background and environmental philosophy.",
+                    "retwist.series.taiwanJapan.meta": "10 Designers • 10 Works",
+                    "retwist.series.luckybang.title": "Lucky Bang Series",
+                    "retwist.series.luckybang.desc": "A new gashapon series has launched, bringing more innovative design and sustainable concepts together. This surprising new series is officially meeting everyone.",
+                    "retwist.series.luckybang.meta": "Innovative Series • Sustainable Design",
+                    "retwist.series.status.active": "Released",
+                    "retwist.about.title": "About RE:TWIST: Circular Loop Project",
+                    "retwist.background.p1": "Gashapon is a popular form of entertainment in Asia, bringing surprise and collecting fun through coin-operated and random drop mechanisms. However, over 99% of gashapon toys are made from disposable plastic, including gashapon machines and gashapon shells. We believe that future gashapon machines should be products that meet sustainability indicators and are attractive enough.",
+                    "retwist.background.p2": "This project aims to re-examine the gashapon industry from the perspective of future design, thinking about its social significance and sustainable possibilities. We pose the question: 'Can a familiar form of entertainment also become a vehicle for environmental education and material innovation?'",
+                    "retwist.concept.title": "Redefining the Future of Gashapon",
+                    "retwist.concept.desc": "RE:TWIST is not only a gashapon design project, but also a reflection on the sustainable development of the future entertainment industry. We believe that every small gashapon can carry profound environmental concepts and cultural stories.",
+                    "retwist.concept.point1": "100% Made from Recycled Materials",
+                    "retwist.concept.point2": "Cross-Cultural Designer Collaboration",
+                    "retwist.concept.point3": "Promoting Circular Economy Concepts",
+                    "retwist.concept.point4": "Combining Entertainment and Environmental Education",
+                    "nav.mission": "Our Mission",
+                    "nav.process": "Our Process",
+                    "nav.services": "Our Services",
+                    "nav.retwist": "RE:TWIST Project",
+                    "nav.whyChooseUs": "Why Choose Us",
+                    "nav.ourClients": "Our Clients",
+                    "nav.contact": "Contact Us",
+                    "retwist.footer.copyright": "© 2025 re-ing. All rights reserved."
+                },
+                zh: {
+                    "retwist.allSeries.title": "RE:TWIST 扭蛋系列總覽",
+                    "retwist.allSeries.subtitle": "探索我們不同的永續扭蛋設計系列，每個系列都承載著獨特的文化意涵與環保理念",
+                    "retwist.series.taiwanJapan.title": "台日合作系列",
+                    "retwist.series.taiwanJapan.desc": "邀集台灣與日本各五位設計師，以招財貓為共同主題，使用100%回收保麗龍創作永續扭蛋公仔。每件作品都融合了設計師的文化背景與環保理念。",
+                    "retwist.series.taiwanJapan.meta": "10位設計師 • 10件作品",
+                    "retwist.series.luckybang.title": "Lucky Bang 系列",
+                    "retwist.series.luckybang.desc": "全新的扭蛋系列已經登場，帶來更多創新設計與永續理念的結合。這個充滿驚喜的新系列正式與大家見面。",
+                    "retwist.series.luckybang.meta": "創新系列 • 永續設計",
+                    "retwist.series.status.active": "已發布",
+                    "retwist.about.title": "關於 RE:TWIST: 循環轉圈圈計畫",
+                    "retwist.background.p1": "扭蛋（Gashapon）是亞洲廣受歡迎的娛樂形式，透過投幣與隨機掉落的機制帶來驚喜與收集樂趣。然而，99%以上的扭蛋玩具都是使用一次性塑膠製作，包含扭蛋機與扭蛋殼。我們認為未來的扭蛋機，應該要是符合永續指標，且足夠吸引人的產品。",
+                    "retwist.background.p2": "本計畫旨在從未來設計的視角，重新審視扭蛋產業，思考其社會意義與永續可能。我們提出問題：「一個大眾熟悉的娛樂形式，是否也能成為環境教育與材料創新的載體？」",
+                    "retwist.concept.title": "重新定義扭蛋的未來",
+                    "retwist.concept.desc": "RE:TWIST 不僅是扭蛋設計計畫，更是對未來娛樂產業永續發展的思考。我們相信，每一個小小的扭蛋都能承載深刻的環保理念與文化故事。",
+                    "retwist.concept.point1": "100% 使用回收材料製作",
+                    "retwist.concept.point2": "跨文化設計師合作",
+                    "retwist.concept.point3": "推動循環經濟理念",
+                    "retwist.concept.point4": "結合娛樂與環境教育",
+                    "nav.mission": "我們的使命",
+                    "nav.process": "我們的流程",
+                    "nav.services": "我們的服務",
+                    "nav.retwist": "RE:TWIST 轉圈圈計畫",
+                    "nav.whyChooseUs": "為何選擇我們",
+                    "nav.ourClients": "我們的客戶",
+                    "nav.contact": "聯絡我們",
+                    "retwist.footer.copyright": "© 2025 re-ing. 保留所有權利。"
+                },
+                ja: {
+                    "retwist.allSeries.title": "RE:TWIST ガシャポンシリーズ概要",
+                    "retwist.allSeries.subtitle": "さまざまな持続可能なガシャポンデザインシリーズを探索し、それぞれが独自の文化的意味と環境コンセプトを持っています",
+                    "retwist.series.taiwanJapan.title": "台日コラボレーションシリーズ",
+                    "retwist.series.taiwanJapan.desc": "台湾と日本のデザイナー各5名を招集し、招き猫を共通テーマとして、100%リサイクル発泡スチロールを使用して持続可能なガシャポンフィギュアを制作。各作品はデザイナーの文化的背景と環境理念を融合しています。",
+                    "retwist.series.taiwanJapan.meta": "10名のデザイナー • 10作品",
+                    "retwist.series.luckybang.title": "Lucky Bang シリーズ",
+                    "retwist.series.luckybang.desc": "新しいガシャポンシリーズが登場し、より多くの革新的なデザインと持続可能な概念の組み合わせをもたらします。この驚きに満ちた新シリーズが正式に皆様にお目見えします。",
+                    "retwist.series.luckybang.meta": "革新シリーズ • 持続可能デザイン",
+                    "retwist.series.status.active": "リリース済み",
+                    "retwist.about.title": "RE:TWIST: 循環ループプロジェクトについて",
+                    "retwist.background.p1": "ガシャポンはアジアで人気のエンターテインメント形式で、コイン投入とランダム落下メカニズムによって驚きと収集の楽しさをもたらします。しかし、ガシャポンおもちゃの99%以上は使い捨てプラスチックで作られており、ガシャポン機とガシャポンカプセルが含まれます。私たちは、未来のガシャポン機は持続可能性指標を満たし、十分に魅力的な製品であるべきだと考えています。",
+                    "retwist.background.p2": "このプロジェクトは、未来デザインの視点からガシャポン業界を再検討し、その社会的意義と持続可能な可能性について考えることを目的としています。私たちは「馴染みのあるエンターテインメント形式が、環境教育と材料革新の手段にもなり得るか？」という問いを提起します。",
+                    "retwist.concept.title": "ガシャポンの未来を再定義",
+                    "retwist.concept.desc": "RE:TWISTはガシャポンデザインプロジェクトであるだけでなく、未来のエンターテインメント業界の持続可能な発展についての考察でもあります。私たちは、小さなガシャポン一つ一つが深い環境概念と文化的物語を運ぶことができると信じています。",
+                    "retwist.concept.point1": "100%リサイクル材料で製作",
+                    "retwist.concept.point2": "異文化デザイナーコラボレーション",
+                    "retwist.concept.point3": "循環経済概念の推進",
+                    "retwist.concept.point4": "エンターテインメントと環境教育の結合",
+                    "nav.mission": "私たちの使命",
+                    "nav.process": "私たちのプロセス",
+                    "nav.services": "私たちのサービス",
+                    "nav.retwist": "RE:TWIST プロジェクト",
+                    "nav.whyChooseUs": "選ばれる理由",
+                    "nav.ourClients": "導入事例",
+                    "nav.contact": "お問い合わせ",
+                    "retwist.footer.copyright": "© 2025 re-ing. 全著作権所有。"
+                },
+                nl: {
+                    "retwist.allSeries.title": "RE:TWIST Gashapon Serie Overzicht",
+                    "retwist.allSeries.subtitle": "Verken onze verschillende duurzame gashapon ontwerpseries, elk met unieke culturele betekenissen en milieuconcepten",
+                    "retwist.series.taiwanJapan.title": "Taiwan-Japan Samenwerkingsserie",
+                    "retwist.series.taiwanJapan.desc": "Samenbrengen van vijf ontwerpers elk uit Taiwan en Japan, met de gelukskat als gemeenschappelijk thema, gebruikmakend van 100% gerecycled piepschuim om duurzame gashapon figuren te creëren. Elk stuk integreert de culturele achtergrond en milieufilosofie van de ontwerper.",
+                    "retwist.series.taiwanJapan.meta": "10 Ontwerpers • 10 Werken",
+                    "retwist.series.luckybang.title": "Lucky Bang Serie",
+                    "retwist.series.luckybang.desc": "Een nieuwe gashapon serie is gelanceerd, die meer innovatief ontwerp en duurzame concepten samenbrengt. Deze verrassende nieuwe serie ontmoet officieel iedereen.",
+                    "retwist.series.luckybang.meta": "Innovatieve Serie • Duurzaam Ontwerp",
+                    "retwist.series.status.active": "Uitgebracht",
+                    "retwist.about.title": "Over RE:TWIST: Circulair Loop Project",
+                    "retwist.background.p1": "Gashapon is een populaire vorm van entertainment in Azië, die verrassing en verzamelplezier brengt door muntgestuurde en willekeurige val mechanismen. Echter, meer dan 99% van gashapon speelgoed is gemaakt van wegwerp plastic, inclusief gashapon machines en gashapon kapsels. Wij geloven dat toekomstige gashapon machines producten moeten zijn die voldoen aan duurzaamheidsindicatoren en aantrekkelijk genoeg zijn.",
+                    "retwist.background.p2": "Dit project beoogt de gashapon industrie opnieuw te bekijken vanuit het perspectief van toekomstontwerp, nadenkend over de maatschappelijke betekenis en duurzame mogelijkheden. We stellen de vraag: 'Kan een vertrouwde vorm van entertainment ook een vehikel worden voor milieueducatie en materiaalinnovatie?'",
+                    "retwist.concept.title": "De Toekomst van Gashapon Herdefiniëren",
+                    "retwist.concept.desc": "RE:TWIST is niet alleen een gashapon ontwerpproject, maar ook een reflectie op de duurzame ontwikkeling van de toekomstige entertainmentindustrie. Wij geloven dat elke kleine gashapon diepgaande milieuconcepten en culturele verhalen kan dragen.",
+                    "retwist.concept.point1": "100% Gemaakt van Gerecyclede Materialen",
+                    "retwist.concept.point2": "Interculturele Ontwerper Samenwerking",
+                    "retwist.concept.point3": "Circulaire Economie Concepten Bevorderen",
+                    "retwist.concept.point4": "Entertainment en Milieueducatie Combineren",
+                    "nav.mission": "Onze Missie",
+                    "nav.process": "Ons Proces",
+                    "nav.services": "Onze Diensten",
+                    "nav.retwist": "RE:TWIST Project",
+                    "nav.whyChooseUs": "Waarom Voor Ons Kiezen",
+                    "nav.ourClients": "Onze Klanten",
+                    "nav.contact": "Contacteer Ons",
+                    "retwist.footer.copyright": "© 2025 re-ing. Alle rechten voorbehouden."
+                }
+            };
             
-            if (!translations[lang]) {
+            // Use external translations if available, otherwise use fallback
+            const currentTranslations = (typeof translations !== 'undefined' && translations[lang]) ? translations[lang] : fallbackTranslations[lang];
+            
+            if (!currentTranslations) {
                 console.error('Language not found:', lang);
                 return false;
             }
@@ -840,11 +1004,11 @@
             // Update all translation elements including title
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
+                if (currentTranslations[key]) {
                     if (element.tagName.toLowerCase() === 'title') {
-                        element.textContent = translations[lang][key];
+                        element.textContent = currentTranslations[key];
                     } else {
-                        element.innerHTML = translations[lang][key];
+                        element.innerHTML = currentTranslations[key];
                     }
                 } else {
                     console.warn('Missing translation for key:', key, 'in language:', lang);
@@ -865,24 +1029,73 @@
 
         // Initialize language on page load
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize language from saved preference
+            // Initialize language from saved preference with improved error handling
+            const savedLang = localStorage.getItem('language') || 'en';
+            
+            // Try to load translations first
             if (typeof translations !== 'undefined') {
-                const savedLang = localStorage.getItem('language') || 'en';
                 switchLanguage(savedLang);
+            } else {
+                // If translations not loaded, wait and try again
+                setTimeout(function() {
+                    switchLanguage(savedLang);
+                }, 200);
             }
+            
+            // Add cursor pointer and hover effects for posters
+            document.querySelectorAll('.series-poster').forEach(poster => {
+                poster.style.cursor = 'pointer';
+                
+                poster.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                poster.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
         });
 
-        // Add cursor pointer and hover effects for posters
-        document.querySelectorAll('.series-poster').forEach(poster => {
-            poster.style.cursor = 'pointer';
-
-            poster.addEventListener('mouseenter', function () {
-                this.style.transform = 'translateY(-10px)';
-            });
-
-            poster.addEventListener('mouseleave', function () {
-                this.style.transform = 'translateY(0)';
-            });
+        // FontAwesome fallback detection - ensure icons load properly
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                const testElement = document.createElement('i');
+                testElement.className = 'fab fa-linkedin';
+                testElement.style.position = 'absolute';
+                testElement.style.left = '-9999px';
+                document.body.appendChild(testElement);
+                
+                const computedStyle = window.getComputedStyle(testElement);
+                const fontFamily = computedStyle.getPropertyValue('font-family');
+                
+                // Only apply fallbacks if FontAwesome completely fails to load
+                if (!fontFamily.includes('Font Awesome')) {
+                    console.warn('FontAwesome not loading properly, applying minimal fallbacks');
+                    
+                    // Add minimal CSS to ensure icons display as symbols
+                    const style = document.createElement('style');
+                    style.textContent = `
+                        .social-links a i {
+                            font-family: "Font Awesome 6 Brands", "FontAwesome", Arial, sans-serif !important;
+                            font-weight: 400 !important;
+                            color: #ffffff !important;
+                        }
+                        .navbar-toggler-icon {
+                            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+                            font-weight: 900 !important;
+                        }
+                        .lang-toggle i {
+                            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+                            font-weight: 900 !important;
+                        }
+                    `;
+                    document.head.appendChild(style);
+                } else {
+                    console.log('FontAwesome loaded successfully');
+                }
+                
+                document.body.removeChild(testElement);
+            }, 100);
         });
     </script>
 </body>

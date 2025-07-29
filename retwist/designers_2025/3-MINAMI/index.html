@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日式埴輪猫 NYA-NIWA - Minami Design | RE:TWIST Project</title>
+    <title>日式埴輪猫 NYA-NIWA - HIRONARI MINAMI | RE:TWIST Project</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../../../style.css">
     <link rel="stylesheet" href="../../style1.css">
     <style>
-        /* Same styling as Lance Design page */
+        /* Same styling as Lance Han page */
         .designer-avatar { text-align: center; }
         .designer-photo { width: 100%; max-width: 300px; height: auto; border-radius: 0 !important; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         body { color: #333333; }
@@ -20,6 +20,32 @@
         .figure-dimensions { color: #666666; margin-bottom: 1rem; font-size: 0.9rem; font-weight: 300; }
         .designer-badge { margin-bottom: 1.5rem; display: inline-block; }
         .designer-badge span { color: #ffffff; background: #000000; padding: 0.3rem 0.8rem; border: 1px solid #000000; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; display: inline-block; }
+        
+        /* Square gallery styling */
+        .gallery-item { 
+            border-radius: 0 !important; 
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 1;
+            background: #f8f9fa;
+        }
+        
+        .gallery-image { 
+            border-radius: 0 !important; 
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+        
         .figure-description { color: #555555; margin-bottom: 2rem; line-height: 1.7; font-weight: 300; }
         .figure-details { margin-top: 2rem; }
         .detail-item { color: #666666; margin-bottom: 0.8rem; font-size: 0.9rem; display: flex; align-items: center; padding: 0.5rem 0; border-left: 3px solid #000000; padding-left: 1rem; }
@@ -60,6 +86,25 @@
         .dropdown-menu { border: none; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); border-radius: 0; }
         .dropdown-item { color: #333333; padding: 0.5rem 1rem; transition: background-color 0.3s ease; }
         .dropdown-item:hover { background-color: #f8f9fa; color: #000000; }
+        /* Navigation styling fixes */
+        .navbar-toggler {
+            border: none;
+            padding: 0.25rem 0.5rem;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+        
+        .navbar-toggler i {
+            color: #333333;
+            font-size: 1.25rem;
+        }
+        
+        .navbar-nav {
+            align-items: center;
+        }
+        
         @media (max-width: 991px) { .navbar-nav { align-items: flex-start; } .lang-dropdown { margin-top: 0.5rem; } .lang-toggle { padding: 0.5rem 0; } }
         @media (max-width: 768px) { .figure-info { padding-left: 0; margin-top: 2rem; } .figure-image-container { margin-bottom: 2rem; } .designer-badge { margin-bottom: 1rem; } }
     </style>
@@ -73,7 +118,7 @@
                 <img src="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" alt="re-ing Logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <i class="fas fa-bars navbar-toggler-icon"></i>
+                <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
@@ -108,7 +153,7 @@
                     <li class="breadcrumb-item"><a href="../../../index.html" data-i18n="common.home">Home</a></li>
                     <li class="breadcrumb-item"><a href="../../index.html" data-i18n="nav.retwist">RE:TWIST Project</a></li>
                     <li class="breadcrumb-item"><a href="../index.html" data-i18n="retwist.series.taiwanJapan.title">Taiwan-Japan Collaboration Series</a></li>
-                    <li class="breadcrumb-item active" aria-current="page" data-i18n="designer.minami.title">Japanese Haniwa Cat NYA-NIWA</li>
+                    <li class="breadcrumb-item active" aria-current="page" data-i18n="designer.minami.title">日式埴輪猫 NYA-NIWA</li>
                 </ol>
             </nav>
         </div>
@@ -123,7 +168,7 @@
                         <img src="../../../assets/images/figure_minami.png"
                              class="figure-main-image"
                              data-i18n-alt="designer.minami.title"
-                             alt="Japanese Haniwa Cat NYA-NIWA by Minami Design">
+                             alt="日式埴輪猫 NYA-NIWA by HIRONARI MINAMI">
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
@@ -133,11 +178,9 @@
                             <span>L 3.5cm × W 3.0cm × H 4.0cm</span>
                         </div>
                         <div class="designer-badge">
-                            <span>Minami Design</span>
+                            <span>HIRONARI MINAMI</span>
                         </div>
-                        <p class="figure-description" data-i18n="designer.minami.story">
-                            Drawing from ancient Japanese Haniwa pottery traditions, this design reimagines historical clay figures as contemporary feline guardians, bridging millennia of cultural heritage.
-                        </p>
+
                         <div class="figure-details">
                             <div class="detail-item">
                                 <span>Traditional Haniwa Style</span>
@@ -162,9 +205,9 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto" data-aos="fade-up">
                     <div class="story-content">
-                        <p>The 日式埴輪猫 NYA-NIWA represents a profound connection between ancient Japanese funerary art and contemporary design sensibilities. Minami Design draws inspiration from Haniwa clay figures, which were placed around burial mounds during the Kofun period (300-538 CE) to protect and accompany the deceased into the afterlife.</p>
-                        <p>This design transforms the traditional cylindrical Haniwa form into a charming feline figure, maintaining the characteristic simplicity and spiritual significance of the original artifacts. The minimalist features and earthy texture evoke the handcrafted nature of ancient pottery while infusing the piece with the protective and lucky qualities associated with cats in Japanese culture.</p>
-                        <p>NYA-NIWA serves as both a cultural bridge and a modern talisman, embodying the belief that our ancestors' wisdom and protection continue to guide us. Each piece carries the weight of history while celebrating the enduring bond between humans and their feline companions.</p>
+                        <p data-i18n="designer.minami.story1">The 日式埴輪猫 NYA-NIWA represents a profound connection between ancient Japanese funerary art and contemporary design sensibilities. HIRONARI MINAMI draws inspiration from Haniwa clay figures, which were placed around burial mounds during the Kofun period (300-538 CE) to protect and accompany the deceased into the afterlife.</p>
+                        <p data-i18n="designer.minami.story2">This design transforms the traditional cylindrical Haniwa form into a charming feline figure, maintaining the characteristic simplicity and spiritual significance of the original artifacts. The minimalist features and earthy texture evoke the handcrafted nature of ancient pottery while infusing the piece with the protective and lucky qualities associated with cats in Japanese culture.</p>
+                        <p data-i18n="designer.minami.story3">NYA-NIWA serves as both a cultural bridge and a modern talisman, embodying the belief that our ancestors' wisdom and protection continue to guide us. Each piece carries the weight of history while celebrating the enduring bond between humans and their feline companions.</p>
                     </div>
                 </div>
             </div>
@@ -203,19 +246,19 @@
     <!-- Designer Profile Section -->
     <section class="designer-profile">
         <div class="container">
-            <h2 class="section-title" data-i18n="designer.minami.aboutTitle">About Minami Design</h2>
+            <h2 class="section-title" data-i18n="designer.minami.aboutTitle">About HIRONARI MINAMI</h2>
             <div class="row align-items-center">
                 <div class="col-lg-4" data-aos="fade-right">
                     <div class="designer-avatar">
-                        <img src="../../../assets/images/designer-avatar-Minami.jpg" alt="Minami Design" class="designer-photo">
+                        <img src="../../../assets/images/designer-avatar-Minami.jpg" alt="HIRONARI MINAMI" class="designer-photo">
                     </div>
                 </div>
                 <div class="col-lg-8" data-aos="fade-left">
                     <div class="designer-bio">
-                        <h3>Minami Design</h3>
-                        <p class="designer-location">Based in Japan</p>
-                        <p>Minami Design is deeply rooted in the study and preservation of Japanese cultural heritage. With a Master's degree in Archaeology and extensive experience in traditional pottery techniques, Minami brings authentic historical knowledge to contemporary design challenges.</p>
-                        <p>Their work focuses on making ancient Japanese art forms accessible to modern audiences while maintaining respect for cultural origins. Minami Design believes that understanding our past is essential for creating meaningful design in the present, and their pieces serve as educational tools that celebrate Japan's rich artistic legacy.</p>
+                        <h3 data-i18n="designer.minami.name">HIRONARI MINAMI</h3>
+                        <p class="designer-location" data-i18n="designer.minami.location">Based in Japan</p>
+                        <p data-i18n="designer.minami.bio1">Born in Kagoshima and based in Osaka. Graduated with a BA in Product Design from Sheffield Hallam University, UK. After working at a design studio, began freelancing in 2011. Involved throughout the entire "river" of manufacturing—upstream (planning), midstream (design and production), and downstream (import, sales, PR), with a focus on industrial product design.</p>
+                        <p data-i18n="designer.minami.bio2">Has been running an original leather goods brand, "ARLEQUIN," since 2014. Recently launched "Hao! Ta!wan," a project introducing outstanding Taiwanese design and culture to Japan, serving as a platform to connect makers in both regions.</p>
                         <div class="designer-links">
                             <a href="#" class="btn btn-outline-primary" data-i18n="common.viewPortfolio">View Portfolio</a>
                             <a href="#" class="btn btn-outline-secondary" data-i18n="common.contactDesigner">Contact Designer</a>
@@ -249,8 +292,6 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="./translations.js"></script>
-    <script type="module" src="../index.js"></script>
     <script>
         // Initialize AOS
         AOS.init();
@@ -278,7 +319,7 @@
                 const key = element.getAttribute('data-i18n');
                 if (minamiTranslations[lang] && minamiTranslations[lang][key]) {
                     if (element.tagName.toLowerCase() === 'title') {
-                        element.textContent = minamiTranslations[lang][key] + ' - Minami Design | RE:TWIST Project';
+                        element.textContent = minamiTranslations[lang][key] + ' - HIRONARI MINAMI | RE:TWIST Project';
                     } else {
                         element.innerHTML = minamiTranslations[lang][key];
                     }
@@ -336,26 +377,26 @@
             "common.viewDetails": "View Details",
             
             // Minami specific
-            "designer.minami.title": "Japanese Haniwa Cat NYA-NIWA",
-            "designer.minami.detail1": "Ancient Japanese Heritage",
-            "designer.minami.detail2": "Clay Tradition",
-            "designer.minami.detail3": "Cultural Fusion",
-            "designer.minami.aboutTitle": "About Minami Design",
+            "designer.minami.title": "日式埴輪猫 NYA-NIWA",
+            "designer.minami.name": "HIRONARI MINAMI",
+            "designer.minami.aboutTitle": "About HIRONARI MINAMI",
             "designer.minami.location": "Based in Japan",
-            "designer.minami.bio1": "Minami Design draws inspiration from ancient Japanese Haniwa pottery figures, creating modern interpretations that bridge traditional craftsmanship with contemporary design.",
-            "designer.minami.bio2": "Their work celebrates Japan's rich archaeological heritage through playful, cat-inspired forms.",
-            "designer.minami.story": "NYA-NIWA reimagines the ancient Haniwa tradition through the lens of contemporary Japanese cat culture.",
+            "designer.minami.bio1": "Born in Kagoshima and based in Osaka. Graduated with a BA in Product Design from Sheffield Hallam University, UK. After working at a design studio, began freelancing in 2011. Involved throughout the entire river of manufacturing—upstream (planning), midstream (design and production), and downstream (import, sales, PR), with a focus on industrial product design.",
+            "designer.minami.bio2": "Has been running an original leather goods brand, ARLEQUIN, since 2014. Recently launched Hao! Ta!wan, a project introducing outstanding Taiwanese design and culture to Japan, serving as a platform to connect makers in both regions.",
+            "designer.minami.story1": "The \"Japanese Haniwa Cat NYA-NIWA\" is a good luck charm that combines ancient haniwa (terracotta clay figures) and cats. In contemporary Japanese society, where the word \"sustainability\" is often merely consumed without leading to essential action, we designed this piece with the hope that the feeling of finding something \"cute\" (kawaii) could inspire action on environmental issues.",
+            "designer.minami.story2": "With its endearingly vacant expression and rustic form, we went through over 20 prototypes—adjusting details like the size and distance of the eyes, the thinness and height of the nose, the shape and size of the mouth, the position and length of the whiskers, and even the presence of ears—to create a look that is somehow nostalgic for Japanese people yet approachable and familiar to the people of Taiwan.",
+            "designer.minami.story3": "Japan and Taiwan have supported each other like brothers, where the thought of \"doing something for someone else\" comes naturally. Behind this lies a history of standing by and helping one another through difficult times. For instance, the warm support sent during major disasters and the cultural exchanges have quietly but surely nurtured a relationship of trust between our two nations. We remain deeply grateful for this compassion, and on behalf of Japan, I wish to express our heartfelt thanks. What we have entrusted to this small good luck charm is the wish that, with the altruistic spirit our nations share, we can change the future of our planet together. Let's act together and change the future!(一起行動，改變未來！)",
             
             // Designer titles for related figures
             "designer.uo.title": "Enshunada Replica",
             "designer.lance.title": "Lucky Cannelé Cat",
             "designer.nosigner.title": "Bubble Mold Cat",
-            "designer.shawn.title": "SHAWN Design",
+            "designer.shawn.title": "Mute Cat: Silence is Golden",
             "designer.shikai.title": "Box Lucky Cat",
-            "designer.shinya.title": "Shinya Design",
-            "designer.yenan.title": "YENAN Design",
-            "designer.yenpochun.title": "Lucky Ocean Cat",
-            "designer.kairi.title": "KAIRI Design",
+            "designer.shinya.title": "GROOMI NEKO",
+            "designer.yenan.title": "Coin Cat",
+            "designer.yenpochun.title": "Neco",
+            "designer.kairi.title": "castaway cat",
             
             // Series and footer
             "retwist.series.taiwanJapan.title": "Taiwan-Japan Collaboration Series",
@@ -375,35 +416,35 @@
             // Common
             "common.home": "首頁",
             "common.designStory": "設計故事",
-            "common.gallery": "作品集",
+            "common.gallery": "設計圖",
             "common.otherDesigners": "其他設計師",
             "common.viewAllFigures": "查看所有作品",
-            "common.viewPortfolio": "查看作品集",
+            "common.viewPortfolio": "查看設計圖",
             "common.contactDesigner": "聯絡設計師",
             "common.by": "由",
             "common.viewDetails": "查看詳情",
             
             // Minami specific
             "designer.minami.title": "日式埴輪猫 NYA-NIWA",
-            "designer.minami.detail1": "古代日本遺產",
-            "designer.minami.detail2": "陶土傳統",
-            "designer.minami.detail3": "文化融合",
-            "designer.minami.aboutTitle": "關於 Minami Design",
+            "designer.minami.name": "南大成",
+            "designer.minami.aboutTitle": "關於 南大成",
             "designer.minami.location": "日本",
-            "designer.minami.bio1": "Minami Design 從古代日本埴輪陶偶中汲取靈感，創造出連接傳統工藝與當代設計的現代詮釋。",
-            "designer.minami.bio2": "他們的作品通過有趣的貓咪形象慶祝日本豐富的考古遺產。",
-            "designer.minami.story": "NYA-NIWA 通過當代日本貓文化的視角重新詮釋古代埴輪傳統。",
+            "designer.minami.bio1": "出生於鹿兒島，現居大阪的產品設計師。畢業於英國謝菲爾哈倫大學（Sheffield Hallam University），主修產品設計學士課程。曾於設計事務所任職，並於2011年開始自由接案。擅長從製造流程的上游（企劃）、中游（設計與製造）、到下游（進口、銷售、宣傳）全程參與，專注於家電、五金等工業產品設計領域。",
+            "designer.minami.bio2": "自2014年起經營原創皮革小物品牌「ARLEQUIN」。近年創辦「Hao! Ta!wan(好台)」計畫，致力於將優秀的台灣設計與文化引介至日本市場，作為連結台日製造者的交流平台，推動雙方創意產業的互動與發展。",
+            "designer.minami.story1": "「日式埴輪貓 NYA-NIWA」是一款結合了古代埴輪與貓咪的吉祥物。在當今的日本社會，「永續性」這個詞彙往往只被消費，難以連結到本質上的實際行動。我們懷抱著一個願望，希望「好可愛」的這種心情，能夠與解決環境議題的行動產生連結，因而設計了這款作品。",
+            "designer.minami.story2": "它呆萌的表情與樸實的輪廓，對日本人而言有種懷舊感，對台灣的朋友們來說也希望能有平易近人的樣貌。為此，我們在眼睛的大小與距離、鼻子的寬度與高度、嘴巴的形狀與大小、鬍鬚的位置與長度，乃至於耳朵的有無等細節上，反覆進行了超過20次的試作。",
+            "designer.minami.story3": "日本與台灣，如同兄弟般相互扶持，能很自然地產生「為某人付出」的心情。在這背後，是彼此在困難時相互依偎、攜手共助的歷史。例如，每當發生重大災害時的溫暖支援，以及透過文化建立的交流，都靜靜地、確實地滋養了雙方的信賴關係。至今我們仍對這份關懷滿懷感激，謹代表日本致以誠摯的謝意。這款小小的吉祥物所寄託的，正是期盼我們能以兩國共有的利他之心，一同改變地球未來的願望。一起行動，改變未來！",
             
             // Designer titles for related figures
             "designer.uo.title": "遠州灘復刻版",
-            "designer.lance.title": "幸運可麗露貓",
-            "designer.nosigner.title": "泡泡模具貓",
-            "designer.shawn.title": "SHAWN 設計",
+            "designer.lance.title": "幸運的可麗露貓",
+            "designer.nosigner.title": "Bubble Mold Cat",
+            "designer.shawn.title": "沉默是金｜Mute Cat",
             "designer.shikai.title": "盒子招財貓",
             "designer.shinya.title": "Shinya 設計",
-            "designer.yenan.title": "YENAN 設計",
-            "designer.yenpochun.title": "海洋招財貓",
-            "designer.kairi.title": "KAIRI 設計",
+            "designer.yenan.title": "硬幣貓",
+            "designer.yenpochun.title": "Neco",
+            "designer.kairi.title": "漂流貓",
             
             // Series and footer
             "retwist.series.taiwanJapan.title": "台日合作系列",
@@ -433,25 +474,25 @@
             
             // Minami specific
             "designer.minami.title": "日式埴輪猫 NYA-NIWA",
-            "designer.minami.detail1": "古代日本の遺産",
-            "designer.minami.detail2": "粘土の伝統",
-            "designer.minami.detail3": "文化融合",
-            "designer.minami.aboutTitle": "Minami Designについて",
+            "designer.minami.name": "南　大成",
+            "designer.minami.aboutTitle": "南　大成について",
             "designer.minami.location": "日本在住",
-            "designer.minami.bio1": "Minami Designは古代日本の埴輪土偶からインスピレーションを得て、伝統的な職人技と現代デザインを橋渡しする現代的な解釈を創造しています。",
-            "designer.minami.bio2": "彼らの作品は、遊び心のある猫をモチーフにした形を通じて日本の豊かな考古学的遺産を祝福しています。",
-            "designer.minami.story": "NYA-NIWAは、現代日本の猫文化のレンズを通して古代埴輪の伝統を再構築しています。",
+            "designer.minami.bio1": "鹿児島市出身、大阪在住のプロダクトデザイナー。英国Sheffield Hallam大学、BAプロダクトデザイン学科を卒業後、デザイン事務所勤務を経て2011年に独立。プロダクトデザイナーとして、家電や金物などの工業製品デザインを請け負いつつ、2014年から革小物の自社ブランド「ARLEQUIN」（アルルカン）を運営。",
+            "designer.minami.bio2": "モノづくりの川上（企画）から、川中（デザイン・製造）、川下（輸入・販売・PR）まで一貫して携わる。近年は、台湾の優れた文化やデザインを日本に輸入販売する「Hao! Ta!wan」事業を立ち上げ、日本と台湾のモノづくりを繋ぐプラットフォームを担っている。",
+            "designer.minami.story1": "「日式埴輪猫 NYA-NIWA」は、古代の埴輪と猫をかけ合わせた縁起物です。サステナビリティという言葉だけが消費され、本質的な行動に結びつきにくい今の日本社会において、「可愛い」と感じる心が、環境課題への行動に結びつくことを願い、本作をデザインしました。",
+            "designer.minami.story2": "ポカンとした表情や素朴なフォルムが、日本人にはどこか懐かしく、台湾の方々にも親しみやすい佇まいになるよう、目のサイズや距離、鼻の細さや高さ、口の形や大きさ、ヒゲの位置や長さ、耳の有無など、20回以上の試作を重ねています。",
+            "designer.minami.story3": "「誰かのために」と自然に思える、兄弟のように支え合ってきた日本と台湾。その背景には、互いが困難な時に寄り添い、助け合ってきた歴史があります。たとえば、大きな災害のたびに寄せられる温かな支援や、文化を通じた交流は、両国の信頼関係を静かに、確かに育んできました。今でもその思いやりに深く感謝しており、日本を代表して心より御礼申し上げます。この小さな縁起物に込めたのは、両国の利他的な心で、地球の未来を一緒に変えようという願いです。一起行動，改變未來！",
             
             // Designer titles for related figures
-            "designer.uo.title": "遠州灘レプリカ",
+            "designer.uo.title": "Enshunada Replica",
             "designer.lance.title": "ラッキーカヌレ猫",
-            "designer.nosigner.title": "バブルモールド猫",
-            "designer.shawn.title": "SHAWNデザイン",
+            "designer.nosigner.title": "Bubble Mold Cat",
+            "designer.shawn.title": "ミュートキャット：沈黙は金",
             "designer.shikai.title": "ボックス招き猫",
-            "designer.shinya.title": "Shinyaデザイン",
-            "designer.yenan.title": "YENANデザイン",
-            "designer.yenpochun.title": "海洋招き猫",
-            "designer.kairi.title": "KAIRIデザイン",
+            "designer.shinya.title": "グルーミネコ",
+            "designer.yenan.title": "コインねこ",
+            "designer.yenpochun.title": "Neco",
+            "designer.kairi.title": "流れ着いた猫",
             
             // Series and footer
             "retwist.series.taiwanJapan.title": "台日コラボレーションシリーズ",
@@ -481,14 +522,14 @@
             
             // Minami specific
             "designer.minami.title": "Japanse Haniwa Kat NYA-NIWA",
-            "designer.minami.detail1": "Oude Japanse Erfgoed",
-            "designer.minami.detail2": "Klei Traditie",
-            "designer.minami.detail3": "Culturele Fusie",
-            "designer.minami.aboutTitle": "Over Minami Design",
+            "designer.minami.name": "HIRONARI MINAMI",
+            "designer.minami.aboutTitle": "Over HIRONARI MINAMI",
             "designer.minami.location": "Gevestigd in Japan",
-            "designer.minami.bio1": "Minami Design put inspiratie uit oude Japanse Haniwa pottenbakkersbeelden en creëert moderne interpretaties die traditioneel vakmanschap verbinden met hedendaags ontwerp.",
-            "designer.minami.bio2": "Hun werk viert Japan's rijke archeologische erfgoed door speelse, kat-geïnspireerde vormen.",
-            "designer.minami.story": "NYA-NIWA herbeeldt de oude Haniwa traditie door de lens van hedendaagse Japanse katcultuur.",
+            "designer.minami.bio1": "Geboren in Kagoshima en gevestigd in Osaka. Afgestudeerd met een BA in Product Design van Sheffield Hallam University, UK. Na het werken bij een ontwerpstudio, begon hij in 2011 als freelancer. Betrokken bij de gehele \"rivier\" van productie—stroomopwaarts (planning), midstroom (ontwerp en productie), en stroomafwaarts (import, verkoop, PR), met focus op industrieel productontwerp.",
+            "designer.minami.bio2": "Runt sinds 2014 een origineel leren goederen merk, \"ARLEQUIN.\" Lanceerde onlangs \"Hao! Ta!wan,\" een project dat uitstekend Taiwanees ontwerp en cultuur introduceert in Japan, dienend als platform om makers in beide regio's te verbinden.",
+            "designer.minami.story1": "De \"Japanse Haniwa Kat NYA-NIWA\" is een geluksamulet die oude haniwa (terracotta kleifiguren) en katten combineert. In de hedendaagse Japanse samenleving, waar het woord \"duurzaamheid\" vaak alleen wordt geconsumeerd zonder tot essentiële actie te leiden, ontwierpen we dit stuk met de hoop dat het gevoel van iets \"schattig\" vinden kan inspireren tot actie op milieugebied.",
+            "designer.minami.story2": "Met zijn lieflijk afwezige uitdrukking en rustieke vorm, gingen we door meer dan 20 prototypes—waarbij we details aanpasten zoals de grootte en afstand van de ogen, de dunheid en hoogte van de neus, de vorm en grootte van de mond, de positie en lengte van de snorharen, en zelfs de aanwezigheid van oren—om een look te creëren die op de een of andere manier nostalgisch is voor Japanse mensen maar toch benaderbaar en vertrouwd voor de mensen van Taiwan.",
+            "designer.minami.story3": "Japan en Taiwan hebben elkaar als broers gesteund, waarbij de gedachte aan \"iets doen voor iemand anders\" natuurlijk komt. Hierachter ligt een geschiedenis van het bijstaan en helpen van elkaar door moeilijke tijden. Bijvoorbeeld, de warme steun verzonden tijdens grote rampen en de culturele uitwisselingen hebben stilletjes maar zeker een vertrouwensrelatie tussen onze twee naties gekoesterd. We blijven diep dankbaar voor dit medeleven, en namens Japan wil ik onze hartelijke dank uitspreken. Wat we hebben toevertrouwd aan deze kleine geluksamulet is de wens dat, met de altruïstische geest die onze naties delen, we samen de toekomst van onze planeet kunnen veranderen. Laten we samen handelen en de toekomst veranderen!",
             
             // Designer titles for related figures
             "designer.uo.title": "Enshunada Replica",
@@ -509,15 +550,15 @@
 
         // Designer data for this page
         const currentPageDesigner = {
-            name: "Minami Design",
+            name: "南大成",
             folder: "3-Minami"
         };
 
         // All designers data for related figures
         const allDesigners = [
-            { name: "UO Design", titleKey: "designer.uo.title", folder: "1-UO", image: "figure_UO.png" },
-            { name: "Lance Design", titleKey: "designer.lance.title", folder: "2-Lance", image: "figure_lance.png" },
-            { name: "Nosigner", titleKey: "designer.nosigner.title", folder: "4-Nosigner", image: "figure_nosigner.png" },
+            { name: "UO", titleKey: "designer.uo.title", folder: "1-UO", image: "figure_UO.png" },
+            { name: "Lance Han", titleKey: "designer.lance.title", folder: "2-Lance", image: "figure_lance.png" },
+            { name: "Eisuke Tachikawa", titleKey: "designer.nosigner.title", folder: "4-Nosigner", image: "figure_nosigner.png" },
             { name: "SHAWN", titleKey: "designer.shawn.title", folder: "5-SHAWN", image: "figure_shawn.png" },
             { name: "SHIKAI", titleKey: "designer.shikai.title", folder: "6-Shikai", image: "figure_shikai.png" },
             { name: "Shinya Yoshida", titleKey: "designer.shinya.title", folder: "7-Shinya", image: "figure_shinyayoshida.png" },
