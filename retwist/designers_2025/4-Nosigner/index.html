@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Mold Cat - Eisuke Tachikawa | RE:TWIST Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="../../style1.css">
+    <style>
+        /* Same styling as other designer pages */
+        .designer-avatar { text-align: center; }
+        .designer-photo { width: 100%; max-width: 300px; height: auto; border-radius: 0 !important; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        body { color: #333333; }
+        .figure-title { color: #000000; margin-bottom: 1rem; font-weight: 300; letter-spacing: -0.02em; }
+        .figure-dimensions { color: #666666; margin-bottom: 1rem; font-size: 0.9rem; font-weight: 300; }
+        .designer-badge { margin-bottom: 1.5rem; display: inline-block; }
+        .designer-badge span { color: #ffffff; background: #000000; padding: 0.3rem 0.8rem; border: 1px solid #000000; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; display: inline-block; }
+        .figure-description { color: #555555; margin-bottom: 2rem; line-height: 1.7; font-weight: 300; }
+        .figure-details { margin-top: 2rem; }
+        .detail-item { color: #666666; margin-bottom: 0.8rem; font-size: 0.9rem; display: flex; align-items: center; padding: 0.5rem 0; border-left: 3px solid #000000; padding-left: 1rem; }
+        .section-title { color: #000000; margin-bottom: 3rem; }
+        .story-content p { color: #555555; margin-bottom: 2rem; }
+        .designer-bio h3 { color: #000000; margin-bottom: 1rem; }
+        .designer-location { color: #666666; margin-bottom: 2rem; }
+        .designer-bio p { color: #555555; margin-bottom: 1.5rem; }
+        .related-card h4 { color: #000000; margin-bottom: 0.5rem; }
+        .related-card p { color: #666666; margin-bottom: 1rem; }
+        .btn { border-radius: 0 !important; }
+        .btn-outline-primary { border: 2px solid #333333; color: #333333; background: transparent; }
+        .btn-outline-primary:hover { background: #333333; color: white; border-color: #333333; }
+        .btn-outline-secondary { border: 2px solid #666666; color: #666666; background: transparent; }
+        .btn-outline-secondary:hover { background: #666666; color: white; }
+        .btn-primary { background: #000000; border: 2px solid #000000; color: white; }
+        .btn-primary:hover { background: #333333; border-color: #333333; }
+        
+        /* Square gallery styling */
+        .gallery-item { 
+            border-radius: 0 !important; 
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 1;
+            background: #f8f9fa;
+        }
+        
+        .gallery-image { 
+            border-radius: 0 !important; 
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+        
+        .related-card { border-radius: 0 !important; border: 1px solid #dee2e6; }
+        .related-card img { border-radius: 0 !important; }
+        .figure-main-image { border-radius: 0 !important; margin-bottom: 2rem; }
+        .figure-image-container { margin-bottom: 3rem; }
+        .figure-info { padding-left: 1.5rem; }
+        .breadcrumb { background: none; padding: 0; }
+        .breadcrumb-item + .breadcrumb-item::before { content: ">"; color: #6c757d; }
+        .breadcrumb-item a { color: #666666; text-decoration: none; }
+        .breadcrumb-item a:hover { color: #000000; }
+        .breadcrumb-item.active { color: #000000; }
+        .nav-link { color: #333333 !important; }
+        .nav-link:hover { color: #000000 !important; }
+        footer { background: #000000; color: #ffffff; }
+        .navbar-nav { align-items: center; }
+        .lang-dropdown { display: flex; align-items: center; }
+        .lang-toggle { background: transparent; border: none; color: #333333; padding: 0.5rem 0.75rem; display: flex; align-items: center; text-decoration: none; transition: color 0.3s ease; }
+        .lang-toggle:hover { color: #000000; }
+        .lang-toggle img { margin-right: 0.5rem; }
+        .dropdown-menu { border: none; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); border-radius: 0; }
+        .dropdown-item { color: #333333; padding: 0.5rem 1rem; transition: background-color 0.3s ease; }
+        .dropdown-item:hover { background-color: #f8f9fa; color: #000000; }
+        
+        /* Navigation styling fixes */
+        .navbar-toggler {
+            border: none;
+            padding: 0.25rem 0.5rem;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+        
+        .navbar-toggler i {
+            color: #333333;
+            font-size: 1.25rem;
+            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+            font-weight: 900 !important;
+        }
+        
+        .navbar-toggler .fa-bars::before {
+            content: "\f0c9";
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
+        }
+        
+        @media (max-width: 991px) { .navbar-nav { align-items: flex-start; } .lang-dropdown { margin-top: 0.5rem; } .lang-toggle { padding: 0.5rem 0; } }
+        @media (max-width: 768px) { .figure-info { padding-left: 0; margin-top: 2rem; } .figure-image-container { margin-bottom: 2rem; } .designer-badge { margin-bottom: 1rem; } }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <img src="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" alt="re-ing Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#mission" data-i18n="nav.mission">Our Mission</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#process" data-i18n="nav.process">Our Process</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#services" data-i18n="nav.services">Our Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html" data-i18n="nav.retwist">RE:TWIST Project</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#why-choose-us" data-i18n="nav.whyChooseUs">Why Choose Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#our-clients" data-i18n="nav.ourClients">Our Clients</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#contact" data-i18n="nav.contact">Contact Us</a></li>
+                    <li class="nav-item dropdown lang-dropdown">
+                        <a class="lang-toggle dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../../../assets/images/language.png" alt="Language Icon" style="width: 20px; height: auto;">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('en')">English</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('zh')">中文</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('nl')">Nederlands</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('ja')">日本語</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../../../index.html" data-i18n="common.home">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../../index.html" data-i18n="nav.retwist">RE:TWIST Project</a></li>
+                    <li class="breadcrumb-item"><a href="../index.html" data-i18n="retwist.series.taiwanJapan.title">Taiwan-Japan Collaboration Series</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" data-i18n="designer.nosigner.title">Bubble Mold Cat</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="figure-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="figure-image-container">
+                        <img src="../../../assets/images/figure_nosigner.png" 
+                             data-i18n-alt="designer.nosigner.title" 
+                             alt="Bubble Mold Cat by Eisuke_Tachikawa" class="figure-main-image">
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="figure-info">
+                        <h1 data-i18n="designer.nosigner.title" class="figure-title">Bubble Mold Cat</h1>
+                        <div class="figure-dimensions">
+                            <span>L 3.0cm × W 2.7cm × H 4.1cm</span>
+                        </div>
+                        <div class="designer-badge">
+                            <span>Eisuke Tachikawa</span>
+                        </div>
+                        
+                        <div class="figure-details">
+                            <div class="detail-item">
+                                <span>Industrial Process Art</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>Serendipitous Design</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>Molecular Inspiration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Story Section -->
+    <section class="design-story">
+        <div class="container">
+            <h2 class="section-title" data-i18n="common.designStory">Design Story</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <div class="story-content">
+                        <p data-i18n="designer.nosigner.story1">BUBBLE MOLD CAT is an innovative design that overturns the conventional concept of the maneki-neko (beckoning cat). Its organic, bubble-like form splits in two, revealing the shape of a maneki-neko carved out as negative space within. It functions as a "master mold," allowing you to infinitely replicate beckoning cats by injecting materials like clay, cookie dough, or soap.</p>
+                        <p data-i18n="designer.nosigner.story2">The design inspiration comes from a fusion of sea foam and gachapon capsules. By using plastic material recycled from ocean waste, it challenges the traditional one-way cycle of production, consumption, and disposal. The core of this work lies in "designing the process of creation." It's not merely about making an object with recycled materials, but about designing the act of making itself to be sustainable, thereby realizing a true circular economy.</p>
+                        <p data-i18n="designer.nosigner.story3">Through the experience of making their own maneki-neko, users simultaneously cultivate a connection to craftsmanship and an awareness of the environment. The bubble form carries the memory of the ocean, while the maneki-neko born from within symbolizes new fortune and hope for a sustainable future. The sight of countless beckoning cats emerging from a single mold expresses the potential for environmental protection, where small actions can bring about great change. It is a work that offers its users both the joy of creation and a sense of environmental responsibility.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="figure-gallery">
+        <div class="container">
+            <h2 class="section-title" data-i18n="common.gallery">Gallery</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up">
+                    <div class="gallery-item">
+                        <img src="../../../assets/images/Nosigner-1.jpg" alt="Bubble Mold Cat - View 1" class="gallery-image">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gallery-item">
+                        <img src="../../../assets/images/Nosigner-2.jpg" alt="Bubble Mold Cat - View 2" class="gallery-image">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gallery-item">
+                        <img src="../../../assets/images/Nosigner-3.jpg" alt="Bubble Mold Cat - View 3" class="gallery-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Designer Profile Section -->
+    <section class="designer-profile">
+        <div class="container">
+            <h2 class="section-title" data-i18n="designer.nosigner.aboutTitle">About Eisuke Tachikawa</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-4" data-aos="fade-right">
+                    <div class="designer-avatar">
+                        <img src="../../../assets/images/designer-avatar-Nosigner.jpg" alt="Eisuke Tachikawa" class="designer-photo">
+                    </div>
+                </div>
+                <div class="col-lg-8" data-aos="fade-left">
+                    <div class="designer-bio">
+                        <h3 data-i18n="designer.nosigner.name">Eisuke Tachikawa</h3>
+                        <p class="designer-location" data-i18n="designer.nosigner.location">Based in Japan</p>
+                        <p data-i18n="designer.nosigner.bio1">Founder of NOSIGNER, Eisuke Tachikawa is a design strategist working to solve social issues that impact our future, such as climate change adaptation and mitigation, renewable energy, circular economy, disaster prevention, and regional revitalization. He continues to transform challenges into hope through the power of design. Recipient of over 150 design awards, including the world's first Design for Asia Awards(DFA) Designer of the Year, DFA Grand Prize, Good Design Award Gold Prize, Global Design Award Gold Prize, Golden Pin Award Grand Prix, and German Design Award Gold Prize, earning international acclaim.</p>
+                        <p data-i18n="designer.nosigner.bio2">Tachikawa is the founder of visionary projects such as ADAPTMENT, an innovative urban adaptation strategy designed for coexistence with ecosystems amid climate change, and OLIVE, an open-design platform dedicated to communities affected by disasters. He also led the world's largest-scale disaster prevention initiative, the Tokyo Disaster Prevention, demonstrating that design is not merely the pursuit of beauty but a powerful force for protecting lives and advancing society. As an educator in creativity, Tachikawa is a proponent of "Evolutional Creativity," a methodology he devised that was inspired by biological evolution and that now nurtures change-makers across industry, academia, and government.</p>
+                        <div class="designer-links">
+                            <a href="https://nosigner.com/" class="btn btn-outline-primary" data-i18n="common.viewPortfolio">View Portfolio</a>
+                            <a href="https://nosigner.com/contact/" class="btn btn-outline-secondary" data-i18n="common.contactDesigner">Contact Designer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Figures Section -->
+    <section class="related-figures">
+        <div class="container">
+            <h2 class="section-title" data-i18n="common.otherDesigners">Other Designers</h2>
+            <div class="row" id="related-figures-container">
+                <!-- Dynamically populated by JavaScript -->
+            </div>
+            <div class="text-center mt-4">
+                <a href="../index.html" class="btn btn-outline-primary" data-i18n="common.viewAllFigures">View All Figures</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><span data-i18n="retwist.footer.copyright">© 2025 re-ing. All rights reserved.</span></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init();
+
+        // Language switching function
+        function switchLanguage(lang) {
+            console.log('Switching to language:', lang);
+            
+            if (typeof nosignerTranslations === 'undefined') {
+                console.error('Translations not loaded');
+                return false;
+            }
+            
+            if (!nosignerTranslations[lang]) {
+                console.error('Language not found:', lang);
+                return false;
+            }
+            
+            // Set language attributes
+            document.documentElement.setAttribute('data-lang', lang);
+            document.documentElement.lang = lang;
+
+            // Update all translation elements including title
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (nosignerTranslations[lang] && nosignerTranslations[lang][key]) {
+                    if (element.tagName.toLowerCase() === 'title') {
+                        element.textContent = nosignerTranslations[lang][key] + ' - Eisuke Tachikawa | RE:TWIST Project';
+                    } else {
+                        element.innerHTML = nosignerTranslations[lang][key];
+                    }
+                } else {
+                    console.warn('Missing translation for key:', key, 'in language:', lang);
+                }
+            });
+
+            // Update alt attributes
+            document.querySelectorAll('[data-i18n-alt]').forEach(element => {
+                const key = element.getAttribute('data-i18n-alt');
+                if (nosignerTranslations[lang] && nosignerTranslations[lang][key]) {
+                    element.alt = nosignerTranslations[lang][key];
+                }
+            });
+
+            // Update related figures with new language
+            if (typeof generateRelatedFigures === 'function') {
+                generateRelatedFigures();
+            }
+
+            // Save language preference
+            localStorage.setItem('language', lang);
+            
+            // Close dropdown
+            const dropdown = bootstrap.Dropdown.getInstance(document.getElementById('langDropdown'));
+            if (dropdown) {
+                dropdown.hide();
+            }
+            
+            return false;
+        }
+
+        // Nosigner Translations
+        const nosignerTranslations = {
+          en: {
+            // Navigation
+            "nav.mission": "Our Mission",
+            "nav.process": "Our Process", 
+            "nav.services": "Our Services",
+            "nav.retwist": "RE:TWIST Project",
+            "nav.whyChooseUs": "Why Choose Us",
+            "nav.ourClients": "Our Clients",
+            "nav.contact": "Contact Us",
+            
+            // Common
+            "common.home": "Home",
+            "common.designStory": "Design Story",
+            "common.gallery": "Gallery",
+            "common.otherDesigners": "Other Designers",
+            "common.viewAllFigures": "View All Figures",
+            "common.viewPortfolio": "View Portfolio",
+            "common.contactDesigner": "Contact Designer",
+            "common.by": "by",
+            "common.viewDetails": "View Details",
+            
+            // Nosigner specific
+            "designer.nosigner.title": "Bubble Mold Cat",
+            "designer.nosigner.name": "Eisuke Tachikawa",
+            "designer.nosigner.aboutTitle": "About Eisuke Tachikawa",
+            "designer.nosigner.location": "Based in Japan",
+            "designer.nosigner.bio1": "Founder of NOSIGNER, Eisuke Tachikawa is a design strategist working to solve social issues that impact our future, such as climate change adaptation and mitigation, renewable energy, circular economy, disaster prevention, and regional revitalization. He continues to transform challenges into hope through the power of design. Recipient of over 150 design awards, including the world's first Design for Asia Awards(DFA) Designer of the Year, DFA Grand Prize, Good Design Award Gold Prize, Global Design Award Gold Prize, Golden Pin Award Grand Prix, and German Design Award Gold Prize, earning international acclaim.",
+            "designer.nosigner.bio2": "Tachikawa is the founder of visionary projects such as ADAPTMENT, an innovative urban adaptation strategy designed for coexistence with ecosystems amid climate change, and OLIVE, an open-design platform dedicated to communities affected by disasters. He also led the world's largest-scale disaster prevention initiative, the Tokyo Disaster Prevention, demonstrating that design is not merely the pursuit of beauty but a powerful force for protecting lives and advancing society. As an educator in creativity, Tachikawa is a proponent of \"Evolutional Creativity,\" a methodology he devised that was inspired by biological evolution and that now nurtures change-makers across industry, academia, and government.",
+            "designer.nosigner.story1": "BUBBLE MOLD CAT is an innovative design that overturns the conventional concept of the maneki-neko (beckoning cat). Its organic, bubble-like form splits in two, revealing the shape of a maneki-neko carved out as negative space within. It functions as a \"master mold,\" allowing you to infinitely replicate beckoning cats by injecting materials like clay, cookie dough, or soap.",
+            "designer.nosigner.story2": "The design inspiration comes from a fusion of sea foam and gachapon capsules. By using plastic material recycled from ocean waste, it challenges the traditional one-way cycle of production, consumption, and disposal. The core of this work lies in \"designing the process of creation.\" It's not merely about making an object with recycled materials, but about designing the act of making itself to be sustainable, thereby realizing a true circular economy.",
+            "designer.nosigner.story3": "Through the experience of making their own maneki-neko, users simultaneously cultivate a connection to craftsmanship and an awareness of the environment. The bubble form carries the memory of the ocean, while the maneki-neko born from within symbolizes new fortune and hope for a sustainable future. The sight of countless beckoning cats emerging from a single mold expresses the potential for environmental protection, where small actions can bring about great change. It is a work that offers its users both the joy of creation and a sense of environmental responsibility.",
+            
+            // Designer titles for related figures
+            "designer.uo.title": "Enshunada Replica",
+            "designer.lance.title": "Lucky Cannelé Cat",
+            "designer.minami.title": "日式埴輪猫 NYA-NIWA",
+            "designer.shawn.title": "Mute Cat: Silence is Golden",
+            "designer.shikai.title": "Box Lucky Cat",
+            "designer.shinya.title": "GROOMI NEKO",
+            "designer.yenan.title": "Coin Cat",
+            "designer.yenpochun.title": "Neco",
+            "designer.kairi.title": "castaway cat",
+            
+            // Series and footer
+            "retwist.series.taiwanJapan.title": "Taiwan-Japan Collaboration Series",
+            "retwist.footer.copyright": "© 2025 re-ing. All rights reserved."
+          },
+          
+          zh: {
+            // Navigation
+            "nav.mission": "我們的使命",
+            "nav.process": "我們的流程",
+            "nav.services": "我們的服務", 
+            "nav.retwist": "RE:TWIST 轉圈圈計畫",
+            "nav.whyChooseUs": "為何選擇我們",
+            "nav.ourClients": "我們的客戶",
+            "nav.contact": "聯絡我們",
+            
+            // Common
+            "common.home": "首頁",
+            "common.designStory": "設計故事",
+            "common.gallery": "設計圖",
+            "common.otherDesigners": "其他設計師",
+            "common.viewAllFigures": "查看所有作品",
+            "common.viewPortfolio": "查看設計圖",
+            "common.contactDesigner": "聯絡設計師",
+            "common.by": "由",
+            "common.viewDetails": "查看詳情",
+            
+            // Nosigner specific
+            "designer.nosigner.title": "Bubble Mold Cat",
+            "designer.nosigner.name": "太刀川英輔",
+            "designer.nosigner.aboutTitle": "關於 太刀川英輔",
+            "designer.nosigner.location": "日本",
+            "designer.nosigner.bio1": "太刀川英輔是 NOSIGNER 創辦人與設計策略家，專注以設計解決氣候變遷、循環經濃、防災、地方創生等全球性課題，致力將挑戰轉化為希望。他曾榮獲超過 150 項國際設計大獎，包括全球首位獲得DFA 亞洲最具影響力設計師年度大獎得主、DFA Grand Prize、Good Design Award 金獎、金點設計獎年度大獎、德國設計獎金獎、Global Design Award 金獎等，並擔任 ACC 設計獎、Good Design Award、DFA 設計獎、世界建築節（WAF）等國際競賽評審。",
+            "designer.nosigner.bio2": "他主導災後開放設計平台「OLIVE」、都市適應策略「ADAPTMENT」、全球最大防災推廣計畫《東京防災》，展現設計不僅追求形式美，更是守護生命與推動社會進步的力量。他提出創造力理論「進化創造力（Evolutional Creativity）」，融合生物演化概念，推動跨界創新人才培育。現任慶應義塾大學特別研究教授、金澤美術工藝大學榮譽客座教授，並為超過 60 家企業提供創新顧問服務。",
+            "designer.nosigner.story1": "BUBBLE MOLD CAT 是一款顛覆傳統招財貓概念的創新設計。它由兩個如氣泡般的有機形體組成，內部則以「負空間」的形式，深刻著招財貓的輪廓。它同時也是一個「母模」，讓你可以注入黏土、餅乾麵團或肥皂等材料，無限地複製出專屬的招財貓。",
+            "designer.nosigner.story2": "設計靈感源自於海中氣泡與扭蛋殼的結合。我們使用海洋廢棄物回收再製的塑料作為材料，藉此對傳統「生產、消費、拋棄」的單向循環提出詰問。本作品的核心在於「製造方式的設計」。我們不只是用回收材料製作物品，更是將「製作」這個行為本身設計得更具永續性，從而實現真正的循環經濟。",
+            "designer.nosigner.story3": "使用者透過親手製作招財貓的體驗，得以同時培養手作精神與環境意識。氣泡的形體承載著海洋的記憶，而從中誕生的招き猫，則象徵著新的幸運與永續未來的希望。一個模具可以誕生出無數隻招財貓的景象，正表現了微小行動也能創造巨大變化的環保可能性，是一款能同時為使用者提供創造之樂與環境責任的作品。",
+            
+            // Designer titles for related figures
+            "designer.uo.title": "Enshunada Replica",
+            "designer.lance.title": "幸運的可麗露貓",
+            "designer.minami.title": "日式埴輪猫 NYA-NIWA",
+            "designer.shawn.title": "沉默是金｜Mute Cat",
+            "designer.shikai.title": "盒子招財貓",
+            "designer.shinya.title": "Shinya 設計",
+            "designer.yenan.title": "硬幣貓",
+            "designer.yenpochun.title": "Neco",
+            "designer.kairi.title": "漂流貓",
+            
+            // Series and footer
+            "retwist.series.taiwanJapan.title": "台日合作系列",
+            "retwist.footer.copyright": "© 2025 re-ing. 保留所有權利。"
+          },
+          
+          ja: {
+            // Navigation
+            "nav.mission": "私たちの使命",
+            "nav.process": "私たちのプロセス",
+            "nav.services": "私たちのサービス",
+            "nav.retwist": "RE:TWIST プロジェクト",
+            "nav.whyChooseUs": "選ばれる理由",
+            "nav.ourClients": "導入事例",
+            "nav.contact": "お問い合わせ",
+            
+            // Common
+            "common.home": "ホーム",
+            "common.designStory": "デザインストーリー",
+            "common.gallery": "ギャラリー",
+            "common.otherDesigners": "他のデザイナー",
+            "common.viewAllFigures": "すべての作品を見る",
+            "common.viewPortfolio": "ポートフォリオを見る",
+            "common.contactDesigner": "デザイナーに連絡",
+            "common.by": "設計者",
+            "common.viewDetails": "詳細を見る",
+            
+            // Nosigner specific
+            "designer.nosigner.title": "Bubble Mold Cat",
+            "designer.nosigner.name": "太刀川英輔",
+            "designer.nosigner.aboutTitle": "太刀川英輔について",
+            "designer.nosigner.location": "日本在住",
+            "designer.nosigner.bio1": "太刀川英輔は、デザインストラテジストおよびNOSIGNERの創設者であり、気候変動、循環型経済、防災、地域創生など、地球規模の社会課題にデザインの力で取り組み、課題を希望へと変えることを使命としています。これまでに150以上の国際的なデザイン賞を受賞しており、世界初のDFA（Design for Asia Awards）デザイナー・オブ・ザ・イヤー、DFAグランプリ、グッドデザイン賞 金賞、金点設計賞 グランプリ、ドイツデザイン賞 金賞、Global Design Award 金賞などを含みます。",
+            "designer.nosigner.bio2": "代表的なプロジェクトとして、災害時のオープンデザインプラットフォーム「OLIVE」、生態系との共生を目指す都市適応戦略「ADAPTMENT」、および世界最大規模の防災プロジェクト「東京防災」を主導し、美しさの追求にとどまらず、命を守り、社会を前進させるデザインの力を体現しています。独自のデザイン理論「進化思考（Evolutional Creativity）」を提唱し、生物進化のプロセスに着想を得て、産官学にまたがる変革人材の育成に注力。慶應義塾大学特任教授、金沢美術工芸大学 名誉客員教授を務め、60社以上の企業に対してイノベーション支援を行ってきました。",
+            "designer.nosigner.story1": "BUBBLE MOLD CATは、従来の招き猫の概念を覆す革新的なデザインです。二つに分かれる泡のような有機的なフォルムの中に、招き猫の形が負の空間として刻まれており、粘土、クッキー生地、石鹸などの素材を注入することで、無限に招き猫を複製できる「母型」として機能します。",
+            "designer.nosigner.story2": "デザインのインスピレーションは、海の泡とガチャガチャカプセルの融合から生まれました。海洋廃棄物から再生されたプラスチック素材を使用し、従来の一方向的な生産・消費・廃棄サイクルに対する問題提起を行っています。この作品の核心は「作られ方の設計」にあります。単にリサイクル素材で物を作るのではなく、作る行為そのものを持続可能にデザインすることで、真のサーキュラーエコノミーを実現します。",
+            "designer.nosigner.story3": "使用者が自ら招き猫を作る体験を通じて、ものづくりと環境への意識を同時に育みます。泡のフォルムは海の記憶を宿し、中から生まれる招き猫は新しい幸運と持続可能な未来への希望を象徴しています。一つの型から無数の招き猫が生まれる様子は、小さな行動が大きな変化を生み出す環境保護の可能性を表現しており、使う人々に創造の喜びと環境責任の両方を提供する作品です。",
+            
+            // Designer titles for related figures
+            "designer.uo.title": "Enshunada Replica",
+            "designer.lance.title": "ラッキーカヌレ猫",
+            "designer.minami.title": "日式埴輪猫 NYA-NIWA",
+            "designer.shawn.title": "ミュートキャット：沈黙は金",
+            "designer.shikai.title": "ボックス招き猫",
+            "designer.shinya.title": "グルーミネコ",
+            "designer.yenan.title": "コインねこ",
+            "designer.yenpochun.title": "Neco",
+            "designer.kairi.title": "流れ着いた猫",
+            
+            // Series and footer
+            "retwist.series.taiwanJapan.title": "台日コラボレーションシリーズ",
+            "retwist.footer.copyright": "© 2025 re-ing. 全著作権所有。"
+          },
+          
+          nl: {
+            // Navigation
+            "nav.mission": "Onze Missie",
+            "nav.process": "Ons Proces",
+            "nav.services": "Onze Diensten",
+            "nav.retwist": "RE:TWIST Project",
+            "nav.whyChooseUs": "Waarom Voor Ons Kiezen",
+            "nav.ourClients": "Onze Klanten",
+            "nav.contact": "Contacteer Ons",
+            
+            // Common
+            "common.home": "Thuis",
+            "common.designStory": "Ontwerpverhaal",
+            "common.gallery": "Galerij",
+            "common.otherDesigners": "Andere Ontwerpers",
+            "common.viewAllFigures": "Alle Figuren Bekijken",
+            "common.viewPortfolio": "Portfolio Bekijken",
+            "common.contactDesigner": "Contact Ontwerper",
+            "common.by": "door",
+            "common.viewDetails": "Details Bekijken",
+            
+            // Nosigner specific
+            "designer.nosigner.title": "Bubble Mold Kat",
+            "designer.nosigner.name": "Eisuke Tachikawa",
+            "designer.nosigner.aboutTitle": "Over Eisuke Tachikawa",
+            "designer.nosigner.location": "Gevestigd in Japan",
+            "designer.nosigner.bio1": "Oprichter van NOSIGNER, Eisuke Tachikawa is een ontwerpstrateg die werkt aan het oplossen van sociale kwesties die onze toekomst beïnvloeden, zoals klimaatverandering adaptatie en mitigatie, hernieuwbare energie, circulaire economie, rampenpreventie en regionale revitalisering. Hij blijft uitdagingen transformeren in hoop door de kracht van ontwerp.",
+            "designer.nosigner.bio2": "Ontvanger van meer dan 150 ontwerpprijzen, waaronder 's werelds eerste Design for Asia Awards (DFA) Designer van het Jaar, DFA Grand Prize, Good Design Award Gouden Prijs, Global Design Award Gouden Prijs, Golden Pin Award Grand Prix, en German Design Award Gouden Prijs, wat internationale erkenning heeft opgeleverd. Tachikawa is de oprichter van visionaire projecten zoals ADAPTMENT, een innovatieve stedelijke adaptatiestrategie ontworpen voor co-existentie met ecosystemen te midden van klimaatverandering.",
+            "designer.nosigner.story1": "BUBBLE MOLD CAT is een innovatief ontwerp dat het conventionele concept van de maneki-neko (wenk-kat) omkeert. De organische, belachtige vorm splitst in tweeën en onthult de vorm van een maneki-neko uitgesneden als negatieve ruimte binnenin. Het functioneert als een \"hoofdmal\" waarmee je oneindig beckoning katten kunt repliceren door materialen zoals klei, koekjesdeeg of zeep te injecteren.",
+            "designer.nosigner.story2": "De ontwerp inspiratie komt van een fusie van zeeschuim en gachapon capsules. Door plastic materiaal gerecycled van oceaanafval te gebruiken, daagt het de traditionele eenrichtingscyclus van productie, consumptie, en weggooi uit. De kern van dit werk ligt in het \"ontwerpen van het creatieproces.\" Het gaat niet alleen om het maken van een object met gerecyclede materialen, maar om het ontwerpen van de daad van maken zelf om duurzaam te zijn, waardoor een echte circulaire economie wordt gerealiseerd.",
+            "designer.nosigner.story3": "Door de ervaring van het maken van hun eigen maneki-neko cultiveren gebruikers tegelijkertijd een verbinding met vakmanschap en een bewustzijn van het milieu. De belvorm draagt de herinnering aan de oceaan, terwijl de maneki-neko die er van binnen uit wordt geboren nieuw geluk en hoop voor een duurzame toekomst symboliseert. Het zicht van talloze beckoning katten die uit een enkele mal komen drukt het potentieel voor milieubescherming uit, waar kleine acties grote verandering kunnen bewerkstelligen. Het is een werk dat zijn gebruikers zowel de vreugde van creatie als een gevoel van milieuverantwoordelijkheid biedt.",
+            
+            // Designer titles for related figures
+            "designer.uo.title": "Enshunada Replica",
+            "designer.lance.title": "Gelukkige Cannelé Kat",
+            "designer.minami.title": "Japanse Haniwa Kat NYA-NIWA",
+            "designer.shawn.title": "SHAWN Ontwerp",
+            "designer.shikai.title": "Doos Gelukskat",
+            "designer.shinya.title": "Shinya Ontwerp",
+            "designer.yenan.title": "YENAN Ontwerp",
+            "designer.yenpochun.title": "Oceaan Gelukskat",
+            "designer.kairi.title": "KAIRI Ontwerp",
+            
+            // Series and footer
+            "retwist.series.taiwanJapan.title": "Taiwan-Japan Samenwerking Serie",
+            "retwist.footer.copyright": "© 2025 re-ing. Alle rechten voorbehouden."
+          }
+        };
+
+        // Designer data for this page
+        const currentPageDesigner = {
+            name: "Eisuke Tachikawa",
+            folder: "4-Nosigner"
+        };
+
+        // All designers data for related figures
+        const allDesigners = [
+            { name: "UO", titleKey: "designer.uo.title", folder: "1-UO", image: "figure_UO.png" },
+            { name: "Lance Han", titleKey: "designer.lance.title", folder: "2-Lance", image: "figure_lance.png" },
+            { name: "HIRONARI MINAMI", titleKey: "designer.minami.title", folder: "3-Minami", image: "figure_minami.png" },
+            { name: "SHAWN", titleKey: "designer.shawn.title", folder: "5-SHAWN", image: "figure_shawn.png" },
+            { name: "SHIKAI", titleKey: "designer.shikai.title", folder: "6-Shikai", image: "figure_shikai.png" },
+            { name: "Shinya Yoshida", titleKey: "designer.shinya.title", folder: "7-Shinya", image: "figure_shinyayoshida.png" },
+            { name: "YENAN", titleKey: "designer.yenan.title", folder: "8-YENAN", image: "figure_yenan.png" },
+            { name: "YENPOCHUN", titleKey: "designer.yenpochun.title", folder: "9-Yenpochun", image: "figure_yenpochun.png" },
+            { name: "KAIRI", titleKey: "designer.kairi.title", folder: "10-KAIRI", image: "figure_kairi.png" }
+        ];
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to get 3 random designers excluding current one
+            function getRandomDesigners(designers, exclude, count = 3) {
+                const filtered = designers.filter(designer => designer.name !== exclude);
+                const shuffled = filtered.sort(() => 0.5 - Math.random());
+                return shuffled.slice(0, count);
+            }
+
+            // Generate related figures HTML
+            function generateRelatedFigures() {
+                // Cache the randomly selected designers to avoid re-randomizing on language switch
+                if (!window.selectedDesigners) {
+                    window.selectedDesigners = getRandomDesigners(allDesigners, currentPageDesigner.name, 3);
+                }
+                const randomDesigners = window.selectedDesigners;
+                const container = document.getElementById('related-figures-container');
+                const currentLang = document.documentElement.getAttribute('data-lang') || 'en';
+                
+                let html = '';
+                randomDesigners.forEach((designer, index) => {
+                    const translatedTitle = nosignerTranslations[currentLang] && nosignerTranslations[currentLang][designer.titleKey] 
+                        ? nosignerTranslations[currentLang][designer.titleKey] 
+                        : designer.titleKey;
+                    const byText = nosignerTranslations[currentLang]['common.by'] || 'by';
+                    const viewDetailsText = nosignerTranslations[currentLang]['common.viewDetails'] || 'View Details';
+                        
+                    html += `
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="${index * 100}">
+                            <div class="related-card">
+                                <img src="../../../assets/images/${designer.image}" alt="${translatedTitle}">
+                                <div class="card-content">
+                                    <h4>${translatedTitle}</h4>
+                                    <p>${byText} ${designer.name}</p>
+                                    <a href="../${designer.folder}/index.html" class="btn btn-primary">${viewDetailsText}</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+            }
+
+            // Generate related figures
+            // Expose to global scope for language switching
+            window.generateRelatedFigures = generateRelatedFigures;
+            generateRelatedFigures();
+
+            // Initialize language from embedded translations
+            if (typeof nosignerTranslations !== 'undefined') {
+                const savedLang = localStorage.getItem('language') || 'en';
+                switchLanguage(savedLang);
+            }
+        });
+    </script>
+</body>
+
+</html>
