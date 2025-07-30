@@ -95,6 +95,8 @@ body {
   color: #1F2937;
   display: inline-block;
   vertical-align: middle;
+  font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 900 !important;
 }
 
 .navbar-toggler svg {
@@ -280,6 +282,8 @@ section {
   color: #22D3EE;
   display: inline-block;
   vertical-align: middle;
+  font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 900 !important;
 }
 
 .principle-card svg {
@@ -386,6 +390,8 @@ section {
   color: #22D3EE;
   display: inline-block;
   vertical-align: middle;
+  font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 900 !important;
 }
 
 .timeline-content svg {
@@ -540,6 +546,8 @@ section {
   color: #22D3EE;
   display: inline-block;
   vertical-align: middle;
+  font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 900 !important;
 }
 
 .reason-card svg {
@@ -675,6 +683,8 @@ section {
 .download-section i {
   display: inline-block;
   vertical-align: middle;
+  font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 900 !important;
 }
 
 .download-section svg {
@@ -763,6 +773,8 @@ section {
 .contact-section i {
   display: inline-block;
   vertical-align: middle;
+  font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 900 !important;
 }
 
 .contact-section svg {
@@ -857,6 +869,8 @@ section {
 .newsletter-form i {
   display: inline-block;
   vertical-align: middle;
+  font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 900 !important;
 }
 
 .newsletter-form svg {
@@ -918,6 +932,8 @@ footer p {
 .social-links i {
   display: inline-block;
   vertical-align: middle;
+  font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 900 !important;
 }
 
 .social-links svg {
@@ -936,8 +952,8 @@ footer p {
 }
 
 i[class*="fa-"] {
-  font-family: 'Font Awesome 6 Free' !important;
-  font-weight: 900;
+  font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 900 !important;
   font-style: normal;
   display: inline-block;
   line-height: 1;
