@@ -2,6 +2,15 @@
 <html lang="en" data-lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PHGEFZW3HZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PHGEFZW3HZ');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucky Bang 系列 - RE:TWIST 轉圈圈計畫</title>
@@ -77,7 +86,7 @@
 
         header .container {
             padding: 4rem 0 2rem 0;
-            max-width: 1000px;
+            max-width: 1200px;
             position: relative;
             z-index: 2;
             text-align: center;
@@ -87,20 +96,23 @@
             font-size: 3.5rem;
             font-weight: 300;
             color: #ffffff;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+            letter-spacing: 0.2em;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            word-spacing: 0.3em;
         }
 
         .series-subtitle {
             font-size: 1.3rem;
             color: #ffffff;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             font-weight: 300;
-            max-width: 800px;
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            line-height: 1.8;
+            padding: 0 2rem;
         }
 
         .series-stats {
@@ -178,7 +190,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             cursor: pointer;
-            height: 500px;
+            height: 550px;
         }
 
         .figure-card:hover {
@@ -206,9 +218,9 @@
         }
 
         .figure-info {
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             background: #ffffff;
-            height: 200px;
+            height: 250px;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -218,14 +230,14 @@
             font-size: 1.5rem;
             font-weight: 300;
             color: #000000;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             letter-spacing: -0.01em;
         }
 
         .figure-name-en {
             font-size: 1rem;
             color: #666666;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             font-weight: 300;
             font-style: italic;
         }
@@ -233,23 +245,13 @@
         .figure-description {
             font-size: 0.9rem;
             color: #666666;
-            line-height: 1.6;
+            line-height: 1.7;
             font-weight: 300;
         }
 
-        /* Status Badge */
+        /* Status Badge - 移除 */
         .status-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: #000000;
-            color: #ffffff;
-            padding: 0.5rem 1rem;
-            font-size: 0.8rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            z-index: 2;
+            display: none;
         }
 
         /* About Section */
@@ -410,44 +412,50 @@
             margin-top: 2rem;
         }
 
-        /* Navbar Styles */
+        /* Navbar Styles - Updated to match designer pages */
         .navbar {
-            background: #FFFFFF !important;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
             z-index: 1000;
         }
 
         .navbar-brand img {
-            height: 48px;
+            height: 40px;
             transition: transform 0.3s ease;
         }
 
         .navbar-brand img:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
+        }
+
+        .navbar-nav {
+            align-items: center;
         }
 
         .nav-link {
-            color: #1F2937 !important;
+            color: #333333 !important;
             font-weight: 500;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 1rem !important;
+            margin: 0 0.25rem;
             position: relative;
-            transition: color 0.3s ease, transform 0.3s ease;
+            transition: all 0.3s ease;
+            border-radius: 0;
+            font-size: 0.9rem;
         }
 
         .nav-link::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            left: 50%;
             width: 0;
             height: 2px;
             background: #000000;
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
         .nav-link:hover {
@@ -455,67 +463,96 @@
             transform: translateY(-2px);
         }
 
-        /* Footer */
-        footer {
-            background: #000000;
-            padding: 4rem 0;
-            text-align: center;
-            color: #ffffff;
+        .nav-link:hover::after {
+            width: 80%;
         }
 
-        footer .footer-nav {
+        .navbar-toggler {
+            border: none;
+            padding: 0.25rem 0.5rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: none !important;
+            width: auto !important;
+            height: auto !important;
+        }
+
+        .navbar-toggler-icon::before {
+            content: "\f0c9";
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
+            font-size: 1.25rem;
+            color: #333333;
+        }
+
+        .lang-dropdown {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            align-items: center;
         }
 
-        footer .footer-nav a {
-            color: #ffffff;
+        .lang-toggle {
+            background: transparent !important;
+            border: none !important;
+            color: #333333;
+            padding: 0.5rem 0.75rem;
+            display: flex;
+            align-items: center;
             text-decoration: none;
-            font-weight: 300;
             transition: color 0.3s ease;
+            box-shadow: none !important;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
-        footer .footer-nav a:hover {
-            color: #cccccc;
+        .lang-toggle:hover {
+            color: #000000;
+            background: transparent !important;
         }
 
-        footer .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
+        .lang-toggle:focus {
+            box-shadow: none !important;
+            background: transparent !important;
         }
 
-        footer .social-links a {
-            color: #ffffff;
-            font-size: 1.5rem;
-            transition: color 0.3s ease, transform 0.3s ease;
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            text-align: center;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+        .lang-toggle::after {
+            content: "";
+            border-top: 0.3em solid;
+            border-right: 0.3em solid transparent;
+            border-bottom: 0;
+            border-left: 0.3em solid transparent;
+            margin-left: 0.255em;
+            vertical-align: 0.255em;
         }
 
-        footer .social-links a:hover {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+        .lang-toggle img {
+            margin-right: 0.5rem;
         }
 
-        /* 確保 FontAwesome icons 正常載入 */
-        .fab,
-        .fas {
-            font-family: "Font Awesome 6 Brands", "Font Awesome 6 Free";
-            font-weight: 900;
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 0;
+            min-width: 120px;
+            padding: 0.5rem 0;
         }
 
-        /* 響應式設計調整 */
+        .dropdown-item {
+            color: #333333;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+            font-size: 0.85rem;
+        }
+
+        .dropdown-item:hover {
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+
         @media (max-width: 1200px) {
             .figures-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -528,6 +565,20 @@
             }
         }
 
+        @media (max-width: 991px) {
+            .navbar-nav {
+                align-items: flex-start;
+            }
+
+            .lang-dropdown {
+                margin-top: 0.5rem;
+            }
+
+            .lang-toggle {
+                padding: 0.5rem 0;
+            }
+        }
+
         @media (max-width: 768px) {
             header {
                 margin-top: 70px;
@@ -536,11 +587,15 @@
 
             .series-title {
                 font-size: 2.5rem;
+                letter-spacing: 0.1em;
+                word-spacing: 0.2em;
+                margin-bottom: 1.5rem;
             }
 
-            .series-stats {
-                flex-direction: column;
-                gap: 1.5rem;
+            .series-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+                padding: 0 1rem;
             }
 
             .figures-grid {
@@ -554,7 +609,7 @@
             }
 
             .figure-card {
-                height: 450px;
+                height: 480px;
             }
 
             .figure-image {
@@ -562,8 +617,8 @@
             }
 
             .figure-info {
-                height: 200px;
-                padding: 1.5rem;
+                height: 230px;
+                padding: 2rem 1.5rem;
             }
 
             model-viewer {
@@ -572,6 +627,14 @@
 
             .model-viewer-title {
                 font-size: 2rem;
+            }
+
+            footer .footer-nav {
+                gap: 1rem;
+            }
+
+            footer .social-links {
+                gap: 1rem;
             }
         }
 
@@ -583,10 +646,19 @@
 
             .series-title {
                 font-size: 2.2rem;
+                letter-spacing: 0.05em;
+                word-spacing: 0.15em;
+                margin-bottom: 1rem;
+            }
+
+            .series-subtitle {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+                padding: 0 0.5rem;
             }
 
             .figure-card {
-                height: 400px;
+                height: 440px;
             }
 
             .figure-image {
@@ -594,8 +666,8 @@
             }
 
             .figure-info {
-                height: 180px;
-                padding: 1.5rem;
+                height: 220px;
+                padding: 2rem 1.5rem;
             }
 
             model-viewer {
@@ -608,6 +680,23 @@
 
             .model-viewer-section {
                 padding: 4rem 0;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            footer {
+                padding: 3rem 0;
+            }
+
+            footer .footer-nav {
+                flex-direction: column;
+                gap: 0.5rem;
             }
         }
     </style>
@@ -625,11 +714,38 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../../index.html#mission">Our Mission</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../index.html#process">Our Process</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../index.html#services">Our Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../index.html">RE:TWIST 轉圈圈計畫</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../index.html#contact">Contact Us</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html#mission" data-i18n="nav.mission">Our Mission</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html#process" data-i18n="nav.process">Our Process</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html#services" data-i18n="nav.services">Our Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html" data-i18n="nav.retwist">RE:TWIST Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html#why-choose-us" data-i18n="nav.whyChooseUs">Why Choose Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html#our-clients" data-i18n="nav.ourClients">Our Clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html#contact" data-i18n="nav.contact">Contact Us</a>
+                    </li>
+                    <li class="nav-item dropdown lang-dropdown">
+                        <a class="lang-toggle dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../../assets/images/language.png" alt="Language Icon" style="width: 20px; height: auto;">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('en')">English</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('zh')">中文</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('nl')">Nederlands</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('ja')">日本語</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -638,22 +754,22 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <h1 class="series-title">Lucky Bang 系列</h1>
-            <p class="series-subtitle">
+            <h1 class="series-title" data-i18n="luckybang.title">Lucky Bang 系列</h1>
+            <p class="series-subtitle" data-i18n="luckybang.subtitle">
                 好運降臨！四款趣味占卜公仔，結合傳統幸運元素與現代設計，讓每一次搖擺都充滿驚喜與期待。
             </p>
             <div class="series-stats">
                 <div class="stat-item">
                     <span class="stat-number">4</span>
-                    <span class="stat-label">款式</span>
+                    <span class="stat-label" data-i18n="luckybang.stats.models">款式</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">100%</span>
-                    <span class="stat-label">已推出</span>
+                    <span class="stat-label" data-i18n="luckybang.stats.released">已推出</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">好運</span>
-                    <span class="stat-label">主題</span>
+                    <span class="stat-number" data-i18n="luckybang.stats.theme">好運</span>
+                    <span class="stat-label" data-i18n="luckybang.stats.themeLabel">主題</span>
                 </div>
             </div>
         </div>
@@ -662,18 +778,17 @@
     <!-- Figures Section -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title">系列作品展示</h2>
+            <h2 class="section-title" data-i18n="luckybang.figures.title">系列作品展示</h2>
             <div class="figures-grid">
                 <!-- 囍八朗 Rocky Roll -->
                 <div class="figure-card" data-aos="fade-up">
-                    <div class="status-badge">已推出</div>
                     <div class="figure-image">
                         <img src="../../assets/images/rocky_roll.png" alt="囍八朗 Rocky Roll" loading="lazy">
                     </div>
                     <div class="figure-info">
-                        <h3 class="figure-name">囍八朗</h3>
+                        <h3 class="figure-name" data-i18n="luckybang.figures.rockyRoll.name">囍八朗</h3>
                         <p class="figure-name-en">Rocky Roll</p>
-                        <p class="figure-description">
+                        <p class="figure-description" data-i18n="luckybang.figures.rockyRoll.description">
                             「囍八朗」為「十八骰仔」的諧音，造型逗趣的小雞變身成骰盅，藏有兩顆骰子！讓你隨時隨地都能與朋友開局一場熱血的「囍八朗」幸運擲骰遊戲！
                         </p>
                     </div>
@@ -681,14 +796,13 @@
 
                 <!-- 歐巴司 Owl Pass -->
                 <div class="figure-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="status-badge">已推出</div>
                     <div class="figure-image">
                         <img src="../../assets/images/owl_pass.png" alt="歐巴司 Owl Pass" loading="lazy">
                     </div>
                     <div class="figure-info">
-                        <h3 class="figure-name">歐巴司</h3>
+                        <h3 class="figure-name" data-i18n="luckybang.figures.owlPass.name">歐巴司</h3>
                         <p class="figure-name-en">Owl Pass</p>
-                        <p class="figure-description">
+                        <p class="figure-description" data-i18n="luckybang.figures.owlPass.description">
                             「歐巴司」為「All Pass」的諧音。貓頭鷹化身智慧占卜小物，肚子裡藏有多款幸運籤。隨手一搖，看看今天的好運是否正朝你飛來！
                         </p>
                     </div>
@@ -696,14 +810,13 @@
 
                 <!-- 8財貓 Lucky Kitty -->
                 <div class="figure-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="status-badge">已推出</div>
                     <div class="figure-image">
                         <img src="../../assets/images/lucky_kitty.png" alt="8財貓 Lucky Kitty" loading="lazy">
                     </div>
                     <div class="figure-info">
-                        <h3 class="figure-name">8財貓</h3>
+                        <h3 class="figure-name" data-i18n="luckybang.figures.luckyKitty.name">8財貓</h3>
                         <p class="figure-name-en">Lucky Kitty</p>
-                        <p class="figure-description">
+                        <p class="figure-description" data-i18n="luckybang.figures.luckyKitty.description">
                             傳統幸運錢幣占卜，設計成招財貓造型的趣味占卜道具。透過投擲硬幣的正反面來解析每日運勢，是與朋友一起玩樂的小小開運神器。
                         </p>
                     </div>
@@ -711,14 +824,13 @@
 
                 <!-- 保寶唄 BaoBao go(Gold) -->
                 <div class="figure-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="status-badge">已推出</div>
                     <div class="figure-image">
                         <img src="../../assets/images/baobao_gold.png" alt="保寶唄 BaoBao go(Gold)" loading="lazy">
                     </div>
                     <div class="figure-info">
-                        <h3 class="figure-name">保寶唄</h3>
+                        <h3 class="figure-name" data-i18n="luckybang.figures.baobaoGold.name">保寶唄</h3>
                         <p class="figure-name-en">BaoBao go(Gold)</p>
-                        <p class="figure-description">
+                        <p class="figure-description" data-i18n="luckybang.figures.baobaoGold.description">
                             可愛的元寶，也可以擲茭！「寶唄」諧音「筊杯」擲出你的幸運指引，還可收納幸運小物，寓意「錢財滾滾、福運連連」。
                         </p>
                     </div>
@@ -730,12 +842,12 @@
     <!-- About Section -->
     <section class="section">
         <div class="about-section" data-aos="fade-up">
-            <h2 class="section-title">關於 Lucky Bang 系列</h2>
+            <h2 class="section-title" data-i18n="luckybang.about.title">關於 Lucky Bang 系列</h2>
             <div class="about-content">
-                <p>
+                <p data-i18n="luckybang.about.content1">
                     Lucky Bang 系列將傳統的幸運占卜元素融入現代扭蛋設計中，每一款都蘊含著深厚的文化意涵與趣味互動體驗。從骰子遊戲到籤詩占卜，從硬幣擲卜到筊杯祈福，這些熟悉的幸運儀式被重新詮釋為可愛的收藏公仔。
                 </p>
-                <p>
+                <p data-i18n="luckybang.about.content2">
                     每件作品不僅是裝飾品，更是能與朋友分享歡樂時光的互動玩具。透過創意的諧音命名和巧妙的功能設計，Lucky Bang 系列讓傳統文化以全新的面貌重現，為現代生活注入一絲幸運與樂趣。
                 </p>
             </div>
@@ -745,29 +857,29 @@
                     <div class="highlight-icon">
                         <i class="fas fa-dice"></i>
                     </div>
-                    <h4 class="highlight-title">互動樂趣</h4>
-                    <p class="highlight-desc">每款公仔都具備獨特的互動功能</p>
+                    <h4 class="highlight-title" data-i18n="luckybang.highlights.interactive.title">互動樂趣</h4>
+                    <p class="highlight-desc" data-i18n="luckybang.highlights.interactive.desc">每款公仔都具備獨特的互動功能</p>
                 </div>
                 <div class="highlight-item">
                     <div class="highlight-icon">
                         <i class="fas fa-star"></i>
                     </div>
-                    <h4 class="highlight-title">幸運元素</h4>
-                    <p class="highlight-desc">融合傳統占卜與現代設計</p>
+                    <h4 class="highlight-title" data-i18n="luckybang.highlights.lucky.title">幸運元素</h4>
+                    <p class="highlight-desc" data-i18n="luckybang.highlights.lucky.desc">融合傳統占卜與現代設計</p>
                 </div>
                 <div class="highlight-item">
                     <div class="highlight-icon">
                         <i class="fas fa-heart"></i>
                     </div>
-                    <h4 class="highlight-title">文化傳承</h4>
-                    <p class="highlight-desc">讓傳統文化以新形式延續</p>
+                    <h4 class="highlight-title" data-i18n="luckybang.highlights.culture.title">文化傳承</h4>
+                    <p class="highlight-desc" data-i18n="luckybang.highlights.culture.desc">讓傳統文化以新形式延續</p>
                 </div>
                 <div class="highlight-item">
                     <div class="highlight-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h4 class="highlight-title">分享歡樂</h4>
-                    <p class="highlight-desc">與朋友一同體驗幸運時刻</p>
+                    <h4 class="highlight-title" data-i18n="luckybang.highlights.sharing.title">分享歡樂</h4>
+                    <p class="highlight-desc" data-i18n="luckybang.highlights.sharing.desc">與朋友一同體驗幸運時刻</p>
                 </div>
             </div>
         </div>
@@ -777,11 +889,11 @@
     <footer>
         <div class="container">
             <div class="footer-nav">
-                <a href="../../index.html#mission">Our Mission</a>
-                <a href="../../index.html#process">Our Process</a>
-                <a href="../../index.html#services">Our Services</a>
-                <a href="../index.html">RE:TWIST Project</a>
-                <a href="../../index.html#contact">Contact Us</a>
+                <a href="../../#mission">Our Mission</a>
+                <a href="../../#process">Our Process</a>
+                <a href="../../#services">Our Services</a>
+                <a href="../">RE:TWIST Project</a>
+                <a href="../../#contact">Contact Us</a>
             </div>
 
             <div class="social-links">
@@ -806,6 +918,221 @@
     <script>
         // Initialize AOS
         AOS.init();
+
+        // Lucky Bang Translations
+        const luckyBangTranslations = {
+            en: {
+                "nav.mission": "Our Mission",
+                "nav.process": "Our Process",
+                "nav.services": "Our Services",
+                "nav.retwist": "RE:TWIST Project",
+                "nav.whyChooseUs": "Why Choose Us",
+                "nav.ourClients": "Our Clients",
+                "nav.contact": "Contact Us",
+                
+                "luckybang.title": "Lucky Bang Series",
+                "luckybang.subtitle": "Fortune arrives! Four fun divination figures combining traditional lucky elements with modern design, making every shake full of surprises and anticipation.",
+                "luckybang.stats.models": "Models",
+                "luckybang.stats.released": "Released",
+                "luckybang.stats.theme": "Lucky",
+                "luckybang.stats.themeLabel": "Theme",
+                
+                "luckybang.figures.title": "Series Collection",
+                "luckybang.status.released": "Released",
+                
+                "luckybang.figures.rockyRoll.name": "Rocky Roll",
+                "luckybang.figures.rockyRoll.description": "Rocky Roll is a homophone of 'eighteen dice'. This funny little chicken transforms into a dice cup with two dice hidden inside! Let you start a passionate Rocky Roll lucky dice game with friends anytime, anywhere!",
+                
+                "luckybang.figures.owlPass.name": "Owl Pass",
+                "luckybang.figures.owlPass.description": "Owl Pass is a homophone of 'All Pass'. The owl becomes a wise divination item with various lucky fortune sticks hidden in its belly. Give it a shake and see if today's good luck is flying your way!",
+                
+                "luckybang.figures.luckyKitty.name": "Lucky Kitty",
+                "luckybang.figures.luckyKitty.description": "Traditional lucky coin divination designed as a beckoning cat-shaped fun divination tool. Analyze daily fortune through coin flips, a little lucky charm for playing with friends.",
+                
+                "luckybang.figures.baobaoGold.name": "BaoBao Gold",
+                "luckybang.figures.baobaoGold.description": "Cute gold ingot that can also cast fortune blocks! 'BaoBao' sounds like 'fortune blocks' - cast your lucky guidance and store lucky items, symbolizing 'rolling wealth and continuous fortune'.",
+                
+                "luckybang.about.title": "About Lucky Bang Series",
+                "luckybang.about.content1": "The Lucky Bang series integrates traditional lucky divination elements into modern capsule toy design, with each piece containing deep cultural significance and fun interactive experiences. From dice games to fortune stick divination, from coin tossing to fortune block prayers, these familiar lucky rituals are reinterpreted as adorable collectible figures.",
+                "luckybang.about.content2": "Each piece is not only a decoration but also an interactive toy for sharing joyful moments with friends. Through creative homophone naming and clever functional design, the Lucky Bang series presents traditional culture in a new form, injecting a touch of luck and fun into modern life.",
+                
+                "luckybang.highlights.interactive.title": "Interactive Fun",
+                "luckybang.highlights.interactive.desc": "Each figure has unique interactive functions",
+                "luckybang.highlights.lucky.title": "Lucky Elements",
+                "luckybang.highlights.lucky.desc": "Combining traditional divination with modern design",
+                "luckybang.highlights.culture.title": "Cultural Heritage",
+                "luckybang.highlights.culture.desc": "Continuing traditional culture in new forms",
+                "luckybang.highlights.sharing.title": "Sharing Joy",
+                "luckybang.highlights.sharing.desc": "Experience lucky moments with friends"
+            },
+            
+            zh: {
+                "nav.mission": "我們的使命",
+                "nav.process": "我們的流程",
+                "nav.services": "我們的服務",
+                "nav.retwist": "RE:TWIST 轉圈圈計畫",
+                "nav.whyChooseUs": "為何選擇我們",
+                "nav.ourClients": "我們的客戶",
+                "nav.contact": "聯絡我們",
+                
+                "luckybang.title": "Lucky Bang 系列",
+                "luckybang.subtitle": "好運降臨！四款趣味占卜公仔，結合傳統幸運元素與現代設計，讓每一次搖擺都充滿驚喜與期待。",
+                "luckybang.stats.models": "款式",
+                "luckybang.stats.released": "已推出",
+                "luckybang.stats.theme": "好運",
+                "luckybang.stats.themeLabel": "主題",
+                
+                "luckybang.figures.title": "系列作品展示",
+                "luckybang.status.released": "已推出",
+                
+                "luckybang.figures.rockyRoll.name": "囍八朗",
+                "luckybang.figures.rockyRoll.description": "「囍八朗」為「十八骰仔」的諧音，造型逗趣的小雞變身成骰盅，藏有兩顆骰子！讓你隨時隨地都能與朋友開局一場熱血的「囍八朗」幸運擲骰遊戲！",
+                
+                "luckybang.figures.owlPass.name": "歐巴司",
+                "luckybang.figures.owlPass.description": "「歐巴司」為「All Pass」的諧音。貓頭鷹化身智慧占卜小物，肚子裡藏有多款幸運籤。隨手一搖，看看今天的好運是否正朝你飛來！",
+                
+                "luckybang.figures.luckyKitty.name": "8財貓",
+                "luckybang.figures.luckyKitty.description": "傳統幸運錢幣占卜，設計成招財貓造型的趣味占卜道具。透過投擲硬幣的正反面來解析每日運勢，是與朋友一起玩樂的小小開運神器。",
+                
+                "luckybang.figures.baobaoGold.name": "保寶唄",
+                "luckybang.figures.baobaoGold.description": "可愛的元寶，也可以擲茭！「寶唄」諧音「筊杯」擲出你的幸運指引，還可收納幸運小物，寓意「錢財滾滾、福運連連」。",
+                
+                "luckybang.about.title": "關於 Lucky Bang 系列",
+                "luckybang.about.content1": "Lucky Bang 系列將傳統的幸運占卜元素融入現代扭蛋設計中，每一款都蘊含著深厚的文化意涵與趣味互動體驗。從骰子遊戲到籤詩占卜，從硬幣擲卜到筊杯祈福，這些熟悉的幸運儀式被重新詮釋為可愛的收藏公仔。",
+                "luckybang.about.content2": "每件作品不僅是裝飾品，更是能與朋友分享歡樂時光的互動玩具。透過創意的諧音命名和巧妙的功能設計，Lucky Bang 系列讓傳統文化以全新的面貌重現，為現代生活注入一絲幸運與樂趣。",
+                
+                "luckybang.highlights.interactive.title": "互動樂趣",
+                "luckybang.highlights.interactive.desc": "每款公仔都具備獨特的互動功能",
+                "luckybang.highlights.lucky.title": "幸運元素",
+                "luckybang.highlights.lucky.desc": "融合傳統占卜與現代設計",
+                "luckybang.highlights.culture.title": "文化傳承",
+                "luckybang.highlights.culture.desc": "讓傳統文化以新形式延續",
+                "luckybang.highlights.sharing.title": "分享歡樂",
+                "luckybang.highlights.sharing.desc": "與朋友一同體驗幸運時刻"
+            },
+            
+            ja: {
+                "nav.mission": "私たちの使命",
+                "nav.process": "私たちのプロセス",
+                "nav.services": "私たちのサービス",
+                "nav.retwist": "RE:TWIST プロジェクト",
+                "nav.whyChooseUs": "選ばれる理由",
+                "nav.ourClients": "導入事例",
+                "nav.contact": "お問い合わせ",
+                
+                "luckybang.title": "Lucky Bang シリーズ",
+                "luckybang.subtitle": "幸運の到来！4種類の楽しい占いフィギュア、伝統的な幸運要素と現代デザインを組み合わせ、毎回の揺れが驚きと期待に満ちています。",
+                "luckybang.stats.models": "種類",
+                "luckybang.stats.released": "発売済み",
+                "luckybang.stats.theme": "幸運",
+                "luckybang.stats.themeLabel": "テーマ",
+                
+                "luckybang.figures.title": "シリーズコレクション",
+                "luckybang.status.released": "発売済み",
+                
+                "luckybang.figures.rockyRoll.name": "ロッキーロール",
+                "luckybang.figures.rockyRoll.description": "「ロッキーロール」は「十八骰子」の語呂合わせ。ユニークな小さなひよこがサイコロカップに変身し、2つのサイコロが隠されています！いつでもどこでも友達と熱血な「ロッキーロール」幸運サイコロゲームを始められます！",
+                
+                "luckybang.figures.owlPass.name": "オウルパス",
+                "luckybang.figures.owlPass.description": "「オウルパス」は「All Pass」の語呂合わせ。フクロウが知恵の占いアイテムに変身し、お腹の中に様々な幸運おみくじが隠されています。ひと振りして、今日の幸運があなたに向かって飛んでくるかどうか見てみましょう！",
+                
+                "luckybang.figures.luckyKitty.name": "ラッキーキティ",
+                "luckybang.figures.luckyKitty.description": "伝統的な幸運コイン占いを招き猫の形をした楽しい占いツールとしてデザイン。コインの表裏を通じて日々の運勢を分析する、友達と一緒に遊ぶ小さな開運お守りです。",
+                
+                "luckybang.figures.baobaoGold.name": "バオバオゴールド",
+                "luckybang.figures.baobaoGold.description": "可愛い金の延べ棒で、筊杯も投げられます！「バオバオ」は「筊杯」の語呂合わせで、あなたの幸運ガイダンスを投げ出し、幸運アイテムも収納でき、「お金がころころ、福運が続く」という意味があります。",
+                
+                "luckybang.about.title": "Lucky Bang シリーズについて",
+                "luckybang.about.content1": "Lucky Bang シリーズは、伝統的な幸運占い要素を現代のカプセルトイデザインに融合させ、それぞれが深い文化的意味と楽しいインタラクティブ体験を含んでいます。サイコロゲームからおみくじ占い、コイン投げから筊杯祈願まで、これらの馴染みのある幸運儀式が可愛いコレクションフィギュアとして再解釈されています。",
+                "luckybang.about.content2": "各作品は装飾品であるだけでなく、友達と楽しい時間を共有できるインタラクティブおもちゃでもあります。創造的な語呂合わせの命名と巧妙な機能デザインを通じて、Lucky Bang シリーズは伝統文化を全く新しい姿で再現し、現代生活に幸運と楽しさを注入しています。",
+                
+                "luckybang.highlights.interactive.title": "インタラクティブな楽しさ",
+                "luckybang.highlights.interactive.desc": "各フィギュアには独特のインタラクティブ機能があります",
+                "luckybang.highlights.lucky.title": "幸運要素",
+                "luckybang.highlights.lucky.desc": "伝統的な占いと現代デザインの融合",
+                "luckybang.highlights.culture.title": "文化継承",
+                "luckybang.highlights.culture.desc": "伝統文化を新しい形で継続",
+                "luckybang.highlights.sharing.title": "喜びの共有",
+                "luckybang.highlights.sharing.desc": "友達と一緒に幸運な瞬間を体験"
+            },
+            
+            nl: {
+                "nav.mission": "Onze Missie",
+                "nav.process": "Ons Proces",
+                "nav.services": "Onze Diensten",
+                "nav.retwist": "RE:TWIST Project",
+                "nav.whyChooseUs": "Waarom Voor Ons Kiezen",
+                "nav.ourClients": "Onze Klanten",
+                "nav.contact": "Contacteer Ons",
+                
+                "luckybang.title": "Lucky Bang Serie",
+                "luckybang.subtitle": "Geluk arriveert! Vier leuke waarzeggerijfiguren die traditionele gelukselementen combineren met modern design, waardoor elke schud vol verrassingen en verwachting is.",
+                "luckybang.stats.models": "Modellen",
+                "luckybang.stats.released": "Uitgebracht",
+                "luckybang.stats.theme": "Geluk",
+                "luckybang.stats.themeLabel": "Thema",
+                
+                "luckybang.figures.title": "Serie Collectie",
+                "luckybang.status.released": "Uitgebracht",
+                
+                "luckybang.figures.rockyRoll.name": "Rocky Roll",
+                "luckybang.figures.rockyRoll.description": "Rocky Roll is een woordspeling op 'achttien dobbelstenen'. Dit grappige kleine kuiken transformeert in een dobbelbeker met twee dobbelstenen erin verstopt! Laat je overal en altijd een hartstochtelijk Rocky Roll geluksdobbelspel beginnen met vrienden!",
+                
+                "luckybang.figures.owlPass.name": "Owl Pass",
+                "luckybang.figures.owlPass.description": "Owl Pass is een woordspeling op 'All Pass'. De uil wordt een wijs waarzeggerij-item met verschillende geluksstokken verstopt in zijn buik. Geef het een schud en kijk of het geluk van vandaag jouw kant op vliegt!",
+                
+                "luckybang.figures.luckyKitty.name": "Lucky Kitty",
+                "luckybang.figures.luckyKitty.description": "Traditionele geluksmunt waarzeggerij ontworpen als een wenk-kat vormig leuk waarzeggerij gereedschap. Analyseer dagelijkse fortuinen door muntworpen, een kleine gelukscharme om mee te spelen met vrienden.",
+                
+                "luckybang.figures.baobaoGold.name": "BaoBao Gold",
+                "luckybang.figures.baobaoGold.description": "Schattige goudstaaf die ook fortuinblokken kan werpen! 'BaoBao' klinkt als 'fortuinblokken' - werp je geluksgids en bewaar geluksitems, wat 'rollende rijkdom en voortdurend fortuin' symboliseert.",
+                
+                "luckybang.about.title": "Over Lucky Bang Serie",
+                "luckybang.about.content1": "De Lucky Bang serie integreert traditionele gelukswaarzeggerij elementen in modern capsule speelgoed design, waarbij elk stuk diepe culturele betekenis en leuke interactieve ervaringen bevat. Van dobbelspelen tot fortuinstok waarzeggerij, van muntwerpen tot fortuinblok gebeden, deze bekende geluksrituelen worden herinterpreteerd als adorable verzamelfiguren.",
+                "luckybang.about.content2": "Elk stuk is niet alleen een decoratie maar ook een interactief speelgoed voor het delen van vrolijke momenten met vrienden. Door creatieve woordspeling namen en slimme functionele ontwerpen, presenteert de Lucky Bang serie traditionele cultuur in een nieuwe vorm, waarbij een vleugje geluk en plezier in het moderne leven wordt geïnjecteerd.",
+                
+                "luckybang.highlights.interactive.title": "Interactief Plezier",
+                "luckybang.highlights.interactive.desc": "Elke figuur heeft unieke interactieve functies",
+                "luckybang.highlights.lucky.title": "Gelukselementen",
+                "luckybang.highlights.lucky.desc": "Combinatie van traditionele waarzeggerij met modern design",
+                "luckybang.highlights.culture.title": "Cultureel Erfgoed",
+                "luckybang.highlights.culture.desc": "Traditionele cultuur voortzetten in nieuwe vormen",
+                "luckybang.highlights.sharing.title": "Vreugde Delen",
+                "luckybang.highlights.sharing.desc": "Ervaar geluksmomenten met vrienden"
+            }
+        };
+
+        // Language switching functionality
+        function switchLanguage(lang) {
+            console.log('Switching to language:', lang);
+            
+            // Set language attributes
+            document.documentElement.setAttribute('data-lang', lang);
+            document.documentElement.lang = lang;
+
+            // Update all translation elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (luckyBangTranslations[lang] && luckyBangTranslations[lang][key]) {
+                    element.innerHTML = luckyBangTranslations[lang][key];
+                }
+            });
+
+            // Save language preference
+            localStorage.setItem('language', lang);
+            
+            // Close dropdown
+            const dropdown = bootstrap.Dropdown.getInstance(document.getElementById('langDropdown'));
+            if (dropdown) {
+                dropdown.hide();
+            }
+        }
+
+        // Initialize language from localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('language') || 'zh';
+            switchLanguage(savedLang);
+        });
 
         // Add hover effects to figure cards
         document.querySelectorAll('.figure-card').forEach(card => {
