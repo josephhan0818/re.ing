@@ -116,8 +116,23 @@
             background: #ffffff;
         }
 
-        .content-section:nth-child(even) {
-            background: #f8f9fa;
+        .content-section:first-of-type {
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 4rem 0;
+            }
+            .content-section:first-of-type {
+                margin-top: 3.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .content-section:first-of-type {
+                margin-top: 3rem;
+            }
         }
 
         .content-row {
@@ -711,16 +726,17 @@
         </div>
     </nav>
 
-    <header>
+    <!-- 移除 header banner 圖片區塊 -->
+    <!-- <header>
         <div class="container">
             <div class="banner-images">
                 <img src="../../assets/images/retwist-logo.png" alt="RE:TWIST 轉圈圈計畫" class="title-image">
                 <img src="../../assets/images/banner-1-subtitle.png" alt="重新思考扭蛋的永續未來，用創意設計實踐環境教育" class="subtitle-image">
             </div>
         </div>
-    </header>
+    </header> -->
 
-    <!-- Social Relevance Section -->
+    <!-- Social Relevance Section (往上移動，成為頁面最上方內容) -->
     <section class="content-section" style="background: #f8f9fa;">
         <div class="content-row reverse">
             <div class="content-text">
