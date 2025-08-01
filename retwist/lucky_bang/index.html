@@ -17,7 +17,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="https://github.com/josephhan0818/re.ing/raw/main/assets/re-ing Logo.png" type="image/png">
+    
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="../style.css">
     <!-- Import the component -->
@@ -182,76 +184,106 @@
         }
 
         .figure-card {
-            position: relative;
             background: #ffffff;
-            border: 1px solid #e5e5e5;
             border-radius: 0;
-            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+            padding: 0;
+            text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            cursor: pointer;
-            height: 550px;
-        }
-
-        .figure-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .figure-image {
-            position: relative;
-            height: 300px;
+            border: 1px solid #e5e5e5;
             overflow: hidden;
-        }
-
-        .figure-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease, filter 0.3s ease;
-            filter: grayscale(100%);
-        }
-
-        .figure-card:hover .figure-image img {
-            transform: scale(1.05);
-            filter: grayscale(0%);
-        }
-
-        .figure-info {
-            padding: 2.5rem 2rem;
-            background: #ffffff;
-            height: 250px;
+            height: 540px; /* 再加長，讓圖片與文字間距更大 */
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
         }
 
+        .figure-img {
+            width: 100%;
+            height: 60%; /* 再降低圖片區高度，讓下方文字區更大 */
+            object-fit: cover;
+            border-radius: 0;
+            margin: 0;
+            border: none;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease, transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .figure-card:hover .figure-img {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+
+        .figure-info {
+            position: static;
+            background: #ffffff;
+            padding: 2rem 1.5rem 2rem 1.5rem; /* 增加上下padding */
+            height: 40%; /* 再提升文字區高度 */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            flex-grow: 1;
+        }
+
         .figure-name {
-            font-size: 1.5rem;
             font-weight: 300;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
             color: #000000;
-            margin-bottom: 0.8rem;
             letter-spacing: -0.01em;
         }
 
         .figure-name-en {
-            font-size: 1rem;
-            color: #666666;
-            margin-bottom: 1.5rem;
             font-weight: 300;
-            font-style: italic;
+            font-size: 0.8rem;
+            margin-bottom: 0.3rem;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
         .figure-description {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #666666;
-            line-height: 1.7;
+            margin-bottom: 1rem;
             font-weight: 300;
+            line-height: 1.4;
         }
 
-        /* Status Badge - 移除 */
-        .status-badge {
-            display: none;
+        .view-more-btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #000000;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 0;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            border: 1px solid #000000;
+            cursor: pointer;
+            margin-top: auto;
+            margin-bottom: 0;
+        }
+
+        .view-more-btn:hover {
+            background: #ffffff;
+            color: #000000;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .view-more-btn i {
+            margin-left: 0.3rem;
+            font-size: 0.7rem;
+            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+            font-weight: 900 !important;
+            display: inline-block !important;
+            font-style: normal !important;
         }
 
         /* About Section */
@@ -299,19 +331,22 @@
             margin-bottom: 1rem;
         }
 
-        .highlight-title {
-            font-size: 1rem;
-            font-weight: 500;
-            color: #000000;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+        /* 指定每個icon使用brands版本 */
+        .highlight-icon .fa-dice:before {
+            font-family: "Font Awesome 6 Brands", "FontAwesome", Arial, sans-serif !important;
+            content: "\f6c9";
         }
-
-        .highlight-desc {
-            font-size: 0.9rem;
-            color: #666666;
-            font-weight: 300;
+        .highlight-icon .fa-star:before {
+            font-family: "Font Awesome 6 Brands", "FontAwesome", Arial, sans-serif !important;
+            content: "\f005";
+        }
+        .highlight-icon .fa-heart:before {
+            font-family: "Font Awesome 6 Brands", "FontAwesome", Arial, sans-serif !important;
+            content: "\f004";
+        }
+        .highlight-icon .fa-users:before {
+            font-family: "Font Awesome 6 Brands", "FontAwesome", Arial, sans-serif !important;
+            content: "\f0c0";
         }
 
         /* 3D Model Viewer Section */
@@ -474,20 +509,23 @@
 
         .navbar-toggler:focus {
             box-shadow: none;
+            outline: none;
         }
 
-        .navbar-toggler-icon {
-            background-image: none !important;
-            width: auto !important;
-            height: auto !important;
-        }
-
-        .navbar-toggler-icon::before {
-            content: "\f0c9";
-            font-family: "Font Awesome 6 Free" !important;
+        /* FontAwesome hamburger menu icon styling */
+        .navbar-toggler i {
+            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
             font-weight: 900 !important;
             font-size: 1.25rem;
             color: #333333;
+            display: inline-block;
+            font-style: normal;
+        }
+
+        .navbar-toggler .fas.fa-bars::before {
+            content: "\f0c9"; /* FontAwesome bars icon */
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
         }
 
         .lang-dropdown {
@@ -558,11 +596,7 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 2rem;
             }
-
-            .concept-highlights {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
+            /* ...existing code... */
         }
 
         @media (max-width: 991px) {
@@ -602,39 +636,15 @@
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-
-            .concept-highlights {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
             .figure-card {
-                height: 480px;
+                height: 460px;
             }
-
-            .figure-image {
-                height: 250px;
+            .figure-img {
+                height: 55%;
             }
-
             .figure-info {
-                height: 230px;
-                padding: 2rem 1.5rem;
-            }
-
-            model-viewer {
-                height: 400px;
-            }
-
-            .model-viewer-title {
-                font-size: 2rem;
-            }
-
-            footer .footer-nav {
-                gap: 1rem;
-            }
-
-            footer .social-links {
-                gap: 1rem;
+                height: 45%;
+                padding: 1.5rem 1rem 1.5rem 1rem;
             }
         }
 
@@ -658,45 +668,148 @@
             }
 
             .figure-card {
-                height: 440px;
+                height: 380px;
             }
-
-            .figure-image {
-                height: 220px;
+            .figure-img {
+                height: 50%;
             }
-
             .figure-info {
-                height: 220px;
-                padding: 2rem 1.5rem;
+                height: 50%;
+                padding: 1.2rem 0.8rem 1.2rem 0.8rem;
             }
+        }
 
-            model-viewer {
-                height: 350px;
+        /* Footer - 統一格式並修正icon字體 */
+        footer {
+            background: #000000;
+            padding: 4rem 0;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        footer p {
+            margin: 0 0 2rem 0;
+            font-weight: 300;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        footer .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        footer .social-links a {
+            color: #ffffff;
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        footer .social-links a:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* 使用Google Fonts的Material Icons作為fab fallback */
+        @import url('https://fonts.googleapis.com/css2?family=Material+Icons');
+
+        footer .social-links a i,
+        .social-links a i {
+            font-family: "Font Awesome 6 Brands", "FontAwesome", "Material Icons", Arial, sans-serif !important;
+            font-weight: 400 !important;
+            color: #ffffff !important;
+            display: inline-block !important;
+            font-style: normal !important;
+            font-variant: normal !important;
+            text-rendering: auto !important;
+            line-height: 1 !important;
+            transition: color 0.3s ease;
+        }
+
+        html[data-lang="zh"] footer .social-links a i,
+        html[data-lang="zh"] .social-links a i {
+            font-family: "Material Icons", "Font Awesome 6 Brands", "FontAwesome", Arial, sans-serif !important;
+            font-weight: normal !important;
+        }
+
+        footer .social-links a:hover i {
+            color: #ffffff !important;
+        }
+
+        footer .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-nav a:hover {
+            color: #22D3EE;
+        }
+
+        @media (max-width: 768px) {
+            /* ...existing code... */
+            footer .footer-nav {
+                gap: 1rem;
             }
-
-            .model-viewer-title {
-                font-size: 1.8rem;
+            footer .social-links {
+                gap: 1rem;
             }
+        }
 
-            .model-viewer-section {
-                padding: 4rem 0;
-            }
-
-            .section {
-                padding: 4rem 0;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
+        @media (max-width: 576px) {
+            /* ...existing code... */
             footer {
                 padding: 3rem 0;
             }
-
             footer .footer-nav {
                 flex-direction: column;
                 gap: 0.5rem;
+            }
+        }
+        
+        /* Language button responsive positioning */
+        @media (max-width: 576px) {
+            /* 手機版語言切換按鈕移動到漢堡選單左側 */
+            .navbar .lang-dropdown {
+                order: 0;
+                margin-right: 0.5rem;
+            }
+            .navbar .navbar-toggler {
+                order: 1;
+            }
+        }
+        @media (min-width: 577px) {
+            /* 電腦版語言切換按鈕維持在右側 */
+            .navbar .lang-dropdown {
+                order: 2;
+                margin-right: 0;
+                margin-left: 1rem;
             }
         }
     </style>
@@ -709,43 +822,30 @@
             <a class="navbar-brand" href="../../index.html">
                 <img src="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" alt="re-ing Logo">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <i class="fas fa-bars navbar-toggler-icon"></i>
+            <!-- 語言切換按鈕，僅手機時移到漢堡左側，電腦維持右側 -->
+            <div class="lang-dropdown">
+                <a class="lang-toggle dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../../assets/images/language.png" alt="Language Icon" style="width: 20px; height: auto;">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+                    <li><a class="dropdown-item" href="#" onclick="switchLanguage('en'); return false;">English</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="switchLanguage('zh'); return false;">中文</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="switchLanguage('nl'); return false;">Nederlands</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="switchLanguage('ja'); return false;">日本語</a></li>
+                </ul>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../index.html#mission" data-i18n="nav.mission">Our Mission</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../index.html#process" data-i18n="nav.process">Our Process</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../index.html#services" data-i18n="nav.services">Our Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html" data-i18n="nav.retwist">RE:TWIST Project</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../index.html#why-choose-us" data-i18n="nav.whyChooseUs">Why Choose Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../index.html#our-clients" data-i18n="nav.ourClients">Our Clients</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../index.html#contact" data-i18n="nav.contact">Contact Us</a>
-                    </li>
-                    <li class="nav-item dropdown lang-dropdown">
-                        <a class="lang-toggle dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="../../assets/images/language.png" alt="Language Icon" style="width: 20px; height: auto;">
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
-                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('en')">English</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('zh')">中文</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('nl')">Nederlands</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('ja')">日本語</a></li>
-                        </ul>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#mission" data-i18n="nav.mission">Our Mission</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#process" data-i18n="nav.process">Our Process</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#services" data-i18n="nav.services">Our Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html" data-i18n="nav.retwist">RE:TWIST Project</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#why-choose-us" data-i18n="nav.whyChooseUs">Why Choose Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#our-clients" data-i18n="nav.ourClients">Our Clients</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html#contact" data-i18n="nav.contact">Contact Us</a></li>
                 </ul>
             </div>
         </div>
@@ -780,59 +880,52 @@
         <div class="container">
             <h2 class="section-title" data-i18n="luckybang.figures.title">系列作品展示</h2>
             <div class="figures-grid">
-                <!-- 囍八朗 Rocky Roll -->
+                <!-- Rocky Roll -->
                 <div class="figure-card" data-aos="fade-up">
-                    <div class="figure-image">
-                        <img src="../../assets/images/rocky_roll.png" alt="囍八朗 Rocky Roll" loading="lazy">
-                    </div>
+                    <img src="../../assets/images/rocky_roll.png" alt="囍八朗 Rocky Roll" class="figure-img" loading="lazy">
                     <div class="figure-info">
-                        <h3 class="figure-name" data-i18n="luckybang.figures.rockyRoll.name">囍八朗</h3>
-                        <p class="figure-name-en">Rocky Roll</p>
-                        <p class="figure-description" data-i18n="luckybang.figures.rockyRoll.description">
+                        <div class="figure-name" data-i18n="luckybang.figures.rockyRoll.name">囍八朗</div>
+                        <div class="figure-name-en">Rocky Roll</div>
+                        <div class="figure-description" data-i18n="luckybang.figures.rockyRoll.description">
                             「囍八朗」為「十八骰仔」的諧音，造型逗趣的小雞變身成骰盅，藏有兩顆骰子！讓你隨時隨地都能與朋友開局一場熱血的「囍八朗」幸運擲骰遊戲！
-                        </p>
+                        </div>
+                        <a href="rocky_roll/" class="view-more-btn" data-i18n="retwist.figure.viewMore">查看更多 <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <!-- 歐巴司 Owl Pass -->
+                <!-- Owl Pass -->
                 <div class="figure-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="figure-image">
-                        <img src="../../assets/images/owl_pass.png" alt="歐巴司 Owl Pass" loading="lazy">
-                    </div>
+                    <img src="../../assets/images/owl_pass.png" alt="歐巴司 Owl Pass" class="figure-img" loading="lazy">
                     <div class="figure-info">
-                        <h3 class="figure-name" data-i18n="luckybang.figures.owlPass.name">歐巴司</h3>
-                        <p class="figure-name-en">Owl Pass</p>
-                        <p class="figure-description" data-i18n="luckybang.figures.owlPass.description">
+                        <div class="figure-name" data-i18n="luckybang.figures.owlPass.name">歐巴司</div>
+                        <div class="figure-name-en">Owl Pass</div>
+                        <div class="figure-description" data-i18n="luckybang.figures.owlPass.description">
                             「歐巴司」為「All Pass」的諧音。貓頭鷹化身智慧占卜小物，肚子裡藏有多款幸運籤。隨手一搖，看看今天的好運是否正朝你飛來！
-                        </p>
+                        </div>
+                        <a href="owl_pass/" class="view-more-btn" data-i18n="retwist.figure.viewMore">查看更多 <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <!-- 8財貓 Lucky Kitty -->
+                <!-- Lucky Kitty -->
                 <div class="figure-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="figure-image">
-                        <img src="../../assets/images/lucky_kitty.png" alt="8財貓 Lucky Kitty" loading="lazy">
-                    </div>
+                    <img src="../../assets/images/lucky_kitty.png" alt="8財貓 Lucky Kitty" class="figure-img" loading="lazy">
                     <div class="figure-info">
-                        <h3 class="figure-name" data-i18n="luckybang.figures.luckyKitty.name">8財貓</h3>
-                        <p class="figure-name-en">Lucky Kitty</p>
-                        <p class="figure-description" data-i18n="luckybang.figures.luckyKitty.description">
+                        <div class="figure-name" data-i18n="luckybang.figures.luckyKitty.name">8財貓</div>
+                        <div class="figure-name-en">Lucky Kitty</div>
+                        <div class="figure-description" data-i18n="luckybang.figures.luckyKitty.description">
                             傳統幸運錢幣占卜，設計成招財貓造型的趣味占卜道具。透過投擲硬幣的正反面來解析每日運勢，是與朋友一起玩樂的小小開運神器。
-                        </p>
+                        </div>
+                        <a href="lucky_kitty/" class="view-more-btn" data-i18n="retwist.figure.viewMore">查看更多 <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-
-                <!-- 保寶唄 BaoBao go(Gold) -->
+                <!-- BaoBao go(Gold) -->
                 <div class="figure-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="figure-image">
-                        <img src="../../assets/images/baobao_gold.png" alt="保寶唄 BaoBao go(Gold)" loading="lazy">
-                    </div>
+                    <img src="../../assets/images/baobao_gold.png" alt="保寶唄 BaoBao go(Gold)" class="figure-img" loading="lazy">
                     <div class="figure-info">
-                        <h3 class="figure-name" data-i18n="luckybang.figures.baobaoGold.name">保寶唄</h3>
-                        <p class="figure-name-en">BaoBao go(Gold)</p>
-                        <p class="figure-description" data-i18n="luckybang.figures.baobaoGold.description">
+                        <div class="figure-name" data-i18n="luckybang.figures.baobaoGold.name">保寶唄</div>
+                        <div class="figure-name-en">BaoBao go(Gold)</div>
+                        <div class="figure-description" data-i18n="luckybang.figures.baobaoGold.description">
                             可愛的元寶，也可以擲茭！「寶唄」諧音「筊杯」擲出你的幸運指引，還可收納幸運小物，寓意「錢財滾滾、福運連連」。
-                        </p>
+                        </div>
+                        <a href="baobao_go/" class="view-more-btn" data-i18n="retwist.figure.viewMore">查看更多 <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -889,25 +982,23 @@
     <footer>
         <div class="container">
             <div class="footer-nav">
-                <a href="../../#mission">Our Mission</a>
-                <a href="../../#process">Our Process</a>
-                <a href="../../#services">Our Services</a>
-                <a href="../">RE:TWIST Project</a>
-                <a href="../../#contact">Contact Us</a>
+                <a href="../../#mission" data-i18n="nav.mission">Our Mission</a>
+                <a href="../../#process" data-i18n="nav.process">Our Process</a>
+                <a href="../../#services" data-i18n="nav.services">Our Services</a>
+                <a href="../" data-i18n="nav.retwist">RE:TWIST Project</a>
+                <a href="../../#contact" data-i18n="nav.contact">Contact Us</a>
             </div>
-
             <div class="social-links">
                 <a href="https://www.linkedin.com/company/ddoott" target="_blank" title="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
+                    <i class="fab fa-linkedin"></i>
                 </a>
                 <a href="https://www.instagram.com/taiwan_dotdesign" target="_blank" title="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
                 <a href="https://www.facebook.com/super.dotdesign" target="_blank" title="Facebook">
-                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-facebook"></i>
                 </a>
             </div>
-
             <p>© 2025 re-ing. All rights reserved.</p>
         </div>
     </footer>

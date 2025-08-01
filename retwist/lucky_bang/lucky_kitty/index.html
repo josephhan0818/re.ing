@@ -17,7 +17,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="https://github.com/josephhan0818/re.ing/raw/main/assets/re-ing Logo.png" type="image/png">
+    
     <link rel="stylesheet" href="../../../style.css">
     <link rel="stylesheet" href="../../style.css">
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
@@ -521,6 +523,89 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Language dropdown standardization */
+        .lang-dropdown {
+            display: flex;
+            align-items: center;
+        }
+
+        .lang-toggle {
+            background: transparent;
+            border: none;
+            color: #333333;
+            padding: 0.5rem 0.75rem;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            box-shadow: none !important;
+            outline: none !important;
+        }
+
+        .lang-toggle:hover {
+            color: #000000;
+        }
+
+        .lang-toggle:focus {
+            box-shadow: none !important;
+            outline: none !important;
+        }
+
+        .lang-toggle img {
+            margin-right: 0.5rem;
+        }
+
+        .lang-toggle i {
+            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+            font-weight: 900 !important;
+            margin-left: 0.5rem;
+            font-size: 0.8rem;
+            color: #333333;
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 0;
+        }
+
+        .dropdown-item {
+            color: #333333;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-item:hover,
+        .dropdown-item:focus {
+            background-color: #f8f9fa;
+            color: #000000;
+            outline: none;
+        }
+
+        .dropdown-toggle:focus {
+            box-shadow: none !important;
+        }
+
+        /* Language button responsive positioning */
+        @media (max-width: 576px) {
+            /* 手機版語言切換按鈕移動到漢堡選單左側 */
+            .navbar .lang-dropdown {
+                order: 0;
+                margin-right: 0.5rem;
+            }
+            .navbar .navbar-toggler {
+                order: 1;
+            }
+        }
+        @media (min-width: 577px) {
+            /* 電腦版語言切換按鈕維持在右側 */
+            .navbar .lang-dropdown {
+                order: 2;
+                margin-right: 0;
+                margin-left: 1rem;
+            }
+        }
     </style>
 </head>
 
@@ -531,8 +616,20 @@
             <a class="navbar-brand" href="../../../">
                 <img src="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" alt="re-ing Logo">
             </a>
+            <!-- 語言切換按鈕，僅手機時移到漢堡左側，電腦維持右側 -->
+            <div class="lang-dropdown">
+                <a class="lang-toggle dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../../../assets/images/language.png" alt="Language Icon" style="width: 20px; height: auto;">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+                    <li><a class="dropdown-item" href="#" onclick="switchLanguage('en'); return false;">English</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="switchLanguage('zh'); return false;">中文</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="switchLanguage('nl'); return false;">Nederlands</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="switchLanguage('ja'); return false;">日本語</a></li>
+                </ul>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <i class="fas fa-bars navbar-toggler-icon"></i>
+                <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
