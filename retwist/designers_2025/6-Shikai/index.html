@@ -108,7 +108,20 @@
         .navbar-toggler i {
             color: #333333;
             font-size: 1.25rem;
-            font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+        }
+        
+        /* 確保漢堡選單圖示在所有語言下正確顯示 */
+        .navbar-toggler .fa-bars:before {
+            content: "\f0c9";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+        
+        /* 確保中文字體不影響圖示顯示 */
+        .navbar-toggler i, 
+        .lang-toggle i {
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
         }
         
         .navbar-nav {

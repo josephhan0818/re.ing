@@ -50,6 +50,13 @@
             color: #333333;
         }
         
+        /* 確保中文字體不影響圖示顯示 */
+        .navbar-toggler i, 
+        .lang-toggle i {
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
+        }
+        
         .figure-title {
             color: #000000;
             margin-bottom: 1rem; /* Reduced margin */
@@ -268,6 +275,13 @@
             font-size: 1.25rem;
         }
         
+        /* 確保漢堡選單圖示在所有語言下正確顯示 */
+        .navbar-toggler .fa-bars:before {
+            content: "\f0c9";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+        
         .navbar-nav {
             align-items: center;
         }
@@ -353,6 +367,17 @@
             }
             .navbar .navbar-toggler {
                 order: 1;
+            }
+            
+            /* 確保漢堡選單圖示在手機版正確顯示 */
+            .navbar-toggler {
+                padding: 0.25rem 0.5rem;
+                border: none;
+            }
+            
+            .navbar-toggler i {
+                font-size: 1.25rem;
+                color: #333333;
             }
         }
         @media (min-width: 577px) {
