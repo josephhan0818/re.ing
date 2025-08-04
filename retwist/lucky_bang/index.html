@@ -37,41 +37,39 @@
             font-family: 'Noto Sans TC', 'Montserrat', sans-serif !important;
         }
 
-        /* Header - 使用 Lucky Bang Banner 並添加浮動特效 */
+        /* Header 優化 - 減少高度，更適合手機 */
         header {
             background: url('../../assets/images/banner_luckybang_1.jpg') no-repeat center center;
             background-size: cover;
             position: relative;
-            min-height: 60vh;
+            min-height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            margin-top: 80px;
+            margin-top: 70px;
             border-bottom: 1px solid #e5e5e5;
         }
 
         header::after {
             content: '';
             position: absolute;
-            top: -20px;
-            left: -20px;
-            right: -20px;
-            bottom: -20px;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
             background: url('../../assets/images/banner_luckybang_1.jpg') no-repeat center center;
             background-size: cover;
             z-index: 0;
-            animation: floatBackground 8s ease-in-out infinite;
+            animation: floatBackground 12s ease-in-out infinite;
         }
 
         @keyframes floatBackground {
-            0%,
-            100% {
+            0%, 100% {
                 transform: translateY(0px);
             }
-
             50% {
-                transform: translateY(-15px);
+                transform: translateY(-8px);
             }
         }
 
@@ -87,248 +85,202 @@
         }
 
         header .container {
-            padding: 4rem 0 2rem 0;
-            max-width: 1200px;
+            padding: 2rem 1.5rem;
+            max-width: 600px;
             position: relative;
             z-index: 2;
             text-align: center;
         }
 
         .series-title {
-            font-size: 3.5rem;
-            font-weight: 300;
-            color: #ffffff;
-            margin-bottom: 2rem;
-            letter-spacing: 0.2em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-            word-spacing: 0.3em;
-        }
-
-        .series-subtitle {
-            font-size: 1.3rem;
-            color: #ffffff;
-            margin-bottom: 3rem;
-            font-weight: 300;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-            line-height: 1.8;
-            padding: 0 2rem;
-        }
-
-        .series-stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
             font-size: 2.5rem;
             font-weight: 300;
             color: #ffffff;
-            display: block;
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
 
-        .stat-label {
-            font-size: 0.9rem;
+        .series-subtitle {
+            font-size: 1.1rem;
             color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-weight: 500;
+            margin-bottom: 0;
+            font-weight: 300;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            line-height: 1.6;
+            padding: 0 1rem;
         }
 
-        /* Section Styles */
+        /* Section Styles - 優化間距 */
         .section {
-            padding: 6rem 0;
+            padding: 4rem 0;
             background: #ffffff;
         }
 
         .section:nth-child(even) {
-            background: #f8f9fa;
+            background: #fafafa;
         }
 
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 300;
+            font-size: 2rem;
+            font-weight: 600;
             color: #000000;
             text-align: center;
-            margin-bottom: 4rem;
-            letter-spacing: -0.02em;
+            margin-bottom: 3rem;
+            letter-spacing: -0.01em;
+            padding: 0 1.5rem;
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 60px;
-            height: 2px;
+            width: 40px;
+            height: 3px;
             background: #000000;
-            margin: 2rem auto;
+            margin: 1rem auto;
+            border-radius: 2px;
         }
 
-        /* Figure Grid 修正圖片尺寸 */
+        /* Figure Grid - 垂直排列設計，增加空間 */
         .figures-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            max-width: 1400px;
+            display: flex;
+            flex-direction: column;
+            gap: 5rem;
+            max-width: 800px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
         .figure-card {
             background: #ffffff;
-            border-radius: 0;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-            margin-bottom: 2rem;
-            padding: 0;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            padding: 3rem 2.5rem;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #e5e5e5;
+            border: 1px solid #f0f0f0;
             overflow: hidden;
-            height: 540px; /* 再加長，讓圖片與文字間距更大 */
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .figure-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
         }
 
         .figure-img {
-            width: 100%;
-            height: 60%; /* 再降低圖片區高度，讓下方文字區更大 */
+            width: 200px;
+            height: 200px;
             object-fit: cover;
-            border-radius: 0;
-            margin: 0;
+            border-radius: 12px;
+            margin-bottom: 2rem;
             border: none;
-            filter: grayscale(100%);
-            transition: filter 0.3s ease, transform 0.3s ease;
+            filter: grayscale(0%);
+            transition: transform 0.3s ease;
             flex-shrink: 0;
         }
 
         .figure-card:hover .figure-img {
-            filter: grayscale(0%);
-            transform: scale(1.02);
+            transform: scale(1.05);
         }
 
         .figure-info {
-            position: static;
-            background: #ffffff;
-            padding: 2rem 1.5rem 2rem 1.5rem; /* 增加上下padding */
-            height: 40%; /* 再提升文字區高度 */
+            width: 100%;
+            text-align: center;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            flex-grow: 1;
+            align-items: center;
         }
 
         .figure-name {
-            font-weight: 300;
-            font-size: 1.1rem;
+            font-weight: 600;
+            font-size: 1.8rem;
             margin-bottom: 0.5rem;
             color: #000000;
             letter-spacing: -0.01em;
         }
 
         .figure-name-en {
-            font-weight: 300;
-            font-size: 0.8rem;
-            margin-bottom: 0.3rem;
-            color: #666666;
+            font-weight: 400;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: #888888;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.05em;
         }
 
         .figure-description {
-            font-size: 0.85rem;
-            color: #666666;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #333333;
+            margin-bottom: 2rem;
             font-weight: 300;
-            line-height: 1.4;
-        }
-
-        .view-more-btn {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: #000000;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 0;
-            font-size: 0.8rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
-            border: 1px solid #000000;
-            cursor: pointer;
-            margin-top: auto;
-            margin-bottom: 0;
-        }
-
-        .view-more-btn:hover {
-            background: #ffffff;
-            color: #000000;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .view-more-btn i {
-            margin-left: 0.3rem;
-            font-size: 0.7rem;
-            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
-            font-weight: 900 !important;
-            display: inline-block !important;
-            font-style: normal !important;
-        }
-
-        /* About Section */
-        .about-section {
-            max-width: 800px;
-            margin: 0 auto;
+            line-height: 1.8;
+            max-width: 600px;
             text-align: center;
-            padding: 0 2rem;
+        }
+
+        /* About Section - 簡化並優化手機版 */
+        .about-section {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
 
         .about-content {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #333333;
-            line-height: 1.8;
+            line-height: 1.7;
             font-weight: 300;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
         }
 
         .concept-highlights {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
         .highlight-item {
-            padding: 2rem 1.5rem;
+            padding: 1.5rem;
             background: #ffffff;
-            border: 1px solid #e5e5e5;
+            border: 1px solid #f0f0f0;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 8px;
         }
 
         .highlight-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         }
 
         .highlight-icon {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: #000000;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-desc {
+            font-size: 0.85rem;
+            color: #666666;
+            font-weight: 300;
+            line-height: 1.4;
+            margin: 0;
         }
 
         /* 指定每個icon使用brands版本 */
@@ -628,23 +580,39 @@
 
             .series-subtitle {
                 font-size: 1.1rem;
-                margin-bottom: 2rem;
+                margin-bottom: 0;
                 padding: 0 1rem;
             }
 
+            .section {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                margin-bottom: 2.5rem;
+            }
+
             .figures-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+                padding: 0 1.5rem;
+                gap: 4rem;
             }
+
             .figure-card {
-                height: 460px;
+                padding: 2rem 1.5rem;
             }
+            
             .figure-img {
-                height: 55%;
+                width: 160px;
+                height: 160px;
             }
-            .figure-info {
-                height: 45%;
-                padding: 1.5rem 1rem 1.5rem 1rem;
+
+            .figure-name {
+                font-size: 1.5rem;
+            }
+
+            .figure-description {
+                font-size: 1rem;
+                max-width: 100%;
             }
         }
 
@@ -663,19 +631,38 @@
 
             .series-subtitle {
                 font-size: 1rem;
-                margin-bottom: 1.5rem;
+                margin-bottom: 0;
                 padding: 0 0.5rem;
             }
 
+            .section {
+                padding: 2.5rem 0;
+            }
+
+            .section-title {
+                margin-bottom: 2rem;
+            }
+
+            .figures-grid {
+                padding: 0 1rem;
+                gap: 3rem;
+            }
+
             .figure-card {
-                height: 380px;
+                padding: 1.5rem 1rem;
             }
+            
             .figure-img {
-                height: 50%;
+                width: 140px;
+                height: 140px;
             }
-            .figure-info {
-                height: 50%;
-                padding: 1.2rem 0.8rem 1.2rem 0.8rem;
+
+            .figure-name {
+                font-size: 1.4rem;
+            }
+
+            .figure-description {
+                font-size: 0.95rem;
             }
         }
 
@@ -858,20 +845,6 @@
             <p class="series-subtitle" data-i18n="luckybang.subtitle">
                 好運降臨！四款趣味占卜公仔，結合傳統幸運元素與現代設計，讓每一次搖擺都充滿驚喜與期待。
             </p>
-            <div class="series-stats">
-                <div class="stat-item">
-                    <span class="stat-number">4</span>
-                    <span class="stat-label" data-i18n="luckybang.stats.models">款式</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label" data-i18n="luckybang.stats.released">已推出</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-i18n="luckybang.stats.theme">好運</span>
-                    <span class="stat-label" data-i18n="luckybang.stats.themeLabel">主題</span>
-                </div>
-            </div>
         </div>
     </header>
 
@@ -889,7 +862,6 @@
                         <div class="figure-description" data-i18n="luckybang.figures.rockyRoll.description">
                             「囍八朗」為「十八骰仔」的諧音，造型逗趣的小雞變身成骰盅，藏有兩顆骰子！讓你隨時隨地都能與朋友開局一場熱血的「囍八朗」幸運擲骰遊戲！
                         </div>
-                        <a href="rocky_roll/" class="view-more-btn" data-i18n="retwist.figure.viewMore">查看更多 <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <!-- Owl Pass -->
@@ -901,7 +873,6 @@
                         <div class="figure-description" data-i18n="luckybang.figures.owlPass.description">
                             「歐巴司」為「All Pass」的諧音。貓頭鷹化身智慧占卜小物，肚子裡藏有多款幸運籤。隨手一搖，看看今天的好運是否正朝你飛來！
                         </div>
-                        <a href="owl_pass/" class="view-more-btn" data-i18n="retwist.figure.viewMore">查看更多 <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <!-- Lucky Kitty -->
@@ -913,7 +884,6 @@
                         <div class="figure-description" data-i18n="luckybang.figures.luckyKitty.description">
                             傳統幸運錢幣占卜，設計成招財貓造型的趣味占卜道具。透過投擲硬幣的正反面來解析每日運勢，是與朋友一起玩樂的小小開運神器。
                         </div>
-                        <a href="lucky_kitty/" class="view-more-btn" data-i18n="retwist.figure.viewMore">查看更多 <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <!-- BaoBao go(Gold) -->
@@ -925,7 +895,6 @@
                         <div class="figure-description" data-i18n="luckybang.figures.baobaoGold.description">
                             可愛的元寶，也可以擲茭！「寶唄」諧音「筊杯」擲出你的幸運指引，還可收納幸運小物，寓意「錢財滾滾、福運連連」。
                         </div>
-                        <a href="baobao_go/" class="view-more-btn" data-i18n="retwist.figure.viewMore">查看更多 <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -1023,10 +992,6 @@
                 
                 "luckybang.title": "Lucky Bang Series",
                 "luckybang.subtitle": "Fortune arrives! Four fun divination figures combining traditional lucky elements with modern design, making every shake full of surprises and anticipation.",
-                "luckybang.stats.models": "Models",
-                "luckybang.stats.released": "Released",
-                "luckybang.stats.theme": "Lucky",
-                "luckybang.stats.themeLabel": "Theme",
                 
                 "luckybang.figures.title": "Series Collection",
                 "luckybang.status.released": "Released",
@@ -1068,10 +1033,6 @@
                 
                 "luckybang.title": "Lucky Bang 系列",
                 "luckybang.subtitle": "好運降臨！四款趣味占卜公仔，結合傳統幸運元素與現代設計，讓每一次搖擺都充滿驚喜與期待。",
-                "luckybang.stats.models": "款式",
-                "luckybang.stats.released": "已推出",
-                "luckybang.stats.theme": "好運",
-                "luckybang.stats.themeLabel": "主題",
                 
                 "luckybang.figures.title": "系列作品展示",
                 "luckybang.status.released": "已推出",
@@ -1113,10 +1074,6 @@
                 
                 "luckybang.title": "Lucky Bang シリーズ",
                 "luckybang.subtitle": "幸運の到来！4種類の楽しい占いフィギュア、伝統的な幸運要素と現代デザインを組み合わせ、毎回の揺れが驚きと期待に満ちています。",
-                "luckybang.stats.models": "種類",
-                "luckybang.stats.released": "発売済み",
-                "luckybang.stats.theme": "幸運",
-                "luckybang.stats.themeLabel": "テーマ",
                 
                 "luckybang.figures.title": "シリーズコレクション",
                 "luckybang.status.released": "発売済み",
@@ -1158,10 +1115,6 @@
                 
                 "luckybang.title": "Lucky Bang Serie",
                 "luckybang.subtitle": "Geluk arriveert! Vier leuke waarzeggerijfiguren die traditionele gelukselementen combineren met modern design, waardoor elke schud vol verrassingen en verwachting is.",
-                "luckybang.stats.models": "Modellen",
-                "luckybang.stats.released": "Uitgebracht",
-                "luckybang.stats.theme": "Geluk",
-                "luckybang.stats.themeLabel": "Thema",
                 
                 "luckybang.figures.title": "Serie Collectie",
                 "luckybang.status.released": "Uitgebracht",
