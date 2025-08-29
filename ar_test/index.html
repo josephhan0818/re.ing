@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+  <style>html,body{margin:0;height:100%}</style>
+</head>
+<body>
+  <a-scene
+    mindar-image="imageTargetSrc: ./targets.mind; autoStart: true;"
+    embedded
+    vr-mode-ui="enabled: false">
+
+    <a-camera look-controls="false" position="0 0 0"></a-camera>
+
+    <!-- 掃到 targets.mind 的第 0 張 target 時顯示圖片 -->
+    <a-entity mindar-image-target="targetIndex: 0">
+      <!-- PNG 取代原本的 glb。注意用「/」斜線 -->
+      <a-image src="./arobj.png"
+               position="0 0 0"
+               rotation="0 0 0"
+               width="1" height="1">  <!-- 1 ≈ target 寬度 -->
+      </a-image>
+    </a-entity>
+  </a-scene>
+</body>
+</html>
+</body>
+</html>
