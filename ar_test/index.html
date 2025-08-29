@@ -5,189 +5,42 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-  <style>
-    html, body {
-      margin: 0;
-      height: 100%;
-    }
-    
-    /* AR 物件樣式 */
-    .ar-object {
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-    }
-    
-    .ar-object.visible {
-      opacity: 1;
-    }
-    
-    /* 調試信息 */
-    #debug {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      background: rgba(0, 0, 0, 0.7);
-      color: white;
-      padding: 10px;
-      border-radius: 5px;
-      font-size: 12px;
-      z-index: 1000;
-      display: none;
-    }
-  </style>
+  <style>html,body{margin:0;height:100%}</style>
 </head>
 <body>
-  <div id="debug">AR 狀態載入中...</div>
-  
   <a-scene
-    mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; showStats: false;"
+    mindar-image="imageTargetSrc: ./targets.mind; autoStart: true;"
     embedded
-    vr-mode-ui="enabled: false">
+    vr-mode-ui="enabled:false">
+
+    <!-- 1) 預載圖片，必要時加 crossorigin -->
+    <a-assets timeout="10000">
+      <img id="arimg" src="./arobj.png" crossorigin="anonymous">
+    </a-assets>
 
     <a-camera look-controls="false" position="0 0 0"></a-camera>
 
-    <!-- 掃到 targets.mind 的第 0 張 target 時顯示圖片 -->
-    <a-entity mindar-image-target="targetIndex: 0" id="target0">
-      <!-- AR 顯示物件 -->
-      <a-image 
-        id="ar-image"
-        class="ar-object"
-        src="./arobj.png"
-        position="0 0 0.1"
-        rotation="0 0 0"
-        width="1.5" 
-        height="1.5"
-        material="transparent: true; alphaTest: 0.1; side: double;"
-        visible="false">
+    <!-- 2) 掃到第 0 張 target 時顯示 -->
+    <a-entity mindar-image-target="targetIndex: 0" id="t0">
+      <!-- 先用 box 驗證渲染 -->
+      <!-- <a-box color="#39f" depth="0.01" height="1" width="1"></a-box> -->
+
+      <!-- 3) 再用圖片，先預設可見 -->
+      <a-image src="#arimg"
+               position="0 0 0"
+               width="1" height="1"
+               material="transparent:true; alphaTest:0.05; side:double"
+               visible="true">
       </a-image>
     </a-entity>
   </a-scene>
 
   <script>
-    let targetFound = false;
-    let persistentMode = false;
-    
-    document.addEventListener('DOMContentLoaded', function() {
-      const scene = document.querySelector('a-scene');
-      const target = document.querySelector('#target0');
-      const arImage = document.querySelector('#ar-image');
-      const debug = document.querySelector('#debug');
-      
-      // 手機優化：強制重新渲染
-      function forceRender() {
-        if (arImage) {
-          // 手機上強制觸發重繪
-          arImage.object3D.visible = false;
-          setTimeout(() => {
-            arImage.object3D.visible = true;
-          }, 10);
-        }
-      }
-      
-      // 顯示調試信息
-      function updateDebug(message) {
-        debug.textContent = message;
-        debug.style.display = 'block';
-        console.log('AR Debug:', message);
-      }
-      
-      // 顯示AR物件
-      function showARObject() {
-        if (arImage) {
-          arImage.setAttribute('visible', true);
-          arImage.classList.add('visible');
-          
-          // 手機優化：延遲強制渲染
-          setTimeout(() => {
-            forceRender();
-          }, 100);
-          
-          updateDebug('🎯 目標圖像已找到！AR物件顯示中');
-        }
-      }
-      
-      // 隱藏AR物件（只有在非持續模式下才隱藏）
-      function hideARObject() {
-        if (!persistentMode && arImage) {
-          arImage.setAttribute('visible', false);
-          arImage.classList.remove('visible');
-          updateDebug('🔍 目標圖像丟失，AR物件隱藏');
-        } else if (persistentMode) {
-          updateDebug('🔒 持續模式：AR物件保持顯示');
-        }
-      }
-      
-      // AR 系統就緒
-      scene.addEventListener('arReady', function() {
-        updateDebug('📱 AR系統已就緒，請將攝像頭對準目標圖像');
-      });
-      
-      // AR 錯誤處理
-      scene.addEventListener('arError', function(event) {
-        updateDebug('❌ AR錯誤: ' + event.detail);
-      });
-      
-      // 目標找到事件
-      target.addEventListener('targetFound', function() {
-        targetFound = true;
-        showARObject();
-        
-        // 3秒後啟用持續模式，讓圖像不再消失
-        setTimeout(() => {
-          persistentMode = true;
-          updateDebug('🔒 已啟用持續模式：圖像將保持顯示');
-        }, 3000);
-      });
-      
-      // 目標丟失事件
-      target.addEventListener('targetLost', function() {
-        targetFound = false;
-        hideARObject();
-      });
-      
-      // 點擊螢幕切換持續模式
-      document.addEventListener('click', function() {
-        if (targetFound || persistentMode) {
-          persistentMode = !persistentMode;
-          if (persistentMode) {
-            showARObject();
-            updateDebug('🔒 手動啟用持續模式');
-          } else {
-            if (!targetFound) {
-              hideARObject();
-            }
-            updateDebug('🔓 手動關閉持續模式');
-          }
-        }
-      });
-      
-      // 雙擊隱藏/顯示調試信息
-      let clickCount = 0;
-      document.addEventListener('click', function() {
-        clickCount++;
-        setTimeout(() => {
-          if (clickCount === 2) {
-            debug.style.display = debug.style.display === 'none' ? 'block' : 'none';
-          }
-          clickCount = 0;
-        }, 300);
-      });
-      
-      // 手機特定優化
-      if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        updateDebug('📱 檢測到手機設備，啟用優化模式');
-        
-        // 定期檢查和強制渲染（手機優化）
-        setInterval(() => {
-          if (targetFound && arImage && arImage.getAttribute('visible')) {
-            forceRender();
-          }
-        }, 1000);
-      }
-      
-      // 初始化
-      updateDebug('🚀 AR應用啟動中...');
-    });
+    // 可選：等找到 target 再顯示
+    const t0 = document.querySelector('#t0');
+    const img = () => document.querySelector('a-image');
+    t0.addEventListener('targetFound', () => img() && img().setAttribute('visible', true));
+    t0.addEventListener('targetLost',  () => img() && img().setAttribute('visible', false)); // 想常駐就拿掉這行
   </script>
 </body>
 </html>
