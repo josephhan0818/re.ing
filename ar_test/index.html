@@ -1,46 +1,61 @@
 <!doctype html>
 <html lang="zh-Hant">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-  <style>html,body{margin:0;height:100%}</style>
-</head>
-<body>
-  <a-scene
-    mindar-image="imageTargetSrc: ./targets.mind; autoStart: true;"
-    embedded
-    vr-mode-ui="enabled:false">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Camera Kit Web - iOS Ready</title>
+<style>
+  html,body{margin:0;height:100%}
+  #start{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+         font:16px/1.2 system-ui}
+  #start button{padding:14px 20px;border:0;border-radius:10px}
+  canvas{display:block;width:100vw;height:100vh}
+</style>
 
-    <!-- 1) 預載圖片，必要時加 crossorigin -->
-    <a-assets timeout="10000">
-      <img id="arimg" src="./arobj.png" crossorigin="anonymous">
-    </a-assets>
+<div id="start"><button>點一下啟動相機</button></div>
 
-    <a-camera look-controls="false" position="0 0 0"></a-camera>
+<script type="module">
+  import {
+    bootstrapCameraKit,
+    createUserMediaSource,
+  } from "https://cdn.skypack.dev/@snap/camera-kit";
 
-    <!-- 2) 掃到第 0 張 target 時顯示 -->
-    <a-entity mindar-image-target="targetIndex: 0" id="t0">
-      <!-- 先用 box 驗證渲染 -->
-      <!-- <a-box color="#39f" depth="0.01" height="1" width="1"></a-box> -->
+  // TODO: 把這裡換成「暫存 API 令牌」（Staging API Token）
+  const apiToken = "<YOUR_STAGING_API_TOKEN>";
+  // 你的 Lens Group ID
+  const groupId  = "46fbad1f-5c97-4c13-8700-7503dbd78e0a";
 
-      <!-- 3) 再用圖片，先預設可見 -->
-      <a-image src="#arimg"
-               position="0 0 0"
-               width="1" height="1"
-               material="transparent:true; alphaTest:0.05; side:double"
-               visible="true">
-      </a-image>
-    </a-entity>
-  </a-scene>
+  const canvas = document.createElement("canvas");
+  document.body.appendChild(canvas);
 
-  <script>
-    // 可選：等找到 target 再顯示
-    const t0 = document.querySelector('#t0');
-    const img = () => document.querySelector('a-image');
-    t0.addEventListener('targetFound', () => img() && img().setAttribute('visible', true));
-    t0.addEventListener('targetLost',  () => img() && img().setAttribute('visible', false)); // 想常駐就拿掉這行
-  </script>
-</body>
+  // iOS 需使用者互動後才能開鏡頭
+  document.querySelector("#start button").addEventListener("click", async () => {
+    document.getElementById("start").style.display = "none";
+
+    try {
+      // 1) 初始化 SDK
+      const cameraKit = await bootstrapCameraKit({ apiToken });
+
+      // 2) 要求後鏡頭
+      const media = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: { ideal: "environment" } }, audio: false
+      });
+      const source = createUserMediaSource(media);
+
+      // 3) 建立 Session 並綁定畫布
+      const session = await cameraKit.createSession({ liveRenderTarget: canvas });
+      await session.setSource(source);
+
+      // 4) 載入 Lens Group 並套用第一個 Lens
+      const group = await cameraKit.lensRepository.loadLensGroup(groupId);
+      if (!group.lenses?.length) throw new Error("Lens Group 為空");
+      await session.applyLens(group.lenses[0]);
+
+      // 5) 開始渲染
+      await session.play();
+    } catch (err) {
+      alert("啟動失敗：" + (err?.message || err));
+      console.error(err);
+    }
+  }, { once: true });
+</script>
 </html>
