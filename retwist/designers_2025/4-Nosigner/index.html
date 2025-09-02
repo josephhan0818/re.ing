@@ -34,8 +34,49 @@
         .figure-description { color: #555555; margin-bottom: 2rem; line-height: 1.7; font-weight: 300; }
         .figure-details { margin-top: 2rem; }
         .detail-item { color: #666666; margin-bottom: 0.8rem; font-size: 0.9rem; display: flex; align-items: center; padding: 0.5rem 0; border-left: 3px solid #000000; padding-left: 1rem; }
-        .section-title { color: #000000; margin-bottom: 3rem; }
+        .section-title { color: #000000; margin-top: 3rem; margin-bottom: 3rem; }
         .story-content p { color: #555555; margin-bottom: 2rem; }
+        
+        /* Video section styling */
+        .video-container {
+            margin-bottom: 3rem;
+            max-width: 400px; /* Limit width for vertical video */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 177.78%; /* 9:16 aspect ratio for vertical video */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: #000;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 0;
+        }
+        
+        .video-description {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .video-description p {
+            color: #666666;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            font-weight: 300;
+        }
+        
         .designer-bio h3 { color: #000000; margin-bottom: 1rem; }
         .designer-location { color: #666666; margin-bottom: 2rem; }
         .designer-bio p { color: #555555; margin-bottom: 1.5rem; }
@@ -120,7 +161,22 @@
         }
         
         @media (max-width: 991px) { .navbar-nav { align-items: flex-start; } .lang-dropdown { margin-top: 0.5rem; } .lang-toggle { padding: 0.5rem 0; } }
-        @media (max-width: 768px) { .figure-info { padding-left: 0; margin-top: 2rem; } .figure-image-container { margin-bottom: 2rem; } .designer-badge { margin-bottom: 1rem; } }
+        @media (max-width: 768px) { .figure-info { padding-left: 0; margin-top: 2rem; } .figure-image-container { margin-bottom: 2rem; } .designer-badge { margin-bottom: 1rem; } 
+            
+            /* Video responsive adjustments */
+            .video-wrapper {
+                padding-bottom: 177.78%; /* Maintain 9:16 aspect ratio for vertical video */
+            }
+            
+            .video-container {
+                max-width: 350px; /* Smaller width on mobile for better fit */
+            }
+            
+            .video-description p {
+                font-size: 0.85rem;
+                padding: 0 1rem;
+            }
+        }
         
         /* Language button responsive positioning */
         @media (max-width: 576px) {
@@ -242,6 +298,35 @@
                         <p data-i18n="designer.nosigner.story1">BUBBLE MOLD CAT is an innovative design that overturns the conventional concept of the maneki-neko (beckoning cat). Its organic, bubble-like form splits in two, revealing the shape of a maneki-neko carved out as negative space within. It functions as a "master mold," allowing you to infinitely replicate beckoning cats by injecting materials like clay, cookie dough, or soap.</p>
                         <p data-i18n="designer.nosigner.story2">The design inspiration comes from a fusion of sea foam and gachapon capsules. By using plastic material recycled from ocean waste, it challenges the traditional one-way cycle of production, consumption, and disposal. The core of this work lies in "designing the process of creation." It's not merely about making an object with recycled materials, but about designing the act of making itself to be sustainable, thereby realizing a true circular economy.</p>
                         <p data-i18n="designer.nosigner.story3">Through the experience of making their own maneki-neko, users simultaneously cultivate a connection to craftsmanship and an awareness of the environment. The bubble form carries the memory of the ocean, while the maneki-neko born from within symbolizes new fortune and hope for a sustainable future. The sight of countless beckoning cats emerging from a single mold expresses the potential for environmental protection, where small actions can bring about great change. It is a work that offers its users both the joy of creation and a sense of environmental responsibility.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="common.video">Video</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto" data-aos="fade-up">
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <!-- YouTube Video Embed - Replace VIDEO_ID with actual YouTube video ID -->
+                            <iframe width="100%" height="500" 
+                                    src="https://www.youtube.com/embed/A_I_J4W3X_U" 
+                                    title="Eisuke Tachikawa Design Process Video" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen
+                                    loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="video-description">
+                            <p class="text-center mt-3" style="color: #666666; font-size: 0.9rem;" data-i18n="designer.nosigner.videoDescription">
+                                Watch the creative process behind Bubble Mold Cat by Eisuke Tachikawa
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -415,6 +500,7 @@
             "designer.nosigner.story1": "BUBBLE MOLD CAT is an innovative design that overturns the conventional concept of the maneki-neko (beckoning cat). Its organic, bubble-like form splits in two, revealing the shape of a maneki-neko carved out as negative space within. It functions as a \"master mold,\" allowing you to infinitely replicate beckoning cats by injecting materials like clay, cookie dough, or soap.",
             "designer.nosigner.story2": "The design inspiration comes from a fusion of sea foam and gachapon capsules. By using plastic material recycled from ocean waste, it challenges the traditional one-way cycle of production, consumption, and disposal. The core of this work lies in \"designing the process of creation.\" It's not merely about making an object with recycled materials, but about designing the act of making itself to be sustainable, thereby realizing a true circular economy.",
             "designer.nosigner.story3": "Through the experience of making their own maneki-neko, users simultaneously cultivate a connection to craftsmanship and an awareness of the environment. The bubble form carries the memory of the ocean, while the maneki-neko born from within symbolizes new fortune and hope for a sustainable future. The sight of countless beckoning cats emerging from a single mold expresses the potential for environmental protection, where small actions can bring about great change. It is a work that offers its users both the joy of creation and a sense of environmental responsibility.",
+            "designer.nosigner.videoDescription": "Watch the creative process behind Bubble Mold Cat by Eisuke Tachikawa",
             
             // Designer titles for related figures
             "designer.uo.title": "Enshunada Replica",
@@ -446,6 +532,7 @@
             "common.home": "首頁",
             "common.designStory": "設計故事",
             "common.gallery": "設計圖",
+            "common.video": "影片",
             "common.otherDesigners": "其他設計師",
             "common.viewAllFigures": "查看所有作品",
             "common.viewPortfolio": "查看作品集",
@@ -463,6 +550,7 @@
             "designer.nosigner.story1": "BUBBLE MOLD CAT 是一款顛覆傳統招財貓概念的創新設計。它由兩個如氣泡般的有機形體組成，內部則以「負空間」的形式，深刻著招財貓的輪廓。它同時也是一個「母模」，讓你可以注入黏土、餅乾麵團或肥皂等材料，無限地複製出專屬的招財貓。",
             "designer.nosigner.story2": "設計靈感源自於海中氣泡與扭蛋殼的結合。我們使用海洋廢棄物回收再製的塑料作為材料，藉此對傳統「生產、消費、拋棄」的單向循環提出詰問。本作品的核心在於「製造方式的設計」。我們不只是用回收材料製作物品，更是將「製作」這個行為本身設計得更具永續性，從而實現真正的循環經濟。",
             "designer.nosigner.story3": "使用者透過親手製作招財貓的體驗，得以同時培養手作精神與環境意識。氣泡的形體承載著海洋的記憶，而從中誕生的招き猫，則象徵著新的幸運與永續未來的希望。一個模具可以誕生出無數隻招財貓的景象，正表現了微小行動也能創造巨大變化的環保可能性，是一款能同時為使用者提供創造之樂與環境責任的作品。",
+            "designer.nosigner.videoDescription": "觀看 Eisuke Tachikawa 創作 Bubble Mold Cat 的創作過程",
             
             // Designer titles for related figures
             "designer.uo.title": "Enshunada Replica",
@@ -494,6 +582,7 @@
             "common.home": "ホーム",
             "common.designStory": "デザインストーリー",
             "common.gallery": "ギャラリー",
+            "common.video": "ビデオ",
             "common.otherDesigners": "他のデザイナー",
             "common.viewAllFigures": "すべての作品を見る",
             "common.viewPortfolio": "ポートフォリオを見る",
@@ -511,6 +600,7 @@
             "designer.nosigner.story1": "BUBBLE MOLD CATは、従来の招き猫の概念を覆す革新的なデザインです。二つに分かれる泡のような有機的なフォルムの中に、招き猫の形が負の空間として刻まれており、粘土、クッキー生地、石鹸などの素材を注入することで、無限に招き猫を複製できる「母型」として機能します。",
             "designer.nosigner.story2": "デザインのインスピレーションは、海の泡とガチャガチャカプセルの融合から生まれました。海洋廃棄物から再生されたプラスチック素材を使用し、従来の一方向的な生産・消費・廃棄サイクルに対する問題提起を行っています。この作品の核心は「作られ方の設計」にあります。単にリサイクル素材で物を作るのではなく、作る行為そのものを持続可能にデザインすることで、真のサーキュラーエコノミーを実現します。",
             "designer.nosigner.story3": "使用者が自ら招き猫を作る体験を通じて、ものづくりと環境への意識を同時に育みます。泡のフォルムは海の記憶を宿し、中から生まれる招き猫は新しい幸運と持続可能な未来への希望を象徴しています。一つの型から無数の招き猫が生まれる様子は、小さな行動が大きな変化を生み出す環境保護の可能性を表現しており、使う人々に創造の喜びと環境責任の両方を提供する作品です。",
+            "designer.nosigner.videoDescription": "Eisuke TachikawaによるBUBBLE MOLD CATの創作プロセスをご覧ください",
             
             // Designer titles for related figures
             "designer.uo.title": "Enshunada Replica",
@@ -542,6 +632,7 @@
             "common.home": "Thuis",
             "common.designStory": "Ontwerpverhaal",
             "common.gallery": "Galerij",
+            "common.video": "Video",
             "common.otherDesigners": "Andere Ontwerpers",
             "common.viewAllFigures": "Alle Figuren Bekijken",
             "common.viewPortfolio": "Portfolio Bekijken",
@@ -559,6 +650,7 @@
             "designer.nosigner.story1": "BUBBLE MOLD CAT is een innovatief ontwerp dat het conventionele concept van de maneki-neko (wenk-kat) omkeert. De organische, belachtige vorm splitst in tweeën en onthult de vorm van een maneki-neko uitgesneden als negatieve ruimte binnenin. Het functioneert als een \"hoofdmal\" waarmee je oneindig beckoning katten kunt repliceren door materialen zoals klei, koekjesdeeg of zeep te injecteren.",
             "designer.nosigner.story2": "De ontwerp inspiratie komt van een fusie van zeeschuim en gachapon capsules. Door plastic materiaal gerecycled van oceaanafval te gebruiken, daagt het de traditionele eenrichtingscyclus van productie, consumptie, en weggooi uit. De kern van dit werk ligt in het \"ontwerpen van het creatieproces.\" Het gaat niet alleen om het maken van een object met gerecyclede materialen, maar om het ontwerpen van de daad van maken zelf om duurzaam te zijn, waardoor een echte circulaire economie wordt gerealiseerd.",
             "designer.nosigner.story3": "Door de ervaring van het maken van hun eigen maneki-neko cultiveren gebruikers tegelijkertijd een verbinding met vakmanschap en een bewustzijn van het milieu. De belvorm draagt de herinnering aan de oceaan, terwijl de maneki-neko die er van binnen uit wordt geboren nieuw geluk en hoop voor een duurzame toekomst symboliseert. Het zicht van talloze beckoning katten die uit een enkele mal komen drukt het potentieel voor milieubescherming uit, waar kleine acties grote verandering kunnen bewerkstelligen. Het is een werk dat zijn gebruikers zowel de vreugde van creatie als een gevoel van milieuverantwoordelijkheid biedt.",
+            "designer.nosigner.videoDescription": "Bekijk het creatieve proces achter BUBBLE MOLD CAT van Eisuke Tachikawa",
             
             // Designer titles for related figures
             "designer.uo.title": "Enshunada Replica",
