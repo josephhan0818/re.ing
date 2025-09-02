@@ -35,8 +35,49 @@
         .figure-description { color: #555555; margin-bottom: 2rem; line-height: 1.7; font-weight: 300; }
         .figure-details { margin-top: 2rem; }
         .detail-item { color: #666666; margin-bottom: 0.8rem; font-size: 0.9rem; display: flex; align-items: center; padding: 0.5rem 0; border-left: 3px solid #000000; padding-left: 1rem; }
-        .section-title { color: #000000; margin-bottom: 3rem; }
+        .section-title { color: #000000; margin-top: 3rem; margin-bottom: 3rem; }
         .story-content p { color: #555555; margin-bottom: 2rem; }
+        
+        /* Video section styling */
+        .video-container {
+            margin-bottom: 3rem;
+            max-width: 400px; /* Limit width for vertical video */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 177.78%; /* 9:16 aspect ratio for vertical video */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: #000;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 0;
+        }
+        
+        .video-description {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .video-description p {
+            color: #666666;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            font-weight: 300;
+        }
+        
         .designer-bio h3 { color: #000000; margin-bottom: 1rem; }
         .designer-location { color: #666666; margin-bottom: 2rem; }
         .designer-bio p { color: #555555; margin-bottom: 1.5rem; }
@@ -130,7 +171,22 @@
         }
         
         @media (max-width: 991px) { .navbar-nav { align-items: flex-start; } .lang-dropdown { margin-top: 0.5rem; } .lang-toggle { padding: 0.5rem 0; } }
-        @media (max-width: 768px) { .figure-info { padding-left: 0; margin-top: 2rem; } .figure-image-container { margin-bottom: 2rem; } .designer-badge { margin-bottom: 1rem; } }
+        @media (max-width: 768px) { .figure-info { padding-left: 0; margin-top: 2rem; } .figure-image-container { margin-bottom: 2rem; } .designer-badge { margin-bottom: 1rem; } 
+            
+            /* Video responsive adjustments */
+            .video-wrapper {
+                padding-bottom: 177.78%; /* Maintain 9:16 aspect ratio for vertical video */
+            }
+            
+            .video-container {
+                max-width: 350px; /* Smaller width on mobile for better fit */
+            }
+            
+            .video-description p {
+                font-size: 0.85rem;
+                padding: 0 1rem;
+            }
+        }
         
         /* Language button responsive positioning */
         @media (max-width: 576px) {
@@ -252,6 +308,35 @@
                         <p data-i18n="designer.yenan.story1">"Coin Cat" is a capsule toy that combines daily habits with a sustainable philosophy, inspired by our unconscious tendency to sort and stack coins on our desks, forming quiet little towers. Our design team has transformed this simple yet therapeutic act into a minimalist and adorable maneki-neko (beckoning cat): its body is composed of coin-shaped layers, as if silently reaching out to beckon good fortune for you.</p>
                         <p data-i18n="designer.yenan.story2">You can place a favorite coin on its face to give it an expression, or let it stand atop your own tower of change. As the stack grows higher, it symbolizes a daily ritual of "using wealth to attract more wealth." More than just a figurine, Coin Cat, like other works in the Re-TWIST series, is primarily made from recycled ocean styrofoam. Waste from the ocean is cleaned and reprocessed, giving each Coin Cat a unique color and texture.</p>
                         <p data-i18n="designer.yenan.story3">Through "Coin Cat," we hope to transform seemingly useless waste into an object with an emotional connection. It is both a small item of blessing in daily life and a way for you to participate in sustainability; it is both a cute toy and a design centered on life's rituals. When you empty your pockets of change each day and let Coin Cat stand upon them, you are also taking part in a story of circulation and a spiritual calling that begins from the ocean.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="common.video">Video</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto" data-aos="fade-up">
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <!-- YouTube Video Embed - Replace VIDEO_ID with actual YouTube video ID -->
+                            <iframe width="100%" height="500" 
+                                    src="https://www.youtube.com/embed/peRCWIWNSwg" 
+                                    title="YENAN Design Process Video" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen
+                                    loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="video-description">
+                            <p class="text-center mt-3" style="color: #666666; font-size: 0.9rem;" data-i18n="designer.yenan.videoDescription">
+                                Watch the creative process behind Coin Cat by YENAN
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -430,6 +515,7 @@
             "designer.yenan.story1": "'Coin Cat' is a capsule toy that combines daily habits with a sustainable philosophy, inspired by our unconscious tendency to sort and stack coins on our desks, forming quiet little towers. Our design team has transformed this simple yet therapeutic act into a minimalist and adorable maneki-neko (beckoning cat): its body is composed of coin-shaped layers, as if silently reaching out to beckon good fortune for you.",
             "designer.yenan.story2": "You can place a favorite coin on its face to give it an expression, or let it stand atop your own tower of change. As the stack grows higher, it symbolizes a daily ritual of 'using wealth to attract more wealth.' More than just a figurine, Coin Cat, like other works in the Re-TWIST series, is primarily made from recycled ocean styrofoam. Waste from the ocean is cleaned and reprocessed, giving each Coin Cat a unique color and texture.",
             "designer.yenan.story3": "Through 'Coin Cat,' we hope to transform seemingly useless waste into an object with an emotional connection. It is both a small item of blessing in daily life and a way for you to participate in sustainability; it is both a cute toy and a design centered on life's rituals. When you empty your pockets of change each day and let Coin Cat stand upon them, you are also taking part in a story of circulation and a spiritual calling that begins from the ocean.",
+            "designer.yenan.videoDescription": "Watch the creative process behind Coin Cat by Yen-An Chen",
             
             // Designer titles for related figures
             "designer.uo.title": "Enshunada Replica",
@@ -467,6 +553,7 @@
             "common.contactDesigner": "聯絡設計師",
             "common.by": "由",
             "common.viewDetails": "查看詳情",
+            "common.video": "影片", 
             
             // YENAN specific
             "designer.yenan.title": "硬幣貓",
@@ -478,6 +565,7 @@
             "designer.yenan.story1": "「硬幣貓 Coin Cat」是一款結合日常習慣與永續理念的扭蛋玩具，靈感來自我們經常無意識地將桌上的銅板分類、堆疊，形成一座座靜謐的小塔。設計團隊將這個簡單卻療癒的行為轉化為一隻極簡可愛的招財貓：牠的身體由層層硬幣形狀構成，像是靜靜伸手替你招來好運。",
             "designer.yenan.story2": "你可以將一枚喜歡的銅板放在牠的臉上，為牠增添表情，也可以讓牠站上自己的零錢塔，隨著堆疊越高，象徵「以財招財」的日常儀式。不只是一件公仔，硬幣貓與 Re-TWIST 系列的其他作品一樣，皆以海洋回收保麗龍為主要材料製成。來自海洋的廢棄物經過清洗與再製，賦予每一隻硬幣貓獨特的色彩與紋理。",
             "designer.yenan.story3": "透過「硬幣貓」，我們希望將看似無用的廢棄物轉化為有情感連結的物件。牠既是日常中的祝福小物，也是你參與永續的一種方式；既是一件可愛玩具，也是一種關於生活儀式的設計。當你每天卸下口袋裡的零錢，讓硬幣貓站上它們之上，你也同時參與了一場從海洋出發、關於循環與心靈召喚的故事。",
+            "designer.yenan.videoDescription": "觀看 陳彥安 創作硬幣貓的創作過程",
             
             // Designer titles for related figures
             "designer.uo.title": "Enshunada Replica",
@@ -515,17 +603,19 @@
             "common.contactDesigner": "デザイナーに連絡",
             "common.by": "設計者",
             "common.viewDetails": "詳細を見る",
+            "common.video": "ビデオ", 
             
             // YENAN specific
             "designer.yenan.title": "コインねこ",
-            "designer.yenan.name": "陳彥安",
-            "designer.yenan.aboutTitle": "陳彥安について",
+            "designer.yenan.name": "陳彦安",
+            "designer.yenan.aboutTitle": "陳彦安について",
             "designer.yenan.location": "台湾在住",
-            "designer.yenan.bio1": "陳彥安は、映像、プロダクトデザイン、文化リサーチを横断する台湾出身のキュレーター／映像作家／オブジェクトデザイナーです。イギリスとオランダで社会デザインの修士号を取得し、2020年に台北でスタジオ「Atelier YenAn」を設立しました。",
+            "designer.yenan.bio1": "陳彦安は、映像、プロダクトデザイン、文化リサーチを横断する台湾出身のキュレーター／映像作家／オブジェクトデザイナーです。イギリスとオランダで社会デザインの修士号を取得し、2020年に台北でスタジオ「Atelier YenAn」を設立しました。",
             "designer.yenan.bio2": "これまでに、オランダのErfgoedhuis博物館、基隆潮芸術祭、阿美族タファロン文化館などの企画を手がけています。2024年には自主研究プロジェクト「p.n.g.」を始動し、翌年には展覧会《Signs:》を開催。さらに2025年、デンマークの 3daysofdesign にて照明作品《Neon Lamp Series》を発表し、クラフト・光・感情の相互関係を探求しました。ジャンルを超えた実践を通じて、彼はデザインという手法で現代文化の新たな語りを紡いでいます。",
             "designer.yenan.story1": "「コインキャット (Coin Cat)」は、日々の習慣とサステナブルな理念を結びつけたカプセルトイです。そのインスピレーションは、私たちが普段、無意識に机の上の硬貨を分類し、積み重ねて、静かな小さな塔を作ることから得られました。デザインチームは、このシンプルながら癒やされる行為を、ミニマルで愛らしい招き猫へと昇華させました。",
             "designer.yenan.story2": "好きな硬貨を顔に乗せて表情をつけたり、自分のコインの塔の上に立たせることもできます。高く積み上げるほど、「富が富を招く」という日々の儀式を象徴します。コインキャットは単なるフィギュアではありません。Re-TWISTシリーズの他の作品と同様、主な材料として海洋リサイクルの発泡スチロールを使用しています。",
             "designer.yenan.story3": "「コインキャット」を通じて、私たちは一見すると役に立たない廃棄物を、感情的な繋がりを持つオブジェに変えたいと願っています。それは日常の中のささやかな縁起物であり、あなたがサステナビリティに参加するための一つの方法でもあります。毎日ポケットの小銭を取り出し、その上にコインキャットを立たせる時、あなたもまた、海から始まる循環と心の呼びかけの物語に参加しているのです。",
+            "designer.yenan.videoDescription": "陳彦安によるコインキャットの創作プロセスをご覧ください",
             
             // Designer titles for related figures
             "designer.uo.title": "Enshunada Replica",
@@ -574,6 +664,7 @@
             "designer.yenan.story1": "'Munt Kat' is een capsule speelgoed dat dagelijkse gewoonten combineert met een duurzame filosofie, geïnspireerd door onze onbewuste neiging om munten op onze bureaus te sorteren en te stapelen, waarbij stille kleine torens ontstaan. Ons ontwerpteam heeft deze eenvoudige maar therapeutische handeling getransformeerd tot een minimalistische en schattige maneki-neko (wenkende kat).",
             "designer.yenan.story2": "Je kunt een favoriete munt op zijn gezicht plaatsen om het een uitdrukking te geven, of hem bovenop je eigen toren van wisselgeld laten staan. Naarmate de stapel hoger wordt, symboliseert het een dagelijks ritueel van 'rijkdom gebruiken om meer rijkdom aan te trekken.' Meer dan alleen een figuur, Munt Kat is, net als andere werken in de Re-TWIST serie, voornamelijk gemaakt van gerecycled oceaanstyrofoam.",
             "designer.yenan.story3": "Door 'Munt Kat' hopen we schijnbaar nutteloos afval te transformeren in een object met een emotionele verbinding. Het is zowel een klein zegeningsitem in het dagelijks leven als een manier om deel te nemen aan duurzaamheid; het is zowel een schattig speelgoed als een ontwerp gecentreerd rond levensrituelen.",
+            "designer.yenan.videoDescription": "Bekijk het creatieve proces achter Munt Kat van Yen-An Chen",
             
             // Designer titles for related figures
             "designer.uo.title": "Enshunada Replica",
