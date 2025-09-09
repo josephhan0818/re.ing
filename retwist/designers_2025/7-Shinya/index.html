@@ -49,6 +49,46 @@
         .btn-primary { background: #000000; border: 2px solid #000000; color: white; }
         .btn-primary:hover { background: #333333; border-color: #333333; }
         
+        /* Video section styling */
+        .video-container {
+            margin-bottom: 3rem;
+            max-width: 400px; /* Limit width for vertical video */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 177.78%; /* 9:16 aspect ratio for vertical video */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: #000;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 0;
+        }
+        
+        .video-description {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .video-description p {
+            color: #666666;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            font-weight: 300;
+        }
+        
         /* Square gallery styling */
         .gallery-item { 
             border-radius: 0 !important; 
@@ -127,7 +167,15 @@
         }
         
         @media (max-width: 991px) { .navbar-nav { align-items: flex-start; } .lang-dropdown { margin-top: 0.5rem; } .lang-toggle { padding: 0.5rem 0; } }
-        @media (max-width: 768px) { .figure-info { padding-left: 0; margin-top: 2rem; } .figure-image-container { margin-bottom: 2rem; } .designer-badge { margin-bottom: 1rem; } }
+        @media (max-width: 768px) { 
+            .figure-info { padding-left: 0; margin-top: 2rem; } 
+            .figure-image-container { margin-bottom: 2rem; } 
+            .designer-badge { margin-bottom: 1rem; }
+            /* Video responsive adjustments */
+            .video-wrapper { padding-bottom: 177.78%; /* Maintain 9:16 aspect ratio for vertical video */ }
+            .video-container { max-width: 350px; }
+            .video-description p { font-size: 0.85rem; }
+        }
         
         /* Language button responsive positioning */
         @media (max-width: 576px) {
@@ -275,6 +323,40 @@
                         <img src="../../../assets/images/SY-3.png" alt="GROOMI NEKO - View 3" class="gallery-image">
                     </div>
                 </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="gallery-item">
+                        <img src="../../../assets/images/SY-4.jpg" alt="GROOMI NEKO - View 4" class="gallery-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="common.video">Video</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto" data-aos="fade-up">
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <!-- YouTube Shorts Video Embed -->
+                            <iframe width="100%" height="500" 
+                                    src="https://www.youtube.com/embed/z4-cgTFieo4" 
+                                    title="GROOMI NEKO - Shinya Yoshida Design Process Video" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen
+                                    loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="video-description">
+                            <p class="text-center mt-3" style="color: #666666; font-size: 0.9rem;" data-i18n="designer.shinya.videoDescription">
+                                Watch the creative process behind GROOMI NEKO by Shinya Yoshida
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -411,6 +493,7 @@
             "common.contactDesigner": "Contact Designer",
             "common.by": "by",
             "common.viewDetails": "View Details",
+            "common.video": "Video",
             
             // Shinya specific
             "designer.shinya.title": "GROOMI NEKO",
@@ -422,6 +505,7 @@
             "designer.shinya.story1": "My theme began with tracing the origins of how the 'maneki-neko' (beckoning cat) came to be. I discovered an anecdote about a person who was guided by a cat to avoid sudden rain, which I used as the cultural motif's source.",
             "designer.shinya.story2": "Having lived with cats in the past, I focused on the natural gestures cats show in daily life. Particularly, the grooming gesture of washing their face looked remarkably like beckoning, leading me to the inspiration that this behavior might be the origin of the 'beckoning' gesture. I designed a maneki-neko that captures this natural action.",
             "designer.shinya.story3": "Cats are the most familiar and beloved creatures worldwide. Through this project, I hope that people attracted to the cat's natural charm and gestures will also develop interest in marine plastic pollution and environmental issues.",
+            "designer.shinya.videoDescription": "Watch the creative process behind GROOMI NEKO by Shinya Yoshida",
             
             // Designer titles for related figures
             "designer.uo.title": "Enshunada Replica",
@@ -459,6 +543,7 @@
             "common.contactDesigner": "聯絡設計師",
             "common.by": "由",
             "common.viewDetails": "查看詳情",
+            "common.video": "影片",
             
             // Shinya specific
             "designer.shinya.title": "GROOMI NEKO",
@@ -470,6 +555,7 @@
             "designer.shinya.story1": "我的主題首先從追溯「招財貓」是如何誕生的起源開始。我發現了一個關於某個人被貓引導而避開突然下雨的逸話，並將其作為文化圖案的源泉。",
             "designer.shinya.story2": "過去曾與貓咪一起生活的我，注意到了貓咪在日常中展現的自然姿態。特別是洗臉毛髮整理的姿態，看起來就像在招手一樣，讓我得到靈感，認為這個行為可能就是「招手」的由來。於是我設計了一隻捕捉這種自然動作的招財貓。",
             "designer.shinya.story3": "貓咪是世界上最親近且被許多人喜愛的存在。透過這個項目，我希望被貓咪本來的可愛與姿態所吸引的人們，也能對海洋塑料與環境問題產生關心。",
+            "designer.shinya.videoDescription": "觀看 Shinya Yoshida 的 GROOMI NEKO 創作過程",
             
             // Designer titles for related figures
             "designer.uo.title": "Enshunada Replica",
@@ -507,6 +593,7 @@
             "common.contactDesigner": "デザイナーに連絡",
             "common.by": "設計者",
             "common.viewDetails": "詳細を見る",
+            "common.video": "ビデオ",
             
             // Shinya specific
             "designer.shinya.title": "GROOMI NEKO",
@@ -518,6 +605,7 @@
             "designer.shinya.story1": "私のテーマはまず、「招き猫」がどのようにして生まれたのか、その起源を辿ることから始めました。そこである人物が猫に導かれたことで突然の雨を避けられたという逸話に行き着き、それを文化的モチーフの源泉としました。",
             "designer.shinya.story2": "過去に猫と暮らしたことのある私は、日常の中で見せる猫の自然な仕草に着目しました。特に顔を洗う毛づくろいの姿が、まるで手招きをしているようにも見えることから、この行動こそが「招き」の由来ではないかと着想を得ました。そして、そのしぐさをかたちにした招き猫をデザインしました。",
             "designer.shinya.story3": "猫は世界中で最も身近で、かつ多くの人に愛されている存在です。このプロジェクトでは、そんな猫本来の可愛らしさと仕草を忠実に捉え、可愛らしさに惹かれた人々が海洋プラスチックと環境問題にも関心を持つきっかけになればと願っています。",
+            "designer.shinya.videoDescription": "Shinya YoshidaによるGROOMI NEKOの制作過程をご覧ください",
             
             // Designer titles for related figures
             "designer.uo.title": "Enshunada Replica",
@@ -555,6 +643,7 @@
             "common.contactDesigner": "Contact Ontwerper",
             "common.by": "door",
             "common.viewDetails": "Details Bekijken",
+            "common.video": "Video",
             
             // Shinya specific
             "designer.shinya.title": "GROOMI NEKO",
@@ -566,6 +655,7 @@
             "designer.shinya.story1": "Mijn thema begon met het traceren van de oorsprong van hoe de \"maneki-neko\" (wenkende kat) ontstond. Ik ontdekte een anekdote over een persoon die door een kat werd geleid om plotselinge regen te vermijden, wat ik gebruikte als de bron van het culturele motief.",
             "designer.shinya.story2": "Omdat ik in het verleden met katten had geleefd, richtte ik me op de natuurlijke gebaren cats tonen in het dagelijks leven. Vooral het poetsen van hun gezicht leek opmerkelijk veel op wenken, wat me het inzicht gaf dat dit gedrag mogelijk de oorsprong is van het \"wenkende\" gebaar. Ik ontwierp een maneki-neko die deze natuurlijke actie vastlegt.",
             "designer.shinya.story3": "Katten zijn de meest vertrouwde en geliefde wezens wereldwijd. Door dit project hoop ik dat mensen aangetrokken tot de natuurlijke charme en gebaren van de kat ook interesse zullen ontwikkelen in mariene plasticvervuiling en milieuproblematiek.",
+            "designer.shinya.videoDescription": "Bekijk het creatieve proces achter GROOMI NEKO door Shinya Yoshida",
             
             // Designer titles for related figures
             "designer.uo.title": "Enshunada Replica",
