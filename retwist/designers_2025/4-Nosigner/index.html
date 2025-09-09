@@ -40,14 +40,14 @@
         /* Video section styling */
         .video-container {
             margin-bottom: 3rem;
-            max-width: 400px; /* Limit width for vertical video */
+            max-width: 800px; /* Standard width for horizontal video */
             margin-left: auto;
             margin-right: auto;
         }
         
         .video-wrapper {
             position: relative;
-            padding-bottom: 177.78%; /* 9:16 aspect ratio for vertical video */
+            padding-bottom: 56.25%; /* 16:9 aspect ratio for standard video */
             height: 0;
             overflow: hidden;
             border-radius: 0;
@@ -165,11 +165,11 @@
             
             /* Video responsive adjustments */
             .video-wrapper {
-                padding-bottom: 177.78%; /* Maintain 9:16 aspect ratio for vertical video */
+                padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio for standard video */
             }
             
             .video-container {
-                max-width: 350px; /* Smaller width on mobile for better fit */
+                max-width: 100%; /* Full width on mobile for better fit */
             }
             
             .video-description p {
@@ -304,35 +304,6 @@
         </div>
     </section>
 
-    <!-- Video Section -->
-    <section class="video-section">
-        <div class="container">
-            <h2 class="section-title" data-i18n="common.video">Video</h2>
-            <div class="row">
-                <div class="col-lg-10 mx-auto" data-aos="fade-up">
-                    <div class="video-container">
-                        <div class="video-wrapper">
-                            <!-- YouTube Video Embed - Replace VIDEO_ID with actual YouTube video ID -->
-                            <iframe width="100%" height="500" 
-                                    src="https://www.youtube.com/embed/A_I_J4W3X_U" 
-                                    title="Eisuke Tachikawa Design Process Video" 
-                                    frameborder="0" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                    allowfullscreen
-                                    loading="lazy">
-                            </iframe>
-                        </div>
-                        <div class="video-description">
-                            <p class="text-center mt-3" style="color: #666666; font-size: 0.9rem;" data-i18n="designer.nosigner.videoDescription">
-                                Watch the creative process behind Bubble Mold Cat by Eisuke Tachikawa
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Gallery Section -->
     <section class="figure-gallery">
         <div class="container">
@@ -356,6 +327,35 @@
                 <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="gallery-item">
                         <img src="../../../assets/images/Nosigner-4.jpg" alt="Bubble Mold Cat - View 4" class="gallery-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="common.video">Video</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto" data-aos="fade-up">
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <!-- YouTube Video Embed - Replace VIDEO_ID with actual YouTube video ID -->
+                            <iframe width="100%" height="100%" 
+                                    src="https://www.youtube.com/embed/A_I_J4W3X_U" 
+                                    title="Eisuke Tachikawa Design Process Video" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen
+                                    loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="video-description">
+                            <p class="text-center mt-3" style="color: #666666; font-size: 0.9rem;" data-i18n="designer.nosigner.videoDescription">
+                                Watch the creative process behind Bubble Mold Cat by Eisuke Tachikawa
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
