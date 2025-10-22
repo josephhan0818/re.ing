@@ -1,84 +1,126 @@
-.page-title {
-    padding: 6rem 0 4rem 0;
+body {
+    font-family: 'Noto Sans TC', 'Montserrat', sans-serif;
+}
+
+.page-header {
+    padding: 8rem 0 4rem 0;
     text-align: center;
-    background: #ffffff;
-    margin-top: 80px; /* Adjust based on navbar height */
+    background-color: #f8f9fa;
+    margin-top: 80px; /* Adjust for fixed navbar */
 }
 
-.page-title h1 {
-    font-size: 3rem;
-    font-weight: 300;
-    color: #000000;
-    letter-spacing: -0.02em;
-    margin: 0;
+.page-header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #333;
 }
 
-.page-title p {
-    font-size: 1.2rem;
-    color: #666666;
+.page-header .subtitle {
+    font-size: 1.5rem;
+    color: #666;
     margin-top: 1rem;
     font-weight: 300;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .content-section {
     padding: 4rem 0;
 }
 
-.case-card {
-    border: 1px solid #e5e5e5;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: #ffffff;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+.intro-section {
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
 }
 
-.case-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+.intro-section h2 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    color: #1a3a5d;
 }
 
-.case-card .card-img-top {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+.intro-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: left;
 }
 
-.case-card .card-body {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+.products-section .product-item {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #e5e5e5;
 }
 
-.case-card .card-title {
-    font-size: 1.25rem;
-    font-weight: 400;
-    color: #1a1a1a;
+.products-section .product-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.products-section h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #004080;
     margin-bottom: 0.5rem;
 }
 
-.case-card .card-text {
-    font-size: 0.95rem;
+.products-section .slogan {
+    font-style: italic;
     color: #666;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
+    margin-bottom: 1rem;
 }
 
-.case-card .btn-primary {
-    background-color: #1a1a1a;
-    border-color: #1a1a1a;
-    font-weight: 400;
-    font-size: 0.9rem;
-    padding: 0.6rem 1.2rem;
-    transition: background-color 0.3s ease;
-    align-self: flex-start;
+.products-section p {
+    font-size: 1rem;
+    line-height: 1.7;
 }
 
-.case-card .btn-primary:hover {
-    background-color: #000000;
-    border-color: #000000;
+.products-section strong {
+    color: #333;
+}
+
+.product-image-placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: #f0f0f0;
+    border: 1px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-size: 1.2rem;
+}
+.product-image-placeholder::after {
+    content: 'Image';
+}
+
+
+.organizers-section {
+    padding: 4rem 0;
+    background: #fafafa;
+    border-top: 1px solid #e5e5e5;
+}
+
+.organizers-section h2 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.organizers-section p {
+    font-size: 1.1rem;
+}
+
+.image-container {
+    width: 100%;
+    aspect-ratio: 1184 / 864;
+    overflow: hidden;
+    border: 1px solid #e5e5e5;
+    background: #fafafa;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
