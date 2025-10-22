@@ -45,10 +45,6 @@ body {
     text-align: left;
 }
 
-.products-section {
-    /* padding-top: 4rem; */ /* Removed to reduce space */
-}
-
 .products-section .product-item {
     margin-bottom: 3rem;
     padding-bottom: 3rem;

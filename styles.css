@@ -28,6 +28,10 @@ body {
   z-index: 1000;
 }
 
+.navbar-nav {
+  align-items: center;
+}
+
 .navbar-brand img {
   height: 48px;
   transition: transform 0.3s ease;
