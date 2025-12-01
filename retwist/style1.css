@@ -149,14 +149,15 @@ html[data-lang="zh"] * {
 
 /* Figure Hero Section */
 .figure-hero {
-    padding: 4rem 0;
+    padding-top: 120px; /* Add padding to push content below fixed navbar */
+    padding-bottom: 0;
     background: #ffffff;
 }
 
 .figure-image-container {
     position: relative;
     max-width: 100%;
-    height: 500px;
+    aspect-ratio: 1184 / 864;
     overflow: hidden;
     border: 1px solid #e5e5e5;
     margin-bottom: 2rem;

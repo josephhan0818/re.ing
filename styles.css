@@ -266,7 +266,7 @@ section {
 .principle-card {
   background: #FFFFFF;
   border: 1px solid #E5E7EB;
-  border-radius: 12px;
+  border-radius: 0;
   padding: 2rem;
   text-align: center;
   transition: transform 0.3s ease;
@@ -274,6 +274,7 @@ section {
 
 .principle-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .principle-card .icon-wrapper {
@@ -283,7 +284,7 @@ section {
 
 .principle-card i {
   font-size: 2.5rem;
-  color: #22D3EE;
+  color: #000000;
   display: inline-block;
   vertical-align: middle;
   font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
@@ -330,8 +331,8 @@ section {
   top: 0;
   bottom: 0;
   left: 50%;
-  width: 4px;
-  background: linear-gradient(to bottom, #10B981, #22D3EE);
+  width: 2px;
+  background: #000000;
   transform: translateX(-50%);
 }
 
@@ -356,32 +357,33 @@ section {
   content: '';
   position: absolute;
   top: 50%;
-  width: 20px;
-  height: 20px;
-  background: #22D3EE;
+  width: 16px;
+  height: 16px;
+  background: #000000;
   border-radius: 50%;
-  border: 4px solid #FFFFFF;
-  box-shadow: 0 0 0 4px #10B981;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 0 2px #000000;
 }
 
 .timeline-item:nth-child(odd)::before {
-  right: -12px;
+  right: -10px;
 }
 
 .timeline-item:nth-child(even)::before {
-  left: -12px;
+  left: -10px;
 }
 
 .timeline-content {
   background: #FFFFFF;
   border: 1px solid #E5E7EB;
-  border-radius: 12px;
+  border-radius: 0;
   padding: 1.5rem;
   transition: transform 0.3s ease;
 }
 
 .timeline-content:hover {
   transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .timeline-content .icon-wrapper {
@@ -391,7 +393,7 @@ section {
 
 .timeline-content i {
   font-size: 2rem;
-  color: #22D3EE;
+  color: #000000;
   display: inline-block;
   vertical-align: middle;
   font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
@@ -753,19 +755,21 @@ section {
 .contact-section button {
   width: 100%;
   padding: 1rem;
-  background: linear-gradient(to right, #10B981, #22D3EE);
-  border: none;
-  border-radius: 8px;
+  background: #000000;
+  border: 1px solid #000000;
+  border-radius: 0;
   color: #FFFFFF;
   font-weight: 600;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .contact-section button:hover {
+  background: #FFFFFF;
+  color: #000000;
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(34, 211, 238, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .contact-section .icon-wrapper {
@@ -811,22 +815,23 @@ section {
 }
 
 .newsletter-section {
-  background: linear-gradient(to bottom, #1F2937, #2D3748);
+  background: #F8F9FA;
   padding: 3rem 2rem;
   text-align: center;
-  color: #ffffff;
+  color: #1F2937;
 }
 
 .newsletter-section h2 {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  color: #000000;
 }
 
 .newsletter-section p {
   font-size: 1rem;
   margin-bottom: 2rem;
-  color: #D1D5DB;
+  color: #4B5563;
 }
 
 .newsletter-form {
@@ -840,8 +845,8 @@ section {
 .newsletter-form input {
   width: 70%;
   padding: 0.8rem;
-  border: none;
-  border-radius: 8px;
+  border: 1px solid #E5E7EB;
+  border-radius: 0;
   font-size: 1rem;
   background: #FFFFFF;
   color: #1F2937;
@@ -849,19 +854,21 @@ section {
 
 .newsletter-form button {
   padding: 0.8rem 2rem;
-  background: linear-gradient(to right, #10B981, #22D3EE);
-  border: none;
-  border-radius: 8px;
+  background: #000000;
+  border: 1px solid #000000;
+  border-radius: 0;
   color: #FFFFFF;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .newsletter-form button:hover {
+  background: #FFFFFF;
+  color: #000000;
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(34, 211, 238, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .newsletter-form .icon-wrapper {
@@ -906,11 +913,53 @@ section {
   opacity: 1;
 }
 
+/* Client Logos */
+.client-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding: 2rem 0;
+}
+
+.client-logo {
+  width: 120px;
+  height: 80px;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  object-fit: contain;
+}
+
+.client-logo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Footer Component - Matches RETWIST style */
 footer {
-  background: #1F2937;
-  padding: 4rem 2rem;
+  background-color: #F8F9FA;
+  padding: 48px 0;
   text-align: center;
-  color: #FFFFFF;
+  color: #6C757D;
+}
+
+.footer-nav {
+  margin-bottom: 2rem;
+}
+
+.footer-nav a {
+  color: #6C757D !important;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: #007BFF !important;
 }
 
 footer p {
@@ -918,15 +967,19 @@ footer p {
   margin-bottom: 1rem;
 }
 
-.social-links a {
-  color: #FFFFFF;
+footer .social-links {
+  margin-bottom: 16px;
+}
+
+footer .social-links a {
+  color: #007BFF;
   font-size: 1.5rem;
   margin: 0 1rem;
   transition: color 0.3s ease;
 }
 
-.social-links a:hover {
-  color: #22D3EE;
+footer .social-links a:hover {
+  color: #0E7490;
 }
 
 .social-links .icon-wrapper {
@@ -936,8 +989,13 @@ footer p {
 .social-links i {
   display: inline-block;
   vertical-align: middle;
-  font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
-  font-weight: 900 !important;
+  font-size: 1.5rem;
+}
+
+/* Force correct font family for Brand icons */
+.fab {
+  font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brands", sans-serif !important;
+  font-weight: 400 !important;
 }
 
 .social-links svg {
@@ -956,8 +1014,6 @@ footer p {
 }
 
 i[class*="fa-"] {
-  font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
-  font-weight: 900 !important;
   font-style: normal;
   display: inline-block;
   line-height: 1;
