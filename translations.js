@@ -183,6 +183,9 @@ const translations = {
     "oceanGiftBox.organizers.executorName": "Industrial Technology Research Institute (ITRI)",
     "oceanGiftBox.organizers.integrator": "Design Integrator:",
     "oceanGiftBox.organizers.integratorName": "Dots Design Co., Ltd."
+    ,
+    "srPlatform.name": "SR MARK Sustainable and Recycle Platform",
+    "srPlatform.subtitle": "SR Platform is an open product traceability disclosure platform. Our goal is to empower businesses committed to creating sustainable products by enabling consumers to visualize and appreciate the value of a circular economy."
   },
   zh: {
     "nav.mission": "我們的使命",
@@ -366,7 +369,9 @@ const translations = {
     "oceanGiftBox.organizers.executor": "執行單位：",
     "oceanGiftBox.organizers.executorName": "工業技術研究院",
     "oceanGiftBox.organizers.integrator": "設計整合單位：",
-    "oceanGiftBox.organizers.integratorName": "點睛設計有限公司"
+    "oceanGiftBox.organizers.integratorName": "點睛設計有限公司",
+    "srPlatform.name": "SR MARK Sustainable and Recycle Platform",
+    "srPlatform.subtitle": "SR Platform 是一個公開的產品履歷揭露平台，我們希望更多追求永續價值，致力於製作永續商品的商家，藉由此平台能夠讓消費者看見並認同循環經濟的價值。"
   },
   nl: {
     "nav.mission": "Onze Missie",
@@ -551,6 +556,9 @@ const translations = {
     "oceanGiftBox.organizers.executorName": "Industrial Technology Research Institute (ITRI)",
     "oceanGiftBox.organizers.integrator": "Ontwerpintegrator:",
     "oceanGiftBox.organizers.integratorName": "Dots Design Co., Ltd."
+    ,
+    "srPlatform.name": "SR MARK Sustainable and Recycle Platform",
+    "srPlatform.subtitle": "SR Platform is een open platform voor het openbaar maken van product-traceerbaarheid. Ons doel is bedrijven die zich inzetten voor het creëren van duurzame producten in staat te stellen dat consumenten de waarde van een circulaire economie kunnen zien en waarderen."
   },
   ja: {
     "nav.mission": "私たちの使命",
@@ -735,6 +743,9 @@ const translations = {
     "oceanGiftBox.organizers.executorName": "工業技術研究院",
     "oceanGiftBox.organizers.integrator": "デザインインテグレーター：",
     "oceanGiftBox.organizers.integratorName": "DOTdesign Inc."
+    ,
+    "srPlatform.name": "SR MARK サステナブル＆リサイクル プラットフォーム",
+    "srPlatform.subtitle": "SRプラットフォームは、製品のトレーサビリティを公開するオープンプラットフォームです。本プラットフォームの目的は、持続可能な商品づくりに取り組む企業を支援し、消費者が循環型経済の価値を視覚化し理解できるようにすることです。"
   }
 
 };

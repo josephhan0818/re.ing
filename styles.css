@@ -47,6 +47,7 @@ body {
   padding: 0.5rem 1rem;
   position: relative;
   transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none !important;
 }
 
 .nav-link::after {
@@ -56,31 +57,85 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: #22D3EE;
-  transition: width 0.3s ease;
+  background: transparent;
+  transition: width 0.3s ease, background 0.3s ease;
 }
 
 .nav-link:hover::after {
   width: 100%;
+  background: #666666;
 }
 
 .nav-link:hover {
-  color: #22D3EE !important;
+  color: #333333 !important;
   transform: translateY(-2px);
+  text-decoration: none !important;
+}
+
+/* Remove underlines from all icon links */
+a i, a i::before, a i::after {
+  text-decoration: none !important;
+}
+
+.principle-card i, .timeline-content i, .reason-card i, 
+.download-section i, .contact-section i, .newsletter-form i {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.principle-card a, .timeline-content a, .reason-card a, 
+.download-section a, .contact-section a, .newsletter-form a {
+  text-decoration: none !important;
+}
+
+.principle-card a:hover, .timeline-content a:hover, .reason-card a:hover, 
+.download-section a:hover, .contact-section a:hover, .newsletter-form a:hover {
+  text-decoration: none !important;
+}
+
+.lang-dropdown {
+  display: flex;
+  align-items: center;
 }
 
 .lang-toggle {
-  background: none;
+  background: transparent;
   border: none;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #1F2937;
-  cursor: pointer;
+  color: #333333;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
   transition: color 0.3s ease;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .lang-toggle:hover {
-  color: #22D3EE;
+  color: #000000;
+}
+
+.lang-toggle:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.lang-toggle::after {
+  display: none !important;
+}
+
+.lang-toggle img {
+  margin-right: 0.5rem;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.lang-toggle i {
+  font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+  font-weight: 900 !important;
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  color: #333333;
 }
 
 .navbar-toggler {
@@ -96,11 +151,9 @@ body {
 
 .navbar-toggler-icon {
   font-size: 1.5rem;
-  color: #1F2937;
+  color: #333333;
   display: inline-block;
   vertical-align: middle;
-  font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
-  font-weight: 900 !important;
 }
 
 .navbar-toggler svg {
@@ -128,6 +181,19 @@ header {
   background-size: cover;
   background-color: #0a1520;
 }
+
+  @media (max-width: 768px) {
+    header {
+      min-height: 50vh;
+      background-attachment: scroll;
+      background-position: center top;
+      background-size: 180% auto;
+      padding: 2.5rem 0 2rem 0;
+    }
+    header .container {
+      padding: 0 1rem;
+    }
+  }
 
 header::after {
   content: '';
@@ -199,9 +265,9 @@ section {
   display: block;
   width: 100px;
   height: 5px;
-  background: linear-gradient(to right, #10B981, #22D3EE);
+  background: #999999;
   margin: 1rem auto;
-  border-radius: 5px;
+  border-radius: 0;
 }
 
 .section-content {
@@ -231,7 +297,7 @@ section {
   left: 50%;
   width: 80px;
   height: 80px;
-  background: radial-gradient(circle, rgba(34, 211, 238, 0.05), transparent);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.05), transparent);
   transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: -1;
@@ -252,9 +318,9 @@ section {
   display: block;
   width: 0;
   height: 3px;
-  background: linear-gradient(to right, #10B981, #22D3EE);
+  background: #999999;
   margin: 0.5rem auto;
-  border-radius: 3px;
+  border-radius: 0;
   animation: expandLine 1s forwards;
 }
 
@@ -284,7 +350,7 @@ section {
 
 .principle-card i {
   font-size: 2.5rem;
-  color: #000000;
+  color: #666666;
   display: inline-block;
   vertical-align: middle;
   font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
@@ -332,7 +398,7 @@ section {
   bottom: 0;
   left: 50%;
   width: 2px;
-  background: #000000;
+  background: #999999;
   transform: translateX(-50%);
 }
 
@@ -359,10 +425,10 @@ section {
   top: 50%;
   width: 16px;
   height: 16px;
-  background: #000000;
+  background: #666666;
   border-radius: 50%;
   border: 2px solid #FFFFFF;
-  box-shadow: 0 0 0 2px #000000;
+  box-shadow: 0 0 0 2px #666666;
 }
 
 .timeline-item:nth-child(odd)::before {
@@ -393,7 +459,7 @@ section {
 
 .timeline-content i {
   font-size: 2rem;
-  color: #000000;
+  color: #666666;
   display: inline-block;
   vertical-align: middle;
   font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
@@ -432,21 +498,22 @@ section {
   position: relative;
   height: 450px;
   background: #FFFFFF;
-  border: 2px solid transparent;
-  border-radius: 12px;
+  border: 1px solid #E5E7EB;
+  border-radius: 0;
   overflow: hidden;
   transition: transform 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 0;
   transition: transform 0.3s ease;
 }
 
@@ -473,7 +540,7 @@ section {
 
 .card:hover .card-content {
   opacity: 1;
-  background: linear-gradient(to top, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .card h3 {
@@ -493,8 +560,8 @@ section {
 
 .contact-card {
   background: #FFFFFF;
-  border: 2px solid transparent;
-  border-radius: 12px;
+  border: 1px solid #E5E7EB;
+  border-radius: 0;
   padding: 2rem;
   text-align: center;
   transition: transform 0.3s ease;
@@ -502,6 +569,7 @@ section {
 
 .contact-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .contact-card h3 {
@@ -520,19 +588,19 @@ section {
 }
 
 .contact-card a {
-  color: #22D3EE;
+  color: #000000;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .contact-card a:hover {
-  color: #0E7490;
+  color: #666666;
 }
 
 .reason-card {
   background: #FFFFFF;
   border: 1px solid #E5E7EB;
-  border-radius: 12px;
+  border-radius: 0;
   padding: 2rem;
   text-align: center;
   transition: transform 0.3s ease;
@@ -540,6 +608,7 @@ section {
 
 .reason-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .reason-card .icon-wrapper {
@@ -549,7 +618,7 @@ section {
 
 .reason-card i {
   font-size: 2.5rem;
-  color: #22D3EE;
+  color: #666666;
   display: inline-block;
   vertical-align: middle;
   font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
@@ -629,8 +698,8 @@ section {
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-color: #22D3EE;
-  border-radius: 50%;
+  background-color: #444444;
+  border-radius: 0;
   padding: 1.5rem;
 }
 
@@ -639,7 +708,7 @@ section {
 }
 
 .carousel-indicators [data-bs-target] {
-  background-color: #22D3EE;
+  background-color: #444444;
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -647,8 +716,9 @@ section {
 
 .download-section {
   text-align: center;
-  background: #F3F4F6;
-  border-radius: 12px;
+  background: #F8F9FA;
+  border: 1px solid #E5E7EB;
+  border-radius: 0;
   padding: 1.5rem;
   margin-top: 3rem;
   max-width: 500px;
@@ -666,18 +736,21 @@ section {
 .download-section a {
   display: inline-block;
   padding: 0.8rem 1.5rem;
-  background: linear-gradient(to right, #10B981, #22D3EE);
+  background: #444444;
   color: #FFFFFF;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 0;
   font-weight: 600;
   font-size: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .download-section a:hover {
+  background: #FFFFFF;
+  color: #444444;
+  border: 1px solid #444444;
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(34, 211, 238, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .download-section .icon-wrapper {
@@ -711,7 +784,7 @@ section {
 .contact-section {
   background: #FFFFFF;
   padding: 3rem;
-  border-radius: 12px;
+  border-radius: 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   max-width: 900px;
   margin: auto;
@@ -739,7 +812,7 @@ section {
   padding: 1rem;
   margin-bottom: 1.5rem;
   border: 1px solid #E5E7EB;
-  border-radius: 8px;
+  border-radius: 0;
   background: #F9FAFB;
   color: #1F2937;
   font-size: 1rem;
@@ -748,15 +821,15 @@ section {
 
 .contact-section input:focus,
 .contact-section textarea:focus {
-  border-color: #22D3EE;
+  border-color: #444444;
   outline: none;
 }
 
 .contact-section button {
   width: 100%;
   padding: 1rem;
-  background: #000000;
-  border: 1px solid #000000;
+  background: #444444;
+  border: 1px solid #444444;
   border-radius: 0;
   color: #FFFFFF;
   font-weight: 600;
@@ -767,7 +840,7 @@ section {
 
 .contact-section button:hover {
   background: #FFFFFF;
-  color: #000000;
+  color: #444444;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
@@ -825,7 +898,7 @@ section {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #000000;
+  color: #333333;
 }
 
 .newsletter-section p {
@@ -854,8 +927,8 @@ section {
 
 .newsletter-form button {
   padding: 0.8rem 2rem;
-  background: #000000;
-  border: 1px solid #000000;
+  background: #444444;
+  border: 1px solid #444444;
   border-radius: 0;
   color: #FFFFFF;
   font-weight: 600;
@@ -866,7 +939,7 @@ section {
 
 .newsletter-form button:hover {
   background: #FFFFFF;
-  color: #000000;
+  color: #444444;
   transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
@@ -926,70 +999,111 @@ section {
 .client-logo {
   width: 120px;
   height: 80px;
-  filter: grayscale(100%);
-  opacity: 0.6;
+  opacity: 0.8;
   transition: all 0.3s ease;
   object-fit: contain;
 }
 
 .client-logo:hover {
-  filter: grayscale(0%);
   opacity: 1;
   transform: scale(1.1);
 }
 
 /* Footer Component - Matches RETWIST style */
 footer {
-  background-color: #F8F9FA;
-  padding: 48px 0;
+  background: #000000;
+  padding: 4rem 0;
   text-align: center;
-  color: #6C757D;
+  color: #ffffff;
 }
 
 .footer-nav {
   margin-bottom: 2rem;
 }
 
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
 .footer-nav a {
-  color: #6C757D !important;
+  color: #ffffff !important;
   text-decoration: none;
-  margin: 0 1rem;
-  font-weight: 500;
+  font-weight: 300;
   transition: color 0.3s ease;
 }
 
 .footer-nav a:hover {
-  color: #007BFF !important;
+  color: #22D3EE !important;
 }
 
 footer p {
+  margin: 0;
+  font-weight: 300;
   font-size: 0.9rem;
-  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
 }
 
 footer .social-links {
   margin-bottom: 16px;
 }
 
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
 footer .social-links a {
-  color: #007BFF;
+  color: #ffffff;
   font-size: 1.5rem;
-  margin: 0 1rem;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  text-decoration: none !important;
+}
+
+footer .social-links a::after {
+  display: none !important;
 }
 
 footer .social-links a:hover {
-  color: #0E7490;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  transform: none;
+  text-decoration: none !important;
 }
 
 .social-links .icon-wrapper {
   display: inline-block;
 }
 
-.social-links i {
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 1.5rem;
+.social-links a i {
+  color: #ffffff !important;
+  font-family: "Font Awesome 6 Brands", "FontAwesome", Arial, sans-serif !important;
+  font-weight: 400 !important;
+  display: inline-block !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  text-rendering: auto !important;
+  line-height: 1 !important;
+  transition: none;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.social-links a:hover i {
+  color: #ffffff !important;
+  transition: none;
 }
 
 /* Force correct font family for Brand icons */
@@ -1089,5 +1203,201 @@ i[class*="fa-"] {
 
   .newsletter-form input {
     width: 100%;
+  }
+}
+
+/* Sustainability Cases Carousel Section */
+.cases-carousel-section {
+  padding: 4rem 0;
+  background: #F9FAFB;
+}
+
+.cases-carousel-wrapper {
+  position: relative;
+  margin: 2rem 0;
+  padding: 0 60px;
+}
+
+.cases-carousel-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.cases-carousel {
+  display: flex;
+  gap: 2rem;
+  transition: transform 0.5s ease;
+  scroll-behavior: smooth;
+}
+
+.case-card-item {
+  min-width: 380px;
+  flex-shrink: 0;
+}
+
+.case-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fix card to square format with proper sizing for all content */
+.case-card {
+  height: 380px; /* fixed square card */
+  width: 100%;
+}
+
+.case-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.case-card img {
+  width: 100%;
+  height: 180px; /* increased image height */
+  object-fit: cover;
+}
+
+/* SR MARK card width consistency */
+.case-card-item:nth-child(3) {
+  min-width: 380px;
+  max-width: 380px;
+  width: 380px;
+}
+
+/* SR MARK logo scaling - use contain instead of cover */
+.case-card-item:nth-child(3) img {
+  object-fit: contain;
+  background-color: #f5f5f5;
+  padding: 20px;
+  height: 180px;
+}
+
+.case-card-content {
+  padding: 0.8rem; /* reduced padding */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.case-card-content h3 {
+  font-size: 1rem; /* smaller title */
+  color: #333333;
+  margin: 0 0 0.3rem 0; /* reduced margin */
+  font-weight: 600;
+  white-space: normal;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* single line */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.case-card-content p {
+  color: #666666;
+  margin: 0 0 0.5rem 0; /* reduced margin */
+  flex-grow: 1;
+  font-size: 0.85rem; /* smaller text */
+  line-height: 1.4; /* tighter line height */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* max 2 lines for description */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.case-btn {
+  display: inline-block;
+  padding: 0.4rem 1rem; /* smaller button */
+  background: #333333;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.8rem; /* smaller button text */
+  transition: background 0.3s ease;
+  align-self: flex-start;
+  white-space: nowrap;
+}
+
+.case-btn:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-nav:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-prev {
+  left: 0;
+}
+
+.carousel-next {
+  right: 0;
+}
+
+.view-all-cases {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.btn-view-all {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: #333333;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-view-all:hover {
+  background: #000000;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cases-carousel-wrapper {
+    padding: 0 50px;
+  }
+  
+  .case-card-item {
+    min-width: 280px;
+  }
+  
+  .case-card img {
+    height: 180px;
+  }
+  
+  .carousel-nav {
+    width: 35px;
+    height: 35px;
   }
 }

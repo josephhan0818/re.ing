@@ -55,6 +55,7 @@
                     <li class="nav-item dropdown lang-dropdown">
                         <a class="lang-toggle dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="assets/images/language.png" alt="Language Icon" style="width: 20px; height: auto;">
+                            <i class="fas fa-chevron-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
                             <li><a class="dropdown-item" href="#" onclick="switchLanguage('en'); return false;">English</a></li>
@@ -74,6 +75,63 @@
       <p data-i18n="header.subtitle">Innovating with eco-friendly materials for a better planet.</p>
     </div>
   </header>
+
+  <!-- Sustainability Cases Carousel -->
+  <section id="sustainability-cases-preview" class="cases-carousel-section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up"><span data-i18n="nav.sustainabilityCases">永續設計案例</span></h2>
+      <p class="section-content" data-aos="fade-up" data-aos-delay="100" data-i18n="page.sustainabilityCases.subheader">探索我們如何將廢棄物轉化為有價值的產品。</p>
+      <div class="cases-carousel-wrapper" data-aos="fade-up" data-aos-delay="200">
+        <button class="carousel-nav carousel-prev" aria-label="Previous">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="cases-carousel-container">
+          <div class="cases-carousel">
+            <!-- Case Card 1 -->
+            <div class="case-card-item">
+              <div class="case-card">
+                <img src="assets/images/sea_package_1.jpg" alt="Ocean-Friendly Gift Box" loading="lazy">
+                <div class="case-card-content">
+                  <h3 data-i18n="oceanGiftBox.name">海廢再生禮盒</h3>
+                  <p data-i18n="oceanGiftBox.subtitle">以「海」為名，展開友善的祝福</p>
+                  <a href="sustainability-cases/ocean-gift-box/" class="case-btn" data-i18n="common.learnMore">了解更多</a>
+                </div>
+              </div>
+            </div>
+            <!-- Add more case cards here as they become available -->
+            <!-- Re:TWIST Card -->
+            <div class="case-card-item">
+              <div class="case-card">
+                <img src="assets/images/banner-1.png" alt="RE:TWIST 轉圈圈計畫" loading="lazy">
+                <div class="case-card-content">
+                  <h3 data-i18n="retwist.name">Re:TWIST 轉圈圈計畫</h3>
+                  <p data-i18n="retwist.subtitle">循環設計與轉動創新，探索回收材料的新可能。</p>
+                  <a href="retwist/" class="case-btn" data-i18n="common.learnMore">了解更多</a>
+                </div>
+              </div>
+            </div>
+            <!-- SR MARK Case Card -->
+            <div class="case-card-item">
+              <div class="case-card">
+                <img src="https://srmark.com/wp-content/uploads/2023/10/cropped-th.png" alt="SR MARK Sustainable and Recycle Platform" loading="lazy">
+                <div class="case-card-content">
+                  <h3 data-i18n="srPlatform.name">SR MARK Sustainable and Recycle Platform</h3>
+                  <p data-i18n="srPlatform.subtitle">SR Platform is an open product traceability disclosure platform. Our goal is to empower businesses committed to creating sustainable products by enabling consumers to visualize and appreciate the value of a circular economy.</p>
+                  <a href="https://srmark.com/en/" class="case-btn" data-i18n="common.learnMore" target="_blank" rel="noopener">了解更多</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-nav carousel-next" aria-label="Next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+      <div class="view-all-cases" data-aos="fade-up" data-aos-delay="300">
+        <a href="sustainability-cases/" class="btn-view-all" data-i18n="common.viewAll">查看全部案例</a>
+      </div>
+    </div>
+  </section>
 
   <section id="mission">
     <h2 class="section-title" data-aos="fade-up"><span data-i18n="mission.title">Our Mission</span></h2>
@@ -428,17 +486,6 @@
           </div>
         </div>
       </div>
-      <div class="social-links mt-4 text-center" data-aos="fade-up" data-aos-delay="200">
-        <a href="https://www.linkedin.com/company/ddoott" target="_blank" class="me-3">
-          <img src="assets/images/linkedin-logo.webp" alt="LinkedIn Logo" style="width: 50px; height: 50px;">
-        </a>
-        <a href="https://www.instagram.com/taiwan_dotdesign" target="_blank" class="me-3">
-          <img src="assets/images/instagram-logo.png" alt="Instagram Logo" style="width: 40px; height: 40px;">
-        </a>
-        <a href="https://www.facebook.com/super.dotdesign" target="_blank">
-          <img src="assets/images/facebook-logo.jpg" alt="Facebook Logo" style="width: 40px; height: 40px;">
-        </a>
-      </div>
     </div>
     <div class="download-section" data-aos="fade-up" data-aos-delay="200">
       <h4 data-i18n="contact.download.title">Download Our Introduction</h4>
@@ -559,6 +606,27 @@
       }, 1500);
     }
 
+    // Carousel functionality for sustainability cases
+    const carousel = document.querySelector('.cases-carousel');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    
+    if (carousel && prevBtn && nextBtn) {
+      let scrollPosition = 0;
+      const scrollAmount = 370; // card width (350px) + gap (20px)
+      
+      nextBtn.addEventListener('click', () => {
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+        scrollPosition = Math.min(scrollPosition + scrollAmount, maxScroll);
+        carousel.style.transform = `translateX(-${scrollPosition}px)`;
+      });
+      
+      prevBtn.addEventListener('click', () => {
+        scrollPosition = Math.max(scrollPosition - scrollAmount, 0);
+        carousel.style.transform = `translateX(-${scrollPosition}px)`;
+      });
+    }
+
     // FontAwesome fallback detection - ensure icons load properly
     document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
@@ -579,7 +647,7 @@
                     .social-links a i {
                         font-family: "Font Awesome 6 Brands", "FontAwesome", Arial, sans-serif !important;
                         font-weight: 400 !important;
-                        color: #007BFF !important;
+                        color: #444444 !important;
                     }
                     .navbar-toggler-icon {
                         font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
