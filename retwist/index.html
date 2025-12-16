@@ -327,28 +327,46 @@
             padding: 3rem;
             color: #ffffff;
             z-index: 3;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, transparent 100%);
-            min-height: 60%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 40%, rgba(0, 0, 0, 0.5) 70%, transparent 100%);
+            min-height: 40%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-end;
+            justify-content: center;
         }
 
         .poster-title {
             font-size: 2.5rem;
             font-weight: 300;
-            margin-bottom: 1rem;
+            margin-bottom: 0;
             letter-spacing: -0.02em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Subtle arrow hint for clickable posters */
+        .poster-hint {
+            margin-top: 2rem;
+            font-size: 2rem;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .series-poster:hover .poster-hint {
+            opacity: 1;
+            transform: translateX(10px);
+        }
+
+        .poster-hint i {
+            color: #ffffff;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
         }
 
         .poster-subtitle {
             font-size: 1.2rem;
             font-weight: 300;
             margin-bottom: 2rem;
-            opacity: 0.9;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            opacity: 0.95;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 0, 0, 0.5);
             line-height: 1.6;
         }
 
@@ -490,10 +508,11 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
+        /* Keep social icons visually stable on hover (no darker background or movement) */
         .social-links a:hover {
             color: #ffffff;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.1);
+            transform: none;
         }
 
         /* Ensure social media icons are black/white only */
@@ -770,39 +789,61 @@
                 padding-top: 0.5rem;
             }
             .series-posters {
-                padding-top: 0 !important;
+                padding-top: 2rem !important;
                 margin-top: 0 !important;
+                padding-bottom: 3rem !important;
+            }
+
+            .poster-container {
+                padding: 0 1rem;
+                gap: 2rem;
             }
 
             .poster-title {
-                font-size: 1.8rem;
-                margin-bottom: 0.8rem;
+                font-size: 1.6rem;
+                margin-bottom: 1rem;
+                line-height: 1.3;
+            }
+
+            .poster-hint {
+                margin-top: 1.5rem;
+                font-size: 1.5rem;
             }
 
             .poster-subtitle {
-                font-size: 0.9rem;
-                line-height: 1.4;
-                margin-bottom: 1.5rem;
+                font-size: 0.95rem;
+                line-height: 1.6;
+                margin-bottom: 1rem;
             }
 
             .poster-content {
-                padding: 1.5rem 1rem;
+                padding: 2rem 1.25rem;
+                min-height: 50%;
             }
 
             .series-poster {
-                height: 45vh;
-                min-height: 380px;
+                height: auto;
+                min-height: 400px;
             }
 
             .poster-meta {
                 flex-direction: column;
                 gap: 0.8rem;
-                font-size: 0.8rem;
+                font-size: 0.85rem;
+                margin-bottom: 1.5rem;
             }
 
             .poster-status {
-                padding: 0.3rem 1rem;
-                font-size: 0.7rem;
+                padding: 0.4rem 1rem;
+                font-size: 0.75rem;
+            }
+
+            .view-more-btn {
+                width: 100%;
+                max-width: 100%;
+                padding: 1rem 0;
+                font-size: 1rem;
+                margin-top: 1.5rem;
             }
 
             .concept-points {
@@ -935,12 +976,12 @@
             padding: 3rem;
             color: #ffffff;
             z-index: 3;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, transparent 100%);
-            min-height: 60%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 40%, rgba(0, 0, 0, 0.5) 70%, transparent 100%);
+            min-height: 40%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-end;
+            justify-content: center;
         }
         .poster-meta {
             margin-bottom: 2.2rem; /* Add space below meta for button */
@@ -992,6 +1033,222 @@
             }
         }
         /* ...existing code... */
+        /* Sales Channels (銷售通路) styles - 大型視覺卡片設計 */
+        .sales-channels {
+            padding: 6rem 0;
+            background: #f8f9fa;
+        }
+
+        .exhibitions-section {
+            padding: 6rem 0;
+            background: #ffffff;
+        }
+
+        .sales-channels .section-header,
+        .exhibitions-section .section-header {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .section-header h3 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #000000;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666666;
+            font-weight: 300;
+        }
+
+        .channel-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .exhibitions-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .channel-card {
+            position: relative;
+            height: 450px;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: #ffffff;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+        }
+
+        .channel-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.5) 100%);
+            z-index: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .channel-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .channel-card:hover::before {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0.6) 100%);
+        }
+
+        .channel-thumb {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: brightness(0.85) contrast(1.1);
+        }
+
+        .channel-card:hover .channel-thumb {
+            transform: scale(1.08);
+            filter: brightness(1) contrast(1.2);
+        }
+
+        .channel-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 2.5rem;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .channel-info h4 {
+            margin: 0 0 1.2rem 0;
+            font-size: 1.9rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            backdrop-filter: blur(5px);
+        }
+
+        .channel-info p {
+            margin: 0 0 1rem 0;
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.6;
+            font-weight: 300;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+        }
+
+        .channel-info ul {
+            margin: 0 0 1rem 0;
+            padding-left: 1.5rem;
+            list-style-type: none;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.9;
+            font-weight: 400;
+        }
+
+        .channel-info ul li {
+            margin-bottom: 0.6rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .channel-info ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: bold;
+        }
+
+        .channel-info ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.2s;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 2px;
+        }
+
+        .channel-info ul li a:hover {
+            color: #ffd700;
+            border-bottom-color: #ffd700;
+        }
+
+        .channel-guide {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+            margin-top: 0.5rem;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        @media (max-width: 992px) {
+            .channel-grid { 
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            .exhibitions-grid {
+                grid-template-columns: 1fr;
+            }
+            .channel-card {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .channel-grid,
+            .exhibitions-grid { 
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .channel-card {
+                height: 350px;
+            }
+            .channel-info {
+                padding: 2rem 1.5rem;
+            }
+            .channel-info h4 {
+                font-size: 1.4rem;
+            }
+            .channel-info p {
+                font-size: 1rem;
+            }
+            .section-header h3 {
+                font-size: 2rem;
+            }
+            .sales-channels,
+            .exhibitions-section {
+                padding: 4rem 0;
+            }
+        }
     </style>
 </head>
 
@@ -1078,16 +1335,9 @@
                 <div class="poster-bg"></div>
                 <div class="poster-content">
                     <h2 class="poster-title" data-i18n="retwist.series.taiwanJapan.title">台日合作系列</h2>
-                    <p class="poster-subtitle" data-i18n="retwist.series.taiwanJapan.desc">
-                        邀集台灣與日本各五位設計師，以招財貓為共同主題，使用100%回收保麗龍創作永續扭蛋公仔。每件作品都融合了設計師的文化背景與環保理念。
-                    </p>
-                    <div class="poster-meta">
-                        <span data-i18n="retwist.series.taiwanJapan.meta">10位設計師 • 10件作品</span>
-                        <span class="poster-status status-active" data-i18n="retwist.series.status.active">已發布</span>
+                    <div class="poster-hint">
+                        <i class="fas fa-arrow-right"></i>
                     </div>
-                    <a href="designers_2025/" class="view-more-btn mt-4" id="view-more-taiwan-japan">
-                        點選以查看更多 <i class="fas fa-arrow-right"></i>
-                    </a>
                 </div>
             </div>
 
@@ -1096,16 +1346,9 @@
                 <div class="poster-bg"></div>
                 <div class="poster-content">
                     <h2 class="poster-title" data-i18n="retwist.series.luckybang.title">Lucky Bang 系列</h2>
-                    <p class="poster-subtitle" data-i18n="retwist.series.luckybang.desc">
-                        全新的扭蛋系列已經登場，帶來更多創新設計與永續理念的結合。這個充滿驚喜的新系列正式與大家見面。
-                    </p>
-                    <div class="poster-meta">
-                        <span data-i18n="retwist.series.luckybang.meta">創新系列 • 永續設計</span>
-                        <span class="poster-status status-active" data-i18n="retwist.series.status.active">已發布</span>
+                    <div class="poster-hint">
+                        <i class="fas fa-arrow-right"></i>
                     </div>
-                    <a href="lucky_bang/" class="view-more-btn mt-4" id="view-more-luckybang">
-                        點選以查看更多 <i class="fas fa-arrow-right"></i>
-                    </a>
                 </div>
             </div>
         </div>
@@ -1145,7 +1388,74 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Sales Channels - 銷售通路（單獨區塊） -->
+    <section class="sales-channels">
+        <div class="section-header">
+            <h3 data-i18n="retwist.salesChannels.title">銷售通路</h3>
+            <p data-i18n="retwist.salesChannels.description">我們目前在世界各地的合作販售點。</p>
+        </div>
+        <div class="channel-grid">
+            <div class="channel-card">
+                <div class="channel-thumb" style="background-image: url('../assets/images/KAIRI-1.jpg');"></div>
+                <div class="channel-info">
+                    <h4 data-i18n="retwist.salesChannels.japan.title">Japan — 日本經銷</h4>
+                    <ul>
+                        <li><a href="https://hotolio.jp/" target="_blank" rel="noopener">Hotolio</a></li>
+                        <li><a href="https://kairieguchi.com/" target="_blank" rel="noopener">Kairi Eguchi Studio</a></li>
+                        <li><a href="https://arlequin-japan.com/" target="_blank" rel="noopener">ARLEQUIN</a></li>
+                    </ul>
+                    <div class="channel-guide" data-i18n="retwist.salesChannels.guide">點擊名稱可前往合作通路</div>
+                </div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-thumb" style="background-image: url('../assets/images/Lance-1.jpg');"></div>
+                <div class="channel-info">
+                    <h4 data-i18n="retwist.salesChannels.taiwan.title">Taiwan — 台灣直營/合作店</h4>
+                    <ul>
+                        <li><a href="https://www.dotdesign.com.tw/" target="_blank" rel="noopener">DOT Design Labs 設計風格實驗室</a></li>
+                        <li><a href="https://www.facebook.com/designpin/" target="_blank" rel="noopener">設計點</a></li>
+                        <li><a href="https://www.vaoutdoor.com/" target="_blank" rel="noopener">Va Outdoor</a></li>
+                    </ul>
+                    <div class="channel-guide" data-i18n="retwist.salesChannels.guide">點擊名稱可前往合作通路</div>
+                </div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-thumb" style="background-image: url('../assets/images/Nosigner-1.jpg');"></div>
+                <div class="channel-info">
+                    <h4 data-i18n="retwist.salesChannels.europe.title">Europe — 歐洲展售</h4>
+                    <p data-i18n="retwist.salesChannels.europe.description">敬請期待</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exhibitions - 展覽資訊（獨立區塊） -->
+    <section class="exhibitions-section">
+            <div class="section-header">
+                <h3 data-i18n="retwist.exhibitions.title">展覽資訊</h3>
+                <p data-i18n="retwist.exhibitions.description">我們即將參與或過去的展覽與活動（點擊可查看詳細頁面）。</p>
+            </div>
+        <div class="channel-grid exhibitions-grid">
+            <div class="channel-card">
+                <div class="channel-thumb" style="background-image: url('../assets/images/creative_expo-1.jpg')"></div>
+                <div class="channel-info">
+                    <h4>2025 Taiwan Creative Expo</h4>
+                    <h4>2025 台灣文博會</h4>
+                    <p>展期：2025年4月 | 地點：台北</p>
+                    <p>台灣最具代表性的文化創意產業展覽，展示RE:TWIST系列永續設計公仔</p>
+                </div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-thumb" style="background-image: url('../assets/images/ddw25-1.JPG')"></div>
+                <div class="channel-info">
+                    <h4>2025 Dutch Design Week</h4>
+                    <h4>2025 荷蘭設計週</h4>
+                    <p>展期：2025年10月 | 地點：Eindhoven, Netherlands</p>
+                    <p>北歐最大的設計盛會，呈現循環經濟與永續設計的創新理念</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <footer>
         <div class="container">
             <div class="footer-nav">

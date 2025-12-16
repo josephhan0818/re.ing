@@ -97,6 +97,54 @@
         .dropdown-menu { border: none; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); border-radius: 0; }
         .dropdown-item { color: #333333; padding: 0.5rem 1rem; transition: background-color 0.3s ease; }
         .dropdown-item:hover { background-color: #f8f9fa; color: #000000; }
+        
+        /* Video section styling */
+        .video-container {
+            margin-bottom: 3rem;
+            max-width: 400px; /* Limit width for vertical video */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 177.78%; /* 9:16 aspect ratio for vertical video */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: #000;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 0;
+        }
+        
+        .video-description {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .video-description p {
+            color: #666666;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            font-weight: 300;
+        }
+        
+        /* Video responsive adjustments */
+        @media (max-width: 768px) {
+            .video-wrapper { padding-bottom: 177.78%; /* Maintain 9:16 aspect ratio for vertical video */ }
+            .video-container { max-width: 350px; }
+            .video-description p { font-size: 0.85rem; }
+        }
+        
         /* Navigation styling fixes */
         .navbar-toggler {
             border: none;
@@ -284,6 +332,35 @@
                 <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
                     <div class="gallery-item">
                         <img src="../../../assets/images/Minami-4.jpg" alt="NYA-NIWA - View 4" class="gallery-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="common.video">Video</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto" data-aos="fade-up">
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <!-- YouTube Shorts Video Embed -->
+                            <iframe
+                                src="https://www.youtube.com/embed/UCI1Y9sX0bA"
+                                title="HIRONARI MINAMI - Shorts Video"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="video-description">
+                            <p data-i18n="designer.minami.videoDescription">
+                                Watch the creative process by HIRONARI MINAMI
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
