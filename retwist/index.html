@@ -359,6 +359,14 @@
         .poster-hint i {
             color: #ffffff;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+            font-weight: 900 !important;
+            font-style: normal !important;
+            font-variant: normal !important;
+            text-rendering: auto !important;
+            line-height: 1 !important;
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale !important;
         }
 
         .poster-subtitle {
@@ -968,6 +976,38 @@
             display: inline-block !important;
             font-style: normal !important;
         }
+        /* Learn More button for exhibitions */
+        .learn-more-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            margin-top: 1.5rem;
+            background: #000000;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            border: 2px solid #000000;
+            cursor: pointer;
+            text-align: center;
+        }
+        .learn-more-btn:hover {
+            background: #ffffff;
+            color: #000000;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .learn-more-btn i {
+            margin-left: 0.5rem;
+            font-size: 0.9rem;
+            font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+            font-weight: 900 !important;
+            display: inline-block !important;
+            font-style: normal !important;
+        }
         .poster-content {
             position: absolute;
             bottom: 0;
@@ -1100,7 +1140,13 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.5) 100%);
+            background: linear-gradient(to bottom, 
+                rgba(0, 0, 0, 0.85) 0%, 
+                rgba(0, 0, 0, 0.4) 15%, 
+                rgba(0, 0, 0, 0.1) 40%, 
+                rgba(0, 0, 0, 0.1) 60%,
+                rgba(0, 0, 0, 0.4) 85%,
+                rgba(0, 0, 0, 0.85) 100%);
             z-index: 1;
             transition: opacity 0.3s ease;
         }
@@ -1123,12 +1169,12 @@
             background-size: cover;
             background-position: center;
             transition: transform 0.3s ease, filter 0.3s ease;
-            filter: brightness(0.85) contrast(1.1);
+            filter: brightness(0.5) contrast(1.1);
         }
 
         .channel-card:hover .channel-thumb {
             transform: scale(1.08);
-            filter: brightness(1) contrast(1.2);
+            filter: brightness(0.65) contrast(1.2);
         }
 
         .channel-info {
@@ -1148,11 +1194,10 @@
             font-size: 1.9rem;
             font-weight: 500;
             letter-spacing: -0.01em;
-            text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);
-            background: rgba(0, 0, 0, 0.3);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            backdrop-filter: blur(5px);
+            text-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.8),
+                0 4px 8px rgba(0, 0, 0, 0.6),
+                0 8px 16px rgba(0, 0, 0, 0.4);
         }
 
         .channel-info p {
@@ -1400,9 +1445,9 @@
                 <div class="channel-info">
                     <h4 data-i18n="retwist.salesChannels.japan.title">Japan — 日本經銷</h4>
                     <ul>
-                        <li><a href="https://hotolio.jp/" target="_blank" rel="noopener">Hotolio</a></li>
-                        <li><a href="https://kairieguchi.com/" target="_blank" rel="noopener">Kairi Eguchi Studio</a></li>
-                        <li><a href="https://arlequin-japan.com/" target="_blank" rel="noopener">ARLEQUIN</a></li>
+                        <li><a href="https://www.instagram.com/hotolio_/" target="_blank" rel="noopener">Hotolio</a></li>
+                        <li><a href="https://www.instagram.com/weld_osaka/" target="_blank" rel="noopener">WELD DESIGN STORE (Kairi Eguchi Studio)</a></li>
+                        <li><a href="http://arlequin-product.com/" target="_blank" rel="noopener">ARLEQUIN</a></li>
                     </ul>
                     <div class="channel-guide" data-i18n="retwist.salesChannels.guide">點擊名稱可前往合作通路</div>
                 </div>
@@ -1412,9 +1457,9 @@
                 <div class="channel-info">
                     <h4 data-i18n="retwist.salesChannels.taiwan.title">Taiwan — 台灣直營/合作店</h4>
                     <ul>
-                        <li><a href="https://www.dotdesign.com.tw/" target="_blank" rel="noopener">DOT Design Labs 設計風格實驗室</a></li>
-                        <li><a href="https://www.facebook.com/designpin/" target="_blank" rel="noopener">設計點</a></li>
-                        <li><a href="https://www.vaoutdoor.com/" target="_blank" rel="noopener">Va Outdoor</a></li>
+                        <li><a href="https://maps.app.goo.gl/tMHf4d3yYraSsCQbA" target="_blank" rel="noopener">DOT Design Labs 設計風格實驗室</a></li>
+                        <li><a href="https://maps.app.goo.gl/sQJVE91y579P34bm7" target="_blank" rel="noopener">設計點</a></li>
+                        <li><a href="https://www.instagram.com/va20.12/?hl=en" target="_blank" rel="noopener">Va Outdoor</a></li>
                     </ul>
                     <div class="channel-guide" data-i18n="retwist.salesChannels.guide">點擊名稱可前往合作通路</div>
                 </div>
@@ -1439,19 +1484,37 @@
             <div class="channel-card">
                 <div class="channel-thumb" style="background-image: url('../assets/images/creative_expo-1.jpg')"></div>
                 <div class="channel-info">
-                    <h4>2025 Taiwan Creative Expo</h4>
-                    <h4>2025 台灣文博會</h4>
-                    <p>展期：2025年4月 | 地點：台北</p>
-                    <p>台灣最具代表性的文化創意產業展覽，展示RE:TWIST系列永續設計公仔</p>
+                    <h4 data-i18n="retwist.exhibitions.taiwanExpo.title">2025 台灣文博會</h4>
+                    <p data-i18n="retwist.exhibitions.taiwanExpo.info">展期：2025年4月 | 地點：台北</p>
+                    <p data-i18n="retwist.exhibitions.taiwanExpo.desc">台灣最具代表性的文化創意產業展覽，展示RE:TWIST系列永續設計公仔</p>
+                    <a href="https://www.shoppingdesign.com.tw/post/view/12435" target="_blank" rel="noopener" class="learn-more-btn" data-i18n="retwist.exhibitions.learnMore">點我了解更多<i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="channel-card">
                 <div class="channel-thumb" style="background-image: url('../assets/images/ddw25-1.JPG')"></div>
                 <div class="channel-info">
-                    <h4>2025 Dutch Design Week</h4>
-                    <h4>2025 荷蘭設計週</h4>
-                    <p>展期：2025年10月 | 地點：Eindhoven, Netherlands</p>
-                    <p>北歐最大的設計盛會，呈現循環經濟與永續設計的創新理念</p>
+                    <h4 data-i18n="retwist.exhibitions.dutchDesign.title">2025 荷蘭設計週</h4>
+                    <p data-i18n="retwist.exhibitions.dutchDesign.info">展期：2025年10月 | 地點：Eindhoven, Netherlands</p>
+                    <p data-i18n="retwist.exhibitions.dutchDesign.desc">北歐最大的設計盛會，呈現循環經濟與永續設計的創新理念</p>
+                    <a href="https://ddw.nl/en/programme/14170/retwist-recycled-material-and-design-from-taiwan" target="_blank" rel="noopener" class="learn-more-btn" data-i18n="retwist.exhibitions.learnMore">點我了解更多<i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-thumb" style="background-image: url('../assets/images/japan_expo-1.jpg')"></div>
+                <div class="channel-info">
+                    <h4 data-i18n="retwist.exhibitions.circularEconomy.title">2025 循環經濟展</h4>
+                    <p data-i18n="retwist.exhibitions.circularEconomy.info">展期：2025年9月 | 地點：千葉, 日本</p>
+                    <p data-i18n="retwist.exhibitions.circularEconomy.desc">推動循環經濟與永續發展，展示創新綠色科技與環保解決方案</p>
+                    <a href="https://www.oac.gov.tw/ch/home.jsp?id=63&parentpath=&mcustomize=news_view.jsp&dataserno=202509190001" target="_blank" rel="noopener" class="learn-more-btn" data-i18n="retwist.exhibitions.learnMore">點我了解更多<i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="channel-card">
+                <div class="channel-thumb" style="background-image: url('../assets/images/thailand_expo-1.jpg')"></div>
+                <div class="channel-info">
+                    <h4 data-i18n="retwist.exhibitions.indoPacific.titleZh">2025 印太海洋臺泰韌性夥伴研習營</h4>
+                    <p data-i18n="retwist.exhibitions.indoPacific.info">展期：2025年11月 | 地點：曼谷, 泰國</p>
+                    <p data-i18n="retwist.exhibitions.indoPacific.desc">促進印太地區海洋永續發展，深化台泰雙邊合作與韌性夥伴關係</p>
+                    <a href="https://www.oac.gov.tw/ch/home.jsp?id=63&parentpath=0,6&mcustomize=news_view.jsp&dataserno=202511050001" target="_blank" rel="noopener" class="learn-more-btn" data-i18n="retwist.exhibitions.learnMore">點我了解更多<i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -1515,10 +1578,35 @@
                     "retwist.concept.point2": "Cross-Cultural Designer Collaboration",
                     "retwist.concept.point3": "Promoting Circular Economy Concepts",
                     "retwist.concept.point4": "Combining Entertainment and Environmental Education",
+                    "retwist.exhibitions.learnMore": "Learn More",
+                    "retwist.exhibitions.taiwanExpo.title": "2025 Taiwan Creative Expo",
+                    "retwist.exhibitions.taiwanExpo.info": "Date: April 2025 | Location: Taipei",
+                    "retwist.exhibitions.taiwanExpo.desc": "Taiwan's most representative cultural and creative industry exhibition, showcasing RE:TWIST series sustainable design figures",
+                    "retwist.exhibitions.dutchDesign.title": "2025 Dutch Design Week",
+                    "retwist.exhibitions.dutchDesign.info": "Date: October 2025 | Location: Eindhoven, Netherlands",
+                    "retwist.exhibitions.dutchDesign.desc": "Northern Europe's largest design event, presenting circular economy and sustainable design innovation concepts",
+                    "retwist.exhibitions.circularEconomy.title": "2025 Circular Economy EXPO",
+                    "retwist.exhibitions.circularEconomy.titleZh": "2025 Circular Economy EXPO",
+                    "retwist.exhibitions.circularEconomy.info": "Date: September 2025 | Location: Chiba, Japan",
+                    "retwist.exhibitions.circularEconomy.desc": "Promoting circular economy and sustainable development, showcasing innovative green technologies and environmental solutions",
+                    "retwist.exhibitions.indoPacific.title": "2025 Indo-Pacific Ocean Taiwan-Thailand Resilience Partnership Workshop",
+                    "retwist.exhibitions.indoPacific.titleZh": "2025 印太海洋臺泰韌性夥伴研習營",
+                    "retwist.exhibitions.indoPacific.info": "Date: November 2025 | Location: Bangkok, Thailand",
+                    "retwist.exhibitions.indoPacific.desc": "Promoting marine sustainability in the Indo-Pacific region, deepening Taiwan-Thailand bilateral cooperation and resilience partnership",
+                    "retwist.salesChannels.title": "Sales Channels",
+                    "retwist.salesChannels.description": "Our current partner retail locations worldwide.",
+                    "retwist.salesChannels.japan.title": "Japan — Japanese Distribution",
+                    "retwist.salesChannels.taiwan.title": "Taiwan — Direct & Partner Stores",
+                    "retwist.salesChannels.europe.title": "Europe — European Exhibition & Sales",
+                    "retwist.salesChannels.europe.description": "Coming Soon",
+                    "retwist.salesChannels.guide": "Click on names to visit partner channels",
+                    "retwist.exhibitions.title": "Exhibition Information",
+                    "retwist.exhibitions.description": "Our upcoming or past exhibitions and events (click to view detailed pages).",
                     "nav.mission": "Our Mission",
                     "nav.process": "Our Process",
                     "nav.services": "Our Services",
                     "nav.retwist": "RE:TWIST Project",
+                    "nav.sustainabilityCases": "Sustainability Cases",
                     "nav.whyChooseUs": "Why Choose Us",
                     "nav.ourClients": "Our Clients",
                     "nav.contact": "Contact Us",
@@ -1543,10 +1631,35 @@
                     "retwist.concept.point2": "跨文化設計師合作",
                     "retwist.concept.point3": "推動循環經濟理念",
                     "retwist.concept.point4": "結合娛樂與環境教育",
+                    "retwist.exhibitions.learnMore": "點我了解更多",
+                    "retwist.exhibitions.taiwanExpo.title": "2025 台灣文博會",
+                    "retwist.exhibitions.taiwanExpo.info": "展期：2025年4月 | 地點：台北",
+                    "retwist.exhibitions.taiwanExpo.desc": "台灣最具代表性的文化創意產業展覽，展示RE:TWIST系列永續設計公仔",
+                    "retwist.exhibitions.dutchDesign.title": "2025 荷蘭設計週",
+                    "retwist.exhibitions.dutchDesign.info": "展期：2025年10月 | 地點：Eindhoven, Netherlands",
+                    "retwist.exhibitions.dutchDesign.desc": "北歐最大的設計盛會，呈現循環經濟與永續設計的創新理念",
+                    "retwist.exhibitions.circularEconomy.title": "2025 循環經濟展",
+                    "retwist.exhibitions.circularEconomy.titleZh": "2025 循環經濟展",
+                    "retwist.exhibitions.circularEconomy.info": "展期：2025年9月 | 地點：千葉, 日本",
+                    "retwist.exhibitions.circularEconomy.desc": "推動循環經濟與永續發展，展示創新綠色科技與環保解決方案",
+                    "retwist.exhibitions.indoPacific.title": "2025 Indo-Pacific Ocean Taiwan-Thailand Resilience Partnership Workshop",
+                    "retwist.exhibitions.indoPacific.titleZh": "2025 印太海洋臺泰韌性夥伴研習營",
+                    "retwist.exhibitions.indoPacific.info": "展期：2025年11月 | 地點：曼谷, 泰國",
+                    "retwist.exhibitions.indoPacific.desc": "促進印太地區海洋永續發展，深化台泰雙邊合作與韌性夥伴關係",
+                    "retwist.salesChannels.title": "銷售通路",
+                    "retwist.salesChannels.description": "我們目前在世界各地的合作販售點。",
+                    "retwist.salesChannels.japan.title": "Japan — 日本經銷",
+                    "retwist.salesChannels.taiwan.title": "Taiwan — 台灣直營/合作店",
+                    "retwist.salesChannels.europe.title": "Europe — 歐洲展售",
+                    "retwist.salesChannels.europe.description": "敬請期待",
+                    "retwist.salesChannels.guide": "點擊名稱可前往合作通路",
+                    "retwist.exhibitions.title": "展覽資訊",
+                    "retwist.exhibitions.description": "我們即將參與或過去的展覽與活動（點擊可查看詳細頁面）。",
                     "nav.mission": "我們的使命",
                     "nav.process": "我們的流程",
                     "nav.services": "我們的服務",
                     "nav.retwist": "RE:TWIST 轉圈圈計畫",
+                    "nav.sustainabilityCases": "永續設計案例",
                     "nav.whyChooseUs": "為何選擇我們",
                     "nav.ourClients": "我們的客戶",
                     "nav.contact": "聯絡我們",
@@ -1571,10 +1684,35 @@
                     "retwist.concept.point2": "異文化デザイナーコラボレーション",
                     "retwist.concept.point3": "循環経済概念の推進",
                     "retwist.concept.point4": "エンターテインメントと環境教育の結合",
+                    "retwist.exhibitions.learnMore": "詳細はこちら",
+                    "retwist.exhibitions.taiwanExpo.title": "2025 台湾クリエイティブエキスポ",
+                    "retwist.exhibitions.taiwanExpo.info": "会期：2025年4月 | 場所：台北",
+                    "retwist.exhibitions.taiwanExpo.desc": "台湾で最も代表的な文化クリエイティブ産業展、RE:TWISTシリーズの持続可能なデザインフィギュアを展示",
+                    "retwist.exhibitions.dutchDesign.title": "2025 ダッチデザインウィーク",
+                    "retwist.exhibitions.dutchDesign.info": "会期：2025年10月 | 場所：Eindhoven, Netherlands",
+                    "retwist.exhibitions.dutchDesign.desc": "北欧最大のデザインイベント、循環経済と持続可能なデザインの革新的コンセプトを提示",
+                    "retwist.exhibitions.circularEconomy.title": "2025 循環経済展",
+                    "retwist.exhibitions.circularEconomy.titleZh": "2025 循環経済展",
+                    "retwist.exhibitions.circularEconomy.info": "会期：2025年9月 | 場所：千葉, 日本",
+                    "retwist.exhibitions.circularEconomy.desc": "循環経済と持続可能な発展を推進し、革新的なグリーンテクノロジーと環境ソリューションを展示",
+                    "retwist.exhibitions.indoPacific.title": "2025 インド太平洋海洋台湾タイレジリエンスパートナーシップワークショップ",
+                    "retwist.exhibitions.indoPacific.titleZh": "2025 インド太平洋海洋台湾タイレジリエンスパートナーシップワークショップ",
+                    "retwist.exhibitions.indoPacific.info": "会期：2025年11月 | 場所：バンコク, タイ",
+                    "retwist.exhibitions.indoPacific.desc": "インド太平洋地域の海洋持続可能性を促進し、台湾とタイの二国間協力とレジリエンスパートナーシップを深化",
+                    "retwist.salesChannels.title": "販売チャネル",
+                    "retwist.salesChannels.description": "世界中の現在のパートナー販売拠点。",
+                    "retwist.salesChannels.japan.title": "Japan — 日本販売",
+                    "retwist.salesChannels.taiwan.title": "Taiwan — 直営・パートナーストア",
+                    "retwist.salesChannels.europe.title": "Europe — ヨーロッパ展示・販売",
+                    "retwist.salesChannels.europe.description": "近日公開",
+                    "retwist.salesChannels.guide": "名前をクリックしてパートナーチャネルにアクセス",
+                    "retwist.exhibitions.title": "展示情報",
+                    "retwist.exhibitions.description": "今後または過去の展示会とイベント（クリックして詳細ページを表示）。",
                     "nav.mission": "私たちの使命",
                     "nav.process": "私たちのプロセス",
                     "nav.services": "私たちのサービス",
                     "nav.retwist": "RE:TWIST プロジェクト",
+                    "nav.sustainabilityCases": "持続可能性ケース",
                     "nav.whyChooseUs": "選ばれる理由",
                     "nav.ourClients": "導入事例",
                     "nav.contact": "お問い合わせ",
@@ -1598,11 +1736,37 @@
                     "retwist.concept.point1": "100% Gemaakt van Gerecyclede Materialen",
                     "retwist.concept.point2": "Interculturele Ontwerper Samenwerking",
                     "retwist.concept.point3": "Circulaire Economie Concepten Bevorderen",
+                    "retwist.concept.point4": "Entertainment en Milieu-educatie Combineren",
+                    "retwist.exhibitions.learnMore": "Meer Informatie",
+                    "retwist.exhibitions.taiwanExpo.title": "2025 Taiwan Creatieve Expo",
+                    "retwist.exhibitions.taiwanExpo.info": "Datum: April 2025 | Locatie: Taipei",
+                    "retwist.exhibitions.taiwanExpo.desc": "Taiwan's meest representatieve culturele en creatieve industrie-tentoonstelling, met RE:TWIST serie duurzame ontwerpfiguren",
+                    "retwist.exhibitions.dutchDesign.title": "2025 Dutch Design Week",
+                    "retwist.exhibitions.dutchDesign.info": "Datum: Oktober 2025 | Locatie: Eindhoven, Nederland",
+                    "retwist.exhibitions.dutchDesign.desc": "Noord-Europa's grootste ontwerpevenement, met circulaire economie en duurzame ontwerpinnovatieconcepten",
+                    "retwist.exhibitions.circularEconomy.title": "2025 Circulaire Economie EXPO",
+                    "retwist.exhibitions.circularEconomy.titleZh": "2025 Circulaire Economie EXPO",
+                    "retwist.exhibitions.circularEconomy.info": "Datum: September 2025 | Locatie: Chiba, Japan",
+                    "retwist.exhibitions.circularEconomy.desc": "Bevordering van circulaire economie en duurzame ontwikkeling, het tonen van innovatieve groene technologieën en milieuoplossingen",
+                    "retwist.exhibitions.indoPacific.title": "2025 Indo-Pacific Ocean Taiwan-Thailand Veerkracht Partnerschap Workshop",
+                    "retwist.exhibitions.indoPacific.titleZh": "2025 Indo-Pacific Ocean Taiwan-Thailand Veerkracht Partnerschap Workshop",
+                    "retwist.exhibitions.indoPacific.info": "Datum: November 2025 | Locatie: Bangkok, Thailand",
+                    "retwist.exhibitions.indoPacific.desc": "Bevordering van duurzaamheid van de oceaan in de Indo-Pacific regio, verdieping van bilaterale samenwerking tussen Taiwan en Thailand en veerkracht partnerschap",
+                    "retwist.salesChannels.title": "Verkoopkanalen",
+                    "retwist.salesChannels.description": "Onze huidige partner verkooplocaties wereldwijd.",
+                    "retwist.salesChannels.japan.title": "Japan — Japanse Distributie",
+                    "retwist.salesChannels.taiwan.title": "Taiwan — Directe & Partner Winkels",
+                    "retwist.salesChannels.europe.title": "Europe — Europese Tentoonstelling & Verkoop",
+                    "retwist.salesChannels.europe.description": "Binnenkort Beschikbaar",
+                    "retwist.salesChannels.guide": "Klik op namen om partnerkanalen te bezoeken",
+                    "retwist.exhibitions.title": "Tentoonstellingsinformatie",
+                    "retwist.exhibitions.description": "Onze komende of eerdere tentoonstellingen en evenementen (klik om gedetailleerde pagina's te bekijken).",
                     "retwist.concept.point4": "Entertainment en Milieueducatie Combineren",
                     "nav.mission": "Onze Missie",
                     "nav.process": "Ons Proces",
                     "nav.services": "Onze Diensten",
                     "nav.retwist": "RE:TWIST Project",
+                    "nav.sustainabilityCases": "Duurzaamheidscases",
                     "nav.whyChooseUs": "Waarom Voor Ons Kiezen",
                     "nav.ourClients": "Onze Klanten",
                     "nav.contact": "Contacteer Ons",

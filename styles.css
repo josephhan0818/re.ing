@@ -1232,6 +1232,8 @@ i[class*="fa-"] {
 
 .case-card-item {
   min-width: 380px;
+  max-width: 380px;
+  width: 380px;
   flex-shrink: 0;
 }
 
@@ -1294,7 +1296,7 @@ i[class*="fa-"] {
   white-space: normal;
   word-break: break-word;
   display: -webkit-box;
-  -webkit-line-clamp: 1; /* single line */
+  -webkit-line-clamp: 2; /* allow up to 2 lines */
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -1390,6 +1392,8 @@ i[class*="fa-"] {
   
   .case-card-item {
     min-width: 280px;
+    max-width: 280px;
+    width: 280px;
   }
   
   .case-card img {
@@ -1400,4 +1404,57 @@ i[class*="fa-"] {
     width: 35px;
     height: 35px;
   }
+}
+
+/* Prevent Dutch banner text from wrapping like English */
+html[data-lang="nl"] header h1,
+html[data-lang="nl"] header p {
+  white-space: nowrap;
+}
+
+/* Significantly reduce Dutch banner size to fit on one line */
+html[data-lang="nl"] header h1 {
+  font-size: 2.4rem;
+}
+
+/* Reduce Dutch subtitle font size to prevent wrapping */
+html[data-lang="nl"] header p {
+  font-size: 0.9rem;
+  max-width: none;
+  padding: 0 1rem;
+}
+
+/* Allow full-width container for Dutch to help keep text on one line */
+html[data-lang="nl"] header .container {
+  max-width: 100%;
+  padding: 2rem 1rem;
+}
+
+@media (max-width: 768px) {
+  html[data-lang="nl"] header h1 {
+    font-size: 1.8rem;
+  }
+  html[data-lang="nl"] header p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  html[data-lang="nl"] header h1 {
+    font-size: 1.5rem;
+  }
+  html[data-lang="nl"] header p {
+    font-size: 0.75rem;
+  }
+}
+
+/* Dutch: keep multi-word phrases on one line */
+html[data-lang="nl"] .nav-link,
+html[data-lang="nl"] .section-title,
+html[data-lang="nl"] .sub-title,
+html[data-lang="nl"] h2,
+html[data-lang="nl"] h3,
+html[data-lang="nl"] .navbar-nav li,
+html[data-lang="nl"] .principle-card h3 {
+  white-space: nowrap;
 }

@@ -75,6 +75,48 @@ header p {
   opacity: 0.9;
 }
 
+/* Dutch: keep banner text on one line similar to English */
+html[data-lang="nl"] header h1,
+html[data-lang="nl"] header p {
+  white-space: nowrap;
+}
+html[data-lang="nl"] header h1 {
+  font-size: 2.4rem;
+}
+html[data-lang="nl"] header p {
+  font-size: 0.9rem;
+  max-width: none;
+  padding: 0 1rem;
+}
+html[data-lang="nl"] header .container {
+  max-width: 100%;
+  padding: 2rem 1rem;
+}
+@media (max-width: 768px) {
+  html[data-lang="nl"] header h1 {
+    font-size: 1.8rem;
+  }
+  html[data-lang="nl"] header p {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 576px) {
+  html[data-lang="nl"] header h1 {
+    font-size: 1.5rem;
+  }
+  html[data-lang="nl"] header p {
+    font-size: 0.75rem;
+  }
+}
+
+/* Dutch: keep multi-word phrases on one line */
+html[data-lang="nl"] .nav-link,
+html[data-lang="nl"] .section-title,
+html[data-lang="nl"] h2,
+html[data-lang="nl"] h3 {
+  white-space: nowrap;
+}
+
 .navbar-brand img {
   height: 48px;
   transition: transform 0.3s ease;
