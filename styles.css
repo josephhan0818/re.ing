@@ -177,15 +177,41 @@ header {
   justify-content: center;
   text-align: center;
   padding: 2rem;
-  background: url('https://storage.googleapis.com/goldenpin/award_work_pic/image/4956/detail_image_76b850.jpeg') no-repeat center center fixed;
+  background: url('https://storage.googleapis.com/goldenpin/award_work_pic/image/4956/detail_image_76b850.jpeg') no-repeat center center;
   background-size: cover;
+  background-attachment: scroll;
   background-color: #0a1520;
 }
 
-  @media (max-width: 768px) {
+  /* 桌機大螢幕 - 使用 fixed 背景 */
+  @media (min-width: 1367px) {
+    header {
+      background-attachment: fixed;
+    }
+  }
+
+  /* 平板橫向（包含高解析度平板如 iPad Pro）- 特別處理以避免圖片過大 */
+  @media (max-width: 1366px) and (orientation: landscape) and (max-height: 1024px) {
+    header {
+      min-height: 80vh;
+      background-size: 100% 100% !important;
+      background-position: center center !important;
+      background-attachment: scroll !important;
+    }
+  }
+
+  /* 平板直向 */
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    header {
+      background-size: cover;
+      background-position: center center;
+    }
+  }
+
+  /* 手機裝置 */
+  @media (max-width: 767px) {
     header {
       min-height: 50vh;
-      background-attachment: scroll;
       background-position: center top;
       background-size: 180% auto;
       padding: 2.5rem 0 2rem 0;
