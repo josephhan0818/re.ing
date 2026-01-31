@@ -1,6 +1,7 @@
 // Language translations
 const translations = {
   en: {
+    "nav.aboutReing": "About re-ing",
     "nav.mission": "Our Mission",
     "nav.process": "Our Process",
     "nav.sustainabilityCases": "Sustainability Cases",
@@ -223,6 +224,7 @@ const translations = {
     "srPlatform.subtitle": "SR Platform is an open product traceability disclosure platform. Our goal is to empower businesses committed to creating sustainable products by enabling consumers to visualize and appreciate the value of a circular economy."
   },
   zh: {
+    "nav.aboutReing": "關於re-ing",
     "nav.mission": "我們的使命",
     "nav.process": "我們的流程",
     "nav.sustainabilityCases": "永續設計案例",
@@ -482,6 +484,7 @@ const translations = {
     "srPlatform.subtitle": "SR Platform 是一個公開的產品履歷揭露平台，我們希望更多追求永續價值，致力於製作永續商品的商家，藉由此平台能夠讓消費者看見並認同循環經濟的價值。"
   },
   nl: {
+    "nav.aboutReing": "Over re-ing",
     "nav.mission": "Onze Missie",
     "nav.process": "Ons Proces",
     "nav.sustainabilityCases": "Duurzaamheidscases",
@@ -742,6 +745,7 @@ const translations = {
     "srPlatform.subtitle": "SR Platform is een open platform voor het openbaar maken van product-traceerbaarheid. Ons doel is bedrijven die zich inzetten voor het creëren van duurzame producten in staat te stellen dat consumenten de waarde van een circulaire economie kunnen zien en waarderen."
   },
   ja: {
+    "nav.aboutReing": "re-ingについて",
     "nav.mission": "私たちの使命",
     "nav.process": "私たちのプロセス",
     "nav.sustainabilityCases": "サステナビリティ事例",
