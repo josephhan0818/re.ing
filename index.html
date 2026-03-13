@@ -1,261 +1,663 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Circular Design Action Guide: Taiwan x Europe</title>
-    <meta
-      name="description"
-      content="Circular Design Action Guide: Taiwan x Europe — an open-source action guide and matchmaking platform for circular economy transition."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/png" href="./assets/logo/fav_icon.png" />
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <div class="fx-layer" aria-hidden="true">
-      <span class="blob blob-a"></span>
-      <span class="blob blob-b"></span>
-      <span class="blob blob-c"></span>
-      <span class="grain"></span>
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PHGEFZW3HZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PHGEFZW3HZ');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="re-ing: Promoting sustainable design and materials for a circular economy. Explore eco-friendly products and innovative solutions.">
+  <meta name="keywords" content="sustainability, circular economy, eco-friendly materials, bamboo fiber, recycled plastics, sustainable design">
+  <meta name="author" content="re-ing Team">
+  <meta property="og:title" content="re-ing: Sustainable Design Solutions">
+  <meta property="og:description" content="Innovating with eco-friendly materials for a better planet.">
+  <meta property="og:image" content="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png">
+  <meta property="og:url" content="https://josephhan0818.github.io/re.ing/">
+  <title>re-ing: Sustainable Design Solutions</title>
+  <link rel="icon" href="https://github.com/josephhan0818/re.ing/raw/main/assets/re-ing Logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    
+    <!-- 額外載入 FontAwesome 的 webfont -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2" rel="preload" as="font" type="font/woff2" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2" rel="preload" as="font" type="font/woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" alt="re-ing Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about-reing" data-i18n="nav.aboutReing">About re-ing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sustainability-cases" data-i18n="nav.sustainabilityCases">永續設計案例</a></li>
+                    <li class="nav-item"><a class="nav-link" href="retwist" data-i18n="nav.retwist">RE:TWIST Project</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="nav.contact">Contact Us</a></li>
+                    <li class="nav-item dropdown lang-dropdown">
+                        <a class="lang-toggle dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="assets/images/language.png" alt="Language Icon" style="width: 20px; height: auto;">
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('en'); return false;">English</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('zh'); return false;">中文</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('nl'); return false;">Nederlands</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('ja'); return false;">日本語</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+  <header>
+    <div class="container">
+      <h1 data-i18n="header.title">re-ing: Sustainable Design Solutions</h1>
+      <p data-i18n="header.subtitle">Innovating with eco-friendly materials for a better planet.</p>
     </div>
+  </header>
 
-    <header class="site-header">
-      <nav class="container nav-bar">
-        <a href="./index.html" class="logo" aria-label="Go to homepage">
-          <img src="./assets/logo/cg_logo.png" alt="Circular Guide logo" class="logo-image" />
-          <span class="logo-text">Circular Guide TW-EU</span>
-        </a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-          <i data-lucide="menu"></i>
+  <!-- Sustainability Cases Carousel -->
+  <section id="sustainability-cases-preview" class="cases-carousel-section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up"><span data-i18n="nav.sustainabilityCases">永續設計案例</span></h2>
+      <p class="section-content" data-aos="fade-up" data-aos-delay="100" data-i18n="page.sustainabilityCases.subheader">探索我們如何將廢棄物轉化為有價值的產品。</p>
+      <div class="cases-carousel-wrapper" data-aos="fade-up" data-aos-delay="200">
+        <button class="carousel-nav carousel-prev" aria-label="Previous">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
-        <div class="nav-links" id="navLinks">
-          <a href="#cases" data-i18n="navCases">Case Studies</a>
-          <a href="#analysis" data-i18n="navAnalysis">Capability Analysis</a>
-          <a href="#matching" data-i18n="navMatching">Resource Matching</a>
-          <a href="#media" data-i18n="navMedia">Podcast/Media</a>
-          <button class="lang-toggle" id="langToggle" aria-label="Language Toggle">
-            EN / ZH-TW
-          </button>
-        </div>
-      </nav>
-    </header>
-
-    <main>
-      <section class="hero container">
-        <div class="hero-video-stage card-tilt" id="heroVideoStage">
-          <video class="hero-video active" id="heroVideoA" muted loop playsinline preload="metadata"></video>
-          <video class="hero-video" id="heroVideoB" muted loop playsinline preload="metadata"></video>
-          <div class="hero-overlay"></div>
-          <div class="hero-video-placeholder" id="heroVideoPlaceholder" data-i18n="heroVideoEmpty">
-            1920 × 1080 video slot reserved. Add files to assets/videos and update manifest.json.
-          </div>
-          <div class="hero-copy hero-content">
-            <p class="eyebrow" data-i18n="heroEyebrow">從臺灣到歐洲：循環產業行動指南</p>
-            <h1 data-i18n="heroTitle">
-              Bridging Taiwan's Manufacturing Power with Europe's Sustainable Design.
-            </h1>
-            <p class="subheadline" data-i18n="heroSubtitle">
-              An open-source action guide and matchmaking platform for the circular economy transition.
-            </p>
-            <div class="hero-cta">
-              <a href="#cases" class="btn btn-primary" data-i18n="ctaPrimary">Explore European Cases</a>
-              <a href="#matching" class="btn btn-secondary" data-i18n="ctaSecondary">Find Taiwan Partners</a>
+        <div class="cases-carousel-container">
+          <div class="cases-carousel">
+            <!-- Case Card 1 -->
+            <div class="case-card-item">
+              <div class="case-card">
+                <img src="assets/images/sea_package_1.jpg" alt="Ocean-Friendly Gift Box" loading="lazy">
+                <div class="case-card-content">
+                  <h3 data-i18n="oceanGiftBox.name">海廢再生禮盒</h3>
+                  <p data-i18n="oceanGiftBox.subtitle">以「海」為名，展開友善的祝福</p>
+                  <a href="sustainability-cases/ocean-gift-box/" class="case-btn" data-i18n="common.learnMore">了解更多</a>
+                </div>
+              </div>
             </div>
-            <p class="hero-video-note" data-i18n="heroVideoHint">
-              
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="mission-section container" id="mission">
-        <div class="mission-card card-tilt">
-          <div class="section-title-wrap">
-            <h2 data-i18n="missionTitle">動機與計劃目標</h2>
-          </div>
-          <div class="mission-body">
-            <p data-i18n="missionP1">
-              全球永續轉型浪潮下，歐洲為永續設計領航者。台灣擁有卓越的永續材料與設計力，卻缺乏一個實體、長期的歐洲交流平台，導致商機與合作多為短期，難以深化。
-            </p>
-            <p data-i18n="missionP2">
-              我一直以來都對於推廣創新且有益的事物有巨大的熱忱。如今在工作期間，我意識到自己希望將台灣的好東西跟歐洲分享，也希望歐洲永續領域的資訊能更無礙地與台灣產業交流。
-            </p>
-            <p data-i18n="missionP3">
-              因此，我打算製作一個「從台灣到歐洲：循環產業指南」的網路公開資訊平台，讓大眾更認識永續設計領域，也更容易找到可以合作對應的資源。
-            </p>
-            <p data-i18n="missionP4">
-              我構思了為期三個月的「歐洲永續設計產業深度訪談企劃」，希望藉由補助計畫推動企劃不可或缺的第一步。
-            </p>
-            <h3 data-i18n="goalTitle">計劃目標</h3>
-            <p data-i18n="goalP1">
-              本企劃將約訪優秀的歐洲永續產業專家，透過永續設計師與資源單位訪談，記錄其故事於平台曝光，提供歐亞循環產業雙向交流管道。
-            </p>
-            <p data-i18n="goalP2">
-              同步更新網站資料，預計於 2026 年 12 月推出第一版公開資訊網頁，提供大眾免費預覽與專家媒合機會。
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="why-section container" id="analysis">
-        <h2 data-i18n="whyTitle">Why this platform matters</h2>
-        <div class="why-grid">
-          <article class="why-card">
-            <div class="icon-wrap"><i data-lucide="lightbulb"></i></div>
-            <h3 data-i18n="insightTitle">Insight</h3>
-            <p data-i18n="insightDesc">Deep-dive interviews with Dutch sustainability pioneers.</p>
-          </article>
-          <article class="why-card">
-            <div class="icon-wrap"><i data-lucide="chart-column"></i></div>
-            <h3 data-i18n="analysisTitle">Analysis</h3>
-            <p data-i18n="analysisDesc">Practical roadmap analysis for traditional industries.</p>
-          </article>
-          <article class="why-card">
-            <div class="icon-wrap"><i data-lucide="link-2"></i></div>
-            <h3 data-i18n="connectionTitle">Connection</h3>
-            <p data-i18n="connectionDesc">Matching Taiwan's recycled materials with EU design needs.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="database-section container" id="cases">
-        <div class="section-title-wrap">
-          <h2 data-i18n="dbTitle">European Case Studies & Capability Analysis</h2>
-          <p data-i18n="dbSubtitle">Interview targets and ecosystem capabilities</p>
-        </div>
-        <div class="card-grid">
-          <article class="case-card">
-            <figure class="case-media">
-              <img src="./assets/images/professional-portrait-photo-of-better-future-fac-2026-02-25T06-06-02-657Z.jpg" alt="Better Future Factory profile" loading="lazy" />
-            </figure>
-            <p class="tag">Upcycling / Design</p>
-            <h3>Better Future Factory</h3>
-            <p data-i18n="card1">Capability: Turning waste into products.</p>
-            <p class="unit-intro" data-i18n="card1Intro">A design-led pioneer turning circular prototypes into market-ready products.</p>
-          </article>
-          <article class="case-card">
-            <figure class="case-media">
-              <img src="./assets/images/professional-portrait-photo-of-plastic-industrie-2026-02-25T06-06-15-777Z.jpg" alt="Plastic Industrie Utrecht profile" loading="lazy" />
-            </figure>
-            <p class="tag">Manufacturing / Transformation</p>
-            <h3>Plastic Industrie Utrecht</h3>
-            <p data-i18n="card2">Capability: Mass production with bio-materials.</p>
-            <p class="unit-intro" data-i18n="card2Intro">An industrial partner translating bio-based materials into scalable production lines.</p>
-          </article>
-          <article class="case-card">
-            <figure class="case-media">
-              <img src="./assets/images/professional-portrait-photo-representing-holland-2026-02-25T06-06-28-458Z.jpg" alt="Holland Circular Hotspot profile" loading="lazy" />
-            </figure>
-            <p class="tag">Policy / Government</p>
-            <h3>Holland Circular Hotspot</h3>
-            <p data-i18n="card3">Capability: Circular economy ecosystem building.</p>
-            <p class="unit-intro" data-i18n="card3Intro">A key ecosystem connector aligning policy, investment, and circular action.</p>
-          </article>
-          <article class="case-card">
-            <figure class="case-media">
-              <img src="./assets/images/caroli.jpg" alt="Caroli Buitenhuis profile" loading="lazy" />
-            </figure>
-            <p class="tag">Material Lab</p>
-            <h3>Caroli Buitenhuis</h3>
-            <p data-i18n="card4">Capability: Bio-resource prototypes.</p>
-            <p class="unit-intro" data-i18n="card4Intro">A material lab exploring bio-resource experiments for next-generation design.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="interview-section container" id="interview">
-        <div class="section-title-wrap">
-          <h2 data-i18n="interviewTitle">Interview Spotlight</h2>
-          <p data-i18n="interviewSubtitle">Professional profile carousel of interview units and one-line positioning.</p>
-        </div>
-
-        <div class="interview-carousel card-tilt" id="interviewCarousel">
-          <figure class="interview-photo-wrap">
-            <img id="interviewPhoto" src="./assets/images/professional-portrait-photo-of-better-future-fac-2026-02-25T06-06-02-657Z.jpg" alt="Interview profile" loading="lazy" />
-          </figure>
-          <div class="interview-meta">
-            <p class="interview-tag" id="interviewTag">Upcycling / Design</p>
-            <h3 id="interviewName">Better Future Factory</h3>
-            <p class="interview-quote" id="interviewQuote">Turning waste streams into meaningful products with measurable circular value.</p>
-            <div class="carousel-controls">
-              <button class="btn btn-secondary carousel-btn" id="interviewPrev" type="button" data-i18n="carouselPrev">Previous</button>
-              <button class="btn btn-primary carousel-btn" id="interviewNext" type="button" data-i18n="carouselNext">Next</button>
+            <!-- Add more case cards here as they become available -->
+            <!-- Re:TWIST Card -->
+            <div class="case-card-item">
+              <div class="case-card">
+                <img src="assets/images/banner-1.png" alt="RE:TWIST 轉圈圈計畫" loading="lazy">
+                <div class="case-card-content">
+                  <h3 data-i18n="retwist.name">Re:TWIST 轉圈圈計畫</h3>
+                  <p data-i18n="retwist.subtitle">循環設計與轉動創新，探索回收材料的新可能。</p>
+                  <a href="retwist/" class="case-btn" data-i18n="common.learnMore">了解更多</a>
+                </div>
+              </div>
+            </div>
+            <!-- SR MARK Case Card -->
+            <div class="case-card-item">
+              <div class="case-card">
+                <img src="https://srmark.com/wp-content/uploads/2023/10/cropped-th.png" alt="SR MARK Sustainable and Recycle Platform" loading="lazy">
+                <div class="case-card-content">
+                  <h3 data-i18n="srPlatform.name">SR MARK Sustainable and Recycle Platform</h3>
+                  <p data-i18n="srPlatform.subtitle">SR Platform is an open product traceability disclosure platform. Our goal is to empower businesses committed to creating sustainable products by enabling consumers to visualize and appreciate the value of a circular economy.</p>
+                  <a href="https://srmark.com/en/" class="case-btn" data-i18n="common.learnMore" target="_blank" rel="noopener">了解更多</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+        <button class="carousel-nav carousel-next" aria-label="Next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+      <div class="view-all-cases" data-aos="fade-up" data-aos-delay="300">
+        <a href="sustainability-cases/" class="btn-view-all" data-i18n="common.viewAll">查看全部案例</a>
+      </div>
+    </div>
+  </section>
 
-      <section class="generated-section container" id="generatedVisuals">
-        <div class="section-title-wrap">
-          <h2 data-i18n="generatedTitle">Organic Visual Lab</h2>
-          <p data-i18n="generatedSubtitle">
-            AI-generated visuals aligned with circular material transition and tactile product storytelling.
-          </p>
-        </div>
-        <div class="generated-grid" id="generatedGrid"></div>
-      </section>
-
-      <section class="matching-section container" id="matching">
-        <div class="section-title-wrap">
-          <h2 data-i18n="matchTitle">Resource Matching Simulation</h2>
-          <p data-i18n="matchSubtitle">Preview of the industrial matchmaking workflow</p>
-        </div>
-        <div class="search-tool">
-          <div class="field-group">
-            <label for="role" data-i18n="fieldRole">I am a...</label>
-            <input id="role" type="text" value="Designer" />
-          </div>
-          <div class="field-group">
-            <label for="need" data-i18n="fieldNeed">Looking for...</label>
-            <input id="need" type="text" value="Recycled Plastic Supplier" />
-          </div>
-          <button class="btn btn-primary" id="matchBtn" data-i18n="matchBtn">Run Match</button>
-          <div class="match-result" id="matchResult" data-i18n="matchResult">
-            Match Found: Taiwan Recycled Material Co. + Dutch Design Studio.
+  <section id="mission">
+    <h2 class="section-title" data-aos="fade-up"><span data-i18n="mission.title">Our Mission</span></h2>
+    <p class="section-content" data-aos="fade-up" data-aos-delay="100" data-i18n="mission.content">
+      At re-ing, we are committed to creating a sustainable future through innovative design and responsible material sourcing.
+    </p>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="principle-card card-shadow">
+            <i class="fas fa-leaf"></i>
+            <h3 data-i18n="mission.principles.sustainableDesign.title">Sustainable Design</h3>
+            <p data-i18n="mission.principles.sustainableDesign.content">
+              We focus on sustainable design, using recyclable and plastic-free materials to minimize environmental impact and promote a circular economy.
+            </p>
           </div>
         </div>
-      </section>
-
-      <section class="media-section container" id="media">
-        <div class="section-title-wrap">
-          <h2 data-i18n="mediaTitle">Podcast & Articles</h2>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="principle-card card-shadow">
+            <i class="fas fa-industry"></i>
+            <h3 data-i18n="mission.principles.taiwaneseExpertise.title">Taiwanese Expertise</h3>
+            <p data-i18n="mission.principles.taiwaneseExpertise.content">
+              We partner with Taiwan’s leading material manufacturers, leveraging their extensive experience and patented technologies to deliver high-quality sustainable materials.
+            </p>
+          </div>
         </div>
-        <div class="media-grid">
-          <article class="media-card">
-            <h3 data-i18n="podcastTitle">Ep.1: Secrets of Blue City Rotterdam.</h3>
-            <div class="audio-mockup">
-              <button aria-label="Play episode"><i data-lucide="play"></i></button>
-              <div class="audio-bar"><span></span></div>
-            </div>
-          </article>
-          <article class="media-card">
-            <h3 data-i18n="articleTitle">Opinion: How Taiwan's SMEs can meet EU's 2030 ESG Standards.</h3>
-            <a href="#" class="article-link" data-i18n="readArticle">Read Article</a>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-content">
-        <p data-i18n="footerSupport">
-          Supported by: Youth 10 Billion Overseas Dream Fund (Proposed).
-        </p>
-        <div class="footer-links">
-          <a href="#" data-i18n="footerContact">Contact</a>
-          <a href="#" data-i18n="footerAuthor">About the Author (Joseph Han)</a>
-          <a href="#" data-i18n="footerPolicy">Open Data Policy</a>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="principle-card card-shadow">
+            <i class="fas fa-globe"></i>
+            <h3 data-i18n="mission.principles.globalCollaboration.title">Global Collaboration</h3>
+            <p data-i18n="mission.principles.globalCollaboration.content">
+              We foster international collaboration, bringing sustainable products to global markets and advancing the principles of a circular economy.
+            </p>
+          </div>
         </div>
       </div>
+    </div>
+    <div class="download-section" data-aos="fade-up" data-aos-delay="300">
+      <h4 data-i18n="mission.download.title">Download Our Introduction</h4>
+      <a href="https://raw.githubusercontent.com/josephhan0818/re.ing/main/DOT design 2501V.pdf" target="_blank">
+        <span data-i18n="services.download.button">Download PDF</span> <i class="fas fa-download ms-2"></i>
+      </a>
+    </div>
+  </section>
+
+  <section id="process">
+    <h2 class="section-title" data-aos="fade-up"><span data-i18n="process.title">Our Process</span></h2>
+    <div class="timeline">
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="timeline-content card-shadow">
+          <i class="fas fa-search"></i>
+          <h3 data-i18n="process.steps.research.title">Step 1: Research & Sourcing</h3>
+          <p data-i18n="process.steps.research.content">
+            We research market needs and source sustainable materials from trusted Taiwanese manufacturers.
+          </p>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="timeline-content card-shadow">
+          <i class="fas fa-paint-brush"></i>
+          <h3 data-i18n="process.steps.design.title">Step 2: Design & Prototyping</h3>
+          <p data-i18n="process.steps.design.content">
+            We design innovative products using sustainable materials and create prototypes for testing.
+          </p>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="timeline-content card-shadow">
+          <i class="fas fa-truck"></i>
+          <h3 data-i18n="process.steps.production.title">Step 3: Production & Distribution</h3>
+          <p data-i18n="process.steps.production.content">
+            We collaborate with partners for production and distribute sustainable products globally.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2 class="section-title" data-aos="fade-up"><span data-i18n="services.title">Our Services</span></h2>
+    <div class="container">
+      <h3 class="sub-title" data-aos="fade-up" data-aos-delay="100" data-i18n="services.materialSourcing.title">Material Sourcing</h3>
+      <p class="section-content" data-aos="fade-up" data-aos-delay="200" data-i18n="services.materialSourcing.content">
+        We collaborate with multiple material manufacturers from Taiwan, known for their extensive manufacturing experience and patented technologies unavailable elsewhere. Below are the materials we offer. Feel free to contact us for further discussion.
+      </p>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="card card-shadow">
+            <img src="assets/images/ocean-waste.jpg" alt="Ocean Waste" loading="lazy">
+            <div class="card-content">
+              <h3 data-i18n="services.materialSourcing.recycledPlastics.oceanWaste.title">Ocean Waste</h3>
+              <p data-i18n="services.materialSourcing.recycledPlastics.oceanWaste.content">
+                Transformed into modular blocks and packaging, protecting our seas.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card card-shadow">
+            <img src="assets/images/pet-yarn.jpg" alt="PET Yarn" loading="lazy">
+            <div class="card-content">
+              <h3 data-i18n="services.materialSourcing.recycledPlastics.petYarn.title">PET Yarn</h3>
+              <p data-i18n="services.materialSourcing.recycledPlastics.petYarn.content">
+                Recycled into durable fabrics for a waste-free future.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card card-shadow">
+            <img src="assets/images/recycled-toys.jpg" alt="Recycled Toys" loading="lazy">
+            <div class="card-content">
+              <h3 data-i18n="services.materialSourcing.recycledPlastics.recycledToys.title">Recycled Toys</h3>
+              <p data-i18n="services.materialSourcing.recycledPlastics.recycledToys.content">
+                Repurposed into furniture and play structures for kids.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="card card-shadow">
+            <img src="assets/images/super-wood.avif" alt="SuperWood™" loading="lazy">
+            <div class="card-content">
+              <h3 data-i18n="services.materialSourcing.recycledPlastics.superWood.title">SuperWood™</h3>
+              <p data-i18n="services.materialSourcing.recycledPlastics.superWood.content">
+                Recycled wood-plastic composite for durable construction.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card card-shadow">
+            <img src="assets/images/bamboo-fiber.png" alt="Bamboo Fiber" loading="lazy">
+            <div class="card-content">
+              <h3 data-i18n="services.materialSourcing.plasticFree.bambooFiber.title">Bamboo Fiber</h3>
+              <p data-i18n="services.materialSourcing.plasticFree.bambooFiber.content">
+                Biodegradable and versatile for eco-friendly products.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card card-shadow">
+            <img src="assets/images/paper-pulp.png" alt="Paper Pulp" loading="lazy">
+            <div class="card-content">
+              <h3 data-i18n="services.materialSourcing.plasticFree.paperPulp.title">Paper Pulp</h3>
+              <p data-i18n="services.materialSourcing.plasticFree.paperPulp.content">
+                Blended with natural fibers for sustainable packaging.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="card card-shadow">
+            <img src="assets/images/pineapple-fiber.png" alt="Pineapple Fiber" loading="lazy">
+            <div class="card-content">
+              <h3 data-i18n="services.materialSourcing.plasticFree.pineappleFiber.title">Pineapple Fiber</h3>
+              <p data-i18n="services.materialSourcing.plasticFree.pineappleFiber.content">
+                Lightweight and sustainable for textiles and composites.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h4 class="sub-sub-title" data-aos="fade-up" data-aos-delay="200" data-i18n="services.productDesign.products.title">Our Products</h4>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="card card-shadow">
+            <img src="https://shoplineimg.com/5e68641477cb07001243f611/64393145e4f45f0017671238/800x.webp?source_format=jpg" alt="Tabouret Cannelé" loading="lazy">
+            <div class="card-content">
+              <h3 data-i18n="services.productDesign.products.luluChair.title">re-ing Tabouret cannelé</h3>
+              <p data-i18n="services.productDesign.products.luluChair.content">Stackable chair made from 50% recycled materials, fully recyclable.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card card-shadow">
+            <img src="https://shoplineimg.com/5e68641477cb07001243f611/65893f6b3c11e800118ab555/800x.webp?source_format=jpg" alt="Coral Chair" loading="lazy">
+            <div class="card-content">
+              <h3 data-i18n="services.productDesign.products.coralChair.title">Coral Chair</h3>
+              <p data-i18n="services.productDesign.products.coralChair.content">Ocean-inspired chair made from recycled materials, blending form and function.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card card-shadow">
+            <img src="https://shoplineimg.com/5e68641477cb07001243f611/67a97f88f5c949000f9c1086/800x.webp?source_format=jpg" alt="Bamboo Fiber Plate" loading="lazy">
+            <div class="card-content">
+              <h3 data-i18n="services.productDesign.products.bambooPlate.title">Bamboo Fiber Plate</h3>
+              <p data-i18n="services.productDesign.products.bambooPlate.content">Eco-friendly plate with a diamond pattern, 100% plastic-free.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="card card-shadow">
+            <img src="https://shoplineimg.com/5e68641477cb07001243f611/6673f0665026c70010c55a69/800x.webp?source_format=jpg" alt="Bamboo Fiber Lunch Box" loading="lazy">
+            <div class="card-content">
+              <h3 data-i18n="services.productDesign.products.lunchBox.title">Bamboo Fiber Lunch Box</h3>
+              <p data-i18n="services.productDesign.products.lunchBox.content">Microwave-safe lunch box made from bamboo fiber and starch.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card card-shadow">
+            <img src="https://shoplineimg.com/5e68641477cb07001243f611/6768d76b85c031000df068d4/800x.webp?source_format=jpg" alt="Bamboo Fiber Coffee Cup" loading="lazy">
+            <div class="card-content">
+              <h3 data-i18n="services.productDesign.products.coffeeCup.title">Bamboo Fiber Coffee Cup</h3>
+              <p data-i18n="services.productDesign.products.coffeeCup.content">Reusable and biodegradable cup for sustainable sipping.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card card-shadow">
+            <img src="https://shoplineimg.com/5e68641477cb07001243f611/67af18393d3709000a529185/2160x.webp?source_format=jpg" alt="Modular Storage Cabinet" loading="lazy">
+            <div class="card-content">
+              <h3 data-i18n="services.productDesign.products.storageCabinet.title">Modular Storage Cabinet</h3>
+              <p data-i18n="services.productDesign.products.storageCabinet.content">Versatile storage solution made from recycled materials.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="card card-shadow">
+            <img src="https://shoplineimg.com/5e68641477cb07001243f611/650ec41d92509a001afc70c1/800x.webp?source_format=jpg" alt="Paper Pulp Cat Box" loading="lazy">
+            <div class="card-content">
+              <h3 data-i18n="services.productDesign.products.catBox.title">Paper Pulp Cat Box</h3>
+              <p data-i18n="services.productDesign.products.catBox.content">Eco-friendly cat box made from recycled paper pulp.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card card-shadow">
+            <img src="https://shoplineimg.com/5e68641477cb07001243f611/67aebaf90ee07d000d3ea398/1080x.webp?source_format=jpg" alt="Ocean Waste Whale Trophy" loading="lazy">
+            <div class="card-content">
+              <h3 data-i18n="services.productDesign.products.whaleTrophy.title">Ocean Waste Whale Trophy</h3>
+              <p data-i18n="services.productDesign.products.whaleTrophy.content">Symbolic trophy crafted from ocean waste, promoting sustainability.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="download-section" data-aos="fade-up" data-aos-delay="300">
+      <h4 data-i18n="services.download.title">Download Our Introduction</h4>
+      <a href="https://raw.githubusercontent.com/josephhan0818/re.ing/main/DOT design 2501V.pdf" target="_blank">
+        <span data-i18n="services.download.button">Download PDF</span> <i class="fas fa-download ms-2"></i>
+      </a>
+    </div>
+  </section>
+
+  <section id="why-choose-us">
+    <h2 class="section-title" data-aos="fade-up"><span data-i18n="whyChooseUs.title">Why Choose Us</span></h2>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="reason-card card-shadow">
+            <i class="fas fa-lightbulb"></i>
+            <h3 data-i18n="whyChooseUs.reasons.innovation.title">Innovation-Driven</h3>
+            <p data-i18n="whyChooseUs.reasons.innovation.content">
+              We continuously innovate to develop sustainable products that meet market demands and push the boundaries of eco-design.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="reason-card card-shadow">
+            <i class="fas fa-leaf"></i>
+            <h3 data-i18n="whyChooseUs.reasons.ecoFriendly.title">Eco-Friendly</h3>
+            <p data-i18n="whyChooseUs.reasons.ecoFriendly.content">
+              All our products and materials are designed with environmental protection at the core, reducing carbon footprints.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="reason-card card-shadow">
+            <i class="fas fa-handshake"></i>
+            <h3 data-i18n="whyChooseUs.reasons.partnerships.title">Trusted Partnerships</h3>
+            <p data-i18n="whyChooseUs.reasons.partnerships.content">
+              We build long-term, trusted relationships with global partners, ensuring quality and efficiency in every project.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="our-clients">
+    <h2 class="section-title" data-aos="fade-up"><span data-i18n="ourClients.title">Our Clients</span></h2>
+    <div class="container">
+      <div class="client-logos" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://cdn.iconscout.com/icon/free/png-256/free-unilever-logo-icon-download-in-svg-png-gif-file-formats--company-british-uk-logos-icons-2357829.png" alt="Uniweaver Logo" class="client-logo" loading="lazy">
+        <img src="https://www.toyota.com.tw/images/logo/logo-toyota@3x.png" alt="Toyota Logo" class="client-logo" loading="lazy">
+        <img src="https://bank.sinopac.com/sinopacbt/webevents/ec/mmatube/images/sinopac_logo_320.png" alt="SinoPac Bank Logo" class="client-logo" loading="lazy">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Feastogether_Corporation_logo.svg" alt="Eslite Group Logo" class="client-logo" loading="lazy">
+        <img src="https://www.carrefour.com.tw/wp-content/themes/carrefourtw/assets/img/logo/logo.svg" alt="Carrefour Logo" class="client-logo" loading="lazy">
+        <img src="https://logos-world.net/wp-content/uploads/2023/01/China-Airlines-Logo.png" alt="China Airlines Logo" class="client-logo" loading="lazy">
+        <img src="https://www.evaair.com/system/assets/images/logo-evaair-header.png" alt="EVA Air Logo" class="client-logo" loading="lazy">
+        <img src="https://tw.mitrade.com/cms_uploads/images/article/tw/2023-03-28/220px-Uni-President_Taiwan_logo.svg.png" alt="Uni-President Logo" class="client-logo" loading="lazy">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Emblem_of_Taipei_City.svg" alt="Taipei City Government Logo" class="client-logo" loading="lazy">
+        <img src="https://www.sdgs-asia.com.tw/wp-content/uploads/2024/07/C-01%E6%A1%83%E5%9C%92%E5%B8%82%E6%94%BF%E5%BA%9C.png" alt="Taoyuan City Government Logo" class="client-logo" loading="lazy">
+        <img src="https://www.kpld.com.tw/upload/attachments/7258046728.png" alt="Kaoshiung Logo" class="client-logo" loading="lazy">
+        <img src="https://wwwacc.ntl.edu.tw/GIPDSD/xslGip/xslExport/16/mobile/images/h1.png" alt="Taiwan Library Logo" class="client-logo" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section id="awards">
+    <h2 class="section-title" data-aos="fade-up"><span data-i18n="awards.title">Awards</span></h2>
+    <div class="container">
+      <div class="client-logos" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://www.red-dot.org/frontend/images/red-dot-logo.31372310.png" alt="Red Dot Design Award Logo" class="client-logo" loading="lazy">
+        <img src="https://slimdesign.com/wp-content/uploads/2014/01/iF-Award.jpg" alt="iF Design Award Logo" class="client-logo" loading="lazy">
+        <img src="https://images.squarespace-cdn.com/content/v1/575e2092a3360c3866b59ee1/1547536194461-IB7VAUCZWJWCKTH0PJIM/gpda_2-1.png" alt="Good Design Award Logo" class="client-logo" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title" data-aos="fade-up"><span data-i18n="contact.title">Contact Us</span></h2>
+    <div class="container">
+      <div class="contact-section card-shadow" data-aos="fade-up">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="contact-card">
+              <h3 data-i18n="contact.office.title">Office Address</h3>
+              <p data-i18n="contact.office.content">
+                Maasboulevard 100, 3063 NS Rotterdam, Netherlands<br>(Located in BlueCity – Circular Economy Hub)
+              </p>
+            </div>
+            <div class="contact-card mt-4">
+              <h3 data-i18n="contact.persons.title">Contact Persons</h3>
+              <p>
+                <strong>Lance Han</strong><br>
+                <span data-i18n="contact.persons.lance.title">Director</span><br>
+                ✉ <a href="mailto:lance@ddoott.com">lance@ddoott.com</a>
+              </p>
+              <p>
+                <strong>Joseph Han</strong><br>
+                <span data-i18n="contact.persons.joseph.title">International Project Manager</span><br>
+                ✉ <a href="mailto:joseph@ddoott.com">joseph@ddoott.com</a><br>
+                📱 WhatsApp: +886-918081860
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h3 data-i18n="replyForm.form.title">Leave a Message</h3>
+            <form action="https://formspree.io/f/xwplakrv" method="POST" onsubmit="showThankYou(event)">
+              <label for="email" data-i18n="replyForm.form.emailLabel">Your Email</label>
+              <input type="email" id="email" name="email" placeholder="name@example.com" aria-label="Your Email Address" required data-i18n-placeholder="replyForm.form.emailPlaceholder">
+              <label for="message" data-i18n="replyForm.form.messageLabel">Your Message</label>
+              <textarea id="message" name="message" placeholder="Let us know how we can help you..." aria-label="Your Message" required data-i18n-placeholder="replyForm.form.messagePlaceholder"></textarea>
+              <button type="submit" data-i18n="replyForm.form.submitButton">Send Message <i class="fas fa-paper-plane ms-2"></i></button>
+              <p id="thank-you" class="thank-you" data-i18n="replyForm.form.thankYou">Thanks for your message!</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="download-section" data-aos="fade-up" data-aos-delay="200">
+      <h4 data-i18n="contact.download.title">Download Our Introduction</h4>
+      <a href="https://raw.githubusercontent.com/josephhan0818/re.ing/main/DOT design 2501V.pdf" target="_blank">
+        <span data-i18n="services.download.button">Download PDF</span> <i class="fas fa-download ms-2"></i>
+        </a>
+    </div>
+  </section>
+
+  <section id="newsletter" class="newsletter-section">
+    <h2 data-aos="fade-up" data-i18n="newsletter.title" style="color: #000000;">Stay Updated</h2>
+    <p data-aos="fade-up" data-aos-delay="100" data-i18n="newsletter.content">Subscribe to our newsletter for the latest updates on sustainable design and materials.</p>
+    <form class="newsletter-form" action="https://formspree.io/f/xwplakrv" method="POST" onsubmit="showNewsletterThankYou(event)" data-aos="fade-up" data-aos-delay="200">
+      <input type="email" name="email" placeholder="Enter your email" aria-label="Your Email Address for Newsletter" required data-i18n-placeholder="newsletter.emailPlaceholder">
+      <button type="submit" data-i18n="newsletter.subscribeButton">Subscribe <i class="fas fa-envelope ms-2"></i></button>
+      <p id="newsletter-thank-you" class="thank-you" data-i18n="newsletter.thankYou">Thank you for subscribing!</p>
+    </form>
+  </section>
+
+  <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-nav">
+                <a href="#mission" data-i18n="nav.mission">Our Mission</a>
+                <a href="#process" data-i18n="nav.process">Our Process</a>
+                <a href="#services" data-i18n="nav.services">Our Services</a>
+                <a href="retwist" data-i18n="nav.retwist">RE:TWIST Project</a>
+                <a href="#contact" data-i18n="nav.contact">Contact Us</a>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/company/ddoott" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/taiwan_dotdesign" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/super.dotdesign" target="_blank" title="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </div>
+
+            <p data-i18n="footer.copyright">© 2025 re-ing. All rights reserved.</p>
+        </div>
     </footer>
 
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script type="module" src="./script.js"></script>
-  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="translations.js"></script>
+  <script src="figures.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init();
+
+    // Fix mobile viewport height
+    function setVH() {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    
+    setVH();
+    window.addEventListener('resize', setVH);
+
+    // Update language display in the navbar
+    function updateCurrentLang(lang) {
+        const currentLangSpan = document.querySelector('.current-lang');
+        if (currentLangSpan) {
+            const langCodes = {
+                'en': 'EN',
+                'zh': '中',
+                'ja': '日',
+                'nl': 'NL'
+            };
+            currentLangSpan.textContent = langCodes[lang] || 'EN';
+        }
+    }
+
+    // Language switch function
+    function switchLanguage(lang) {
+      if (typeof setLanguage === 'function') {
+        setLanguage(lang);
+        localStorage.setItem('language', lang);
+        updateCurrentLang(lang);
+      }
+    }
+
+    // Initialize language on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('language') || 'en';
+      if (typeof setLanguage === 'function') {
+        setLanguage(savedLang);
+        updateCurrentLang(savedLang);
+      }
+    });
+
+    // Show thank you message for contact form
+    function showThankYou(event) {
+      event.preventDefault();
+      const form = event.target;
+      const thankYouMessage = document.getElementById('thank-you');
+      form.style.display = 'none';
+      thankYouMessage.classList.add('visible');
+      setTimeout(() => {
+        form.submit();
+      }, 1500);
+    }
+
+    // Show thank you message for newsletter form
+    function showNewsletterThankYou(event) {
+      event.preventDefault();
+      const form = event.target;
+      const thankYouMessage = document.getElementById('newsletter-thank-you');
+      form.style.display = 'none';
+      thankYouMessage.classList.add('visible');
+      setTimeout(() => {
+        form.submit();
+      }, 1500);
+    }
+
+    // Carousel functionality for sustainability cases
+    const carousel = document.querySelector('.cases-carousel');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    
+    if (carousel && prevBtn && nextBtn) {
+      let scrollPosition = 0;
+      const scrollAmount = 370; // card width (350px) + gap (20px)
+      
+      nextBtn.addEventListener('click', () => {
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+        scrollPosition = Math.min(scrollPosition + scrollAmount, maxScroll);
+        carousel.style.transform = `translateX(-${scrollPosition}px)`;
+      });
+      
+      prevBtn.addEventListener('click', () => {
+        scrollPosition = Math.max(scrollPosition - scrollAmount, 0);
+        carousel.style.transform = `translateX(-${scrollPosition}px)`;
+      });
+    }
+
+    // FontAwesome fallback detection - ensure icons load properly
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            const testElement = document.createElement('i');
+            testElement.className = 'fab fa-linkedin';
+            testElement.style.position = 'absolute';
+            testElement.style.left = '-9999px';
+            document.body.appendChild(testElement);
+            
+            const computedStyle = window.getComputedStyle(testElement);
+            const fontFamily = computedStyle.getPropertyValue('font-family');
+            
+            // Only apply fallbacks if FontAwesome completely fails to load
+            if (!fontFamily.includes('Font Awesome')) {
+                // Add minimal CSS to ensure icons display as symbols
+                const style = document.createElement('style');
+                style.textContent = `
+                    .social-links a i {
+                        font-family: "Font Awesome 6 Brands", "FontAwesome", Arial, sans-serif !important;
+                        font-weight: 400 !important;
+                        color: #444444 !important;
+                    }
+                    .navbar-toggler-icon {
+                        font-family: "Font Awesome 6 Free", "FontAwesome", Arial, sans-serif !important;
+                        font-weight: 900 !important;
+                    }
+                `;
+                document.head.appendChild(style);
+            } else {
+                console.log('FontAwesome loaded successfully');
+            }
+            
+            document.body.removeChild(testElement);
+        }, 100);
+    });
+</script>
+</body>
 </html>
