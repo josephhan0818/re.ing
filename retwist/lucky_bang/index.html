@@ -39,35 +39,22 @@
 
         /* Header 優化 - 黑白極簡設計 */
         header {
-            /* restored banner background image */
-            background: #ffffff url('../../assets/images/banner_luckybang_1.jpg') center/cover no-repeat;
+            background: #c8e6f4 url("../../assets/images/0725 Lucky Bang kv rgb 橫式 ol(1024x768px)英文_KV01_橫.jpg") center center / contain no-repeat;
             position: relative;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 100%;
+            height: min(75vw, 768px);
+            display: block;
             overflow: hidden;
             margin-top: 70px;
             border-bottom: 3px solid #000000;
         }
 
+        html[data-lang="zh"] header {
+            background-image: url("../../assets/images/0725 Lucky Bang kv rgb 橫式 ol(1024x768px中文_KV01_橫.jpg");
+        }
+
         header::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 200%;
-            height: 200%;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 2px,
-                rgba(0, 0, 0, 0.02) 2px,
-                rgba(0, 0, 0, 0.02) 4px
-            );
-            transform: translate(-50%, -50%);
-            z-index: 0;
-            animation: floatPattern 20s linear infinite;
+            display: none;
         }
 
         @keyframes floatPattern {
@@ -221,59 +208,6 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             align-self: flex-start;
-        }
-
-        /* 影片區塊樣式 */
-        .video-section {
-            padding: 6rem 0;
-            background: #000000;
-            color: #ffffff;
-        }
-
-        .video-container {
-            margin-bottom: 0;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            background: #111;
-        }
-        
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .video-description {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .video-description h3 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #ffffff;
-        }
-
-        .video-description p {
-            font-size: 1.1rem;
-            color: #cccccc;
-            font-weight: 300;
-            margin-bottom: 0;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         /* About Section - 更簡潔易讀樣式 */
@@ -702,10 +636,6 @@
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
             }
-            
-            .video-description h3 {
-                font-size: 2.5rem;
-            }
         }
 
         @media (max-width: 768px) {
@@ -731,18 +661,6 @@
 
             .gallery-title {
                 font-size: 1.8rem;
-            }
-            
-            .video-section {
-                padding: 4rem 0;
-            }
-
-            .video-description h3 {
-                font-size: 2rem;
-            }
-            
-            .video-description p {
-                font-size: 1rem;
             }
         }
 
@@ -1086,15 +1004,8 @@
         </div>
     </nav>
 
-    <!-- Minimalist Hero Section -->
-    <header>
-        <div class="container">
-            <h1 class="series-title" data-i18n="luckybang.title">Lucky Bang 系列</h1>
-            <p class="series-subtitle" data-i18n="luckybang.subtitle">
-                好運降臨！四款趣味占卜公仔，結合傳統幸運元素與現代設計，讓每一次搖擺都充滿驚喜與期待。
-            </p>
-        </div>
-    </header>
+    <!-- Lucky Bang Poster Banner -->
+    <header aria-label="Lucky Bang banner"></header>
 
     <!-- Products Grid Section -->
     <section class="products-grid-section">
@@ -1158,32 +1069,6 @@
                             可愛的元寶，也可以擲茭！「寶唄」諧音「筊杯」擲出你的幸運指引，還可收納幸運小物。
                         </p>
                         <span class="product-highlight" data-i18n="luckybang.figures.baobaoGold.highlight">福運連連</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Series Introduction Video Section -->
-    <section class="video-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 mx-auto text-center" data-aos="fade-up">
-                    <div class="video-description">
-                        <h3 data-i18n="luckybang.video.title">系列展示影片</h3>
-                        </p>
-                    </div>
-                    <div class="video-container">
-                        <div class="video-wrapper">
-                            <iframe width="100%" height="100%" 
-                                    src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" 
-                                    title="Lucky Bang 系列展示影片" 
-                                    frameborder="0" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                    allowfullscreen
-                                    loading="lazy">
-                            </iframe>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1257,9 +1142,6 @@
                 "luckybang.title": "Lucky Bang Series",
                 "luckybang.subtitle": "Fortune arrives! Four fun divination figures combining traditional lucky elements with modern design, making every shake full of surprises and anticipation.",
                 
-                "luckybang.video.title": "Series Introduction Video",
-                "luckybang.video.subtitle": "Discover the design philosophy and creative process behind the Lucky Bang series",
-                
                 "luckybang.figures.title": "Series Collection",
                 "luckybang.status.released": "Released",
                 
@@ -1307,9 +1189,6 @@
                 
                 "luckybang.title": "Lucky Bang 系列",
                 "luckybang.subtitle": "好運降臨！四款趣味占卜公仔，結合傳統幸運元素與現代設計，讓每一次搖擺都充滿驚喜與期待。",
-                
-                "luckybang.video.title": "系列展示影片",
-                "luckybang.video.subtitle": "深入了解 Lucky Bang 系列的設計理念與創作過程",
                 
                 "luckybang.figures.title": "系列作品展示",
                 "luckybang.status.released": "已推出",
@@ -1359,9 +1238,6 @@
                 "luckybang.title": "Lucky Bang シリーズ",
                 "luckybang.subtitle": "幸運の到来！4種類の楽しい占いフィギュア、伝統的な幸運要素と現代デザインを組み合わせ、毎回の揺れが驚きと期待に満ちています。",
                 
-                "luckybang.video.title": "シリーズ紹介映像",
-                "luckybang.video.subtitle": "Lucky Bang シリーズのデザイン理念と創作プロセスを深く理解する",
-                
                 "luckybang.figures.title": "シリーズコレクション",
                 "luckybang.status.released": "発売済み",
                 
@@ -1409,9 +1285,6 @@
                 
                 "luckybang.title": "Lucky Bang Serie",
                 "luckybang.subtitle": "Geluk arriveert! Vier leuke waarzeggerijfiguren die traditionele gelukselementen combineren met modern design, waardoor elke schud vol verrassingen en verwachting is.",
-                
-                "luckybang.video.title": "Serie Introductievideo",
-                "luckybang.video.subtitle": "Ontdek de ontwerpfilosofie en het creatieve proces achter de Lucky Bang serie",
                 
                 "luckybang.figures.title": "Serie Collectie",
                 "luckybang.status.released": "Uitgebracht",
