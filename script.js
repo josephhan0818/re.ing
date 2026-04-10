@@ -109,6 +109,31 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   });
 
+  // Keep banner video muted and synced with carousel playback
+  const heroCarousel = document.getElementById('heroBannerCarousel');
+  if (heroCarousel) {
+    const syncHeroVideos = (activeSlide = heroCarousel.querySelector('.carousel-item.active')) => {
+      heroCarousel.querySelectorAll('video').forEach(video => {
+        video.muted = true;
+        video.pause();
+      });
+
+      const activeVideo = activeSlide?.querySelector('video');
+      if (activeVideo) {
+        activeVideo.muted = true;
+        const playPromise = activeVideo.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(() => {});
+        }
+      }
+    };
+
+    syncHeroVideos();
+    heroCarousel.addEventListener('slid.bs.carousel', (event) => {
+      syncHeroVideos(event.relatedTarget);
+    });
+  }
+
   // Update Awards section title
   const awardsTitle = document.querySelector('#awards h2 span');
   if (awardsTitle) {

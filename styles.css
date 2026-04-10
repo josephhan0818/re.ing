@@ -171,55 +171,61 @@ a i, a i::before, a i::after {
 
 header {
   position: relative;
-  min-height: 100vh;
+  min-height: min(50vw, 720px);
+  aspect-ratio: 2 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 2rem;
-  background: url('https://storage.googleapis.com/goldenpin/award_work_pic/image/4956/detail_image_76b850.jpeg') no-repeat center center;
-  background-size: cover;
-  background-attachment: scroll;
-  background-color: #0a1520;
+  background: #0a1520;
+  overflow: hidden;
+  isolation: isolate;
 }
 
-  /* 桌機大螢幕 - 使用 fixed 背景 */
-  @media (min-width: 1367px) {
-    header {
-      background-attachment: fixed;
-    }
+.hero-carousel,
+.hero-carousel .carousel-inner,
+.hero-carousel .carousel-item {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-carousel {
+  z-index: 0;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  display: block;
+}
+
+@media (min-width: 1367px) {
+  header {
+    min-height: 720px;
+  }
+}
+
+@media (max-width: 1024px) {
+  header {
+    min-height: 52vw;
+  }
+}
+
+@media (max-width: 767px) {
+  header {
+    min-height: 62vw;
+    padding: 1.5rem 1rem;
   }
 
-  /* 平板橫向（包含高解析度平板如 iPad Pro）- 特別處理以避免圖片過大 */
-  @media (max-width: 1366px) and (orientation: landscape) and (max-height: 1024px) {
-    header {
-      min-height: 80vh;
-      background-size: 100% 100% !important;
-      background-position: center center !important;
-      background-attachment: scroll !important;
-    }
+  header .container {
+    padding: 0 1rem;
   }
-
-  /* 平板直向 */
-  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-    header {
-      background-size: cover;
-      background-position: center center;
-    }
-  }
-
-  /* 手機裝置 */
-  @media (max-width: 767px) {
-    header {
-      min-height: 50vh;
-      background-position: center top;
-      background-size: 180% auto;
-      padding: 2.5rem 0 2rem 0;
-    }
-    header .container {
-      padding: 0 1rem;
-    }
-  }
+}
 
 header::after {
   content: '';
@@ -228,7 +234,7 @@ header::after {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.15);
   z-index: 1;
 }
 
