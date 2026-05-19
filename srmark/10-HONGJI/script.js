@@ -78,18 +78,18 @@ const allBrands = [
   { name: "角琉璃 JIAO", category: "Glass Craft / 玻璃文化工藝", folder: "8-JIAO", image: "../../assets/srmark_image/IMG_9086 - 角琉璃.JPG" },
   { name: "REWOOD 森林循環", category: "Forest Circular Economy / 森林循環", folder: "9-REWOOD", image: "../../assets/srmark_image/20240613 OTOP棒球椅_頁面_1 - liu Alvin (木酢達人 泰逸).jpg" },
   { name: "HongJi Box Art 宏吉盒藝", category: "Sustainable Packaging / 永續包裝", folder: "10-HONGJI", image: "../../assets/srmark_image/HEMEL-1 - li Iris.jpg" },
-  { name: "Simbalion 雄獅文具", category: "Eco Art & Stationery / 永續美術文具", folder: "11-SIMBALION", image: "https://drive.google.com/thumbnail?id=1fvxSCFLbOUvvqmxTlAlAUiGZ8a8xnWpZ&sz=w400" },
-  { name: "Double Dribble 二次運球", category: "Sports Upcycling / 運動廢材升級再造", folder: "12-DOUBLE-DRIBBLE", image: "https://drive.google.com/thumbnail?id=1P9tnLB60T3IKiEytEsbqS5Gb2IZadB73&sz=w400" },
-  { name: "Courage Grocery 勇氣雜貨商行", category: "Eco Living / 永續生活選品", folder: "13-COURAGE-GROCERY", image: "https://drive.google.com/thumbnail?id=1D6DQwQQXDaTzkHdNq5h07rDeSoWlu9_8&sz=w400" },
-  { name: "CYD TERRA 項晴實業有限公司", category: "SR MARK Brand", folder: "1-CYD-TERRA", image: "https://drive.google.com/thumbnail?id=1BWHGRITvx-hKpT3W2r5VJnUJiffi7xGx&sz=w400" },
-  { name: "EVOPURE+ 優織隆企業股份有限公司", category: "SR MARK Brand", folder: "2-EVOPURE", image: "https://drive.google.com/thumbnail?id=1VTh6fQ-K6j5lPCsfUqT8Q6zVG1fyyRkC&sz=w400" },
-  { name: "ei studio", category: "SR MARK Brand", folder: "3-EI-STUDIO", image: "https://drive.google.com/thumbnail?id=1-dOXhQO_QC3Xd5MM-EkBYnZeG7wV9u3y&sz=w400" },
-  { name: "Yuantai 元泰竹藝社", category: "SR MARK Brand", folder: "4-YUANTAI", image: "https://drive.google.com/thumbnail?id=1zmPlomXad2v3VxfPdInFJnPVW05vAP7q&sz=w400" },
-  { name: "Mr.Sci Science Factory 賽先生科學工廠", category: "SR MARK Brand", folder: "5-MR-SCI", image: "https://drive.google.com/thumbnail?id=1KWGqiDcjmYs7HeYwcKR5dIrnLxYMfaCR&sz=w400" },
-  { name: "GUTS STUDIO 有義器", category: "SR MARK Brand", folder: "6-GUTS-STUDIO", image: "https://drive.google.com/thumbnail?id=1fnbCHlzc6zyoEk6xVCjBDMSyDQwhbLGt&sz=w400" },
-  { name: "ECOJOY", category: "SR MARK Brand", folder: "7-ECOJOY", image: "https://drive.google.com/thumbnail?id=1fu8za9qt7vSoVVp2eGyy3X6SGssJdNyW&sz=w400" },
-  { name: "JIAO 角琉璃", category: "SR MARK Brand", folder: "8-JIAO", image: "https://drive.google.com/thumbnail?id=1JSh9469-8TcrtswUQCt8lOnkcEpgiyrR&sz=w400" },
-  { name: "REWOOD Forest Cycle REWOOD森林循環", category: "SR MARK Brand", folder: "9-REWOOD", image: "https://drive.google.com/thumbnail?id=1lNf4a32YEWEf-X1HMMoUDBU06w1yr4pR&sz=w400" }
+  { name: "Simbalion 雄獅文具", category: "Eco Art & Stationery / 永續美術文具", folder: "11-SIMBALION", image: "https://drive.google.com/thumbnail?id=1fvxSCFLbOUvvqmxTlAlAUiGZ8a8xnWpZ&sz=w1000" },
+  { name: "Double Dribble 二次運球", category: "Sports Upcycling / 運動廢材升級再造", folder: "12-DOUBLE-DRIBBLE", image: "https://drive.google.com/thumbnail?id=1P9tnLB60T3IKiEytEsbqS5Gb2IZadB73&sz=w1000" },
+  { name: "Courage Grocery 勇氣雜貨商行", category: "Eco Living / 永續生活選品", folder: "13-COURAGE-GROCERY", image: "https://drive.google.com/thumbnail?id=1D6DQwQQXDaTzkHdNq5h07rDeSoWlu9_8&sz=w1000" },
+  { name: "CYD TERRA 項晴實業有限公司", category: "SR MARK Brand", folder: "1-CYD-TERRA", image: "https://drive.google.com/thumbnail?id=1BWHGRITvx-hKpT3W2r5VJnUJiffi7xGx&sz=w1000" },
+  { name: "EVOPURE+ 優織隆企業股份有限公司", category: "SR MARK Brand", folder: "2-EVOPURE", image: "https://drive.google.com/thumbnail?id=1VTh6fQ-K6j5lPCsfUqT8Q6zVG1fyyRkC&sz=w1000" },
+  { name: "ei studio", category: "SR MARK Brand", folder: "3-EI-STUDIO", image: "https://drive.google.com/thumbnail?id=1-dOXhQO_QC3Xd5MM-EkBYnZeG7wV9u3y&sz=w1000" },
+  { name: "Yuantai 元泰竹藝社", category: "SR MARK Brand", folder: "4-YUANTAI", image: "https://drive.google.com/thumbnail?id=1zmPlomXad2v3VxfPdInFJnPVW05vAP7q&sz=w1000" },
+  { name: "Mr.Sci Science Factory 賽先生科學工廠", category: "SR MARK Brand", folder: "5-MR-SCI", image: "https://drive.google.com/thumbnail?id=1KWGqiDcjmYs7HeYwcKR5dIrnLxYMfaCR&sz=w1000" },
+  { name: "GUTS STUDIO 有義器", category: "SR MARK Brand", folder: "6-GUTS-STUDIO", image: "https://drive.google.com/thumbnail?id=1fnbCHlzc6zyoEk6xVCjBDMSyDQwhbLGt&sz=w1000" },
+  { name: "ECOJOY", category: "SR MARK Brand", folder: "7-ECOJOY", image: "https://drive.google.com/thumbnail?id=1fu8za9qt7vSoVVp2eGyy3X6SGssJdNyW&sz=w1000" },
+  { name: "JIAO 角琉璃", category: "SR MARK Brand", folder: "8-JIAO", image: "https://drive.google.com/thumbnail?id=1JSh9469-8TcrtswUQCt8lOnkcEpgiyrR&sz=w1000" },
+  { name: "REWOOD Forest Cycle REWOOD森林循環", category: "SR MARK Brand", folder: "9-REWOOD", image: "https://drive.google.com/thumbnail?id=1lNf4a32YEWEf-X1HMMoUDBU06w1yr4pR&sz=w1000" }
 ];
 
 function switchLanguage(lang) {

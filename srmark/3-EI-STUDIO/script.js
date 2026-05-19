@@ -93,11 +93,11 @@ const allBrands = [
   { name: "角琉璃 JIAO", category: "Glass Craft / 玻璃文化工藝", folder: "8-JIAO", image: "../../assets/srmark_image/IMG_9086 - 角琉璃.JPG" },
   { name: "REWOOD 森林循環", category: "Forest Circular Economy / 森林循環", folder: "9-REWOOD", image: "../../assets/srmark_image/20240613 OTOP棒球椅_頁面_1 - liu Alvin (木酢達人 泰逸).jpg" },
   { name: "HongJi Box Art 宏吉盒藝", category: "Sustainable Packaging / 永續包裝", folder: "10-HONGJI", image: "../../assets/srmark_image/HEMEL-1 - li Iris.jpg" },
-  { name: "Simbalion 雄獅文具", category: "Eco Art & Stationery / 永續美術文具", folder: "11-SIMBALION", image: "https://drive.google.com/thumbnail?id=1fvxSCFLbOUvvqmxTlAlAUiGZ8a8xnWpZ&sz=w400" },
-  { name: "Double Dribble 二次運球", category: "Sports Upcycling / 運動廢材升級再造", folder: "12-DOUBLE-DRIBBLE", image: "https://drive.google.com/thumbnail?id=1P9tnLB60T3IKiEytEsbqS5Gb2IZadB73&sz=w400" },
-  { name: "Courage Grocery 勇氣雜貨商行", category: "Eco Living / 永續生活選品", folder: "13-COURAGE-GROCERY", image: "https://drive.google.com/thumbnail?id=1D6DQwQQXDaTzkHdNq5h07rDeSoWlu9_8&sz=w400" },
-  { name: "CYD TERRA 項晴實業有限公司", category: "SR MARK Brand", folder: "1-CYD-TERRA", image: "https://drive.google.com/thumbnail?id=1BWHGRITvx-hKpT3W2r5VJnUJiffi7xGx&sz=w400" },
-  { name: "EVOPURE+ 優織隆企業股份有限公司", category: "SR MARK Brand", folder: "2-EVOPURE", image: "https://drive.google.com/thumbnail?id=1VTh6fQ-K6j5lPCsfUqT8Q6zVG1fyyRkC&sz=w400" }
+  { name: "Simbalion 雄獅文具", category: "Eco Art & Stationery / 永續美術文具", folder: "11-SIMBALION", image: "https://drive.google.com/thumbnail?id=1fvxSCFLbOUvvqmxTlAlAUiGZ8a8xnWpZ&sz=w1000" },
+  { name: "Double Dribble 二次運球", category: "Sports Upcycling / 運動廢材升級再造", folder: "12-DOUBLE-DRIBBLE", image: "https://drive.google.com/thumbnail?id=1P9tnLB60T3IKiEytEsbqS5Gb2IZadB73&sz=w1000" },
+  { name: "Courage Grocery 勇氣雜貨商行", category: "Eco Living / 永續生活選品", folder: "13-COURAGE-GROCERY", image: "https://drive.google.com/thumbnail?id=1D6DQwQQXDaTzkHdNq5h07rDeSoWlu9_8&sz=w1000" },
+  { name: "CYD TERRA 項晴實業有限公司", category: "SR MARK Brand", folder: "1-CYD-TERRA", image: "https://drive.google.com/thumbnail?id=1BWHGRITvx-hKpT3W2r5VJnUJiffi7xGx&sz=w1000" },
+  { name: "EVOPURE+ 優織隆企業股份有限公司", category: "SR MARK Brand", folder: "2-EVOPURE", image: "https://drive.google.com/thumbnail?id=1VTh6fQ-K6j5lPCsfUqT8Q6zVG1fyyRkC&sz=w1000" }
 ];
 
 function switchLanguage(lang) {
