@@ -1,0 +1,589 @@
+/* ================================================
+   SR MARK — Nordic Minimalist Shared Styles
+   srmark/sr-base.css
+   Used by: srmark/index.html + all brand sub-pages
+   ================================================ */
+
+/* ---- Fonts & Base ---- */
+body {
+    font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
+    background: #ffffff;
+    color: #333333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+html[data-lang="zh"] * {
+    font-family: 'Noto Sans TC', 'Montserrat', sans-serif !important;
+}
+
+/* ---- Navbar ---- */
+.navbar {
+    background: #ffffff !important;
+    border-bottom: 1px solid #e8e8e8;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+.navbar-brand img { height: 44px; transition: transform 0.3s ease; }
+.navbar-brand img:hover { transform: scale(1.06); }
+.navbar-nav { align-items: center; }
+.nav-link {
+    color: #333333 !important;
+    font-weight: 400;
+    font-size: 0.875rem;
+    padding: 0.5rem 0.85rem;
+    position: relative;
+    transition: color 0.2s ease;
+    text-decoration: none !important;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0.85rem;
+    width: 0;
+    height: 1px;
+    background: #000000;
+    transition: width 0.25s ease;
+}
+.nav-link:hover::after { width: calc(100% - 1.7rem); }
+.nav-link:hover { color: #000000 !important; transform: none; }
+.navbar-toggler {
+    border: none;
+    padding: 0.25rem 0.5rem;
+    box-shadow: none !important;
+    background: transparent;
+}
+.navbar-toggler:focus { box-shadow: none !important; }
+.navbar-toggler i {
+    font-family: "Font Awesome 6 Free", sans-serif !important;
+    font-weight: 900 !important;
+    font-size: 1.1rem;
+    color: #333333;
+}
+.lang-dropdown { display: flex; align-items: center; }
+.lang-toggle {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    color: #333333;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.lang-toggle img { margin-right: 0.4rem; }
+.lang-toggle::after { display: none !important; }
+.lang-toggle i {
+    font-family: "Font Awesome 6 Free", sans-serif !important;
+    font-weight: 900 !important;
+    margin-left: 0.4rem;
+    font-size: 0.75rem;
+}
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    border-radius: 0;
+}
+.dropdown-item {
+    font-size: 0.85rem;
+    padding: 0.5rem 1.2rem;
+    color: #333333;
+    transition: background 0.15s;
+}
+.dropdown-item:hover, .dropdown-item:focus {
+    background: #f5f5f5;
+    color: #000000;
+    outline: none;
+}
+.dropdown-toggle:focus { box-shadow: none !important; }
+
+/* ---- Breadcrumb ---- */
+.breadcrumb-section {
+    background: #ffffff;
+    padding: 5.5rem 0 0.75rem;
+}
+.breadcrumb {
+    background: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.8rem;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+    content: "/";
+    color: #cccccc;
+}
+.breadcrumb-item a {
+    color: #999999;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.breadcrumb-item a:hover { color: #000000; }
+.breadcrumb-item.active { color: #333333; font-weight: 500; }
+
+/* ---- Eyebrow label ---- */
+.eyebrow {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: #aaaaaa;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* ---- Section Title ---- */
+.section-title {
+    font-size: 1.9rem;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    color: #000000;
+    margin-bottom: 0.5rem;
+}
+.section-title-line {
+    width: 30px;
+    height: 1px;
+    background: #000000;
+    margin: 0 auto 3rem;
+}
+
+/* ---- View More Button ---- */
+.view-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.4rem 1rem;
+    background: #000000;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    border: 1px solid #000000;
+    transition: all 0.25s ease;
+}
+.view-more-btn:hover {
+    background: #ffffff;
+    color: #000000 !important;
+}
+.view-more-btn i {
+    font-family: "Font Awesome 6 Free", sans-serif !important;
+    font-weight: 900 !important;
+    font-size: 0.65rem;
+}
+
+/* ============================================
+   OVERVIEW PAGE (srmark/index.html)
+   ============================================ */
+
+/* Hero */
+.srmark-overview-hero {
+    padding: 9.5rem 0 5.5rem;
+    background: #ffffff;
+    text-align: center;
+    border-bottom: 1px solid #ebebeb;
+}
+.srmark-overview-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 300;
+    color: #000000;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+}
+.srmark-overview-hero .hero-desc {
+    font-size: 0.98rem;
+    color: #666666;
+    font-weight: 300;
+    line-height: 1.95;
+    max-width: 620px;
+    margin: 0 auto;
+}
+.srmark-overview-hero .hero-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    padding: 0.75rem 2.2rem;
+    background: #000000;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: 1px solid #000000;
+    transition: all 0.25s ease;
+}
+.srmark-overview-hero .hero-cta-btn:hover {
+    background: #ffffff;
+    color: #000000 !important;
+}
+.srmark-overview-hero .hero-cta-btn i {
+    font-size: 0.65rem;
+}
+
+/* Filter bar */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    justify-content: center;
+    padding: 4rem 1rem 3.5rem;
+}
+.filter-chip {
+    padding: 0.32rem 0.95rem;
+    border: 1px solid #d4d4d4;
+    background: transparent;
+    color: #666666;
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+.filter-chip:hover {
+    border-color: #000000;
+    color: #000000;
+}
+.filter-chip.active {
+    background: #000000;
+    color: #ffffff;
+    border-color: #000000;
+}
+
+/* Brand card (overview grid) */
+.brand-card {
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.brand-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 44px rgba(0,0,0,0.1);
+}
+.brand-card-img-wrap {
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    flex-shrink: 0;
+}
+.brand-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(80%);
+    transition: filter 0.45s ease, transform 0.45s ease;
+}
+.brand-card:hover .brand-card-img {
+    filter: grayscale(0%);
+    transform: scale(1.04);
+}
+.brand-card-body {
+    padding: 1.1rem 1.35rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    flex: 1;
+}
+.brand-card-category {
+    font-size: 0.66rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #aaaaaa;
+    line-height: 1.2;
+}
+.brand-card-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #000000;
+    line-height: 1.3;
+    margin-bottom: 0.3rem;
+}
+
+/* ============================================
+   BRAND DETAIL PAGE
+   ============================================ */
+
+/* Hero section */
+.brand-hero-section {
+    padding: 3rem 0 5rem;
+    background: #ffffff;
+}
+.brand-main-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 10px 36px rgba(0,0,0,0.07);
+}
+.brand-info {
+    padding-left: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+.brand-category-badge {
+    display: inline-block;
+    background: #000000;
+    color: #ffffff;
+    padding: 0.26rem 0.8rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.2rem;
+}
+.brand-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 300;
+    color: #000000;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+}
+.brand-title-sub {
+    font-size: 0.65em;
+    font-weight: 400;
+    display: block;
+    margin-top: 0.08em;
+    letter-spacing: 0.01em;
+    color: #555555;
+}
+.brand-tagline {
+    font-size: 0.96rem;
+    color: #555555;
+    font-weight: 300;
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+}
+.brand-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+.keyword-tag {
+    padding: 0.2rem 0.65rem;
+    border: 1px solid #d0d0d0;
+    color: #888888;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+}
+
+/* About section */
+.brand-about-section {
+    padding: 5.5rem 0;
+    background: #f9f9f9;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+}
+.brand-about-text {
+    font-size: 0.98rem;
+    color: #555555;
+    font-weight: 300;
+    line-height: 2;
+}
+
+/* Products section */
+.brand-products-section {
+    padding: 5.5rem 0;
+    background: #ffffff;
+}
+.project-card {
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.project-card:hover {
+    box-shadow: 0 10px 32px rgba(0,0,0,0.09);
+}
+.project-img-wrap {
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    flex-shrink: 0;
+}
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(15%);
+    transition: filter 0.35s ease, transform 0.35s ease;
+}
+.project-card:hover .project-img {
+    filter: grayscale(0%);
+    transform: scale(1.03);
+}
+.project-body {
+    padding: 1.2rem 1.35rem 1.5rem;
+    flex: 1;
+}
+.project-name {
+    font-size: 0.93rem;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 0.5rem;
+    line-height: 1.35;
+}
+.project-desc {
+    font-size: 0.83rem;
+    color: #666666;
+    font-weight: 300;
+    line-height: 1.75;
+    margin: 0;
+}
+
+/* Product CTA buttons */
+.product-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 1rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid #efefef;
+}
+.btn-product-link,
+.btn-video-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.38rem 0.85rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    text-decoration: none !important;
+    transition: all 0.22s ease;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.btn-product-link {
+    background: #000000;
+    color: #ffffff !important;
+    border: 1px solid #000000;
+}
+.btn-product-link:hover {
+    background: #ffffff;
+    color: #000000 !important;
+}
+.btn-video-link {
+    background: transparent;
+    color: #000000 !important;
+    border: 1px solid #000000;
+}
+.btn-video-link:hover {
+    background: #000000;
+    color: #ffffff !important;
+}
+.btn-product-link i,
+.btn-video-link i {
+    font-size: 0.65rem;
+    font-family: "Font Awesome 6 Free", sans-serif !important;
+    font-weight: 900 !important;
+}
+.btn-video-link .fa-youtube {
+    font-family: "Font Awesome 6 Brands", sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 0.8rem;
+}
+
+/* Gallery section */
+.brand-gallery-section {
+    padding: 5.5rem 0;
+    background: #f9f9f9;
+    border-top: 1px solid #eeeeee;
+}
+.gallery-item {
+    overflow: hidden;
+    aspect-ratio: 1;
+    border: 1px solid #e8e8e8;
+}
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(25%);
+    transition: filter 0.4s ease, transform 0.45s ease;
+}
+.gallery-item:hover .gallery-image {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+/* Related brands section */
+.related-brands-section {
+    padding: 5.5rem 0;
+    background: #ffffff;
+    border-top: 1px solid #eeeeee;
+}
+
+/* Footer */
+footer {
+    background: #111111;
+    color: #ffffff;
+    padding: 3rem 0;
+    text-align: center;
+}
+footer .footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+footer .footer-nav a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+}
+footer .footer-nav a:hover { color: #ffffff; }
+footer p {
+    color: rgba(255,255,255,0.35);
+    font-size: 0.76rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    margin: 0;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 991px) {
+    .brand-info {
+        padding-left: 0;
+        margin-top: 2.5rem;
+    }
+}
+@media (max-width: 768px) {
+    .srmark-overview-hero { padding: 7.5rem 0 4rem; }
+    .brand-hero-section { padding: 2rem 0 3.5rem; }
+    .brand-about-section,
+    .brand-products-section,
+    .brand-gallery-section,
+    .related-brands-section { padding: 3.5rem 0; }
+    .section-title { font-size: 1.6rem; }
+    .brand-title { font-size: 1.7rem; }
+}
+@media (max-width: 576px) {
+    .navbar .lang-dropdown { order: 0; margin-right: 0.5rem; }
+    .navbar .navbar-toggler { order: 1; }
+}
+@media (min-width: 577px) {
+    .navbar .lang-dropdown { order: 2; margin-left: 1rem; }
+}

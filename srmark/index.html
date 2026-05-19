@@ -1,0 +1,520 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PHGEFZW3HZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PHGEFZW3HZ');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SR MARK 台灣永續設計聯盟</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="icon" href="https://github.com/josephhan0818/re.ing/raw/main/assets/re-ing%20Logo.png" type="image/png">
+  <link rel="stylesheet" href="sr-base.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+      <div id="navbar-placeholder"></div>
+    <script src="../navbar.js"></script>
+
+  <!-- Hero -->
+  <section class="srmark-overview-hero">
+    <div class="container">
+      <span class="eyebrow" data-i18n="srmark.eyebrow">Taiwan Sustainable Design</span>
+      <h1 data-i18n="srmark.heroTitle">SR MARK<br>台灣永續設計聯盟</h1>
+      <p class="hero-desc" data-i18n="srmark.heroDesc">A curated collection of Taiwanese circular design brands — transforming recycled materials, local craft traditions, and sustainable thinking into everyday products.</p>
+      <a href="https://srmark.com/" target="_blank" rel="noopener noreferrer" class="hero-cta-btn" data-i18n="srmark.visitOfficial">Visit Official Website <i class="fas fa-external-link-alt"></i></a>
+    </div>
+  </section>
+
+  <!-- Filter + Grid -->
+  <section id="brands" style="padding-bottom: 7rem; background: #ffffff;">
+    <div class="container-fluid" style="max-width: 1380px; padding: 0 2rem;">
+
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <button class="filter-chip active" data-filter="all" data-i18n="srmark.filter.all">All</button>
+        <button class="filter-chip" data-filter="設計選品" data-i18n="srmark.filter.designSelection">設計選品</button>
+        <button class="filter-chip" data-filter="再生材料" data-i18n="srmark.filter.recycledMaterials">再生材料</button>
+        <button class="filter-chip" data-filter="工藝創新" data-i18n="srmark.filter.craftInnovation">工藝創新</button>
+        <button class="filter-chip" data-filter="永續包裝" data-i18n="srmark.filter.sustainablePackaging">永續包裝</button>
+        <button class="filter-chip" data-filter="文具生活" data-i18n="srmark.filter.stationeryLifestyle">文具生活</button>
+      </div>
+
+      <!-- Brand Cards -->
+      <div class="row g-4" id="brands-grid">
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 brand-col" data-filter="設計選品" data-aos="fade-up">
+          <div class="brand-card">
+            <div class="brand-card-img-wrap">
+              <img src="../assets/srmark_image/PICABOO_01 - HAO I HSU.jpg" alt="CYD TERRA" class="brand-card-img">
+            </div>
+            <div class="brand-card-body">
+              <div class="brand-card-category" data-i18n="srmark.brand.cydterra.category">Children's Living</div>
+              <div class="brand-card-name">CYD TERRA</div>
+              <a href="1-CYD-TERRA/" class="view-more-btn" data-i18n="common.viewDetails">View Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 brand-col" data-filter="再生材料" data-aos="fade-up" data-aos-delay="50">
+          <div class="brand-card">
+            <div class="brand-card-img-wrap">
+              <img src="../assets/srmark_image/優織隆_鳳梨葉纖維跳色托特包_1- Kelly Tseng.jpg" alt="EVOPURE+" class="brand-card-img">
+            </div>
+            <div class="brand-card-body">
+              <div class="brand-card-category" data-i18n="srmark.brand.evopure.category">Sustainable Textile</div>
+              <div class="brand-card-name">EVOPURE+</div>
+              <a href="2-EVOPURE/" class="view-more-btn" data-i18n="common.viewDetails">View Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 brand-col" data-filter="再生材料" data-aos="fade-up" data-aos-delay="100">
+          <div class="brand-card">
+            <div class="brand-card-img-wrap">
+              <img src="../assets/srmark_image/ei studio-plant pot-01 - ei studio.png" alt="ei studio" class="brand-card-img">
+            </div>
+            <div class="brand-card-body">
+              <div class="brand-card-category" data-i18n="srmark.brand.eistudio.category">Recycled Plastic</div>
+              <div class="brand-card-name">ei studio</div>
+              <a href="3-EI-STUDIO/" class="view-more-btn" data-i18n="common.viewDetails">View Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 brand-col" data-filter="工藝創新" data-aos="fade-up" data-aos-delay="150">
+          <div class="brand-card">
+            <div class="brand-card-img-wrap">
+              <img src="../assets/srmark_image/DSCF1948 - 元泰工坊.jpg" alt="元泰竹藝社" class="brand-card-img">
+            </div>
+            <div class="brand-card-body">
+              <div class="brand-card-category" data-i18n="srmark.brand.yuantai.category">Bamboo Products</div>
+              <div class="brand-card-name">元泰竹藝社 Yuantai</div>
+              <a href="4-YUANTAI/" class="view-more-btn" data-i18n="common.viewDetails">View Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 brand-col" data-filter="設計選品" data-aos="fade-up" data-aos-delay="200">
+          <div class="brand-card">
+            <div class="brand-card-img-wrap">
+              <img src="../assets/srmark_image/賽先生科學工廠-After School - 人體血管分布刺繡套組-01 - Mr. Sci Science Factory.jpg" alt="賽先生科學工廠" class="brand-card-img">
+            </div>
+            <div class="brand-card-body">
+              <div class="brand-card-category" data-i18n="srmark.brand.mrsci.category">Science &amp; Lifestyle</div>
+              <div class="brand-card-name">賽先生科學工廠</div>
+              <a href="5-MR-SCI/" class="view-more-btn" data-i18n="common.viewDetails">View Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 brand-col" data-filter="工藝創新" data-aos="fade-up" data-aos-delay="250">
+          <div class="brand-card">
+            <div class="brand-card-img-wrap">
+              <img src="../assets/srmark_image/有義器_渦輪濾杯_1 - Rhea Chou.jpg" alt="有義器 GUTS STUDIO" class="brand-card-img">
+            </div>
+            <div class="brand-card-body">
+              <div class="brand-card-category" data-i18n="srmark.brand.guts.category">Ceramic &amp; Coffee</div>
+              <div class="brand-card-name">有義器 GUTS STUDIO</div>
+              <a href="6-GUTS-STUDIO/" class="view-more-btn" data-i18n="common.viewDetails">View Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 brand-col" data-filter="再生材料" data-aos="fade-up" data-aos-delay="300">
+          <div class="brand-card">
+            <div class="brand-card-img-wrap">
+              <img src="../assets/srmark_image/P1002357 - Gochi.jpg" alt="ECOJOY" class="brand-card-img">
+            </div>
+            <div class="brand-card-body">
+              <div class="brand-card-category" data-i18n="srmark.brand.ecojoy.category">Recycled Plastic</div>
+              <div class="brand-card-name">ECOJOY</div>
+              <a href="7-ECOJOY/" class="view-more-btn" data-i18n="common.viewDetails">View Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 brand-col" data-filter="工藝創新" data-aos="fade-up" data-aos-delay="350">
+          <div class="brand-card">
+            <div class="brand-card-img-wrap">
+              <img src="../assets/srmark_image/IMG_9086 - 角琉璃.JPG" alt="角琉璃 JIAO" class="brand-card-img">
+            </div>
+            <div class="brand-card-body">
+              <div class="brand-card-category" data-i18n="srmark.brand.jiao.category">Glass Craft</div>
+              <div class="brand-card-name">角琉璃 JIAO</div>
+              <a href="8-JIAO/" class="view-more-btn" data-i18n="common.viewDetails">View Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 brand-col" data-filter="再生材料" data-aos="fade-up" data-aos-delay="400">
+          <div class="brand-card">
+            <div class="brand-card-img-wrap">
+              <img src="../assets/srmark_image/20240613 OTOP棒球椅_頁面_1 - liu Alvin (木酢達人 泰逸).jpg" alt="REWOOD" class="brand-card-img">
+            </div>
+            <div class="brand-card-body">
+              <div class="brand-card-category" data-i18n="srmark.brand.rewood.category">Forest Circular Economy</div>
+              <div class="brand-card-name">REWOOD 森林循環</div>
+              <a href="9-REWOOD/" class="view-more-btn" data-i18n="common.viewDetails">View Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 brand-col" data-filter="永續包裝" data-aos="fade-up" data-aos-delay="450">
+          <div class="brand-card">
+            <div class="brand-card-img-wrap">
+              <img src="../assets/srmark_image/HEMEL-1 - li Iris.jpg" alt="HongJi Box Art" class="brand-card-img">
+            </div>
+            <div class="brand-card-body">
+              <div class="brand-card-category" data-i18n="srmark.brand.hongji.category">Sustainable Packaging</div>
+              <div class="brand-card-name">HongJi Box Art 宏吉盒藝</div>
+              <a href="10-HONGJI/" class="view-more-btn" data-i18n="common.viewDetails">View Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 brand-col" data-filter="文具生活" data-aos="fade-up" data-aos-delay="500">
+          <div class="brand-card">
+            <div class="brand-card-img-wrap">
+              <img src="https://drive.google.com/thumbnail?id=1fvxSCFLbOUvvqmxTlAlAUiGZ8a8xnWpZ&sz=w400"
+                   alt="Simbalion 雄獅文具" class="brand-card-img" loading="lazy">
+            </div>
+            <div class="brand-card-body">
+              <div class="brand-card-category" data-i18n="srmark.brand.simbalion.category">Eco Art &amp; Stationery</div>
+              <div class="brand-card-name">Simbalion 雄獅文具</div>
+              <a href="11-SIMBALION/" class="view-more-btn" data-i18n="common.viewDetails">View Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end brands-grid -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-nav">
+        <a href="../#about-reing" data-i18n="nav.aboutReing">About re-ing</a>
+        <a href="../sustainability-cases" data-i18n="nav.sustainabilityCases">永續設計案例</a>
+        <a href="../retwist/" data-i18n="nav.retwist">RE:TWIST</a>
+        <a href="https://srmark.com/" target="_blank" rel="noopener noreferrer">srmark.com ↗</a>
+        <a href="../#contact" data-i18n="nav.contact">Contact Us</a>
+      </div>
+      <p data-i18n="footer.copyright">© 2025 re-ing. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic' });
+
+    const translations = {
+      en: {
+        "nav.aboutReing": "About re-ing",
+        "nav.sustainabilityCases": "Sustainability Cases",
+        "nav.retwist": "RE:TWIST Project",
+        "nav.contact": "Contact Us",
+        "srmark.eyebrow": "Taiwan Sustainable Design",
+        "srmark.heroTitle": "SR MARK<br>Taiwan Sustainable Design Alliance",
+        "srmark.heroDesc": "A curated collection of Taiwanese circular design brands — transforming recycled materials, local craft traditions, and sustainable thinking into everyday products.",
+        "srmark.filter.all": "All",
+        "srmark.filter.designSelection": "Design Selection",
+        "srmark.filter.recycledMaterials": "Recycled Materials",
+        "srmark.filter.craftInnovation": "Craft Innovation",
+        "srmark.filter.sustainablePackaging": "Sustainable Packaging",
+        "srmark.filter.stationeryLifestyle": "Stationery & Lifestyle",
+        "srmark.brand.cydterra.category": "Children's Living",
+        "srmark.brand.evopure.category": "Sustainable Textile",
+        "srmark.brand.eistudio.category": "Recycled Plastic",
+        "srmark.brand.yuantai.category": "Bamboo Products",
+        "srmark.brand.mrsci.category": "Science &amp; Lifestyle",
+        "srmark.brand.guts.category": "Ceramic &amp; Coffee",
+        "srmark.brand.ecojoy.category": "Recycled Plastic",
+        "srmark.brand.jiao.category": "Glass Craft",
+        "srmark.brand.rewood.category": "Forest Circular Economy",
+        "srmark.brand.hongji.category": "Sustainable Packaging",
+        "common.viewDetails": "View Details",
+        "srmark.brand.simbalion.category": "Eco Art &amp; Stationery",
+        "srmark.brand.doubledribble.category": "Sports Upcycling",
+        "srmark.brand.couragegrocery.category": "Eco Living",
+        "srmark.brand.uffy.category": "Wellness & Lifestyle",
+        "srmark.brand.greenfootprint.category": "Recycled Plastic Toys",
+        "srmark.visitOfficial": "Visit Official Website",
+        "nav.srmark": "SR MARK Taiwan Sustainable Design Alliance",
+        "footer.copyright": "© 2025 re-ing. All rights reserved."
+      },
+      zh: {
+        "nav.aboutReing": "關於re-ing",
+        "nav.sustainabilityCases": "永續設計案例",
+        "nav.retwist": "RE:TWIST 轉圈圈計畫",
+        "nav.contact": "聯絡我們",
+        "srmark.eyebrow": "台灣永續設計",
+        "srmark.heroTitle": "SR MARK<br>台灣永續設計聯盟",
+        "srmark.heroDesc": "彙整來自台灣的循環設計品牌選集，透過再生材料、在地工藝傳統與永續思考，將環境意識轉化為日常生活用品。",
+        "srmark.filter.all": "全部",
+        "srmark.filter.designSelection": "設計選品",
+        "srmark.filter.recycledMaterials": "再生材料",
+        "srmark.filter.craftInnovation": "工藝創新",
+        "srmark.filter.sustainablePackaging": "永續包裝",
+        "srmark.filter.stationeryLifestyle": "文具生活",
+        "srmark.brand.cydterra.category": "兒童生活設計",
+        "srmark.brand.evopure.category": "永續紡織",
+        "srmark.brand.eistudio.category": "再生塑膠",
+        "srmark.brand.yuantai.category": "竹材日用品",
+        "srmark.brand.mrsci.category": "科學生活",
+        "srmark.brand.guts.category": "陶瓷咖啡工藝",
+        "srmark.brand.ecojoy.category": "再生塑膠家具",
+        "srmark.brand.jiao.category": "玻璃文化工藝",
+        "srmark.brand.rewood.category": "森林循環經濟",
+        "srmark.brand.hongji.category": "永續包裝設計",
+        "common.viewDetails": "查看詳情",
+        "srmark.brand.simbalion.category": "永續美術文具",
+        "srmark.brand.doubledribble.category": "運動廢材升級再造",
+        "srmark.brand.couragegrocery.category": "永續生活選品",
+        "srmark.brand.uffy.category": "生活健康設計",
+        "srmark.brand.greenfootprint.category": "再生塑膠玩具",
+        "srmark.visitOfficial": "前往官方網站",
+        "nav.srmark": "SR MARK 台灣永續設計聯盟",
+        "footer.copyright": "© 2025 re-ing. 保留所有權利。"
+      },
+      nl: {
+        "nav.aboutReing": "Over re-ing",
+        "nav.sustainabilityCases": "Duurzaamheidscases",
+        "nav.retwist": "RE:TWIST Project",
+        "nav.contact": "Neem Contact Op",
+        "srmark.eyebrow": "Taiwanese Duurzame Design",
+        "srmark.heroTitle": "SR MARK<br>Taiwan Duurzaam Design Alliantie",
+        "srmark.heroDesc": "Een samengestelde collectie van Taiwanese circulaire designmerken — gerecyclede materialen, lokale ambachtstradities en duurzaam denken omgezet in dagelijkse producten.",
+        "srmark.filter.all": "Alles",
+        "srmark.filter.designSelection": "Design Selectie",
+        "srmark.filter.recycledMaterials": "Gerecyclede Materialen",
+        "srmark.filter.craftInnovation": "Ambachts Innovatie",
+        "srmark.filter.sustainablePackaging": "Duurzame Verpakking",
+        "srmark.filter.stationeryLifestyle": "Kantoorartikelen & Lifestyle",
+        "srmark.brand.cydterra.category": "Kinderproducten",
+        "srmark.brand.evopure.category": "Duurzaam Textiel",
+        "srmark.brand.eistudio.category": "Gerecycled Plastic",
+        "srmark.brand.yuantai.category": "Bamboeproducten",
+        "srmark.brand.mrsci.category": "Wetenschap &amp; Lifestyle",
+        "srmark.brand.guts.category": "Keramiek &amp; Koffie",
+        "srmark.brand.ecojoy.category": "Gerecycled Plastic",
+        "srmark.brand.jiao.category": "Glaskunst",
+        "srmark.brand.rewood.category": "Boseconomie",
+        "srmark.brand.hongji.category": "Duurzame Verpakking",
+        "common.viewDetails": "Bekijk Details",
+        "srmark.brand.simbalion.category": "Eco Kunst &amp; Kantoorartikelen",
+        "srmark.brand.doubledribble.category": "Sport Upcycling",
+        "srmark.brand.couragegrocery.category": "Eco Lifestyle",
+        "srmark.brand.uffy.category": "Wellness & Lifestyle",
+        "srmark.brand.greenfootprint.category": "Gerecycled Plastic Speelgoed",
+        "srmark.visitOfficial": "Officiële Website Bezoeken",
+        "nav.srmark": "SR MARK Taiwan Duurzaam Ontwerp Alliantie",
+        "footer.copyright": "© 2025 re-ing. Alle rechten voorbehouden."
+      },
+      ja: {
+        "nav.aboutReing": "re-ingについて",
+        "nav.sustainabilityCases": "サステナビリティケース",
+        "nav.retwist": "RE:TWIST プロジェクト",
+        "nav.contact": "お問い合わせ",
+        "srmark.eyebrow": "台湾サステナブルデザイン",
+        "srmark.heroTitle": "SR MARK<br>台湾サステナブルデザインアライアンス",
+        "srmark.heroDesc": "台湾の循環デザインブランドのキュレーションコレクション — リサイクル素材、地元の工芸の伝統、持続可能な思考を日常的な製品に変換しています。",
+        "srmark.filter.all": "すべて",
+        "srmark.filter.designSelection": "デザインセレクト",
+        "srmark.filter.recycledMaterials": "再生素材",
+        "srmark.filter.craftInnovation": "クラフト革新",
+        "srmark.filter.sustainablePackaging": "サステナブルパッケージ",
+        "srmark.filter.stationeryLifestyle": "文具・生活",
+        "srmark.brand.cydterra.category": "子ども生活",
+        "srmark.brand.evopure.category": "サステナブルテキスタイル",
+        "srmark.brand.eistudio.category": "再生プラスチック",
+        "srmark.brand.yuantai.category": "竹製品",
+        "srmark.brand.mrsci.category": "サイエンス &amp; ライフスタイル",
+        "srmark.brand.guts.category": "セラミック &amp; コーヒー",
+        "srmark.brand.ecojoy.category": "再生プラスチック",
+        "srmark.brand.jiao.category": "ガラス工芸",
+        "srmark.brand.rewood.category": "森林循環経済",
+        "srmark.brand.hongji.category": "サステナブルパッケージ",
+        "common.viewDetails": "詳細を見る",
+        "srmark.brand.simbalion.category": "エコ文具・アート",
+        "srmark.brand.doubledribble.category": "スポーツアップサイクリング",
+        "srmark.brand.couragegrocery.category": "エコライフスタイル",
+        "srmark.brand.uffy.category": "ウェルネス & ライフスタイル",
+        "srmark.brand.greenfootprint.category": "再生プラスチック玩具",
+        "srmark.visitOfficial": "公式サイトを見る",
+        "nav.srmark": "SR MARK 台湾サステナブルデザインアライアンス",
+        "footer.copyright": "© 2025 re-ing. 全著作権所有。"
+      }
+    };
+
+    // ── Filter overrides for brands from Google Sheets not yet in registry ─────
+    const FILTER_OVERRIDES = {
+      'hibang': '再生材料'
+    };
+
+    // ── Brand registry: maps EN brand name to folder / filter / image ──────────
+    const BRAND_REGISTRY = {
+      'CYD TERRA':      { folder:'1-CYD-TERRA',      filter:'設計選品', displayName:'CYD TERRA',              categoryKey:'srmark.brand.cydterra.category',      image:'../assets/srmark_image/PICABOO_01 - HAO I HSU.jpg' },
+      'EVOPURE+':       { folder:'2-EVOPURE',         filter:'再生材料', displayName:'EVOPURE+',               categoryKey:'srmark.brand.evopure.category',       image:'../assets/srmark_image/優織隆_鳳梨葉纖維跳色托特包_1- Kelly Tseng.jpg' },
+      'ei studio':      { folder:'3-EI-STUDIO',       filter:'再生材料', displayName:'ei studio',              categoryKey:'srmark.brand.eistudio.category',      image:'../assets/srmark_image/ei studio-plant pot-01 - ei studio.png' },
+      'Yuantai':        { folder:'4-YUANTAI',         filter:'工藝創新', displayName:'元泰竹藝社 Yuantai',      categoryKey:'srmark.brand.yuantai.category',       image:'../assets/srmark_image/DSCF1948 - 元泰工坊.jpg' },
+      'Mr.Sci':         { folder:'5-MR-SCI',          filter:'設計選品', displayName:'賽先生科學工廠',           categoryKey:'srmark.brand.mrsci.category',         image:'../assets/srmark_image/賽先生科學工廠-After School - 人體血管分布刺繡套組-01 - Mr. Sci Science Factory.jpg' },
+      'GUTS STUDIO':    { folder:'6-GUTS-STUDIO',     filter:'工藝創新', displayName:'有義器 GUTS STUDIO',     categoryKey:'srmark.brand.guts.category',          image:'../assets/srmark_image/有義器_渦輪濾杯_1 - Rhea Chou.jpg' },
+      'ECOJOY':         { folder:'7-ECOJOY',          filter:'再生材料', displayName:'ECOJOY',                 categoryKey:'srmark.brand.ecojoy.category',        image:'../assets/srmark_image/P1002357 - Gochi.jpg' },
+      'JIAO':           { folder:'8-JIAO',            filter:'工藝創新', displayName:'角琉璃 JIAO',             categoryKey:'srmark.brand.jiao.category',          image:'../assets/srmark_image/IMG_9086 - 角琉璃.JPG' },
+      'REWOOD':         { folder:'9-REWOOD',          filter:'再生材料', displayName:'REWOOD 森林循環',         categoryKey:'srmark.brand.rewood.category',        image:'../assets/srmark_image/20240613 OTOP棒球椅_頁面_1 - liu Alvin (木酢達人 泰逸).jpg' },
+      'HongJi Box Art': { folder:'10-HONGJI',         filter:'永續包裝', displayName:'HongJi Box Art 宏吉盒藝', categoryKey:'srmark.brand.hongji.category',        image:'../assets/srmark_image/HEMEL-1 - li Iris.jpg' },
+      'Simbalion':      { folder:'11-SIMBALION',      filter:'文具生活', displayName:'Simbalion 雄獅文具',      categoryKey:'srmark.brand.simbalion.category',     image:'https://drive.google.com/thumbnail?id=1fvxSCFLbOUvvqmxTlAlAUiGZ8a8xnWpZ&sz=w400' },
+      'Double Dribble': { folder:'12-DOUBLE-DRIBBLE', filter:'設計選品', displayName:'Double Dribble 二次運球', categoryKey:'srmark.brand.doubledribble.category', image:'https://drive.google.com/thumbnail?id=1P9tnLB60T3IKiEytEsbqS5Gb2IZadB73&sz=w400' },
+      'Courage Grocery': { folder:'13-COURAGE-GROCERY', filter:'設計選品', displayName:'Courage Grocery 勇氣雜貨商行', categoryKey:'srmark.brand.couragegrocery.category', image:'https://drive.google.com/thumbnail?id=1D6DQwQQXDaTzkHdNq5h07rDeSoWlu9_8&sz=w400' },
+      'Uffy':            { folder:'14-UFFY',                         filter:'設計選品', displayName:'Uffy 無非研製所',             categoryKey:'srmark.brand.uffy.category',           image:'https://drive.google.com/thumbnail?id=1dZBaHbeGYobBCKLrnDkgQ_5kMToRUkVU&sz=w400' },
+      'Green Footprint': { folder:'15-GREEN-FOOTPRINT-INT-L-CO-LTD', filter:'再生材料', displayName:'Green Footprint 綠腳印',       categoryKey:'srmark.brand.greenfootprint.category', image:'https://drive.google.com/thumbnail?id=1ayARBa4JbGCiE565X3pa049wcL0Ch2RF&sz=w400' }
+    };
+
+    // ── Simple CSV parser (quoted fields, embedded newlines) ─────────────────
+    function parseCSV(text) {
+      const rows = []; let row = [], field = '', inQ = false;
+      for (let i = 0; i < text.length; i++) {
+        const c = text[i];
+        if (inQ) {
+          if (c === '"') { if (text[i+1] === '"') { field += '"'; i++; } else inQ = false; }
+          else field += c;
+        } else {
+          if (c === '"') inQ = true;
+          else if (c === ',') { row.push(field); field = ''; }
+          else if (c === '\n') { row.push(field); if (row.some(f=>f)) rows.push(row); row=[]; field=''; }
+          else if (c !== '\r') field += c;
+        }
+      }
+      if (field || row.length) { row.push(field); if (row.some(f=>f)) rows.push(row); }
+      return rows;
+    }
+
+    // ── Generate URL-safe slug from brand name ──────────────────────────────
+    function makeSlug(name) {
+      return (name || '').split('/')[0].trim()
+        .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    }
+
+    // ── Match EN name to registry entry (partial segment match) ─────────────
+    function findInRegistry(enName) {
+      const base = (enName||'').split('/')[0].trim().toLowerCase();
+      for (const [key, cfg] of Object.entries(BRAND_REGISTRY)) {
+        if (base.includes(key.toLowerCase()) || key.toLowerCase().includes(base)) return cfg;
+      }
+      return null;
+    }
+
+    let cachedRows = null;
+    let activeFilter = 'all';
+
+    // ── Render brand grid (from Sheet rows, or registry fallback) ────────────
+    function renderBrandsGrid() {
+      const grid = document.getElementById('brands-grid');
+      if (!grid) return;
+      const lang = document.documentElement.getAttribute('data-lang') || 'en';
+      const t = translations[lang] || translations.en;
+      const viewText = t['common.viewDetails'] || 'View Details';
+      let html = '', delay = 0;
+
+      const src = cachedRows
+        ? cachedRows.slice(1).filter(r => r[1] || r[2])
+        : Object.values(BRAND_REGISTRY).map(cfg => ({ _cfg: cfg }));
+
+      src.forEach(row => {
+        let cfg;
+        if (row._cfg) {
+          cfg = row._cfg;
+        } else {
+          cfg = findInRegistry(row[2] || '');
+          if (!cfg) {
+            // New brand not yet in registry — show card with Drive thumbnail
+            const m   = (row[9]||'').match(/[?&]id=([A-Za-z0-9_-]+)/) || (row[9]||'').match(/\/d\/([A-Za-z0-9_-]+)/);
+            const zh  = (row[1]||'').split('/')[0].trim();
+            const en  = (row[2]||'').split('/')[0].trim();
+            const nm  = (en + (zh && zh !== en ? ' ' + zh : '')).trim();
+            const th  = m ? `https://drive.google.com/thumbnail?id=${m[1]}&sz=w400` : '';
+            const slug = makeSlug(en || zh);
+            const linkEl = slug
+              ? `<a href="brand/?slug=${encodeURIComponent(slug)}" class="view-more-btn">${viewText} <i class="fas fa-arrow-right"></i></a>`
+              : `<span class="view-more-btn" style="color:#ccc;cursor:default;pointer-events:none;border-color:transparent">Coming Soon</span>`;
+            const overrideKey = Object.keys(FILTER_OVERRIDES).find(k => slug.includes(k) || k.includes(slug));
+            const filterVal = overrideKey ? FILTER_OVERRIDES[overrideKey] : 'new';
+            html += `<div class="col-xl-3 col-lg-4 col-sm-6 brand-col" data-filter="${filterVal}" data-aos="fade-up" data-aos-delay="${delay}"><div class="brand-card"><div class="brand-card-img-wrap">${th ? `<img src="${th}" alt="${nm}" class="brand-card-img" loading="lazy">` : '<div style="width:100%;aspect-ratio:4/3;background:#f5f5f5"></div>'}</div><div class="brand-card-body"><div class="brand-card-category">SR MARK Brand</div><div class="brand-card-name">${nm}</div>${linkEl}</div></div></div>`;
+            delay = (delay + 50) % 550; return;
+          }
+        }
+        const catLabel = t[cfg.categoryKey] || cfg.categoryKey;
+        html += `<div class="col-xl-3 col-lg-4 col-sm-6 brand-col" data-filter="${cfg.filter}" data-aos="fade-up" data-aos-delay="${delay}"><div class="brand-card"><div class="brand-card-img-wrap"><img src="${cfg.image}" alt="${cfg.displayName}" class="brand-card-img" loading="lazy"></div><div class="brand-card-body"><div class="brand-card-category" data-i18n="${cfg.categoryKey}">${catLabel}</div><div class="brand-card-name">${cfg.displayName}</div><a href="${cfg.folder}/" class="view-more-btn" data-i18n="common.viewDetails">${viewText} <i class="fas fa-arrow-right"></i></a></div></div></div>`;
+        delay = (delay + 50) % 550;
+      });
+
+      grid.innerHTML = html;
+      AOS.refresh();
+      applyFilter(activeFilter);
+    }
+
+    // ── Fetch brand data from Google Sheets CSV ──────────────────────────────
+    async function loadBrandsGrid() {
+      const URL = 'https://docs.google.com/spreadsheets/d/1OQcUBVt4L7VSk-oNQR2D2CcviDNV32ILfBclkirs-7M/gviz/tq?tqx=out:csv&gid=1019087016';
+      try {
+        const res = await fetch(URL);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        cachedRows = parseCSV(await res.text());
+      } catch(e) {
+        console.warn('SR MARK: Sheets unavailable, showing registry fallback.', e.message);
+        cachedRows = null;
+      }
+      renderBrandsGrid();
+    }
+
+    function switchLanguage(lang) {
+      if (!translations[lang]) return false;
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key] !== undefined) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+      localStorage.setItem('language', lang);
+      const dd = bootstrap.Dropdown.getInstance(document.getElementById('langDropdown'));
+      if (dd) dd.hide();
+      return false;
+    }
+
+    function applyFilter(filter) {
+      activeFilter = filter;
+      document.querySelectorAll('#brands-grid .brand-col').forEach(col => {
+        col.style.display = (filter === 'all' || col.dataset.filter === filter) ? '' : 'none';
+      });
+    }
+
+    // Filter chips
+    document.querySelectorAll('.filter-chip').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        applyFilter(this.dataset.filter);
+      });
+    });
+
+    // Init
+    const savedLang = localStorage.getItem('language') || 'en';
+    switchLanguage(savedLang);
+    loadBrandsGrid();
+  </script>
+</body>
+</html>

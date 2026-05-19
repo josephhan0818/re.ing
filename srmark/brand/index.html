@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PHGEFZW3HZ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PHGEFZW3HZ');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Brand | SR MARK 台灣永續設計聯盟</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="icon" href="https://github.com/josephhan0818/re.ing/raw/main/assets/re-ing%20Logo.png" type="image/png">
+  <link rel="stylesheet" href="../sr-base.css">
+  <style>
+    .sr-loading {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .sr-spinner {
+      width: 44px; height: 44px;
+      border: 3px solid #eee;
+      border-top-color: #1a1a1a;
+      border-radius: 50%;
+      animation: sr-spin 0.75s linear infinite;
+    }
+    @keyframes sr-spin { to { transform: rotate(360deg); } }
+    .sr-loading p { color: #aaa; font-size: 0.875rem; margin: 0; }
+    .sr-error {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      text-align: center;
+      padding: 2rem;
+    }
+    .sr-error i { font-size: 3rem; color: #ccc; }
+    .sr-error h2 { font-size: 1.4rem; margin: 0; }
+    .sr-error p { color: #999; font-size: 0.9rem; margin: 0; }
+    .sr-lang-note {
+      font-size: 0.82rem;
+      color: #999;
+      border: 1px dashed #e0e0e0;
+      border-radius: 6px;
+      padding: 0.6rem 1rem;
+      margin-bottom: 1.5rem;
+      background: #fafafa;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+  <script src="../../navbar.js"></script>
+
+  <!-- Loading state -->
+  <div id="sr-loading" class="sr-loading">
+    <div class="sr-spinner"></div>
+    <p>Loading brand data…</p>
+  </div>
+
+  <!-- Error state -->
+  <div id="sr-error" class="sr-error" style="display:none">
+    <i class="fas fa-circle-exclamation"></i>
+    <h2>Brand not found</h2>
+    <p>We couldn't load this brand's information. Please try again later.</p>
+    <a href="../" class="view-more-btn" style="margin-top:0.5rem">← Back to SR MARK</a>
+  </div>
+
+  <!-- Dynamic content injected here -->
+  <div id="sr-content" style="display:none"></div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-nav">
+        <a href="../../#about-reing" data-i18n="nav.aboutReing">About re-ing</a>
+        <a href="../../sustainability-cases" data-i18n="nav.sustainabilityCases">永續設計案例</a>
+        <a href="../" data-i18n="nav.srmark">SR MARK</a>
+        <a href="../../retwist/" data-i18n="nav.retwist">RE:TWIST</a>
+        <a href="../../#contact" data-i18n="nav.contact">Contact</a>
+      </div>
+      <p data-i18n="footer.copyright">© 2025 re-ing. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+  // ── Column index map (0-based) ────────────────────────────────────────────────
+  // 0  = timestamp
+  // 1  = brand name ZH     2  = brand name EN
+  // 3  = brand summary ZH  4  = brand summary EN
+  // 5  = P1 name ZH        6  = P1 name EN
+  // 7  = P1 desc ZH        8  = P1 desc EN
+  // 9  = P1 images         10 = P1 website   11 = P1 video
+  // 12 = P2 name ZH        13 = P2 name EN
+  // 14 = P2 desc ZH        15 = P2 desc EN
+  // 16 = P2 images         17 = P2 website   18 = P2 video
+  // 19 = P3 name ZH        20 = P3 name EN
+  // 21 = P3 desc ZH        22 = P3 desc EN
+  // 23 = P3 images         24 = P3 website   25 = P3 video
+
+  const CSV_URL = 'https://docs.google.com/spreadsheets/d/1OQcUBVt4L7VSk-oNQR2D2CcviDNV32ILfBclkirs-7M/gviz/tq?tqx=out:csv&gid=1019087016';
+
+  // ── UI translations (nav, footer, section labels) — 4 languages ──────────────
+  const T = {
+    en: {
+      "nav.aboutReing": "About re-ing",
+      "nav.sustainabilityCases": "Sustainability Cases",
+      "nav.srmark": "SR MARK",
+      "nav.retwist": "RE:TWIST",
+      "nav.contact": "Contact",
+      "lang.en": "English", "lang.zh": "中文", "lang.nl": "Nederlands", "lang.ja": "日本語",
+      "common.home": "Home",
+      "common.aboutTitle": "About the Brand",
+      "common.productsTitle": "Design Works",
+      "common.galleryTitle": "Photo Gallery",
+      "common.otherBrandsTitle": "Other Brands",
+      "common.viewAllBrands": "View All Brands",
+      "common.viewDetails": "View Details",
+      "brand.visitWebsite": "View Product",
+      "brand.langNote": "Translation not available — showing English.",
+      "footer.copyright": "© 2025 re-ing. All rights reserved."
+    },
+    zh: {
+      "nav.aboutReing": "關於re-ing",
+      "nav.sustainabilityCases": "永續設計案例",
+      "nav.srmark": "SR MARK",
+      "nav.retwist": "RE:TWIST 轉圈圈計畫",
+      "nav.contact": "聯絡我們",
+      "lang.en": "English", "lang.zh": "中文", "lang.nl": "Nederlands", "lang.ja": "日本語",
+      "common.home": "首頁",
+      "common.aboutTitle": "品牌介紹",
+      "common.productsTitle": "設計作品",
+      "common.galleryTitle": "品牌相簿",
+      "common.otherBrandsTitle": "其他品牌",
+      "common.viewAllBrands": "查看所有品牌",
+      "common.viewDetails": "查看詳情",
+      "brand.visitWebsite": "查看產品",
+      "brand.langNote": "",
+      "footer.copyright": "© 2025 re-ing. 保留所有權利。"
+    },
+    nl: {
+      "nav.aboutReing": "Over re-ing",
+      "nav.sustainabilityCases": "Duurzaamheidsgevallen",
+      "nav.srmark": "SR MARK",
+      "nav.retwist": "RE:TWIST Project",
+      "nav.contact": "Contact",
+      "lang.en": "English", "lang.zh": "中文", "lang.nl": "Nederlands", "lang.ja": "日本語",
+      "common.home": "Home",
+      "common.aboutTitle": "Over het merk",
+      "common.productsTitle": "Ontwerpwerken",
+      "common.galleryTitle": "Fotogalerij",
+      "common.otherBrandsTitle": "Andere merken",
+      "common.viewAllBrands": "Alle merken bekijken",
+      "common.viewDetails": "Bekijk Details",
+      "brand.visitWebsite": "Product bekijken",
+      "brand.langNote": "Vertaling niet beschikbaar — Engels weergegeven.",
+      "footer.copyright": "© 2025 re-ing. Alle rechten voorbehouden."
+    },
+    ja: {
+      "nav.aboutReing": "re-ingについて",
+      "nav.sustainabilityCases": "サステナビリティケース",
+      "nav.srmark": "SR MARK",
+      "nav.retwist": "RE:TWIST プロジェクト",
+      "nav.contact": "お問い合わせ",
+      "lang.en": "English", "lang.zh": "中文", "lang.nl": "Nederlands", "lang.ja": "日本語",
+      "common.home": "ホーム",
+      "common.aboutTitle": "ブランド紹介",
+      "common.productsTitle": "デザイン作品",
+      "common.galleryTitle": "フォトギャラリー",
+      "common.otherBrandsTitle": "他のブランド",
+      "common.viewAllBrands": "すべてのブランドを見る",
+      "common.viewDetails": "詳細を見る",
+      "brand.visitWebsite": "製品を見る",
+      "brand.langNote": "翻訳がありません。英語を表示しています。",
+      "footer.copyright": "© 2025 re-ing. 全著作権所有。"
+    }
+  };
+
+  // ── Known registered brands (for "Other Brands" section) ─────────────────────
+  // Paths are relative to srmark/brand/
+  const REGISTRY = {
+    'CYD TERRA':       { folder:'../1-CYD-TERRA',       displayName:'CYD TERRA',                    image:'../../assets/srmark_image/PICABOO_01 - HAO I HSU.jpg' },
+    'EVOPURE+':        { folder:'../2-EVOPURE',          displayName:'EVOPURE+',                     image:'../../assets/srmark_image/優織隆_鳳梨葉纖維跳色托特包_1- Kelly Tseng.jpg' },
+    'ei studio':       { folder:'../3-EI-STUDIO',        displayName:'ei studio',                    image:'../../assets/srmark_image/ei studio-plant pot-01 - ei studio.png' },
+    'Yuantai':         { folder:'../4-YUANTAI',          displayName:'元泰竹藝社 Yuantai',            image:'../../assets/srmark_image/DSCF1948 - 元泰工坊.jpg' },
+    'Mr.Sci':          { folder:'../5-MR-SCI',           displayName:'賽先生科學工廠',                image:'../../assets/srmark_image/賽先生科學工廠-After School - 人體血管分布刺繡套組-01 - Mr. Sci Science Factory.jpg' },
+    'GUTS STUDIO':     { folder:'../6-GUTS-STUDIO',      displayName:'有義器 GUTS STUDIO',           image:'../../assets/srmark_image/有義器_渦輪濾杯_1 - Rhea Chou.jpg' },
+    'ECOJOY':          { folder:'../7-ECOJOY',           displayName:'ECOJOY',                       image:'../../assets/srmark_image/P1002357 - Gochi.jpg' },
+    'JIAO':            { folder:'../8-JIAO',             displayName:'角琉璃 JIAO',                  image:'../../assets/srmark_image/IMG_9086 - 角琉璃.JPG' },
+    'REWOOD':          { folder:'../9-REWOOD',           displayName:'REWOOD 森林循環',              image:'../../assets/srmark_image/20240613 OTOP棒球椅_頁面_1 - liu Alvin (木酢達人 泰逸).jpg' },
+    'HongJi Box Art':  { folder:'../10-HONGJI',          displayName:'HongJi Box Art 宏吉盒藝',     image:'../../assets/srmark_image/HEMEL-1 - li Iris.jpg' },
+    'Simbalion':       { folder:'../11-SIMBALION',       displayName:'Simbalion 雄獅文具',           image:'https://drive.google.com/thumbnail?id=1fvxSCFLbOUvvqmxTlAlAUiGZ8a8xnWpZ&sz=w400' },
+    'Double Dribble':  { folder:'../12-DOUBLE-DRIBBLE',  displayName:'Double Dribble 二次運球',      image:'https://drive.google.com/thumbnail?id=1P9tnLB60T3IKiEytEsbqS5Gb2IZadB73&sz=w400' },
+    'Courage Grocery': { folder:'../13-COURAGE-GROCERY', displayName:'Courage Grocery 勇氣雜貨商行', image:'https://drive.google.com/thumbnail?id=1D6DQwQQXDaTzkHdNq5h07rDeSoWlu9_8&sz=w400' }
+  };
+
+  // ── Helpers ───────────────────────────────────────────────────────────────────
+  function makeSlug(name) {
+    return (name || '').split('/')[0].trim()
+      .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  }
+
+  function extractDriveId(url) {
+    if (!url) return null;
+    let m = url.match(/[?&]id=([A-Za-z0-9_-]+)/);
+    if (m) return m[1];
+    m = url.match(/\/d\/([A-Za-z0-9_-]+)/);
+    if (m) return m[1];
+    return null;
+  }
+
+  function parseImageUrls(raw, sz = 'w600') {
+    if (!raw) return [];
+    return raw.split(',')
+      .map(u => u.trim()).filter(Boolean)
+      .map(u => { const id = extractDriveId(u); return id ? `https://drive.google.com/thumbnail?id=${id}&sz=${sz}` : null; })
+      .filter(Boolean);
+  }
+
+  // ZH for 'zh', EN for everything else
+  function pick(lang, zh, en) {
+    return (lang === 'zh' ? zh : en) || en || zh || '';
+  }
+
+  // ── Simple CSV parser ─────────────────────────────────────────────────────────
+  function parseCSV(text) {
+    const rows = []; let row = [], field = '', inQ = false;
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (inQ) {
+        if (c === '"') { if (text[i+1] === '"') { field += '"'; i++; } else inQ = false; }
+        else field += c;
+      } else {
+        if (c === '"') inQ = true;
+        else if (c === ',') { row.push(field); field = ''; }
+        else if (c === '\n') { row.push(field); if (row.some(f=>f)) rows.push(row); row=[]; field=''; }
+        else if (c !== '\r') field += c;
+      }
+    }
+    if (field || row.length) { row.push(field); if (row.some(f=>f)) rows.push(row); }
+    return rows;
+  }
+
+  // ── Render page HTML from a CSV row + language ────────────────────────────────
+  function buildHTML(row, lang) {
+    const t  = T[lang] || T.en;
+    const zh = (row[1] || '').split('/')[0].trim();
+    const en = (row[2] || '').split('/')[0].trim();
+    const displayName = (en || zh) + (zh && zh !== en ? (en ? ' ' + zh : '') : '');
+
+    const summary = pick(lang, row[3], row[4]);
+    const showNote = (lang === 'nl' || lang === 'ja') && t['brand.langNote'];
+
+    // Build product data
+    const rawProducts = [
+      { nameZH:row[5],  nameEN:row[6],  descZH:row[7],  descEN:row[8],  imgs:row[9],  link:row[10] },
+      { nameZH:row[12], nameEN:row[13], descZH:row[14], descEN:row[15], imgs:row[16], link:row[17] },
+      { nameZH:row[19], nameEN:row[20], descZH:row[21], descEN:row[22], imgs:row[23], link:row[24] }
+    ].filter(p => p.nameZH || p.nameEN);
+
+    // Hero: first image of first product
+    const heroImgs = rawProducts.length ? parseImageUrls(rawProducts[0].imgs, 'w800') : [];
+    const heroSrc = heroImgs[0] || '';
+
+    // Product cards
+    let productsHTML = '';
+    rawProducts.forEach((p, i) => {
+      const name = pick(lang, p.nameZH, p.nameEN);
+      const desc = pick(lang, p.descZH, p.descEN);
+      const img  = parseImageUrls(p.imgs, 'w600')[0] || '';
+      productsHTML += `
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="${i * 80}">
+          <div class="project-card">
+            <div class="project-img-wrap">
+              ${img
+                ? `<img src="${img}" alt="${name}" class="project-img" loading="lazy">`
+                : '<div style="width:100%;aspect-ratio:4/3;background:#f5f5f5"></div>'}
+            </div>
+            <div class="project-body">
+              <div class="project-name">${name}</div>
+              <p class="project-desc">${desc.replace(/\n/g,'<br>')}</p>
+              ${p.link ? `<div class="product-cta">
+                <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="btn-product-link">
+                  ${t['brand.visitWebsite']} <i class="fas fa-external-link-alt"></i>
+                </a></div>` : ''}
+            </div>
+          </div>
+        </div>`;
+    });
+
+    // Gallery: all images from all products
+    const allImgs = rawProducts.flatMap(p => parseImageUrls(p.imgs, 'w600'));
+    let galleryHTML = '';
+    allImgs.forEach((src, i) => {
+      galleryHTML += `
+        <div class="col-6 col-md-4" data-aos="fade-up" data-aos-delay="${Math.min(i * 60, 360)}">
+          <div class="gallery-item">
+            <img src="${src}" alt="" class="gallery-image" loading="lazy">
+          </div>
+        </div>`;
+    });
+
+    return `
+      <section class="breadcrumb-section">
+        <div class="container">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="../../" data-i18n="common.home">${t['common.home']}</a></li>
+              <li class="breadcrumb-item"><a href="../" data-i18n="nav.srmark">${t['nav.srmark']}</a></li>
+              <li class="breadcrumb-item active">${displayName}</li>
+            </ol>
+          </nav>
+        </div>
+      </section>
+
+      <section class="brand-hero-section">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+              ${heroSrc
+                ? `<img src="${heroSrc}" alt="${displayName}" class="brand-main-image">`
+                : '<div style="width:100%;aspect-ratio:4/3;background:#f5f5f5;border-radius:8px"></div>'}
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+              <div class="brand-info">
+                <div class="brand-category-badge">SR MARK Brand</div>
+                <h1 class="brand-title">${displayName}</h1>
+                <p class="brand-tagline">${(summary.split('\n')[0] || '').substring(0, 160)}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="brand-about-section">
+        <div class="container">
+          <div class="text-center">
+            <span class="eyebrow" data-i18n="common.aboutTitle">${t['common.aboutTitle']}</span>
+            <h2 class="section-title" data-i18n="common.aboutTitle">${t['common.aboutTitle']}</h2>
+            <div class="section-title-line"></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-8 mx-auto" data-aos="fade-up">
+              ${showNote ? `<div class="sr-lang-note"><i class="fas fa-circle-info" style="margin-right:.4em"></i>${t['brand.langNote']}</div>` : ''}
+              <p class="brand-about-text">${summary.replace(/\n/g,'<br>')}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      ${rawProducts.length ? `
+      <section class="brand-products-section">
+        <div class="container">
+          <div class="text-center">
+            <span class="eyebrow" data-i18n="common.productsTitle">${t['common.productsTitle']}</span>
+            <h2 class="section-title" data-i18n="common.productsTitle">${t['common.productsTitle']}</h2>
+            <div class="section-title-line"></div>
+          </div>
+          <div class="row g-4">${productsHTML}</div>
+        </div>
+      </section>` : ''}
+
+      ${allImgs.length ? `
+      <section class="brand-gallery-section">
+        <div class="container">
+          <div class="text-center">
+            <span class="eyebrow" data-i18n="common.galleryTitle">${t['common.galleryTitle']}</span>
+            <h2 class="section-title" data-i18n="common.galleryTitle">${t['common.galleryTitle']}</h2>
+            <div class="section-title-line"></div>
+          </div>
+          <div class="row g-3">${galleryHTML}</div>
+        </div>
+      </section>` : ''}
+
+      <section class="related-brands-section">
+        <div class="container">
+          <div class="text-center">
+            <span class="eyebrow" data-i18n="common.otherBrandsTitle">${t['common.otherBrandsTitle']}</span>
+            <h2 class="section-title" data-i18n="common.otherBrandsTitle">${t['common.otherBrandsTitle']}</h2>
+            <div class="section-title-line"></div>
+          </div>
+          <div class="row g-4" id="related-container"></div>
+          <div class="text-center mt-5">
+            <a href="../" class="view-more-btn" data-i18n="common.viewAllBrands">
+              ${t['common.viewAllBrands']} <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </section>`;
+  }
+
+  // ── Render related brands from registry ───────────────────────────────────────
+  function renderRelated(currentSlug, lang) {
+    const container = document.getElementById('related-container');
+    if (!container) return;
+    const t = T[lang] || T.en;
+    const pool = Object.entries(REGISTRY).filter(([k]) => makeSlug(k) !== currentSlug);
+    // Fisher-Yates shuffle, take 3
+    for (let i = pool.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+    container.innerHTML = pool.slice(0, 3).map(([, cfg], i) => `
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="${i * 80}">
+        <div class="brand-card">
+          <div class="brand-card-img-wrap">
+            <img src="${cfg.image}" alt="${cfg.displayName}" class="brand-card-img" loading="lazy">
+          </div>
+          <div class="brand-card-body">
+            <div class="brand-card-name">${cfg.displayName}</div>
+            <a href="${cfg.folder}/" class="view-more-btn">
+              ${t['common.viewDetails']} <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>`).join('');
+    AOS.refresh();
+  }
+
+  // ── Apply translations to static elements (footer, navbar) ───────────────────
+  function applyStaticTranslations(lang) {
+    const t = T[lang] || T.en;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.getAttribute('data-i18n');
+      if (t[k] !== undefined) el.innerHTML = t[k];
+    });
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.lang = lang;
+    localStorage.setItem('language', lang);
+    const dd = typeof bootstrap !== 'undefined' && bootstrap.Dropdown
+      ? bootstrap.Dropdown.getInstance(document.getElementById('langDropdown')) : null;
+    if (dd) dd.hide();
+  }
+
+  // ── Language switcher (called by navbar) ──────────────────────────────────────
+  let _currentRow = null;
+  let _currentSlug = '';
+
+  function switchLanguage(lang) {
+    if (!T[lang]) return false;
+    if (_currentRow) {
+      document.getElementById('sr-content').innerHTML = buildHTML(_currentRow, lang);
+      AOS.init({ duration: 700, once: true, offset: 60 });
+      renderRelated(_currentSlug, lang);
+    }
+    applyStaticTranslations(lang);
+    return false;
+  }
+
+  // ── Bootstrap: fetch CSV, find brand, render ──────────────────────────────────
+  (async () => {
+    const params    = new URLSearchParams(window.location.search);
+    const slug      = (params.get('slug') || '').trim();
+    _currentSlug    = slug;
+
+    if (!slug) {
+      document.getElementById('sr-loading').style.display = 'none';
+      document.getElementById('sr-error').style.display   = 'flex';
+      return;
+    }
+
+    const lang = localStorage.getItem('language') || 'en';
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.lang = lang;
+
+    try {
+      const res = await fetch(CSV_URL);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const rows = parseCSV(await res.text()).slice(1); // drop header row
+
+      // Match by slug derived from EN name (col 2) or ZH name (col 1) as fallback
+      const row = rows.find(r =>
+        makeSlug(r[2] || '') === slug || makeSlug(r[1] || '') === slug
+      );
+
+      if (!row) {
+        document.getElementById('sr-loading').style.display = 'none';
+        document.getElementById('sr-error').style.display   = 'flex';
+        return;
+      }
+
+      _currentRow = row;
+
+      // Set page title
+      const en = (row[2] || '').split('/')[0].trim();
+      const zh = (row[1] || '').split('/')[0].trim();
+      document.title = (en || zh) + ' | SR MARK 台灣永續設計聯盟';
+
+      // Inject HTML
+      const content = document.getElementById('sr-content');
+      content.innerHTML = buildHTML(row, lang);
+      content.style.display = '';
+      document.getElementById('sr-loading').style.display = 'none';
+
+      // Apply nav/footer translations
+      applyStaticTranslations(lang);
+
+      // AOS + related brands
+      AOS.init({ duration: 700, once: true, offset: 60 });
+      renderRelated(slug, lang);
+
+      // GA: track brand page view
+      gtag('event', 'dynamic_brand_view', { brand_slug: slug, brand_name: en || zh });
+
+    } catch (err) {
+      console.error('[SR MARK] Brand load error:', err);
+      document.getElementById('sr-loading').style.display = 'none';
+      document.getElementById('sr-error').style.display   = 'flex';
+    }
+  })();
+  </script>
+</body>
+</html>
