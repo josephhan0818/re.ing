@@ -217,13 +217,23 @@ header {
 }
 
 @media (max-width: 767px) {
+  body {
+    padding-top: 56px; /* push below fixed navbar */
+  }
+
+  html {
+    scroll-padding-top: 56px; /* prevent section anchors hiding behind navbar */
+  }
+
   header {
-    min-height: 62vw;
-    padding: 1.5rem 1rem;
+    min-height: calc(100svh - 56px);
+    min-height: calc(100vh - 56px); /* fallback */
+    padding: 2rem 1rem;
+    aspect-ratio: unset;
   }
 
   header .container {
-    padding: 0 1rem;
+    padding: 0 1.25rem;
   }
 }
 
@@ -1172,8 +1182,12 @@ i[class*="fa-"] {
 }
 
 @media (max-width: 768px) {
+  section {
+    padding: 3rem 1.25rem;
+  }
+
   header h1 {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
   }
 
   header p {
@@ -1181,20 +1195,20 @@ i[class*="fa-"] {
   }
 
   .section-title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .section-title::before,
   .section-title::after {
-    width: 30px;
+    width: 25px;
   }
 
   .sub-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .sub-sub-title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .principle-card,
@@ -1419,22 +1433,41 @@ i[class*="fa-"] {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .cases-carousel-wrapper {
-    padding: 0 50px;
+    padding: 0 40px;
   }
   
   .case-card-item {
-    min-width: 280px;
-    max-width: 280px;
-    width: 280px;
+    min-width: min(280px, calc(100vw - 100px));
+    max-width: min(280px, calc(100vw - 100px));
+    width: min(280px, calc(100vw - 100px));
   }
   
   .case-card img {
-    height: 180px;
+    height: 150px;
   }
   
   .carousel-nav {
-    width: 35px;
-    height: 35px;
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  header p {
+    font-size: 0.85rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  .section-title::before,
+  .section-title::after {
+    display: none;
   }
 }
 

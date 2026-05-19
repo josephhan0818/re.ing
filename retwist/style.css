@@ -165,22 +165,6 @@ html[data-lang="nl"] h3 {
     align-items: center;
 }
 
-.lang-toggle {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: white;
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 0.5rem 1rem;
-    transition: all 0.3s ease;
-}
-
-.lang-toggle:hover {
-    transform: translateY(-2px);
-}
-
 .navbar-toggler {
     border: none;
     outline: none;
@@ -694,6 +678,10 @@ footer .social-links a:hover {
 
 .lang-toggle:hover {
     color: #22D3EE;
+}
+
+.lang-toggle::after {
+    display: none !important;
 }
 
 .lang-toggle i {

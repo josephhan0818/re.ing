@@ -87,6 +87,10 @@ html[data-lang="zh"] * {
     color: #000000;
 }
 
+.lang-toggle::after {
+    display: none !important;
+}
+
 .dropdown-menu {
     min-width: 120px;
     border-radius: 0;

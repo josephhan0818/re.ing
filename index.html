@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
@@ -34,36 +34,8 @@
 </head>
 <body>
   <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" alt="re-ing Logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about-reing" data-i18n="nav.aboutReing">About re-ing</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sustainability-cases" data-i18n="nav.sustainabilityCases">永續設計案例</a></li>
-                    <li class="nav-item"><a class="nav-link" href="retwist" data-i18n="nav.retwist">RE:TWIST Project</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="nav.contact">Contact Us</a></li>
-                    <li class="nav-item dropdown lang-dropdown">
-                        <a class="lang-toggle dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="assets/images/language.png" alt="Language Icon" style="width: 20px; height: auto;">
-                            <i class="fas fa-chevron-down"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
-                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('en'); return false;">English</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('zh'); return false;">中文</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('nl'); return false;">Nederlands</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="switchLanguage('ja'); return false;">日本語</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+        <div id="navbar-placeholder"></div>
+    <script src="navbar.js"></script>
 
   <header class="hero-banner">
     <div id="heroBannerCarousel" class="carousel slide carousel-fade hero-carousel" data-bs-ride="carousel" data-bs-interval="6000" data-bs-pause="false">
@@ -118,11 +90,11 @@
             <!-- SR MARK Case Card -->
             <div class="case-card-item">
               <div class="case-card">
-                <img src="https://srmark.com/wp-content/uploads/2023/10/cropped-th.png" alt="SR MARK Sustainable and Recycle Platform" loading="lazy">
+                <img src="assets/srmark_image/P1002357 - Gochi.jpg" alt="SR MARK 台灣永續設計聯盟" loading="lazy">
                 <div class="case-card-content">
-                  <h3 data-i18n="srPlatform.name">SR MARK Sustainable and Recycle Platform</h3>
-                  <p data-i18n="srPlatform.subtitle">SR Platform is an open product traceability disclosure platform. Our goal is to empower businesses committed to creating sustainable products by enabling consumers to visualize and appreciate the value of a circular economy.</p>
-                  <a href="https://srmark.com/en/" class="case-btn" data-i18n="common.learnMore" target="_blank" rel="noopener">了解更多</a>
+                  <h3 data-i18n="srmark.name">SR MARK 台灣永續設計聯盟</h3>
+                  <p data-i18n="srmark.subtitle">彙整來自台灣的循環設計品牌選集，從再生材料、地方工藝到永續生活，展現設計如何重新連結日常與材料。</p>
+                  <a href="srmark/" class="case-btn" data-i18n="common.learnMore">了解更多</a>
                 </div>
               </div>
             </div>
@@ -518,6 +490,7 @@
                 <a href="#process" data-i18n="nav.process">Our Process</a>
                 <a href="#services" data-i18n="nav.services">Our Services</a>
                 <a href="retwist" data-i18n="nav.retwist">RE:TWIST Project</a>
+                <a href="srmark/" data-i18n="nav.srmark">SR MARK</a>
                 <a href="#contact" data-i18n="nav.contact">Contact Us</a>
             </div>
 

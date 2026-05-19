@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PHGEFZW3HZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PHGEFZW3HZ');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Designer — RE:TWIST 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="icon" href="https://github.com/josephhan0818/re.ing/raw/main/assets/re-ing Logo.png" type="image/png">
+  <link rel="stylesheet" href="../../../style.css">
+  <link rel="stylesheet" href="../../style1.css">
+  <style>
+    body { font-family: 'Montserrat','Noto Sans TC',sans-serif; color:#333; background:#fff; }
+    html[data-lang="zh"] * { font-family: 'Noto Sans TC','Montserrat',sans-serif !important; }
+
+    /* Loading overlay */
+    #page-loading {
+      position: fixed; inset: 0; background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 9999; transition: opacity 0.4s;
+    }
+    #page-loading.hidden { opacity: 0; pointer-events: none; }
+    .loading-spinner { color: #4a7c59; }
+
+    /* Not found */
+    #page-notfound {
+      display: none;
+      min-height: 60vh;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    #page-notfound h2 { font-weight: 300; font-size: 2rem; color: #000; }
+    #page-notfound p  { color: #888; font-size: 0.95rem; }
+
+    /* ── Breadcrumb ─────────────────────────────────────────── */
+    .breadcrumb-section {
+      padding: 1.2rem 0;
+      background: #fafafa;
+      border-bottom: 1px solid #e5e5e5;
+      margin-top: 72px; /* navbar height offset */
+    }
+    .breadcrumb { margin: 0; background: none; padding: 0; }
+    .breadcrumb-item + .breadcrumb-item::before { content: ">"; color: #bbb; }
+    .breadcrumb-item a { color: #888; text-decoration: none; font-size: 0.85rem; }
+    .breadcrumb-item a:hover { color: #000; }
+    .breadcrumb-item.active { color: #000; font-size: 0.85rem; }
+
+    /* ── Hero ─────────────────────────────────────────────────── */
+    .figure-hero {
+      padding: 5rem 0 4rem;
+      background: #fff;
+    }
+    .figure-main-image {
+      width: 100%;
+      max-height: 560px;
+      object-fit: contain;
+      display: block;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    }
+    .figure-title {
+      font-size: 2.2rem;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      color: #000;
+      margin-bottom: 0.5rem;
+    }
+    .figure-subtitle {
+      font-size: 0.85rem;
+      color: #888;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      margin-bottom: 1.5rem;
+    }
+    .designer-badge span {
+      display: inline-block;
+      background: #000;
+      color: #fff;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .detail-item {
+      display: flex;
+      align-items: center;
+      padding: 0.55rem 0 0.55rem 1rem;
+      border-left: 3px solid #4a7c59;
+      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
+      color: #555;
+      font-weight: 300;
+    }
+
+    /* ── Section titles ────────────────────────────────────────── */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 300;
+      color: #000;
+      letter-spacing: -0.02em;
+      margin: 0 0 3rem;
+      text-align: center;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: #4a7c59;
+      margin: 1.2rem auto 0;
+    }
+
+    /* ── Design story ──────────────────────────────────────────── */
+    .design-story {
+      padding: 6rem 0;
+      background: #f8f8f8;
+    }
+    .story-content p {
+      color: #555;
+      font-weight: 300;
+      line-height: 1.9;
+      font-size: 0.98rem;
+    }
+
+    /* ── Gallery ───────────────────────────────────────────────── */
+    .figure-gallery {
+      padding: 6rem 0;
+      background: #fff;
+    }
+    .gallery-item {
+      border-radius: 0 !important;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 1;
+      background: #f5f5f5;
+    }
+    .gallery-image {
+      border-radius: 0 !important;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      position: absolute; top: 0; left: 0;
+      transition: transform 0.35s;
+    }
+    .gallery-item:hover .gallery-image { transform: scale(1.06); }
+
+    /* ── Video ─────────────────────────────────────────────────── */
+    .video-section {
+      padding: 6rem 0;
+      background: #f8f8f8;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    .video-wrapper.vertical { padding-bottom: 177.78%; max-width: 380px; margin: 0 auto; }
+    .video-wrapper iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* ── Designer profile ──────────────────────────────────────── */
+    .designer-profile {
+      padding: 6rem 0;
+      background: #fff;
+    }
+    .designer-photo {
+      width: 100%;
+      max-width: 320px;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    .designer-bio h3 {
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: #000;
+      margin-bottom: 0.5rem;
+    }
+    .designer-location {
+      font-size: 0.85rem;
+      color: #888;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .designer-bio p {
+      color: #555;
+      font-weight: 300;
+      line-height: 1.85;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+    }
+    .designer-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    .btn { border-radius: 0 !important; }
+    .btn-outline-primary {
+      border: 1.5px solid #000; color: #000;
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+    }
+    .btn-outline-primary:hover { background: #000; color: #fff; border-color: #000; }
+    .btn-outline-secondary {
+      border: 1.5px solid #888; color: #888;
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+    }
+    .btn-outline-secondary:hover { background: #888; color: #fff; }
+
+    /* ── Related designers ─────────────────────────────────────── */
+    .related-figures {
+      padding: 6rem 0;
+      background: #f8f8f8;
+    }
+    .related-card {
+      border-radius: 0 !important;
+      border: 1px solid #e5e5e5;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      background: #fff;
+    }
+    .related-card:hover { transform: translateY(-6px); box-shadow: 0 16px 50px rgba(0,0,0,0.1); }
+    .related-card img {
+      width: 100%; aspect-ratio: 3/4;
+      object-fit: cover; display: block;
+      filter: grayscale(20%); transition: filter 0.3s;
+    }
+    .related-card:hover img { filter: grayscale(0%); }
+    .related-card .card-content { padding: 1.2rem; }
+    .related-card h4 { font-size: 0.95rem; font-weight: 500; color: #000; margin-bottom: 0.3rem; }
+    .related-card p  { font-size: 0.8rem; color: #888; font-weight: 300; margin-bottom: 0.8rem; }
+    .btn-primary {
+      background: #000; border: 1.5px solid #000; color: #fff;
+      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em;
+    }
+    .btn-primary:hover { background: #333; border-color: #333; }
+
+    /* ── Footer ─────────────────────────────────────────────────── */
+    footer { background: #000; color: #fff; padding: 4rem 0; text-align: center; }
+    footer p { font-size: 0.8rem; color: rgba(255,255,255,.5); font-weight: 300; margin: 0; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .figure-hero { padding: 3rem 0 2rem; }
+      .figure-title { font-size: 1.7rem; }
+      .designer-links { flex-direction: column; }
+    }
+    @media (max-width: 576px) {
+      .navbar .lang-dropdown { order: 0; margin-right: 0.5rem; }
+      .navbar .navbar-toggler { order: 1; }
+    }
+    @media (min-width: 577px) {
+      .navbar .lang-dropdown { order: 2; margin-left: 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <div id="navbar-placeholder"></div>
+  <script src="../../../navbar.js"></script>
+
+  <!-- Page loading overlay -->
+  <div id="page-loading">
+    <div class="spinner-border loading-spinner" style="width:3rem;height:3rem" role="status">
+      <span class="visually-hidden">Loading…</span>
+    </div>
+  </div>
+
+  <!-- Not found state -->
+  <div id="page-notfound" style="display:none;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;text-align:center;padding:6rem 2rem;gap:1rem;">
+    <h2 id="notfound-title" style="font-weight:300;color:#000">Designer not found</h2>
+    <p id="notfound-body" style="color:#888;font-size:.95rem">The designer you're looking for could not be found.</p>
+    <a href="../" class="btn btn-outline-primary mt-2" id="notfound-back">← Back to Designers</a>
+  </div>
+
+  <!-- Page content (hidden until loaded) -->
+  <div id="page-content" style="display:none">
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../../../" data-i18n="common.home">Home</a></li>
+            <li class="breadcrumb-item"><a href="../../../retwist/" data-i18n="nav.retwist">RE:TWIST Project</a></li>
+            <li class="breadcrumb-item"><a href="../" data-i18n="retwist2026.series.title">Asia and Europe Collaboration Series</a></li>
+            <li class="breadcrumb-item active" id="breadcrumb-work">—</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Hero: work image + info -->
+    <section class="figure-hero">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6" data-aos="fade-right">
+            <img id="hero-work-image" src="" alt="" class="figure-main-image">
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <h1 class="figure-title" id="hero-work-title">—</h1>
+            <div class="figure-subtitle" id="hero-designer-name">—</div>
+            <div class="designer-badge">
+              <span id="hero-location">—</span>
+            </div>
+            <div id="hero-details"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design Story -->
+    <section class="design-story">
+      <div class="container">
+        <h2 class="section-title" data-i18n="common.designStory">Design Story</h2>
+        <div class="row">
+          <div class="col-lg-8 mx-auto" data-aos="fade-up">
+            <div class="story-content">
+              <p id="story-text">—</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Concept Sketch Gallery -->
+    <section class="figure-gallery" id="gallery-section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="common.gallery">Gallery</h2>
+        <div class="row g-3" id="gallery-grid">
+          <!-- filled by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Video (hidden if no URL) -->
+    <section class="video-section" id="video-section" style="display:none">
+      <div class="container">
+        <h2 class="section-title" data-i18n="common.video">Video</h2>
+        <div class="row">
+          <div class="col-lg-9 mx-auto" data-aos="fade-up">
+            <div class="video-wrapper" id="video-wrapper">
+              <iframe id="video-iframe" src="" title="Designer Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Designer Profile -->
+    <section class="designer-profile">
+      <div class="container">
+        <h2 class="section-title" id="about-title" data-i18n="common.aboutDesigner">About the Designer</h2>
+        <div class="row align-items-center g-5">
+          <div class="col-lg-4" data-aos="fade-right">
+            <img id="profile-photo" src="" alt="" class="designer-photo">
+          </div>
+          <div class="col-lg-8" data-aos="fade-left">
+            <div class="designer-bio">
+              <h3 id="profile-name">—</h3>
+              <p class="designer-location" id="profile-location">—</p>
+              <p id="profile-bio1">—</p>
+              <div class="designer-links" id="profile-links"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Designers -->
+    <section class="related-figures">
+      <div class="container">
+        <h2 class="section-title" data-i18n="common.otherDesigners">Other Designers</h2>
+        <div class="row g-4" id="related-container">
+          <!-- filled by JS -->
+        </div>
+        <div class="text-center mt-5">
+          <a href="../" class="btn btn-outline-primary" data-i18n="common.viewAllFigures">View All Figures</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p data-i18n="footer.copyright">© 2026 re-ing. All rights reserved.</p>
+      </div>
+    </footer>
+  </div><!-- /page-content -->
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // ── Google Sheet config (same as index.html) ──────────────────
+    const SHEET_ID  = '1-2o5um5Yc4RL7saOMziX4DNYlmWdCln8LokS_K7xwrQ';
+    const SHEET_CSV = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&gid=1308936993`;
+
+    // Actual column mapping:
+    // [2] Name EN  [3] Name ZH  [4] Name NL/ES
+    // [5] Bio (multilingual)  [8] Title ZH  [9] Title EN  [10] Title Other
+    // [11] Short Desc  [12] Detailed Desc  [13] Background Story
+    // [14] Concept Sketches (Drive URLs, comma-separated)  [15] Profile Photo
+
+    function driveId(url) {
+      if (!url) return null;
+      const m = url.match(/[?&]id=([A-Za-z0-9_-]+)/)
+               || url.match(/\/d\/([A-Za-z0-9_-]+)/)
+               || url.match(/\/file\/d\/([A-Za-z0-9_-]+)/);
+      return m ? m[1] : null;
+    }
+    function driveThumbnail(url, size = 'w800') {
+      const id = driveId(url);
+      return id ? `https://drive.google.com/thumbnail?id=${id}&sz=${size}` : '';
+    }
+    function youtubeEmbedUrl(url) {
+      if (!url) return '';
+      const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{11})/);
+      return m ? `https://www.youtube.com/embed/${m[1]}` : '';
+    }
+    // Full CSV parser — handles quoted multiline cell values correctly
+    function parseCSV(text) {
+      const rows = [];
+      let row = [], cur = '', inQuote = false, i = 0;
+      while (i < text.length) {
+        const c = text[i];
+        if (c === '"') {
+          if (inQuote && text[i + 1] === '"') { cur += '"'; i += 2; continue; }
+          inQuote = !inQuote;
+        } else if (c === ',' && !inQuote) {
+          row.push(cur); cur = '';
+        } else if ((c === '\n' || c === '\r') && !inQuote) {
+          if (c === '\r' && text[i + 1] === '\n') i++;
+          row.push(cur); cur = '';
+          rows.push(row); row = [];
+        } else {
+          cur += c;
+        }
+        i++;
+      }
+      row.push(cur);
+      if (row.some(c => c !== '')) rows.push(row);
+      // Skip header row, keep only rows with a plausible designer name in col[2]
+      return rows.slice(1).filter(r => {
+        const name = (r[2] || '').trim();
+        return name && name.length <= 80 && !/files\)|JPG|PNG|\u9ad8\u89e3\u6790\u5ea6|\u89e3\u6790\u5ea6/i.test(name);
+      });
+    }
+    function col(row, idx) { return (row[idx] || '').trim(); }
+    function nameToSlug(name) {
+      return (name || '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    }
+
+    // ── Translations ──────────────────────────────────────────────
+    const t26 = {
+      en: {
+        'nav.aboutReing': 'About re-ing', 'nav.retwist': 'RE:TWIST Project',
+        'nav.srmark': 'SR MARK Taiwan Sustainable Design Alliance', 'nav.contact': 'Contact Us',
+        'common.home': 'Home', 'common.aboutDesigner': 'About the Designer',
+        'common.designStory': 'Design Story', 'common.gallery': 'Gallery', 'common.video': 'Video',
+        'common.otherDesigners': 'Other Designers', 'common.viewAllFigures': 'View All Figures',
+        'common.viewDetails': 'View Details', 'common.viewPortfolio': 'View Portfolio',
+        'common.contactDesigner': 'Contact Designer',
+        'retwist2026.series.title': 'Asia and Europe Collaboration Series',
+        'footer.copyright': '© 2026 re-ing. All rights reserved.',
+        'designer.notfound.title': 'Designer Not Found',
+        'designer.notfound.body': 'The designer you\'re looking for could not be found.',
+        'designer.notfound.back': '← Back to Designers',
+      },
+      zh: {
+        'nav.aboutReing': '關於re-ing', 'nav.retwist': 'RE:TWIST 轉圈圈計畫',
+        'nav.srmark': 'SR MARK 台灣永續設計聯盟', 'nav.contact': '聯絡我們',
+        'common.home': '首頁', 'common.aboutDesigner': '關於設計師',
+        'common.designStory': '設計故事', 'common.gallery': '設計圖', 'common.video': '影片',
+        'common.otherDesigners': '其他設計師', 'common.viewAllFigures': '查看所有作品',
+        'common.viewDetails': '查看詳情', 'common.viewPortfolio': '查看作品集',
+        'common.contactDesigner': '聯絡設計師',
+        'retwist2026.series.title': '亞歐合作系列',
+        'footer.copyright': '© 2026 re-ing. 保留所有權利。',
+        'designer.notfound.title': '找不到設計師',
+        'designer.notfound.body': '找不到您要查看的設計師資料。',
+        'designer.notfound.back': '← 返回設計師列表',
+      },
+      nl: {
+        'nav.aboutReing': 'Over re-ing', 'nav.retwist': 'RE:TWIST Project',
+        'nav.srmark': 'SR MARK Taiwan Sustainable Design Alliance', 'nav.contact': 'Neem Contact Op',
+        'common.home': 'Home', 'common.aboutDesigner': 'Over de Ontwerper',
+        'common.designStory': 'Ontwerpverhaal', 'common.gallery': 'Galerij', 'common.video': 'Video',
+        'common.otherDesigners': 'Andere Ontwerpers', 'common.viewAllFigures': 'Bekijk Alle Beeldjes',
+        'common.viewDetails': 'Bekijk Details', 'common.viewPortfolio': 'Bekijk Portfolio',
+        'common.contactDesigner': 'Neem Contact op met de Ontwerper',
+        'retwist2026.series.title': 'Azië en Europa Samenwerkingsserie',
+        'footer.copyright': '© 2026 re-ing. Alle rechten voorbehouden.',
+        'designer.notfound.title': 'Ontwerper Niet Gevonden',
+        'designer.notfound.body': 'De ontwerper die u zoekt kon niet worden gevonden.',
+        'designer.notfound.back': '← Terug naar Ontwerpers',
+      }
+    };
+
+    function getLang() { return document.documentElement.getAttribute('data-lang') || 'en'; }
+    function tr(key) {
+      const lang = getLang();
+      return (t26[lang] || t26.en)[key] || t26.en[key] || key;
+    }
+
+    function switchLanguage(lang) {
+      if (!t26[lang]) return false;
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const val = (t26[lang] || t26.en)[key];
+        if (val !== undefined) el.innerHTML = val;
+      });
+      // Re-render language-sensitive content if page already loaded
+      if (window._designerData) renderDesigner(window._designerData, window._allRows);
+      localStorage.setItem('language', lang);
+      const dd = document.getElementById('langDropdown');
+      if (dd) { const inst = bootstrap.Dropdown.getInstance(dd); if (inst) inst.hide(); }
+      return false;
+    }
+
+    // ── Render designer page ──────────────────────────────────────
+    function renderDesigner(row, allRows) {
+      const lang = getLang();
+
+      // Correct column mapping from Google Form:
+      const nameEn       = col(row, 2);
+      const nameZh       = col(row, 3);
+      const nameNl       = col(row, 4);  // Dutch or Spanish
+      const bioText      = col(row, 5);  // single multilingual bio field
+      const titleZh      = col(row, 8);
+      const titleEn      = col(row, 9);
+      const titleNl      = col(row, 10);
+      const shortDesc    = col(row, 11); // single multilingual field
+      const detailedDesc = col(row, 12); // single multilingual field
+      const bgStory      = col(row, 13); // single multilingual field
+      const sketchesRaw  = col(row, 14); // comma-separated Drive URLs
+      const photoUrl     = col(row, 15); // single Drive URL
+
+      const displayName  = lang === 'zh' ? (nameZh || nameEn)
+                         : lang === 'nl' ? (nameNl || nameEn)
+                         : nameEn;
+      const displayTitle = lang === 'zh' ? (titleZh || titleEn)
+                         : lang === 'nl' ? (titleNl || titleEn)
+                         : titleEn;
+
+      // Page title & breadcrumb
+      document.title = `${displayTitle || displayName} | RE:TWIST 2026`;
+      document.getElementById('breadcrumb-work').textContent = displayTitle || displayName;
+
+      // Sketch URLs — split by comma
+      const sketchUrls = sketchesRaw
+        ? sketchesRaw.split(',').map(s => s.trim()).filter(Boolean)
+        : [];
+
+      // Hero image = first sketch
+      const heroImg = document.getElementById('hero-work-image');
+      if (sketchUrls.length) {
+        const heroThumb = driveThumbnail(sketchUrls[0], 'w800');
+        if (heroThumb) { heroImg.src = heroThumb; heroImg.alt = displayTitle; }
+        else heroImg.style.display = 'none';
+      } else {
+        heroImg.style.display = 'none';
+      }
+
+      document.getElementById('hero-work-title').textContent = displayTitle || '—';
+      document.getElementById('hero-designer-name').textContent = displayName;
+
+      // Show alt-language name badge if different from display name
+      const altName = nameNl || nameZh;
+      const heroBadge = document.getElementById('hero-location');
+      if (altName && altName !== displayName) { heroBadge.textContent = altName; }
+      else { heroBadge.closest('.designer-badge').style.display = 'none'; }
+
+      // Short description below title
+      const detailsEl = document.getElementById('hero-details');
+      if (shortDesc) {
+        detailsEl.innerHTML = `<p style="color:#555;font-size:.92rem;line-height:1.75;font-weight:300;margin-top:.5rem">${shortDesc.replace(/\n/g, '<br>')}</p>`;
+      }
+
+      // Detailed description (Design Story section)
+      document.getElementById('story-text').innerHTML =
+        (detailedDesc || '').replace(/\n/g, '<br>') || '—';
+
+      // Gallery = all sketch URLs
+      const galleryGrid = document.getElementById('gallery-grid');
+      if (sketchUrls.length) {
+        galleryGrid.innerHTML = sketchUrls.slice(0, 10).map((url, i) => {
+          const th = driveThumbnail(url, 'w600');
+          return th ? `
+            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="${i*60}">
+              <div class="gallery-item">
+                <img src="${th}" alt="${displayTitle} ${i+1}" class="gallery-image" loading="lazy">
+              </div>
+            </div>` : '';
+        }).join('');
+      } else {
+        document.getElementById('gallery-section').style.display = 'none';
+      }
+
+      // Background Story (repurpose video-section slot)
+      const videoSection = document.getElementById('video-section');
+      if (bgStory) {
+        videoSection.style.display = '';
+        videoSection.innerHTML = `
+          <div class="container">
+            <h2 class="section-title">Background Story</h2>
+            <div class="row">
+              <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                <div class="story-content">
+                  <p>${bgStory.replace(/\n/g, '<br>')}</p>
+                </div>
+              </div>
+            </div>
+          </div>`;
+      }
+
+      // Profile photo
+      const profileThumb = driveThumbnail(photoUrl, 'w600');
+      const profileImg = document.getElementById('profile-photo');
+      if (profileThumb) { profileImg.src = profileThumb; profileImg.alt = displayName; }
+      else profileImg.style.display = 'none';
+
+      document.getElementById('profile-name').textContent = displayName;
+      const locEl = document.getElementById('profile-location');
+      if (locEl) locEl.style.display = 'none'; // no location field in form
+      document.getElementById('profile-bio1').innerHTML = (bioText || '').replace(/\n/g, '<br>') || '—';
+      document.getElementById('profile-links').innerHTML = '';
+      document.getElementById('about-title').textContent = `About ${displayName}`;
+
+      // Related designers (3 random, excluding self)
+      const currentSlug = nameToSlug(nameEn);
+      const others = (allRows || []).filter(r => nameToSlug(col(r, 2)) !== currentSlug);
+      const selected = others.sort(() => 0.5 - Math.random()).slice(0, 3);
+      const relContainer = document.getElementById('related-container');
+      if (selected.length) {
+        relContainer.innerHTML = selected.map((r, i) => {
+          const rSlug    = nameToSlug(col(r, 2));
+          const rNameEn  = col(r, 2);
+          const rNameZh  = col(r, 3);
+          const rTitleEn = col(r, 9);
+          const rTitleZh = col(r, 8);
+          const rSketches = col(r, 14);
+          const rFirst   = rSketches ? rSketches.split(',')[0].trim() : '';
+          const rImg     = rFirst ? driveThumbnail(rFirst, 'w400') : '';
+          const rName  = lang === 'zh' ? (rNameZh || rNameEn) : rNameEn;
+          const rTitle = lang === 'zh' ? (rTitleZh || rTitleEn) : rTitleEn;
+          return `
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="${i*80}">
+              <div class="related-card">
+                ${rImg ? `<img src="${rImg}" alt="${rTitle}" loading="lazy">` : '<div style="aspect-ratio:3/4;background:#eee"></div>'}
+                <div class="card-content">
+                  <h4>${rTitle || rName}</h4>
+                  <p>${rName}</p>
+                  <a href="?slug=${encodeURIComponent(rSlug)}" class="btn btn-primary">${tr('common.viewDetails')}</a>
+                </div>
+              </div>
+            </div>`;
+        }).join('');
+      } else {
+        document.querySelector('.related-figures').style.display = 'none';
+      }
+
+      AOS.refresh();
+    }
+
+    // ── Show not-found state ──────────────────────────────────────
+    function showNotFound() {
+      const lang = getLang();
+      document.getElementById('notfound-title').textContent = tr('designer.notfound.title');
+      document.getElementById('notfound-body').textContent  = tr('designer.notfound.body');
+      document.getElementById('notfound-back').textContent  = tr('designer.notfound.back');
+      document.getElementById('page-notfound').style.display = 'flex';
+    }
+
+    // ── Fetch sheet & render ──────────────────────────────────────
+    async function init() {
+      const savedLang = localStorage.getItem('language') || 'en';
+      if (savedLang !== 'en') {
+        document.documentElement.setAttribute('data-lang', savedLang);
+        document.documentElement.lang = savedLang;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          const val = (t26[savedLang] || t26.en)[key];
+          if (val !== undefined) el.innerHTML = val;
+        });
+      }
+
+      // Read slug from URL: ?slug=... or path segment
+      const params = new URLSearchParams(window.location.search);
+      const slug = (params.get('slug') || '').toLowerCase().trim();
+
+      try {
+        const res = await fetch(SHEET_CSV);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const text = await res.text();
+        const rows = parseCSV(text);
+        window._allRows = rows;
+
+        const row = rows.find(r => nameToSlug(col(r, 2)) === slug);
+        if (!row) { showNotFound(); }
+        else {
+          window._designerData = row;
+          renderDesigner(row, rows);
+          document.getElementById('page-content').style.display = '';
+        }
+      } catch (err) {
+        console.warn('Sheet fetch error:', err);
+        showNotFound();
+      } finally {
+        const loading = document.getElementById('page-loading');
+        loading.classList.add('hidden');
+        setTimeout(() => loading.style.display = 'none', 400);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      AOS.init({ duration: 700, once: true, offset: 60 });
+      init();
+    });
+  </script>
+</body>
+</html>

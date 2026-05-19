@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-lang="en">
 
 <head>
@@ -169,36 +169,8 @@
     </section>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="../../../">
-                <img src="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" alt="re-ing Logo">
-            </a>
-            <!-- 語言切換按鈕，僅手機時移到漢堡左側，電腦維持右側 -->
-            <div class="lang-dropdown">
-                <a class="lang-toggle dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="../../../assets/images/language.png" alt="Language Icon" style="width: 20px; height: auto;">
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
-                    <li><a class="dropdown-item" href="#" onclick="switchLanguage('en'); return false;">English</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="switchLanguage('zh'); return false;">中文</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="switchLanguage('nl'); return false;">Nederlands</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="switchLanguage('ja'); return false;">日本語</a></li>
-                </ul>
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../../../#about-reing" data-i18n="nav.aboutReing">About re-ing</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../../sustainability-cases" data-i18n="nav.sustainabilityCases">永續設計案例</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../" data-i18n="nav.retwist">RE:TWIST 轉圈圈計畫</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../../#contact" data-i18n="nav.contact">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+        <div id="navbar-placeholder"></div>
+    <script src="../../../navbar.js"></script>
 
     <!-- Hero Section -->
     <section class="figure-hero">

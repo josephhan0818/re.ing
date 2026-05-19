@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-lang="en">
 
 <head>
@@ -317,6 +317,41 @@
 
         .lucky-bang-poster .poster-bg {
             background-image: url('../assets/images/banner_luckybang_1.jpg');
+        }
+
+        /* Designer 2026 crossfade poster */
+        .designer-2026-poster .poster-bg-1,
+        .designer-2026-poster .poster-bg-2 {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+        .designer-2026-poster .poster-bg-1 {
+            background-image: url('../assets/designer_2026_image/poster_1.jpg');
+            animation: d26fade1 8s ease-in-out infinite;
+        }
+        .designer-2026-poster .poster-bg-2 {
+            background-image: url('../assets/designer_2026_image/poster_2.jpg');
+            animation: d26fade2 8s ease-in-out infinite;
+        }
+        @keyframes d26fade1 {
+            0%, 40% { opacity: 1; }
+            50%, 90% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes d26fade2 {
+            0%, 40% { opacity: 0; }
+            50%, 90% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        .designer-2026-poster:hover .poster-bg-1,
+        .designer-2026-poster:hover .poster-bg-2 {
+            filter: grayscale(0%);
+            transform: scale(1.05);
         }
 
         .poster-content {
@@ -1299,36 +1334,8 @@
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="../">
-                <img src="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" alt="re-ing Logo">
-            </a>
-            <!-- 語言切換按鈕，僅手機時移到漢堡左側，電腦維持右側 -->
-            <div class="lang-dropdown">
-                <a class="lang-toggle dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="../assets/images/language.png" alt="Language Icon" style="width: 20px; height: auto;">
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
-                    <li><a class="dropdown-item" href="#" onclick="switchLanguage('en'); return false;">English</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="switchLanguage('zh'); return false;">中文</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="switchLanguage('nl'); return false;">Nederlands</a></li>
-                    <li><a class="dropdown-item" href="#" onclick="switchLanguage('ja'); return false;">日本語</a></li>
-                </ul>
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../#about-reing" data-i18n="nav.aboutReing">About re-ing</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../sustainability-cases" data-i18n="nav.sustainabilityCases">永續設計案例</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" data-i18n="nav.retwist">RE:TWIST 轉圈圈計畫</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../#contact" data-i18n="nav.contact">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+        <div id="navbar-placeholder"></div>
+    <script src="../navbar.js"></script>
 
     <!-- Banner Carousel (幻燈片) -->
     <div id="bannerCarousel" class="banner-carousel carousel slide" data-bs-ride="carousel">
@@ -1342,7 +1349,10 @@
             <div class="carousel-item" style="background-image: url('../assets/images/designer_banner_2.png');">
                 
             </div>
-            <!-- 可依需求再新增更多幻燈片 -->
+            <div class="carousel-item" style="background-image: url('../assets/designer_2026_image/poster_1.jpg');">
+            </div>
+            <div class="carousel-item" style="background-image: url('../assets/designer_2026_image/poster_2.jpg');">
+            </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -1355,6 +1365,8 @@
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
         </div>
     </div>
 
@@ -1387,6 +1399,18 @@
                 <div class="poster-bg"></div>
                 <div class="poster-content">
                     <h2 class="poster-title" data-i18n="retwist.series.luckybang.title">Lucky Bang 系列</h2>
+                    <div class="poster-hint">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Asia-Europe Collaboration Series 2026 -->
+            <div class="series-poster designer-2026-poster" data-aos="fade-up" data-aos-delay="400" onclick="window.location.href='designer_2026/'">
+                <div class="poster-bg-1"></div>
+                <div class="poster-bg-2"></div>
+                <div class="poster-content">
+                    <h2 class="poster-title" data-i18n="retwist.series.designer2026.title">亞歐合作系列 2026</h2>
                     <div class="poster-hint">
                         <i class="fas fa-arrow-right"></i>
                     </div>
@@ -1562,6 +1586,7 @@
                     "retwist.series.taiwanJapan.desc": "Bringing together five designers each from Taiwan and Japan, with the lucky cat as a common theme, using 100% recycled styrofoam to create sustainable gashapon figures. Each piece integrates the designer's cultural background and environmental philosophy.",
                     "retwist.series.taiwanJapan.meta": "10 Designers • 10 Works",
                     "retwist.series.luckybang.title": "Lucky Bang Series",
+                    "retwist.series.designer2026.title": "Asia \u00d7 Europe Collaboration Series 2026",
                     "retwist.series.luckybang.desc": "A new gashapon series has launched, bringing more innovative design and sustainable concepts together. This surprising new series is officially meeting everyone.",
                     "retwist.series.luckybang.meta": "Innovative Series • Sustainable Design",
                     "retwist.series.status.active": "Released",
@@ -1615,6 +1640,7 @@
                     "retwist.series.taiwanJapan.desc": "邀集台灣與日本各五位設計師，以招財貓為共同主題，使用100%回收保麗龍創作永續扭蛋公仔。每件作品都融合了設計師的文化背景與環保理念。",
                     "retwist.series.taiwanJapan.meta": "10位設計師 • 10件作品",
                     "retwist.series.luckybang.title": "Lucky Bang 系列",
+                    "retwist.series.designer2026.title": "亞歐合作系列 2026",
                     "retwist.series.luckybang.desc": "全新的扭蛋系列已經登場，帶來更多創新設計與永續理念的結合。這個充滿驚喜的新系列正式與大家見面。",
                     "retwist.series.luckybang.meta": "創新系列 • 永續設計",
                     "retwist.series.status.active": "已發布",
@@ -1668,6 +1694,7 @@
                     "retwist.series.taiwanJapan.desc": "台湾と日本のデザイナー各5名を招集し、招き猫を共通テーマとして、100%リサイクル発泡スチロールを使用して持続可能なガシャポンフィギュアを制作。各作品はデザイナーの文化的背景と環境理念を融合しています。",
                     "retwist.series.taiwanJapan.meta": "10名のデザイナー • 10作品",
                     "retwist.series.luckybang.title": "Lucky Bang シリーズ",
+                    "retwist.series.designer2026.title": "アジア × ヨーロッパ コラボシリーズ 2026",
                     "retwist.series.luckybang.desc": "新しいガシャポンシリーズが登場し、より多くの革新的なデザインと持続可能な概念の組み合わせをもたらします。この驚きに満ちた新シリーズが正式に皆様にお目見えします。",
                     "retwist.series.luckybang.meta": "革新シリーズ • 持続可能デザイン",
                     "retwist.series.status.active": "リリース済み",
@@ -1721,6 +1748,7 @@
                     "retwist.series.taiwanJapan.desc": "Samenbrengen van vijf ontwerpers elk uit Taiwan en Japan, met de gelukskat als gemeenschappelijk thema, gebruikmakend van 100% gerecycled piepschuim om duurzame gashapon figuren te creëren. Elk stuk integreert de culturele achtergrond en milieufilosofie van de ontwerper.",
                     "retwist.series.taiwanJapan.meta": "10 Ontwerpers • 10 Werken",
                     "retwist.series.luckybang.title": "Lucky Bang Serie",
+                    "retwist.series.designer2026.title": "Azi\u00eb \u00d7 Europa Samenwerkingsserie 2026",
                     "retwist.series.luckybang.desc": "Een nieuwe gashapon serie is gelanceerd, die meer innovatief ontwerp en duurzame concepten samenbrengt. Deze verrassende nieuwe serie ontmoet officieel iedereen.",
                     "retwist.series.luckybang.meta": "Innovatieve Serie • Duurzaam Ontwerp",
                     "retwist.series.status.active": "Uitgebracht",

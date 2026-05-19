@@ -11,6 +11,7 @@ const translations = {
     "nav.testimonials": "Testimonials",
     "nav.sustainabilityGoals": "Sustainability Goals",
     "nav.contact": "Contact Us",
+    "nav.srmark": "SR MARK Taiwan Sustainable Design Alliance",
     "nav.replyForm": "Reply Form",
     "nav.language": "Language",
     "nav.languageDropdown": "Select Language",
@@ -221,7 +222,9 @@ const translations = {
     "oceanGiftBox.organizers.integratorName": "Dots Design Co., Ltd."
     ,
     "srPlatform.name": "SR MARK Sustainable and Recycle Platform",
-    "srPlatform.subtitle": "SR Platform is an open product traceability disclosure platform. Our goal is to empower businesses committed to creating sustainable products by enabling consumers to visualize and appreciate the value of a circular economy."
+    "srPlatform.subtitle": "SR Platform is an open product traceability disclosure platform. Our goal is to empower businesses committed to creating sustainable products by enabling consumers to visualize and appreciate the value of a circular economy.",
+    "srmark.name": "SR MARK Taiwan Sustainable Design Alliance",
+    "srmark.subtitle": "A curated collection of Taiwanese circular design brands and projects, spanning recycled materials, local craft, and everyday sustainability."
   },
   zh: {
     "nav.aboutReing": "關於re-ing",
@@ -234,6 +237,7 @@ const translations = {
     "nav.testimonials": "客戶見證",
     "nav.sustainabilityGoals": "永續目標",
     "nav.contact": "聯絡我們",
+    "nav.srmark": "SR MARK 台灣永續設計聯盟",
     "nav.replyForm": "回覆表單",
     "nav.language": "語言",
     "nav.languageDropdown": "選擇語言",
@@ -481,7 +485,9 @@ const translations = {
     "oceanGiftBox.organizers.integrator": "設計整合單位：",
     "oceanGiftBox.organizers.integratorName": "點睛設計有限公司",
     "srPlatform.name": "SR MARK Sustainable and Recycle Platform",
-    "srPlatform.subtitle": "SR Platform 是一個公開的產品履歷揭露平台，我們希望更多追求永續價值，致力於製作永續商品的商家，藉由此平台能夠讓消費者看見並認同循環經濟的價值。"
+    "srPlatform.subtitle": "SR Platform 是一個公開的產品履歷揭露平台，我們希望更多追求永續價值，致力於製作永續商品的商家，藉由此平台能夠讓消費者看見並認同循環經濟的價值。",
+    "srmark.name": "SR MARK 台灣永續設計聯盟",
+    "srmark.subtitle": "彙整來自台灣的循環設計品牌選集，從再生材料、地方工藝到永續生活，展現設計如何重新連結日常與材料。"
   },
   nl: {
     "nav.aboutReing": "Over re-ing",
