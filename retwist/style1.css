@@ -314,15 +314,18 @@ html[data-lang="zh"] * {
 }
 
 .designer-photo {
-    width: 250px;
-    height: 250px;
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    aspect-ratio: 3/4;
     object-fit: cover;
-    object-position: center top; /* 調整為從頂部開始裁切，避免切到頭部 */
+    object-position: center top;
     border: 1px solid #e5e5e5;
     background: #fafafa;
     filter: grayscale(100%);
     transition: filter 0.3s ease;
-    border-radius: 8px; /* 添加一些圓角 */
+    display: block;
+    margin: 0 auto;
 }
 
 .designer-photo:hover {
@@ -673,12 +676,7 @@ footer p {
     .section-title {
         font-size: 2rem;
     }
-    
-    .designer-photo {
-        width: 200px;
-        height: 200px;
-    }
-    
+
     .modal-nav {
         font-size: 1.2rem;
         padding: 0.6rem;

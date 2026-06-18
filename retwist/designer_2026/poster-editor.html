@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Poster Editor</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { overflow: hidden; }
+    iframe { width: 100vw; height: 100vh; border: none; display: block; }
+  </style>
+</head>
+<body>
+  <iframe id="frame" src="index.html"></iframe>
+  <script>
+    document.getElementById('frame').addEventListener('load', function () {
+      const s = this.contentDocument.createElement('script');
+      s.src = 'poster-editor.js';
+      this.contentDocument.body.appendChild(s);
+    });
+  </script>
+</body>
+</html>
