@@ -47,21 +47,17 @@
       padding: 0 2rem;
     }
     .content-row.reverse { flex-direction: row-reverse; }
-    .content-image { flex: 1; }
+    .content-image { flex: 1; min-width: 0; }
     .content-image img {
-      width: 150%;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
       border-radius: 0;
       box-shadow: 0 0px 0px rgba(0,0,0,0.1);
       filter: grayscale(0%);
       transition: filter 0.3s ease;
     }
     .content-image img:hover { filter: grayscale(0%); }
-
-    /* Poster positions recorded via poster-editor */
-    body > section:nth-child(4) .content-image img { width: 747px; transform: translate(-2px,-1px); }
-    body > section:nth-child(5) .content-image img { width: 348px; transform: translate(4px,27px); }
-    body > section:nth-child(6) .content-image img { width: 734px; transform: translate(4px,6px); }
-    body > section:nth-child(7) .content-image img { width: 618px; }
     .content-text { flex: 1; }
     .content-text h3 {
       font-size: 2.5rem;
