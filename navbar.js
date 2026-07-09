@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Shared Navbar — re-ing
  * Usage: place <div id="navbar-placeholder"></div> where the <nav> should be,
  * then include this script right after: <script src="PATH/TO/navbar.js"></script>
@@ -72,7 +72,7 @@
     var navHTML = '<nav id="re-ing-navbar" class="navbar navbar-expand-lg fixed-top">\n'
         + '    <div class="container">\n'
         + '        <a class="navbar-brand" href="' + r + '">\n'
-        + '            <img src="https://github.com/josephhan0818/re.ing/raw/main/re-ing%20Logo.png" alt="re-ing Logo">\n'
+        + '            <img src="' + root + 'assets/images/re-ing Logo.png" alt="re-ing Logo">\n'
         + '        </a>\n'
         + '        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"\n'
         + '            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n'
