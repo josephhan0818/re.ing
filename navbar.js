@@ -72,7 +72,7 @@
     var navHTML = '<nav id="re-ing-navbar" class="navbar navbar-expand-lg fixed-top">\n'
         + '    <div class="container">\n'
         + '        <a class="navbar-brand" href="' + r + '">\n'
-        + '            <img src="' + root + 'assets/images/re-ing Logo.png" alt="re-ing Logo">\n'
+        + '            <img src="' + root + 'assets/images/re-ing-logo.png" alt="re-ing-logo">\n'
         + '        </a>\n'
         + '        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"\n'
         + '            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n'
