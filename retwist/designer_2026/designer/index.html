@@ -20,7 +20,11 @@
   <link rel="stylesheet" href="../../style1.css">
   <style>
     body { font-family: 'Montserrat','Noto Sans TC',sans-serif; color:#333; background:#fff; }
-    html[data-lang="zh"] * { font-family: 'Noto Sans TC','Montserrat',sans-serif !important; }
+    html[data-lang="zh"] body { font-family: 'Noto Sans TC','Montserrat',sans-serif; }
+    /* ponytail: CJK font inherits into <i> tags and kills FA icons in zh mode */
+    html[data-lang="zh"] i.fas,
+    html[data-lang="zh"] i.far { font-family: "Font Awesome 6 Free" !important; font-weight: 900 !important; font-style: normal !important; }
+    html[data-lang="zh"] i.fab { font-family: "Font Awesome 6 Brands" !important; font-weight: 400 !important; font-style: normal !important; }
 
     /* Loading overlay */
     #page-loading {
@@ -84,17 +88,7 @@
       letter-spacing: 0.06em;
       margin-bottom: 1.5rem;
     }
-    .designer-badge span {
-      display: inline-block;
-      background: #000;
-      color: #fff;
-      padding: 0.3rem 0.9rem;
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-    }
+    /* ponytail: designer-badge appearance governed by style1.css */
     .detail-item {
       display: flex;
       align-items: center;
@@ -347,8 +341,8 @@
           <div class="col-lg-6" data-aos="fade-left">
             <h1 class="figure-title" id="hero-work-title">—</h1>
             <div class="figure-subtitle" id="hero-designer-name">—</div>
-            <div class="designer-badge">
-              <span id="hero-location">—</span>
+            <div class="designer-badge" style="display:none">
+              <span id="hero-location"></span>
             </div>
             <div id="hero-details"></div>
           </div>
@@ -655,8 +649,12 @@
       // Show alt-language name badge if different from display name
       const altName = nameNl || nameZh;
       const heroBadge = document.getElementById('hero-location');
-      if (altName && altName !== displayName) { heroBadge.textContent = altName; }
-      else { heroBadge.closest('.designer-badge').style.display = 'none'; }
+      const heroBadgeWrapper = heroBadge.closest('.designer-badge');
+      if (altName && altName.trim() && altName !== displayName) {
+        heroBadge.textContent = altName;
+        heroBadgeWrapper.style.display = '';
+      }
+      // else remains hidden (default)
 
       // Short description below title
       const detailsEl = document.getElementById('hero-details');
@@ -726,7 +724,7 @@
       const linksHtml = [];
       if (portfolioUrl) {
         const pUrl = portfolioUrl.startsWith('http') ? portfolioUrl : 'https://' + portfolioUrl;
-        linksHtml.push(`<a href="${pUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary"><i class="fas fa-external-link-alt me-2"></i>${tr('common.viewPortfolio')}</a>`);
+        linksHtml.push(`<a href="${pUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary"><i class="fas fa-arrow-up-right-from-square me-2"></i>${tr('common.viewPortfolio')}</a>`);
       }
       if (socialUrl) {
         const sUrl = socialUrl.startsWith('http') ? socialUrl : 'https://' + socialUrl;
